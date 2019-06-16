@@ -1,0 +1,828 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F2550 ]
+[d frameptr 4065 ]
+"46 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\myutils.h
+[e E4874 . `uc
+lINIT 0
+lSEARCH_A 1
+lSEARCH_HW 2
+lWAIT 3
+lTRANSMIT 4
+lMENU 5
+lTIMEOUT 6
+]
+"52
+[e E4897 . `uc
+mmMENU 0
+mmRESET 1
+mmSTEMMEN 2
+mmMETRONOOM 3
+mmMOPJE 4
+mmTETTEN 5
+mmLCD 6
+mmMETRONOOMsm 7
+mmTETTENsm 8
+mmLCDsm 9
+]
+"58
+[e E4909 . `uc
+smBRIGHTNESS 0
+smSCRSPEED 1
+smLED 2
+]
+"59
+[e E4914 . `uc
+smINDICATOR 0
+smM1 1
+smT1 2
+smT2 3
+smT3 4
+]
+"46
+[e E4874 . `uc
+lINIT 0
+lSEARCH_A 1
+lSEARCH_HW 2
+lWAIT 3
+lTRANSMIT 4
+lMENU 5
+lTIMEOUT 6
+]
+"52
+[e E4897 . `uc
+mmMENU 0
+mmRESET 1
+mmSTEMMEN 2
+mmMETRONOOM 3
+mmMOPJE 4
+mmTETTEN 5
+mmLCD 6
+mmMETRONOOMsm 7
+mmTETTENsm 8
+mmLCDsm 9
+]
+"58
+[e E4909 . `uc
+smBRIGHTNESS 0
+smSCRSPEED 1
+smLED 2
+]
+"59
+[e E4914 . `uc
+smINDICATOR 0
+smM1 1
+smT1 2
+smT2 3
+smT3 4
+]
+"7 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18/common_files/c/timer0.c
+[v _init_timer0 init_timer0 `(v  1 e 0 0 ]
+"9 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18/common_files/c/uart_m.c
+[v _init_uart_m init_uart_m `(v  1 e 0 0 ]
+"38
+[v _uart_write_m uart_write_m `(v  1 e 0 0 ]
+"43
+[v _enable_uart_m enable_uart_m `(v  1 e 0 0 ]
+"98
+[v _SerialTransmit SerialTransmit `(v  1 e 0 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"63 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+[v ___flpack __flpack `(d  1 e 3 0 ]
+"88 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"19 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_functions.c
+[v _lcd_main_menu_fsm lcd_main_menu_fsm `(v  1 e 0 0 ]
+"255
+[v _lcd_sub_menu_metronoom lcd_sub_menu_metronoom `(v  1 e 0 0 ]
+"385
+[v _lcd_sub_menu_tetten lcd_sub_menu_tetten `(v  1 e 0 0 ]
+"389
+[v _lcd_sub_menu_lcd lcd_sub_menu_lcd `(v  1 e 0 0 ]
+"481
+[v _lcd_update lcd_update `(v  1 e 0 0 ]
+"546
+[v _lcd_start_up lcd_start_up `(v  1 e 0 0 ]
+"566
+[v _lcd_connection lcd_connection `(v  1 e 0 0 ]
+"607
+[v _lcd_screensaver lcd_screensaver `(v  1 e 0 0 ]
+"652
+[v _lcd_time_out lcd_time_out `(v  1 e 0 0 ]
+"81 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_hd44780.c
+[v __delay_10ms _delay_10ms `(v  1 e 0 0 ]
+"88
+[v _LCDByte LCDByte `(v  1 e 0 0 ]
+"142
+[v _LCDBusyLoop LCDBusyLoop `(v  1 e 0 0 ]
+"198
+[v _LCDInit LCDInit `(v  1 e 0 0 ]
+"258
+[v _LCDLoadCostum LCDLoadCostum `(v  1 e 0 0 ]
+"296
+[v _LCDWriteString LCDWriteString `(v  1 e 0 0 ]
+"383
+[v _LCDWriteInt LCDWriteInt `(v  1 e 0 0 ]
+"491
+[v _LCDGotoXY LCDGotoXY `(v  1 e 0 0 ]
+"26 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\main_lcd.c
+[v _init_pic init_pic `(v  1 e 0 0 ]
+"42
+[v _main main `(v  1 e 0 0 ]
+"278
+[v _ISR ISR `II(v  1 e 0 0 ]
+"307
+[v _read_buttons read_buttons `(uc  1 e 1 0 ]
+"2378 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f2550.h
+[v _PORTA PORTA `VEuc  1 e 1 @3968 ]
+[s S790 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+]
+"2425
+[s S798 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+]
+[s S806 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 VREFM 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S812 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 HLVDIN 1 0 :1:5 
+]
+[s S815 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RA7 1 0 :1:7 
+]
+[s S818 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RJPU 1 0 :1:7 
+]
+[s S821 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+]
+[u S823 . 1 `S790 1 . 1 0 `S798 1 . 1 0 `S806 1 . 1 0 `S812 1 . 1 0 `S815 1 . 1 0 `S818 1 . 1 0 `S821 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES823  1 e 1 @3968 ]
+"2534
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+[s S976 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"2564
+[s S985 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S993 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S996 . 1 `S976 1 . 1 0 `S985 1 . 1 0 `S993 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES996  1 e 1 @3969 ]
+[s S365 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"2692
+[s S374 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S381 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S388 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+]
+[s S391 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S394 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[s S397 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RC3 1 0 :1:3 
+]
+[u S400 . 1 `S365 1 . 1 0 `S374 1 . 1 0 `S381 1 . 1 0 `S388 1 . 1 0 `S391 1 . 1 0 `S394 1 . 1 0 `S397 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES400  1 e 1 @3970 ]
+[s S871 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+]
+"3080
+[s S879 . 1 `uc 1 LA0 1 0 :1:0 
+]
+[s S881 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 LA1 1 0 :1:1 
+]
+[s S884 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LA2 1 0 :1:2 
+]
+[s S887 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 LA3 1 0 :1:3 
+]
+[s S890 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LA4 1 0 :1:4 
+]
+[s S893 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LA5 1 0 :1:5 
+]
+[s S896 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 LA6 1 0 :1:6 
+]
+[s S899 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LA7 1 0 :1:7 
+]
+[s S902 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LATA7 1 0 :1:7 
+]
+[u S905 . 1 `S871 1 . 1 0 `S879 1 . 1 0 `S881 1 . 1 0 `S884 1 . 1 0 `S887 1 . 1 0 `S890 1 . 1 0 `S893 1 . 1 0 `S896 1 . 1 0 `S899 1 . 1 0 `S902 1 . 1 0 ]
+[v _LATAbits LATAbits `VES905  1 e 1 @3977 ]
+"3411
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"3608
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"3829
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+[s S250 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"3861
+[s S257 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[s S264 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 TRISC3 1 0 :1:3 
+]
+[u S267 . 1 `S250 1 . 1 0 `S257 1 . 1 0 `S264 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES267  1 e 1 @3988 ]
+[s S670 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"4082
+[s S678 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RC1IE 1 0 :1:5 
+]
+[s S681 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IE 1 0 :1:4 
+]
+[u S684 . 1 `S670 1 . 1 0 `S678 1 . 1 0 `S681 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES684  1 e 1 @3997 ]
+[s S637 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"4155
+[s S645 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[s S648 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+]
+[u S651 . 1 `S637 1 . 1 0 `S645 1 . 1 0 `S648 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES651  1 e 1 @3998 ]
+[s S149 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"4611
+[s S158 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S161 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[s S164 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S167 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S170 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[u S172 . 1 `S149 1 . 1 0 `S158 1 . 1 0 `S161 1 . 1 0 `S164 1 . 1 0 `S167 1 . 1 0 `S170 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES172  1 e 1 @4011 ]
+[s S62 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"4839
+[s S71 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 BRGH1 1 0 :1:2 
+]
+[s S74 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S77 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SENDB1 1 0 :1:3 
+]
+[s S80 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SYNC1 1 0 :1:4 
+]
+[s S83 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+]
+[s S86 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX91 1 0 :1:6 
+]
+[s S89 . 1 `uc 1 TX9D1 1 0 :1:0 
+]
+[s S91 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 TXEN1 1 0 :1:5 
+]
+[s S94 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S97 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S99 . 1 `S62 1 . 1 0 `S71 1 . 1 0 `S74 1 . 1 0 `S77 1 . 1 0 `S80 1 . 1 0 `S83 1 . 1 0 `S86 1 . 1 0 `S89 1 . 1 0 `S91 1 . 1 0 `S94 1 . 1 0 `S97 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES99  1 e 1 @4012 ]
+"5076
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"5087
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"5098
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+[s S203 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 TXCKP 1 0 :1:4 
+`uc 1 RXDTP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"5638
+[s S212 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCMT 1 0 :1:6 
+]
+[s S217 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S220 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S223 . 1 `S203 1 . 1 0 `S212 1 . 1 0 `S217 1 . 1 0 `S220 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES223  1 e 1 @4024 ]
+[s S591 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 VCFG 1 0 :2:4 
+]
+"6044
+[s S594 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+]
+[s S601 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+]
+[s S604 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 VCFG01 1 0 :1:4 
+]
+[s S607 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 VCFG11 1 0 :1:5 
+]
+[u S610 . 1 `S591 1 . 1 0 `S594 1 . 1 0 `S601 1 . 1 0 `S604 1 . 1 0 `S607 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES610  1 e 1 @4033 ]
+[s S21 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"7531
+[s S28 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+]
+[u S32 . 1 `S21 1 . 1 0 `S28 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES32  1 e 1 @4053 ]
+"7586
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+[s S703 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"8051
+[s S712 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S721 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[s S730 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S739 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S743 . 1 `S703 1 . 1 0 `S712 1 . 1 0 `S721 1 . 1 0 `S730 1 . 1 0 `S739 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES743  1 e 1 @4082 ]
+"16 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\custom_char.h
+[v ___costum0 __costum0 `C[64]uc  1 e 64 0 ]
+"29
+[v ___costum1 __costum1 `C[64]uc  1 e 64 0 ]
+"42
+[v ___costum2 __costum2 `C[64]uc  1 e 64 0 ]
+"55
+[v ___costum3 __costum3 `C[64]uc  1 e 64 0 ]
+"68
+[v ___costum4 __costum4 `C[64]uc  1 e 64 0 ]
+"81
+[v ___HexVal __HexVal `[16]uc  1 e 16 0 ]
+"18 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_functions.c
+[v _send send `uc  1 e 1 0 ]
+"249
+[v _indicator_cnt indicator_cnt `ui  1 e 2 0 ]
+"250
+[v _m1 m1 `uc  1 e 1 0 ]
+"251
+[v _t1 t1 `uc  1 e 1 0 ]
+"252
+[v _t2 t2 `uc  1 e 1 0 ]
+"253
+[v _t3 t3 `uc  1 e 1 0 ]
+"254
+[v _tempo tempo `us  1 e 2 0 ]
+"128 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_hd44780.h
+[v ___brght __brght `C[4]uc  1 e 4 0 ]
+"16 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\main_lcd.c
+[v _i i `uc  1 e 1 0 ]
+[v _j j `uc  1 e 1 0 ]
+[v _first first `uc  1 e 1 0 ]
+[v _scrs_cnt scrs_cnt `uc  1 e 1 0 ]
+[v _scrs_speed scrs_speed `uc  1 e 1 0 ]
+[v _brightness brightness `uc  1 e 1 0 ]
+"17
+[v _inputs inputs `uc  1 e 1 0 ]
+[v _go_back go_back `uc  1 e 1 0 ]
+"18
+[v _buttons_new buttons_new `uc  1 e 1 0 ]
+[v _buttons_old buttons_old `uc  1 e 1 0 ]
+[v _buttons_change buttons_change `uc  1 e 1 0 ]
+"20
+[v _uart_rx_block uart_rx_block `[8]uc  1 e 8 0 ]
+[s S289 SerialStruct 9 `uc 1 TransmitAddress 1 0 `uc 1 Command 1 1 `uc 1 Hardware 1 2 `uc 1 Dat1 1 3 `uc 1 Dat2 1 4 `uc 1 Dat3 1 5 `uc 1 Dat4 1 6 `uc 1 Dat5 1 7 `uc 1 Dat6 1 8 ]
+"21
+[v _SerialTx SerialTx `S289  1 e 9 0 ]
+[v _SerialRx SerialRx `S289  1 e 9 0 ]
+"22
+[v _uart_block_count uart_block_count `uc  1 e 1 0 ]
+"23
+[v _lSEARCH_Acnt lSEARCH_Acnt `us  1 e 2 0 ]
+[v _lSEARCH_HWcnt lSEARCH_HWcnt `us  1 e 2 0 ]
+"46 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\myutils.h
+[v _fsm_new_state fsm_new_state `E4874  1 e 1 0 ]
+[v _fsm_old_state fsm_old_state `E4874  1 e 1 0 ]
+"52
+[v _main_menu_old main_menu_old `E4897  1 e 1 0 ]
+[v _main_menu_new main_menu_new `E4897  1 e 1 0 ]
+"58
+[v _sub_menu_lcd sub_menu_lcd `E4909  1 e 1 0 ]
+"59
+[v _sub_menu_metronoom sub_menu_metronoom `E4914  1 e 1 0 ]
+"42 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\main_lcd.c
+[v _main main `(v  1 e 0 0 ]
+{
+"269
+} 0
+"307
+[v _read_buttons read_buttons `(uc  1 e 1 0 ]
+{
+"322
+} 0
+"652 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_functions.c
+[v _lcd_time_out lcd_time_out `(v  1 e 0 0 ]
+{
+[v lcd_time_out@mmOld mmOld `uc  1 a 1 wreg ]
+[v lcd_time_out@mmOld mmOld `uc  1 a 1 wreg ]
+[v lcd_time_out@mmOld mmOld `uc  1 a 1 26 ]
+"677
+} 0
+"546
+[v _lcd_start_up lcd_start_up `(v  1 e 0 0 ]
+{
+"549
+[v lcd_start_up@start start `[6]uc  1 a 6 0 ]
+"550
+[v lcd_start_up@st st `*.39Cuc  1 a 2 8 ]
+"548
+[v lcd_start_up@x_pos x_pos `uc  1 a 1 7 ]
+"547
+[v lcd_start_up@busy busy `uc  1 a 1 6 ]
+"548
+[v lcd_start_up@F5048 F5048 `[6]uc  1 s 6 F5048 ]
+"563
+} 0
+"81 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_hd44780.c
+[v __delay_10ms _delay_10ms `(v  1 e 0 0 ]
+{
+[v __delay_10ms@length length `i  1 p 2 14 ]
+"86
+} 0
+"19 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_functions.c
+[v _lcd_main_menu_fsm lcd_main_menu_fsm `(v  1 e 0 0 ]
+{
+[v lcd_main_menu_fsm@mmOld mmOld `uc  1 a 1 wreg ]
+[v lcd_main_menu_fsm@mmOld mmOld `uc  1 a 1 wreg ]
+[v lcd_main_menu_fsm@mmOld mmOld `uc  1 a 1 13 ]
+"237
+} 0
+"481
+[v _lcd_update lcd_update `(v  1 e 0 0 ]
+{
+"544
+} 0
+"566
+[v _lcd_connection lcd_connection `(v  1 e 0 0 ]
+{
+"605
+} 0
+"385
+[v _lcd_sub_menu_tetten lcd_sub_menu_tetten `(v  1 e 0 0 ]
+{
+"387
+} 0
+"607
+[v _lcd_screensaver lcd_screensaver `(v  1 e 0 0 ]
+{
+"650
+} 0
+"258 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_hd44780.c
+[v _LCDLoadCostum LCDLoadCostum `(v  1 e 0 0 ]
+{
+[v LCDLoadCostum@select select `uc  1 a 1 wreg ]
+"261
+[v LCDLoadCostum@__i __i `uc  1 a 1 24 ]
+"258
+[v LCDLoadCostum@select select `uc  1 a 1 wreg ]
+"260
+[v LCDLoadCostum@select select `uc  1 a 1 23 ]
+"294
+} 0
+"255 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_functions.c
+[v _lcd_sub_menu_metronoom lcd_sub_menu_metronoom `(v  1 e 0 0 ]
+{
+"383
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 19 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 18 ]
+"8
+[v ___lwdiv@dividend dividend `ui  1 p 2 14 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 16 ]
+"31
+} 0
+"98 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18/common_files/c/uart_m.c
+[v _SerialTransmit SerialTransmit `(v  1 e 0 0 ]
+{
+"123
+} 0
+"389 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_functions.c
+[v _lcd_sub_menu_lcd lcd_sub_menu_lcd `(v  1 e 0 0 ]
+{
+"469
+} 0
+"296 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_hd44780.c
+[v _LCDWriteString LCDWriteString `(v  1 e 0 0 ]
+{
+"329
+[v LCDWriteString@cc cc `c  1 a 1 25 ]
+"296
+[v LCDWriteString@msg msg `*.35Cuc  1 p 2 23 ]
+"342
+} 0
+"383
+[v _LCDWriteInt LCDWriteInt `(v  1 e 0 0 ]
+{
+"395
+[v LCDWriteInt@str str `[5]uc  1 a 5 2 ]
+"396
+[v LCDWriteInt@i i `i  1 a 2 9 ]
+[v LCDWriteInt@j j `i  1 a 2 7 ]
+"383
+[v LCDWriteInt@val val `i  1 p 2 23 ]
+[v LCDWriteInt@field_length field_length `c  1 p 1 25 ]
+[v LCDWriteInt@F4932 F4932 `[5]uc  1 s 5 F4932 ]
+"418
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"11
+[v ___awmod@sign sign `uc  1 a 1 19 ]
+[v ___awmod@counter counter `uc  1 a 1 18 ]
+"8
+[v ___awmod@dividend dividend `i  1 p 2 14 ]
+[v ___awmod@divisor divisor `i  1 p 2 16 ]
+"35
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 20 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 19 ]
+[v ___awdiv@counter counter `uc  1 a 1 18 ]
+"8
+[v ___awdiv@dividend dividend `i  1 p 2 14 ]
+[v ___awdiv@divisor divisor `i  1 p 2 16 ]
+"42
+} 0
+"491 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_hd44780.c
+[v _LCDGotoXY LCDGotoXY `(v  1 e 0 0 ]
+{
+[v LCDGotoXY@x x `uc  1 a 1 wreg ]
+[v LCDGotoXY@x x `uc  1 a 1 wreg ]
+[v LCDGotoXY@y y `uc  1 p 1 23 ]
+[v LCDGotoXY@x x `uc  1 a 1 24 ]
+"531
+} 0
+"7 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18/common_files/c/timer0.c
+[v _init_timer0 init_timer0 `(v  1 e 0 0 ]
+{
+[v init_timer0@eight_bit eight_bit `uc  1 a 1 wreg ]
+[v init_timer0@eight_bit eight_bit `uc  1 a 1 wreg ]
+[v init_timer0@presc presc `uc  1 p 1 14 ]
+[v init_timer0@presc_val presc_val `uc  1 p 1 15 ]
+[v init_timer0@eight_bit eight_bit `uc  1 a 1 16 ]
+"17
+} 0
+"26 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\main_lcd.c
+[v _init_pic init_pic `(v  1 e 0 0 ]
+{
+"40
+} 0
+"9 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18/common_files/c/uart_m.c
+[v _init_uart_m init_uart_m `(v  1 e 0 0 ]
+{
+[v init_uart_m@baud baud `i  1 p 2 14 ]
+[v init_uart_m@TX_inv TX_inv `uc  1 p 1 16 ]
+[v init_uart_m@RX_inv RX_inv `uc  1 p 1 17 ]
+"36
+} 0
+"43
+[v _enable_uart_m enable_uart_m `(v  1 e 0 0 ]
+{
+"50
+} 0
+"198 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\lcd_hd44780.c
+[v _LCDInit LCDInit `(v  1 e 0 0 ]
+{
+[v LCDInit@style style `uc  1 a 1 wreg ]
+"252
+[v LCDInit@__i __i `uc  1 a 1 24 ]
+"198
+[v LCDInit@style style `uc  1 a 1 wreg ]
+"216
+[v LCDInit@style style `uc  1 a 1 23 ]
+"256
+} 0
+"88
+[v _LCDByte LCDByte `(v  1 e 0 0 ]
+{
+[v LCDByte@c c `uc  1 a 1 wreg ]
+"97
+[v LCDByte@temp temp `uc  1 a 1 22 ]
+"96
+[v LCDByte@ln ln `uc  1 a 1 20 ]
+[v LCDByte@hn hn `uc  1 a 1 19 ]
+"88
+[v LCDByte@c c `uc  1 a 1 wreg ]
+[v LCDByte@isdata isdata `uc  1 p 1 17 ]
+"99
+[v LCDByte@c c `uc  1 a 1 21 ]
+"140
+} 0
+"142
+[v _LCDBusyLoop LCDBusyLoop `(v  1 e 0 0 ]
+{
+"145
+[v LCDBusyLoop@status status `uc  1 a 1 16 ]
+[v LCDBusyLoop@temp temp `uc  1 a 1 15 ]
+[v LCDBusyLoop@busy busy `uc  1 a 1 14 ]
+"196
+} 0
+"278 C:\Users\waldo\Dropbox\wireless_guitar\C\pic18\lcd18f_V2.X\main_lcd.c
+[v _ISR ISR `II(v  1 e 0 0 ]
+{
+"298
+} 0

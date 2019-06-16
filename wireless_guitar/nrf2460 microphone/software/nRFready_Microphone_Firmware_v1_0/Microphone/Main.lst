@@ -1,0 +1,394 @@
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL3 build 3862 
+                                                      Mon Oct 10 13:15:25 2011
+
+HI-TECH Software Code Generator build 3862
+     1                           	processor	16F684
+     2                           	opt	pw 79
+     3                           	psect	text0,local,class=CODE,delta=2
+     4                           	psect	config,global,class=CONFIG,delta=2
+     5                           	psect	text1,local,class=CODE,delta=2
+     6                           	psect	text2,local,class=CODE,delta=2
+     7                           	psect	intcode,global,class=CODE,delta=2
+     8                           	psect	intsave_0,global,ovrld,class=COMBANK,spa
+      +                          ce=1,delta=1
+     9                           	psect	intret,global,class=CODE,delta=2
+    10                           	psect	intentry,global,class=CODE,delta=2
+    11                           	psect	intsave,global,class=BANK0,space=1,delta
+      +                          =1
+    12  0000                     
+    13  0000                     
+    14  0000                     
+    15  0000                     
+    16  0000                     
+    17  0000                     
+    18  0000                     
+    19  0000                     
+    20  0000                     
+    21  0000                     
+    22  0000                     	;#
+    23                           
+    24                           	psect	text0
+    25  04B0                     _main
+    26                           ;Main.c: 24: void main(void)
+    27  04B0  2417               	call	_SetupProcessor
+    28                           ;Main.c: 27: Timer_Constructor();
+    29  04B1  247A               	call	_Timer_Constructor
+    30                           ;Main.c: 28: IntializeStateMachine();
+    31  04B2  24A0               	call	_IntializeStateMachine
+    32  04B3                     l4
+    33                           ;Main.c: 30: while(1)
+    34                           ;Main.c: 31: {
+    35  04B3  138B               	bcf	11,7
+    36                           ;Main.c: 33: ProcessStateMachine();
+    37  04B4  2387               	call	_ProcessStateMachine
+    38                           ;Main.c: 34: GIE=1;
+    39  04B5  178B               	bsf	11,7
+    40  04B6  2CB3               	goto	l4
+    41                           
+    42                           	psect	config
+    43  2007  30D4               	dw	12500	;#
+    44                           
+    45                           	psect	text1
+    46  0417                     __end_of_main
+    47  0417                     _SetupProcessor
+    48                           ;Main.c: 39: void SetupProcessor()
+    49  0417  3071               	movlw	113
+    50  0418  1683               	bsf	3,5
+    51  0419  008F               	movwf	15	;volatile
+    52                           ;Main.c: 42: ANSEL = 0;
+    53  041A  0191               	clrf	17
+    54                           ;Main.c: 43: CMCON0=7;
+    55  041B  3007               	movlw	7
+    56  041C  1283               	bcf	3,5
+    57  041D  0099               	movwf	25	;volatile
+    58                           ;Main.c: 44: CMCON1=0;
+    59  041E  019A               	clrf	26
+    60                           ;Main.c: 45: ADON=0;
+    61  041F  101F               	bcf	31,0
+    62                           ;Main.c: 46: PSA=0;
+    63  0420  1683               	bsf	3,5
+    64  0421  1181               	bcf	1,3
+    65                           ;Main.c: 48: T0IE=0;INTE=0;RAIE=0;PEIE=0;
+    66  0422  128B               	bcf	11,5
+    67  0423  120B               	bcf	11,4
+    68  0424  118B               	bcf	11,3
+    69  0425  130B               	bcf	11,6
+    70                           ;Main.c: 49: WDTCON=0x17;
+    71  0426  3017               	movlw	23
+    72  0427  1283               	bcf	3,5
+    73  0428  0098               	movwf	24	;volatile
+    74                           ;Main.c: 51: TRISA=0x18;
+    75  0429  3018               	movlw	24
+    76  042A  1683               	bsf	3,5
+    77  042B  0085               	movwf	5	;volatile
+    78                           ;Main.c: 52: PORTA=0x04;
+    79  042C  3004               	movlw	4
+    80  042D  1283               	bcf	3,5
+    81  042E  0085               	movwf	5	;volatile
+    82                           ;Main.c: 54: TRISC=0x04;
+    83  042F  1683               	bsf	3,5
+    84  0430  0087               	movwf	7	;volatile
+    85                           ;Main.c: 55: PORTC=0x28;
+    86  0431  3028               	movlw	40
+    87  0432  1283               	bcf	3,5
+    88  0433  0087               	movwf	7	;volatile
+    89                           ;Main.c: 56: }
+    90  0434  0008               	return	;W free
+    91                           
+    92                           	psect	text2
+    93  04BE                     __end_of_SetupProcessor
+    94                           
+    95                           	psect	intcode
+    96  0015                     _ISR
+    97  0015                     int_func
+    98                           ;Main.c: 63: void interrupt ISR ( void )
+    99  0015  1283               	bcf	3,5
+   100  0016  180C               	btfsc	12,0
+   101  0017  2495               	call	_TimerSystem_TickIsr
+   102                           ;Main.c: 68: }
+   103  0018  1283               	bcf	3,5
+   104                           
+   105                           	psect	intsave_0
+   106  007D                     saved_w
+                     saved_w
+   107  007D                     	ds	1
+   108                           
+   109                           	psect	intret
+   110  0021  083F               	movf	saved_fsr,w
+   111  0022  0084               	movwf	4	;restore FSR
+   112  0023  0840               	movf	saved_pclath,w
+   113  0024  008A               	movwf	10
+   114  0025                     int_restore
+   115  0025  083E               	movf	saved_status,w
+   116  0026  0083               	movwf	3
+   117  0027  0EFD               	swapf	saved_w
+   118  0028  0E7D               	swapf	saved_w,w
+   119  0029  0009               	retfie
+   120                           
+   121                           	psect	intentry
+   122  0004                     int_entry
+   123  0004  00FD               	movwf	saved_w
+   124  0005  0803               	movf	3,w
+   125  0006  0183               	clrf	3
+   126  0007  00BE               	movwf	saved_status
+   127  0008  0804               	movf	4,w
+   128  0009  00BF               	movwf	saved_fsr
+   129  000A  080A               	movf	10,w
+   130  000B  00C0               	movwf	saved_pclath
+   131  000C  018A               	clrf	10
+   132  000D                     __end_of_ISR
+   133  0000                     
+   134  0000                     
+   135  0000                     
+   136  0000                     
+   137  0000                     
+   138  0000                     
+   139  0000                     
+   140  0000                     
+   141  0000                     
+   142  0000                     
+   143  0000                     
+   144  0000                     
+   145  0000                     
+   146  0000                     
+   147  0000                     
+   148  0000                     
+   149  0000                     
+   150  0000                     
+   151  0000                     
+   152  0000                     
+   153  0000                     
+   154  0000                     
+   155  0000                     
+   156  0000                     
+   157  0000                     
+   158  0000                     
+   159  0000                     
+   160  0000                     
+   161  0000                     
+   162  0000                     
+   163  0000                     
+   164  0000                     
+   165  0000                     
+   166  0000                     
+   167  0000                     
+   168  0000                     
+   169  0000                     
+   170  0000                     
+   171  0000                     
+   172  0000                     
+   173  0000                     
+   174  0000                     
+   175  0000                     
+   176  0000                     
+   177  0000                     
+   178  0000                     
+   179  0000                     
+   180  0000                     
+   181  0000                     
+   182  0000                     
+   183  0000                     
+   184  0000                     
+   185  0000                     
+   186  0000                     
+   187  0000                     
+   188  0000                     
+   189  0000                     
+   190  0000                     
+   191  0000                     
+   192  0000                     
+   193  0000                     
+   194  0000                     
+   195  0000                     
+   196  0000                     
+   197  0000                     
+   198  0000                     
+   199  0000                     
+   200  0000                     
+   201  0000                     
+   202  0000                     
+   203  0000                     
+   204  0000                     
+   205  0000                     
+   206  0000                     
+   207  0000                     
+   208  0000                     
+   209  0000                     
+   210  0000                     
+   211  0000                     
+   212  0000                     
+   213  0000                     
+   214  0000                     
+   215  0000                     
+   216  0000                     
+   217  0000                     
+   218  0000                     
+   219  0000                     
+   220  0000                     
+   221  0000                     
+   222  0000                     
+   223  0000                     
+   224  0000                     
+   225  0000                     
+   226  0000                     
+   227  0000                     
+   228  0000                     
+   229  0000                     
+   230  0000                     
+   231  0000                     
+   232  0000                     
+   233  0000                     
+   234  0000                     
+   235  0000                     
+   236  0000                     
+   237  0000                     
+   238  0000                     
+   239  0000                     
+   240  0000                     
+   241  0000                     
+   242  0000                     
+   243  0000                     
+   244  0000                     
+   245  0000                     
+   246  0000                     
+   247  0000                     
+   248  0000                     
+   249  0000                     
+   250  0000                     
+   251  0000                     
+   252  0000                     
+   253  0000                     
+   254  0000                     
+   255  0000                     
+   256  0000                     
+   257  0000                     
+   258  0000                     
+   259  0000                     
+   260  0000                     
+   261  0000                     
+   262  0000                     
+   263  0000                     
+   264  0000                     
+   265  0000                     
+   266  0000                     
+   267  0000                     
+   268  0000                     
+   269  0000                     
+   270  0000                     
+   271  0000                     
+   272  0000                     
+   273  0000                     
+   274  0000                     
+   275  0000                     
+   276  0000                     
+   277  0000                     
+   278  0000                     
+   279  0000                     
+   280  0000                     
+   281  0000                     
+   282  0000                     
+   283  0000                     
+   284  0000                     
+   285  0000                     
+   286  0000                     
+   287  0000                     
+   288  0000                     
+   289  0000                     
+   290  0000                     
+   291  0000                     
+   292  0000                     
+   293  0000                     
+   294  0000                     
+   295  0000                     
+   296  0000                     
+   297  0000                     
+   298  0000                     
+   299  0000                     
+   300  0000                     
+   301  0000                     
+   302  0000                     
+   303  0000                     
+   304  0000                     
+   305  0000                     
+   306  0000                     
+   307  0000                     
+   308  0000                     
+   309  0000                     
+   310  0000                     
+   311  0000                     
+   312  0000                     
+   313  0000                     
+   314  0000                     
+   315  0000                     
+   316  0000                     
+   317  0000                     
+   318  0000                     
+   319  0000                     
+   320  0000                     
+   321  0000                     
+   322  0000                     
+   323  0000                     
+   324  0000                     
+   325  0000                     
+   326  0000                     
+   327  0000                     
+   328  0000                     
+   329  0000                     
+   330  0000                     
+   331  0000                     
+   332  0000                     
+   333  0000                     
+   334  0000                     
+   335  0000                     
+   336  0000                     
+   337  0000                     
+   338  0000                     
+   339  0000                     
+   340  0000                     
+   341  0000                     
+   342  0000                     
+   343  0000                     
+   344  0000                     
+   345  0000                     
+   346  0000                     
+   347  0000                     
+   348  0000                     
+   349  0000                     
+   350  0000                     
+   351                           
+   352                           	psect	intsave
+   353  003E                     saved_status
+                     saved_status
+   354  003E                     	ds	1
+   355  003F                     saved_fsr
+                     saved_fsr
+   356  003F                     	ds	1
+   357  0040                     saved_pclath
+                     saved_pclath
+   358  0040                     	ds	1
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL3 build 3862 
+Symbol Table                                          Mon Oct 10 13:15:25 2011
+
+   _ProcessStateMachine 0387                       l4 04B3  
+                    fsr 0004                     _ISR 0015  
+        _SetupProcessor 0417            save_code_ptr 0011  
+            save_btemp0 000D              save_btemp1 000F  
+            save_btemp2 0011              save_btemp3 0011  
+            save_btemp4 0011              save_btemp5 0011  
+            save_btemp6 0011              save_btemp7 0011  
+            save_btemp8 0011              save_btemp9 0011  
+                  _main 04B0                    start 002A  
+__end_of_SetupProcessor 04BE                  saved_w 007D  
+          __end_of_main 0417     _TimerSystem_TickIsr 0495  
+              int_entry 0004                saved_fsr 003F  
+           save_btemp10 000F             save_btemp11 000F  
+           save_btemp12 000F             save_btemp13 000F  
+           save_btemp14 000F             saved_pclath 0040  
+ _IntializeStateMachine 04A0                   pclath 000A  
+           __end_of_ISR 000D             saved_status 003E  
+                 status 0003                 int_func 0015  
+     _Timer_Constructor 047A              int_restore 0025  

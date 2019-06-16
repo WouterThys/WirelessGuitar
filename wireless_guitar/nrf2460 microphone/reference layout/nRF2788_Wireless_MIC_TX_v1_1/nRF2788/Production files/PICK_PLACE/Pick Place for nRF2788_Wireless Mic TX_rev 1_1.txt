@@ -1,0 +1,65 @@
+Designator Footprint               Mid X         Mid Y         Ref X         Ref Y         Pad X         Pad Y TB      Rotation Comment        
+
+C28        0402s                  715mil        833mil        715mil        833mil        690mil        833mil  T        360.00 100nF          
+Fid2       Fiducial             -1100mil      -1075mil    115.126mil       1560mil      -1100mil      -1075mil  T         90.00 Fiducial mark  
+C31        0603s                  600mil        835mil        600mil        835mil        600mil        808mil  T         90.00 10µF           
+U5         SOT95P280X145-6N        695mil        982mil        695mil        982mil    732.402mil   1029.244mil  T        270.00 TPS78930       
+U4         SOT95P280X110-6N        125mil       1215mil        125mil       1215mil    172.244mil   1177.598mil  T        180.00 TPS61070       
+R16        0402s                   35mil       1340mil         35mil       1340mil         35mil       1365mil  T        270.00 180k           
+R15        0402s                  190mil       1370mil        190mil       1370mil        190mil       1395mil  T        270.00 0R             
+R13        0402s                   35mil       1245mil         35mil       1245mil         35mil       1270mil  T        270.00 1M0            
+L4         WE-TPC_TYPE_S          105mil       1010mil        105mil       1010mil     37.087mil       1010mil  T         90.00 4.7µH          
+C30        0402s                  605mil        962mil        605mil        962mil        605mil        987mil  T        270.00 10nF           
+C29        0603s                  711mil        877mil        711mil        877mil        684mil        877mil  T        360.00 1.0µF          
+C27        0603s                  705mil       1120mil        705mil       1120mil        678mil       1120mil  T        360.00 1.0µF          
+C26        0603s                  105mil       1305mil        105mil       1305mil         78mil       1305mil  T        360.00 4.7µF          
+C25        0603s                  105mil       1350mil        105mil       1350mil         78mil       1350mil  T        360.00 4.7µF          
+C24        0603s                   65mil       1125mil         65mil       1125mil         92mil       1125mil  T        180.00 4.7µF          
+C22        0603s                  117mil        896mil        117mil        896mil        144mil        896mil  T        180.00 4.7µF          
+TP1        TP                     505mil       1325mil        505mil       1325mil        505mil       1325mil  T         90.00 TP             
+U3         QFN65P400X400X100-16N        415mil       1170mil        415mil       1170mil    453.386mil   1249.724mil  T        270.00 16F684         
+P3         HDR1X2                 110mil        815mil        160mil        815mil        160mil        815mil  T        180.00 Header 2       
+P1         HEADPHONE            419.5mil        240mil        607mil          0mil        197mil        355mil  T         90.00 Header 3       
+LD1        LED_0603               164mil      615.5mil        164mil        643mil        164mil        643mil  T        270.00 L0603W         
+X1         BT-XTAL_3225           680mil       1835mil        680mil       1835mil    715.059mil   1787.992mil  T         90.00 16MHz          
+U1         Nordic_QFN36           385mil       1791mil        385mil       1791mil    307.243mil   1676.189mil  T         90.00 nRF2460        
+R4         0402s                  577mil       1872mil        577mil       1897mil        577mil       1897mil  T        270.00 1M0            
+R1         0402s                  236mil       1931mil        211mil       1931mil        211mil       1931mil  T        360.00 22k            
+R2         0402s                  130mil       1885mil        105mil       1885mil        105mil       1885mil  T        360.00 22k            
+L2         0402s                  484mil       1990mil        459mil       1990mil        459mil       1990mil  T        360.00 8.2nH          
+L1         0402s                  415mil       1956mil        390mil       1956mil        390mil       1956mil  T        360.00 4.7nH          
+L3         0402s                  345mil       1991mil        370mil       1991mil        370mil       1991mil  T        180.00 5.6nH          
+C8         0402s                  250mil       2079mil        225mil       2079mil        225mil       2079mil  T        360.00 1.2pF          
+C12        0402s                  662mil       1927mil        687mil       1927mil        687mil       1927mil  T        180.00 15pF           
+C11        0402s                  682mil       1737mil        657mil       1737mil        657mil       1737mil  T        360.00 15pF           
+C10        0402s                  577mil       1782mil        577mil       1757mil        577mil       1757mil  T         90.00 33nF           
+C3         0402s                  534mil       2058mil        559mil       2058mil        559mil       2058mil  T        180.00 2.2nF          
+C5         0402s                  459mil       2053mil        459mil       2078mil        459mil       2078mil  T        270.00 1.2pF          
+C7         0402s                  280mil       2016mil        280mil       2041mil        280mil       2041mil  T        270.00 1.5pF          
+C6         0402s                  371mil       2053mil        371mil       2028mil        371mil       2028mil  T         90.00 1.2pF          
+C9         0402s                  180mil       1736mil        205mil       1736mil        205mil       1736mil  T        180.00 10nF           
+C2         0402s                  180mil       1771mil        205mil       1771mil        205mil       1771mil  T        180.00 1.0nF          
+C1         0805               157.598mil       1826mil        195mil       1826mil        195mil       1826mil  T        180.00 4.7µF          
+U2         QFN50P400X400X80-24N    436.378mil    773.622mil    436.378mil    773.622mil    515.118mil    724.409mil  T        180.00 AK5700VN       
+S1         E-Switch               695mil   1412.953mil        695mil       1285mil        695mil       1285mil  T         90.00 SW-PB          
+R12        0402s                  164mil        515mil        164mil        490mil        164mil        490mil  T         90.00 1k             
+R11        0402s                  435mil       1325mil        435mil       1300mil        435mil       1300mil  T         90.00 10k            
+R10        0402s                  400mil       1325mil        400mil       1300mil        400mil       1300mil  T         90.00 47k            
+R9         0402s                  550mil        555mil        550mil        580mil        550mil        580mil  T        270.00 1k             
+R8         0402s               485.59mil    919.409mil    485.591mil    894.409mil    485.591mil    894.409mil  T         90.00 56R            
+R7         0402s                  450mil        920mil        450mil        895mil        450mil        895mil  T         90.00 56R            
+R6         0402s                  360mil        565mil        360mil        540mil        360mil        540mil  T         90.00 1k             
+R5         0402s                  320mil        840mil        320mil        815mil        320mil        815mil  T         90.00 56R            
+P2         HDR1X6                  68mil        398mil         68mil        148mil         68mil        148mil  T         90.00 Header 6       
+C21        0402s                  530mil       1195mil        530mil       1170mil        530mil       1170mil  T         90.00 100nF          
+C20        0603s                  600mil        735mil        600mil        735mil        600mil        708mil  T         90.00 10µF           
+C19        0603s                  590mil        625mil        590mil        625mil        617mil        625mil  T        180.00 2.2µF          
+C18        0402s                  560mil        830mil        560mil        805mil        560mil        805mil  T         90.00 100nF          
+C17        0402s                  560mil        735mil        560mil        710mil        560mil        710mil  T         90.00 100nF          
+C15        0402s                  585mil        665mil        610mil        665mil        610mil        665mil  T        180.00 100nF          
+C14        0805               491.378mil    576.024mil    491.378mil    538.622mil    491.378mil    538.622mil  T         90.00 10µF           
+C13        0805               416.378mil    576.024mil    416.378mil    538.622mil    416.378mil    538.622mil  T         90.00 10µF           
+R3         0402s                  520mil        920mil        520mil        920mil        520mil        895mil  T         90.00 56R            
+Fid1       Fiducial             -1100mil      -1075mil        733mil        567mil      -1100mil      -1075mil  T         90.00 Fiducial mark  
+C16        0402s                  706mil       1076mil        706mil       1076mil        681mil       1076mil  T        360.00 100nF          
+

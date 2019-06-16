@@ -1,0 +1,94 @@
+
+
+#ifndef _WL_MODULE_H_
+#define _WL_MODULE_H_
+
+#include <xc.h>
+#include "spi_tx.h"
+#include "nRF24L01.h"
+
+//Externe Variable deklarieren
+extern volatile unsigned char PTX;
+extern unsigned char payload[]; //holds the payload
+// WL-Module settings
+#define nrf_CH			3   // (2400 + nrf_CH)Mhz +
+#define nrf_PAYLOAD		32
+#define nrf_RF_DR_HIGH          0   //0 = 1Mbps, 1 = 2Mpbs
+#define nrf_RF_SETUP		(RF_SETUP_RF_PWR_0 | RF_SETUP_RF_DR_1000)     // Output power 0dBm, 1Mbps
+#define nrf_CONFIG_TX		((1<<MASK_RX_DR) | (1<<EN_CRC) | (1<<CRCO)) // Mask the rx interrupt, enable 2byte crc, PTX
+#define nrf_CONFIG_RX		((1<<MASK_TX_DS) | (1<<EN_CRC) | (1<<CRCO)) // Mask the rx interrupt, enable 2byte crc, PTX
+#define nrf_ENAA_P5             EN_AA_ENAA_P5
+#define nrf_ENAA_P4             EN_AA_ENAA_P4
+#define nrf_ENAA_P3             EN_AA_ENAA_P3
+#define nrf_ENAA_P2             EN_AA_ENAA_P2
+#define nrf_ENAA_P1             EN_AA_ENAA_P1
+#define nrf_ENAA_P0             EN_AA_ENAA_P0
+#define nrf_ENAA_NONE           EN_AA_ENAA_NONE
+#define nrf_TX_NR_0		0
+#define nrf_TX_NR_1		1
+#define nrf_TX_NR_2		2
+#define nrf_TX_NR_3		3
+#define nrf_TX_NR_4		4
+#define nrf_TX_NR_5		5
+#define nrf_STATUS              ((1<<RX_DR) | (1<<TX_DS) | (1<<MAX_RT))    // Write 1 to clear
+
+// Pin definitions for chip select and chip enabled of the wl-module
+#define CE  LATB4 // RB4
+#define CSN LATB3 // RB3
+#define IRQ LATB2 // RB2
+
+// Definitions for selecting and enabling wl_module module
+#define nrf_CSN_H     LATBbits.CSN = 1;
+#define nrf_CSN_L     LATBbits.CSN = 0;
+#define nrf_CE_H      LATBbits.CE = 1;
+#define nrf_CE_L      LATBbits.CE = 0;
+
+// Defines for setting the wl_module registers for transmitting or receiving mode
+#define TX_POWERUP nrf_config_register(CONFIG, nrf_CONFIG_TX | ( (1<<PWR_UP) | (0<<PRIM_RX) ) )
+#define RX_POWERUP nrf_config_register(CONFIG, nrf_CONFIG_RX | ( (1<<PWR_UP) | (1<<PRIM_RX) ) )
+
+#define TX_POWERDOWN nrf_config_register(CONFIG, nrf_CONFIG_TX | ( (0<<PWR_UP) | (0<<PRIM_RX) ) )
+#define RX_POWERDOWN nrf_config_register(CONFIG, nrf_CONFIG_RX | ( (0<<PWR_UP) | (1<<PRIM_RX) ) )
+
+// Public standard functions
+extern void nrf_init(void);
+extern void nrf_config(void);
+extern void nrf_send(unsigned char * value, unsigned char len);
+extern void nrf_send_byte(unsigned char value);
+extern void nrf_set_RADDR(unsigned char * adr);
+extern void nrf_set_TADDR(unsigned char * adr);
+extern unsigned char nrf_data_ready(void);
+//extern void nrf_get_data(unsigned char * data);
+extern unsigned char nrf_get_data(unsigned char * data);			//Gibt die Werte des STATUS-Registers zurück
+extern unsigned char nrf_get_data_byte(void);
+extern unsigned char nrf_get_data_array(unsigned char * data);
+
+//Public functions
+
+extern unsigned char nrf_get_status(void);
+extern unsigned char nrf_get_rx_pipe_reading_status(void);
+extern unsigned char nrf_get_one_byte(unsigned char command);
+extern void nrf_set_rx_pw(unsigned char payloadwidth, unsigned char rxpipenum);
+extern unsigned char nrf_get_rx_pw(unsigned char rxpipenum);
+extern void nrf_set_tx_addr(unsigned char * address, unsigned char len);
+extern void nrf_set_rx_addr(unsigned char * address, unsigned char len, unsigned char rxpipenum);
+extern void nrf_tx_config(unsigned char tx_nr);
+extern void nrf_rx_config(void);
+extern void nrf_get_rx_addr(unsigned char * data, unsigned char rxpipenum, unsigned char len);
+extern unsigned char nrf_get_rx_pipe(void);
+extern unsigned char nrf_get_rx_pipe_from_status(unsigned char status);
+extern unsigned char nrf_fifo_tx_empty(void);	//returns true if TX_EMPTY bit in FIFO_STATUS register is set, false otherwise
+extern unsigned char nrf_fifo_rx_empty(void);
+extern unsigned char nrf_get_rf_ch(void);
+extern unsigned char nrf_get_rf_setup(void);
+extern unsigned char nrf_get_plos_cnt(void);
+extern unsigned char nrf_get_arc_cnt(void);
+extern void nrf_set_as_tx(void);			//activate module with existing config
+extern void nrf_power_down(void);			//powers down the module with existing config
+
+// Public extended functions
+extern void nrf_config_register(unsigned char reg, unsigned char value);
+extern unsigned char nrf_read_register(unsigned char reg);
+extern void nrf_write_register(unsigned char reg, unsigned char * value, unsigned char len);
+
+#endif /* _SETUP_NRF24L01_H_ */

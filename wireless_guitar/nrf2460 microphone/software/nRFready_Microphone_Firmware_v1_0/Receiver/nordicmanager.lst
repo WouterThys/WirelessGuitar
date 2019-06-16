@@ -1,0 +1,681 @@
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL3 build 3862 
+                                                      Mon Oct 10 13:14:38 2011
+
+HI-TECH Software Code Generator build 3862
+     1                           	processor	16F684
+     2                           	opt	pw 79
+     3                           	psect	rdata_0,global,class=BANK0,space=1,delta
+      +                          =1
+     4                           	psect	idata_0,global,class=CODE,delta=2
+     5                           	psect	text0,local,class=CODE,delta=2
+     6                           	psect	text1,local,class=CODE,delta=2
+     7                           	psect	text2,local,class=CODE,delta=2
+     8                           	psect	rbss_0,global,class=BANK0,space=1,delta=
+      +                          1
+     9                           	psect	temp,global,ovrld,class=BANK0,space=1,de
+      +                          lta=1
+    10  0000                     
+    11  0000                     
+    12  0000                     
+    13  0000                     
+    14  0000                     
+    15  0000                     
+    16  0000                     
+    17  0000                     
+    18  0000                     
+    19  0000                     
+    20  0000                     
+    21                           
+    22                           	psect	rdata_0
+    23  003C                     _N_ADDR
+                     _N_ADDR
+    24  003C                     	ds	1
+    25                           
+    26                           	psect	idata_0
+    27  07FF  34D2               	retlw	-46
+    28                           
+    29                           	psect	text0
+    30  054D                     _Nordic_Wakeup
+    31                           ;nordicmanager.c: 23: void Nordic_Wakeup()
+    32  054D  301E               	movlw	30
+    33  054E  2431               	call	_delay_us
+    34                           ;nordicmanager.c: 27: for(pointer =0; pointer<1
+      +                          28; pointer++)
+    35  054F  01A2               	clrf	_pointer
+    36  0550  01A3               	clrf	_pointer+1
+    37  0551  01A4               	clrf	_pointer+2
+    38  0552  01A5               	clrf	_pointer+3
+    39  0553  2D8B               	goto	l5
+    40  0554                     l2
+    41                           ;nordicmanager.c: 28: {
+    42  0554  301E               	movlw	30
+    43  0555  2431               	call	_delay_us
+    44                           ;nordicmanager.c: 30: address = pointer;
+    45  0556  0822               	movf	_pointer,w
+    46  0557  00A0               	movwf	_address
+    47                           ;nordicmanager.c: 31: delay_us(30);
+    48  0558  301E               	movlw	30
+    49  0559  2431               	call	_delay_us
+    50                           ;nordicmanager.c: 32: data8=EEpromRead( address
+      +                          );
+    51  055A  0820               	movf	_address,w
+    52  055B  2429               	call	_EEpromRead
+    53  055C  00A1               	movwf	_data8
+    54                           ;nordicmanager.c: 34: if(data8 != 0x00 )
+    55  055D  08A1               	movf	_data8
+    56  055E  1903               	btfsc	3,2
+    57  055F  2D84               	goto	l6
+    58                           ;nordicmanager.c: 35: {
+    59  0560  301E               	movlw	30
+    60  0561  2431               	call	_delay_us
+    61                           ;nordicmanager.c: 37: if ( !Nordic_Readback(add
+      +                          ress,data8) )
+    62  0562  0821               	movf	_data8,w
+    63  0563  00B1               	movwf	?_Nordic_Readback
+    64  0564  0820               	movf	_address,w
+    65  0565  245F               	call	_Nordic_Readback
+    66  0566  00FE               	movwf	btemp
+    67  0567  01FF               	clrf	btemp+1
+    68  0568  047F               	iorwf	btemp+1,w
+    69  0569  1D03               	btfss	3,2
+    70  056A  2D84               	goto	l6
+    71                           ;nordicmanager.c: 38: {
+    72  056B  30FF               	movlw	255
+    73  056C  07A2               	addwf	_pointer
+    74  056D  1103               	bcf	3,2
+    75  056E  1803               	btfsc	3,0
+    76  056F  3E01               	addlw	1
+    77  0570  1D03               	btfss	3,2
+    78  0571  07A3               	addwf	_pointer+1
+    79  0572  30FF               	movlw	255
+    80  0573  1103               	bcf	3,2
+    81  0574  1803               	btfsc	3,0
+    82  0575  3E01               	addlw	1
+    83  0576  1D03               	btfss	3,2
+    84  0577  07A4               	addwf	_pointer+2
+    85  0578  30FF               	movlw	255
+    86  0579  1103               	bcf	3,2
+    87  057A  1803               	btfsc	3,0
+    88  057B  3E01               	addlw	1
+    89  057C  1D03               	btfss	3,2
+    90  057D  07A5               	addwf	_pointer+3
+    91                           ;nordicmanager.c: 40: RA4=1;
+    92  057E  1605               	bsf	5,4
+    93                           ;nordicmanager.c: 41: delay_ms(500);
+    94  057F  30F4               	movlw	-12
+    95  0580  248C               	call	_delay_ms
+    96                           ;nordicmanager.c: 42: RA4=0;
+    97  0581  1205               	bcf	5,4
+    98                           ;nordicmanager.c: 43: delay_ms(500);
+    99  0582  30F4               	movlw	-12
+   100  0583  248C               	call	_delay_ms
+   101  0584                     l6
+   102  0584  0AA2               	incf	_pointer
+   103  0585  1903               	btfsc	3,2
+   104  0586  0AA3               	incf	_pointer+1
+   105  0587  1903               	btfsc	3,2
+   106  0588  0AA4               	incf	_pointer+2
+   107  0589  1903               	btfsc	3,2
+   108  058A  0AA5               	incf	_pointer+3
+   109  058B                     l5
+   110  058B  0825               	movf	_pointer+3,w
+   111  058C  3A80               	xorlw	128
+   112  058D  00FE               	movwf	btemp
+   113  058E  3080               	movlw	128
+   114  058F  027E               	subwf	btemp,w
+   115  0590  1D03               	btfss	3,2
+   116  0591  2D9C               	goto	u35
+   117  0592  3000               	movlw	0
+   118  0593  0224               	subwf	_pointer+2,w
+   119  0594  1D03               	btfss	3,2
+   120  0595  2D9C               	goto	u35
+   121  0596  3000               	movlw	0
+   122  0597  0223               	subwf	_pointer+1,w
+   123  0598  1D03               	btfss	3,2
+   124  0599  2D9C               	goto	u35
+   125  059A  3080               	movlw	128
+   126  059B  0222               	subwf	_pointer,w
+   127  059C                     u35
+   128  059C  1C03               	btfss	3,0
+   129  059D  2D54               	goto	l2
+   130                           ;nordicmanager.c: 45: }
+   131  059E                     l8
+   132  059E  3002               	movlw	2
+   133  059F  1283               	bcf	3,5
+   134  05A0  00B1               	movwf	?_Nordic_Readback
+   135  05A1  3044               	movlw	68
+   136  05A2  245F               	call	_Nordic_Readback
+   137  05A3  00FE               	movwf	btemp
+   138  05A4  01FF               	clrf	btemp+1
+   139  05A5  047F               	iorwf	btemp+1,w
+   140  05A6  1903               	btfsc	3,2
+   141  05A7  2D9E               	goto	l8
+   142                           ;nordicmanager.c: 49: while ( !Nordic_Readback(
+      +                          0x49,0x03) );
+   143  05A8                     l11
+   144  05A8  3003               	movlw	3
+   145  05A9  00B1               	movwf	?_Nordic_Readback
+   146  05AA  3049               	movlw	73
+   147  05AB  245F               	call	_Nordic_Readback
+   148  05AC  00FE               	movwf	btemp
+   149  05AD  01FF               	clrf	btemp+1
+   150  05AE  047F               	iorwf	btemp+1,w
+   151  05AF  1903               	btfsc	3,2
+   152  05B0  2DA8               	goto	l11
+   153                           ;nordicmanager.c: 50: while ( !Nordic_Readback(
+      +                          0x50,0x02) );
+   154  05B1                     l14
+   155  05B1  3002               	movlw	2
+   156  05B2  00B1               	movwf	?_Nordic_Readback
+   157  05B3  3050               	movlw	80
+   158  05B4  245F               	call	_Nordic_Readback
+   159  05B5  00FE               	movwf	btemp
+   160  05B6  01FF               	clrf	btemp+1
+   161  05B7  047F               	iorwf	btemp+1,w
+   162  05B8  1903               	btfsc	3,2
+   163  05B9  2DB1               	goto	l14
+   164                           ;nordicmanager.c: 51: while ( !Nordic_Readback(
+      +                          0x53,0x02) );
+   165  05BA                     l17
+   166  05BA  3002               	movlw	2
+   167  05BB  00B1               	movwf	?_Nordic_Readback
+   168  05BC  3053               	movlw	83
+   169  05BD  245F               	call	_Nordic_Readback
+   170  05BE  00FE               	movwf	btemp
+   171  05BF  01FF               	clrf	btemp+1
+   172  05C0  047F               	iorwf	btemp+1,w
+   173  05C1  1903               	btfsc	3,2
+   174  05C2  2DBA               	goto	l17
+   175                           ;nordicmanager.c: 52: while ( !Nordic_Readback(
+      +                          0x56,0x03) );
+   176  05C3                     l20
+   177  05C3  3003               	movlw	3
+   178  05C4  00B1               	movwf	?_Nordic_Readback
+   179  05C5  3056               	movlw	86
+   180  05C6  245F               	call	_Nordic_Readback
+   181  05C7  00FE               	movwf	btemp
+   182  05C8  01FF               	clrf	btemp+1
+   183  05C9  047F               	iorwf	btemp+1,w
+   184  05CA  1903               	btfsc	3,2
+   185  05CB  2DC3               	goto	l20
+   186                           ;nordicmanager.c: 53: while ( !Nordic_Readback(
+      +                          0x4A,0x20) );
+   187  05CC                     l23
+   188  05CC  3020               	movlw	32
+   189  05CD  00B1               	movwf	?_Nordic_Readback
+   190  05CE  304A               	movlw	74
+   191  05CF  245F               	call	_Nordic_Readback
+   192  05D0  00FE               	movwf	btemp
+   193  05D1  01FF               	clrf	btemp+1
+   194  05D2  047F               	iorwf	btemp+1,w
+   195  05D3  1903               	btfsc	3,2
+   196  05D4  2DCC               	goto	l23
+   197                           ;nordicmanager.c: 54: while ( !Nordic_Readback(
+      +                          0x5A,0x83) );
+   198  05D5                     l26
+   199  05D5  3083               	movlw	-125
+   200  05D6  00B1               	movwf	?_Nordic_Readback
+   201  05D7  305A               	movlw	90
+   202  05D8  245F               	call	_Nordic_Readback
+   203  05D9  00FE               	movwf	btemp
+   204  05DA  01FF               	clrf	btemp+1
+   205  05DB  047F               	iorwf	btemp+1,w
+   206  05DC  1D03               	btfss	3,2
+   207  05DD  0008               	return
+   208  05DE  2DD5               	goto	l26
+   209                           
+   210                           	psect	text1
+   211  05DF                     __end_of_Nordic_Wakeup
+   212  05DF                     _Nordic_Wakeup2
+   213                           ;nordicmanager.c: 57: void Nordic_Wakeup2()
+   214  05DF  301E               	movlw	30
+   215  05E0  2431               	call	_delay_us
+   216                           ;nordicmanager.c: 61: for(pointer =0; pointer<1
+      +                          28; pointer++)
+   217  05E1  01A2               	clrf	_pointer
+   218  05E2  01A3               	clrf	_pointer+1
+   219  05E3  01A4               	clrf	_pointer+2
+   220  05E4  01A5               	clrf	_pointer+3
+   221  05E5  2E1E               	goto	l33
+   222  05E6                     l30
+   223                           ;nordicmanager.c: 62: {
+   224  05E6  301E               	movlw	30
+   225  05E7  2431               	call	_delay_us
+   226                           ;nordicmanager.c: 64: address = pointer;
+   227  05E8  0822               	movf	_pointer,w
+   228  05E9  00A0               	movwf	_address
+   229                           ;nordicmanager.c: 65: delay_us(30);
+   230  05EA  301E               	movlw	30
+   231  05EB  2431               	call	_delay_us
+   232                           ;nordicmanager.c: 66: data8=EEpromRead( address
+      +                          +128);
+   233  05EC  0820               	movf	_address,w
+   234  05ED  3E80               	addlw	-128
+   235  05EE  2429               	call	_EEpromRead
+   236  05EF  00A1               	movwf	_data8
+   237                           ;nordicmanager.c: 68: if(data8 != 0x00 )
+   238  05F0  08A1               	movf	_data8
+   239  05F1  1903               	btfsc	3,2
+   240  05F2  2E17               	goto	l34
+   241                           ;nordicmanager.c: 69: {
+   242  05F3  301E               	movlw	30
+   243  05F4  2431               	call	_delay_us
+   244                           ;nordicmanager.c: 71: if ( !Nordic_Readback(add
+      +                          ress,data8) )
+   245  05F5  0821               	movf	_data8,w
+   246  05F6  00B1               	movwf	?_Nordic_Readback
+   247  05F7  0820               	movf	_address,w
+   248  05F8  245F               	call	_Nordic_Readback
+   249  05F9  00FE               	movwf	btemp
+   250  05FA  01FF               	clrf	btemp+1
+   251  05FB  047F               	iorwf	btemp+1,w
+   252  05FC  1D03               	btfss	3,2
+   253  05FD  2E17               	goto	l34
+   254                           ;nordicmanager.c: 72: {
+   255  05FE  30FF               	movlw	255
+   256  05FF  07A2               	addwf	_pointer
+   257  0600  1103               	bcf	3,2
+   258  0601  1803               	btfsc	3,0
+   259  0602  3E01               	addlw	1
+   260  0603  1D03               	btfss	3,2
+   261  0604  07A3               	addwf	_pointer+1
+   262  0605  30FF               	movlw	255
+   263  0606  1103               	bcf	3,2
+   264  0607  1803               	btfsc	3,0
+   265  0608  3E01               	addlw	1
+   266  0609  1D03               	btfss	3,2
+   267  060A  07A4               	addwf	_pointer+2
+   268  060B  30FF               	movlw	255
+   269  060C  1103               	bcf	3,2
+   270  060D  1803               	btfsc	3,0
+   271  060E  3E01               	addlw	1
+   272  060F  1D03               	btfss	3,2
+   273  0610  07A5               	addwf	_pointer+3
+   274                           ;nordicmanager.c: 74: RA2=1;
+   275  0611  1505               	bsf	5,2
+   276                           ;nordicmanager.c: 75: delay_ms(500);
+   277  0612  30F4               	movlw	-12
+   278  0613  248C               	call	_delay_ms
+   279                           ;nordicmanager.c: 76: RA2=0;
+   280  0614  1105               	bcf	5,2
+   281                           ;nordicmanager.c: 77: delay_ms(500);
+   282  0615  30F4               	movlw	-12
+   283  0616  248C               	call	_delay_ms
+   284  0617                     l34
+   285  0617  0AA2               	incf	_pointer
+   286  0618  1903               	btfsc	3,2
+   287  0619  0AA3               	incf	_pointer+1
+   288  061A  1903               	btfsc	3,2
+   289  061B  0AA4               	incf	_pointer+2
+   290  061C  1903               	btfsc	3,2
+   291  061D  0AA5               	incf	_pointer+3
+   292  061E                     l33
+   293  061E  0825               	movf	_pointer+3,w
+   294  061F  3A80               	xorlw	128
+   295  0620  00FE               	movwf	btemp
+   296  0621  3080               	movlw	128
+   297  0622  027E               	subwf	btemp,w
+   298  0623  1D03               	btfss	3,2
+   299  0624  2E2F               	goto	u135
+   300  0625  3000               	movlw	0
+   301  0626  0224               	subwf	_pointer+2,w
+   302  0627  1D03               	btfss	3,2
+   303  0628  2E2F               	goto	u135
+   304  0629  3000               	movlw	0
+   305  062A  0223               	subwf	_pointer+1,w
+   306  062B  1D03               	btfss	3,2
+   307  062C  2E2F               	goto	u135
+   308  062D  3080               	movlw	128
+   309  062E  0222               	subwf	_pointer,w
+   310  062F                     u135
+   311  062F  1C03               	btfss	3,0
+   312  0630  2DE6               	goto	l30
+   313                           ;nordicmanager.c: 78: }
+   314  0631                     l36
+   315  0631  3002               	movlw	2
+   316  0632  1283               	bcf	3,5
+   317  0633  00B1               	movwf	?_Nordic_Readback
+   318  0634  3044               	movlw	68
+   319  0635  245F               	call	_Nordic_Readback
+   320  0636  00FE               	movwf	btemp
+   321  0637  01FF               	clrf	btemp+1
+   322  0638  047F               	iorwf	btemp+1,w
+   323  0639  1903               	btfsc	3,2
+   324  063A  2E31               	goto	l36
+   325                           ;nordicmanager.c: 82: while ( !Nordic_Readback(
+      +                          0x49,0x03) );
+   326  063B                     l39
+   327  063B  3003               	movlw	3
+   328  063C  00B1               	movwf	?_Nordic_Readback
+   329  063D  3049               	movlw	73
+   330  063E  245F               	call	_Nordic_Readback
+   331  063F  00FE               	movwf	btemp
+   332  0640  01FF               	clrf	btemp+1
+   333  0641  047F               	iorwf	btemp+1,w
+   334  0642  1903               	btfsc	3,2
+   335  0643  2E3B               	goto	l39
+   336                           ;nordicmanager.c: 83: while ( !Nordic_Readback(
+      +                          0x50,0x02) );
+   337  0644                     l42
+   338  0644  3002               	movlw	2
+   339  0645  00B1               	movwf	?_Nordic_Readback
+   340  0646  3050               	movlw	80
+   341  0647  245F               	call	_Nordic_Readback
+   342  0648  00FE               	movwf	btemp
+   343  0649  01FF               	clrf	btemp+1
+   344  064A  047F               	iorwf	btemp+1,w
+   345  064B  1903               	btfsc	3,2
+   346  064C  2E44               	goto	l42
+   347                           ;nordicmanager.c: 84: while ( !Nordic_Readback(
+      +                          0x53,0x02) );
+   348  064D                     l45
+   349  064D  3002               	movlw	2
+   350  064E  00B1               	movwf	?_Nordic_Readback
+   351  064F  3053               	movlw	83
+   352  0650  245F               	call	_Nordic_Readback
+   353  0651  00FE               	movwf	btemp
+   354  0652  01FF               	clrf	btemp+1
+   355  0653  047F               	iorwf	btemp+1,w
+   356  0654  1903               	btfsc	3,2
+   357  0655  2E4D               	goto	l45
+   358                           ;nordicmanager.c: 85: while ( !Nordic_Readback(
+      +                          0x56,0x03) );
+   359  0656                     l48
+   360  0656  3003               	movlw	3
+   361  0657  00B1               	movwf	?_Nordic_Readback
+   362  0658  3056               	movlw	86
+   363  0659  245F               	call	_Nordic_Readback
+   364  065A  00FE               	movwf	btemp
+   365  065B  01FF               	clrf	btemp+1
+   366  065C  047F               	iorwf	btemp+1,w
+   367  065D  1903               	btfsc	3,2
+   368  065E  2E56               	goto	l48
+   369                           ;nordicmanager.c: 86: while ( !Nordic_Readback(
+      +                          0x4A,0x20) );
+   370  065F                     l51
+   371  065F  3020               	movlw	32
+   372  0660  00B1               	movwf	?_Nordic_Readback
+   373  0661  304A               	movlw	74
+   374  0662  245F               	call	_Nordic_Readback
+   375  0663  00FE               	movwf	btemp
+   376  0664  01FF               	clrf	btemp+1
+   377  0665  047F               	iorwf	btemp+1,w
+   378  0666  1903               	btfsc	3,2
+   379  0667  2E5F               	goto	l51
+   380                           ;nordicmanager.c: 87: while ( !Nordic_Readback(
+      +                          0x5A,0x83) );
+   381  0668                     l54
+   382  0668  3083               	movlw	-125
+   383  0669  00B1               	movwf	?_Nordic_Readback
+   384  066A  305A               	movlw	90
+   385  066B  245F               	call	_Nordic_Readback
+   386  066C  00FE               	movwf	btemp
+   387  066D  01FF               	clrf	btemp+1
+   388  066E  047F               	iorwf	btemp+1,w
+   389  066F  1D03               	btfss	3,2
+   390  0670  0008               	return
+   391  0671  2E68               	goto	l54
+   392                           
+   393                           	psect	text2
+   394  0031                     __end_of_Nordic_Wakeup2
+   395  0000                     
+   396  0000                     
+   397  0000                     
+   398  0000                     
+   399  0000                     
+   400  0000                     
+   401  0000                     
+   402  0000                     
+   403  0000                     
+   404  0000                     
+   405  0000                     
+   406  0000                     
+   407  0000                     
+   408  0000                     
+   409  0000                     
+   410  0000                     
+   411  0000                     
+   412  0000                     
+   413  0000                     
+   414  0000                     
+   415  0000                     
+   416  0000                     
+   417  0000                     
+   418  0000                     
+   419  0000                     
+   420  0000                     
+   421  0000                     
+   422  0000                     
+   423  0000                     
+   424  0000                     
+   425  0000                     
+   426  0000                     
+   427  0000                     
+   428  0000                     
+   429  0000                     
+   430  0000                     
+   431  0000                     
+   432  0000                     
+   433  0000                     
+   434  0000                     
+   435  0000                     
+   436  0000                     
+   437  0000                     
+   438  0000                     
+   439  0000                     
+   440  0000                     
+   441  0000                     
+   442  0000                     
+   443  0000                     
+   444  0000                     
+   445  0000                     
+   446  0000                     
+   447  0000                     
+   448  0000                     
+   449  0000                     
+   450  0000                     
+   451  0000                     
+   452  0000                     
+   453  0000                     
+   454  0000                     
+   455  0000                     
+   456  0000                     
+   457  0000                     
+   458  0000                     
+   459  0000                     
+   460  0000                     
+   461  0000                     
+   462  0000                     
+   463  0000                     
+   464  0000                     
+   465  0000                     
+   466  0000                     
+   467  0000                     
+   468  0000                     
+   469  0000                     
+   470  0000                     
+   471  0000                     
+   472  0000                     
+   473  0000                     
+   474  0000                     
+   475  0000                     
+   476  0000                     
+   477  0000                     
+   478  0000                     
+   479  0000                     
+   480  0000                     
+   481  0000                     
+   482  0000                     
+   483  0000                     
+   484  0000                     
+   485  0000                     
+   486  0000                     
+   487  0000                     
+   488  0000                     
+   489  0000                     
+   490  0000                     
+   491  0000                     
+   492  0000                     
+   493  0000                     
+   494  0000                     
+   495  0000                     
+   496  0000                     
+   497  0000                     
+   498  0000                     
+   499  0000                     
+   500  0000                     
+   501  0000                     
+   502  0000                     
+   503  0000                     
+   504  0000                     
+   505  0000                     
+   506  0000                     
+   507  0000                     
+   508  0000                     
+   509  0000                     
+   510  0000                     
+   511  0000                     
+   512  0000                     
+   513  0000                     
+   514  0000                     
+   515  0000                     
+   516  0000                     
+   517  0000                     
+   518  0000                     
+   519  0000                     
+   520  0000                     
+   521  0000                     
+   522  0000                     
+   523  0000                     
+   524  0000                     
+   525  0000                     
+   526  0000                     
+   527  0000                     
+   528  0000                     
+   529  0000                     
+   530  0000                     
+   531  0000                     
+   532  0000                     
+   533  0000                     
+   534  0000                     
+   535  0000                     
+   536  0000                     
+   537  0000                     
+   538  0000                     
+   539  0000                     
+   540  0000                     
+   541  0000                     
+   542  0000                     
+   543  0000                     
+   544  0000                     
+   545  0000                     
+   546  0000                     
+   547  0000                     
+   548  0000                     
+   549  0000                     
+   550  0000                     
+   551  0000                     
+   552  0000                     
+   553  0000                     
+   554  0000                     
+   555  0000                     
+   556  0000                     
+   557  0000                     
+   558  0000                     
+   559  0000                     
+   560  0000                     
+   561  0000                     
+   562  0000                     
+   563  0000                     
+   564  0000                     
+   565  0000                     
+   566  0000                     
+   567  0000                     
+   568  0000                     
+   569  0000                     
+   570  0000                     
+   571  0000                     
+   572  0000                     
+   573  0000                     
+   574  0000                     
+   575  0000                     
+   576  0000                     
+   577  0000                     
+   578  0000                     
+   579  0000                     
+   580  0000                     
+   581  0000                     
+   582  0000                     
+   583  0000                     
+   584  0000                     
+   585  0000                     
+   586  0000                     
+   587  0000                     
+   588  0000                     
+   589  0000                     
+   590  0000                     
+   591  0000                     
+   592  0000                     
+   593  0000                     
+   594  0000                     
+   595  0000                     
+   596  0000                     
+   597  0000                     
+   598  0000                     
+   599  0000                     
+   600  0000                     
+   601  0000                     
+   602  0000                     
+   603  0000                     
+   604  0000                     
+   605  0000                     
+   606  0000                     
+   607  0000                     
+   608  0000                     
+   609  0000                     
+   610  0000                     
+   611  0000                     
+   612  0000                     
+   613                           
+   614                           	psect	rbss_0
+   615  0020                     _address
+                     _address
+   616  0020                     	ds	1
+   617  0021                     _data8
+                     _data8
+   618  0021                     	ds	1
+   619  0022                     _pointer
+                     _pointer
+   620  0022                     	ds	4
+   621                           
+   622                           	psect	temp
+   623  007E                     btemp
+                     btemp
+   624  007E                     	ds	2
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL3 build 3862 
+Symbol Table                                          Mon Oct 10 13:14:38 2011
+
+              _delay_ms 048C                _delay_us 0431  
+                     l2 0554                       l5 058B  
+                     l6 0584                       l8 059E  
+                    l11 05A8                      l20 05C3  
+                    l30 05E6                      l14 05B1  
+                    l23 05CC                      l33 061E  
+                    l17 05BA                      l42 0644  
+                    l34 0617                      l26 05D5  
+                    l51 065F                      l36 0631  
+                    l45 064D                      l54 0668  
+                    l39 063B                      l48 0656  
+                    u35 059C                  _N_ADDR 003C  
+                   u135 062F                    btemp 007E  
+       _Nordic_Readback 045F           _Nordic_Wakeup 054D  
+ __end_of_Nordic_Wakeup 05DF                 _address 0020  
+                 _data8 0021                 _pointer 0022  
+        _Nordic_Wakeup2 05DF                   status 0003  
+            _EEpromRead 0429        ?_Nordic_Readback 0031  
+__end_of_Nordic_Wakeup2 0031              used_btemp0 0001  
+            used_btemp1 0001  

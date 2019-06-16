@@ -1,0 +1,45 @@
+
+# 1 "C:\Projects\Nordic\dual wireless mic ref design\clean source code\TX\delay.c"
+
+# 28 "C:\Projects\Nordic\dual wireless mic ref design\clean source code\TX\types.h"
+typedef unsigned short WORD;
+typedef unsigned char BYTE;
+typedef unsigned long DWORD;
+typedef unsigned char * STRING;
+typedef signed char SBYTE;
+
+
+
+
+typedef BYTE bool;
+enum {false, true};
+enum {FALSE,TRUE};
+
+# 45
+typedef void (*VoidFunction) (void);
+
+# 20 "C:\Projects\Nordic\dual wireless mic ref design\clean source code\TX\delay.h"
+extern void delay_ms(BYTE);
+
+# 16 "C:\Projects\Nordic\dual wireless mic ref design\clean source code\TX\delay.c"
+void delay_ms(BYTE time)
+{
+BYTE temp=50;
+BYTE temp2=16;
+
+while ( time )
+{
+while (temp2 )
+{
+while ( temp )
+{
+temp--;
+}
+temp2--;
+temp=50;
+}
+temp2=8;
+time--;
+}
+}
+

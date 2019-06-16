@@ -1,0 +1,4 @@
+Changelog in v1_1
+- Corrected GERBER files
+- Corrected PICKNPLACE file
+- Corrected DRILL file

@@ -1,0 +1,399 @@
+HI-TECH Software C Compiler 
+
+Linker command line:
+
+--edf=C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\dat\en_msgs.txt \
+  -h+RX.sym -z -Q16F684 -ol.obj -MRX.map -E1 -ACODE=00h-07FFh \
+  -ACONST=00h-0FFhx8 -AENTRY=00h-0FFhx8 -ASTRING=00h-0FFhx8 \
+  -ABANK0=020h-07Fh -ABANK1=0A0h-0BFh -ACOMBANK=070h-07Fh \
+  -preset_vec=00h,intentry,intcode,intret,init,init23,end_init,clrtext,maintext,stringtable,pstrings,strings \
+  -ppowerup=CODE -ptemp=-COMBANK -pintsave_0=-COMBANK \
+  -prbit_0=BANK0,rbss_0=BANK0,rdata_0=BANK0,idata_0=CODE -pnvram=BANK0 \
+  -pintsave_1=BANK1 -prbit_1=BANK1,rbss_1=BANK1,rdata_1=BANK1,idata_1=CODE \
+  -pnvram_1=BANK1,nvbit_1=BANK1 -ACONFIG=02007h-02007h -pconfig=CONFIG \
+  -AIDLOC=02000h-02003h -pidloc=IDLOC -AEEDATA=00h-0FFh/02100h \
+  -peeprom_data=EEDATA -pfloat_text0=CODE,float_text1=CODE,float_text2=CODE \
+  -pfloat_text3=CODE,float_text4=CODE \
+  C:\Users\JOHN~1.SJA\AppData\Local\Temp\s148.obj Nordic_i2c.obj \
+  nordicmanager.obj main.obj \
+  C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\lib\pic21--u.lib \
+  C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\lib\pic40b-c.lib \
+  C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\lib\pic21--u.lib 
+
+Object code version is 3.10
+
+Machine type is 16F684
+
+Call graph:
+
+*_main size 0,0 offset 0
+     _setup_ports size 0,0 offset 0
+*    _delay_us size 0,1 offset 10
+     _delay_ms size 0,3 offset 0
+*    _Nordic_Wakeup size 0,0 offset 0
+*        _delay_us size 0,1 offset 10
+         _EEpromRead size 0,1 offset 0
+*        _Nordic_Readback size 1,4 offset 0
+*            _Nordic_Send size 1,2 offset 5
+*                _delay_us size 0,1 offset 10
+*                _ClockEight size 0,2 offset 8
+*                    _delay_us size 0,1 offset 10
+*            _Nordic_Read size 0,3 offset 5
+*                _delay_us size 0,1 offset 10
+*                _ClockEight size 0,2 offset 8
+*                    _delay_us size 0,1 offset 10
+         _delay_ms size 0,3 offset 0
+*    _Nordic_Wakeup2 size 0,0 offset 0
+*        _delay_us size 0,1 offset 10
+         _EEpromRead size 0,1 offset 0
+*        _Nordic_Readback size 1,4 offset 0
+*            _Nordic_Send size 1,2 offset 5
+*                _delay_us size 0,1 offset 10
+*                _ClockEight size 0,2 offset 8
+*                    _delay_us size 0,1 offset 10
+*            _Nordic_Read size 0,3 offset 5
+*                _delay_us size 0,1 offset 10
+*                _ClockEight size 0,2 offset 8
+*                    _delay_us size 0,1 offset 10
+         _delay_ms size 0,3 offset 0
+*    _Nordic_Read size 0,3 offset 5
+*        _delay_us size 0,1 offset 10
+*        _ClockEight size 0,2 offset 8
+*            _delay_us size 0,1 offset 10
+*    _Nordic_Send size 1,2 offset 5
+*        _delay_us size 0,1 offset 10
+*        _ClockEight size 0,2 offset 8
+*            _delay_us size 0,1 offset 10
+     _EEpromWrite ARG size 1 offset 0
+         _EEpromWrite size 1 offset 1
+         _Nordic_Read size 0,3 offset 5
+             _delay_us size 0,1 offset 10
+             _ClockEight size 0,2 offset 8
+                 _delay_us size 0,1 offset 10
+     _EEpromRead size 0,1 offset 0
+*    _Nordic_Readback size 1,4 offset 0
+*        _Nordic_Send size 1,2 offset 5
+*            _delay_us size 0,1 offset 10
+*            _ClockEight size 0,2 offset 8
+*                _delay_us size 0,1 offset 10
+*        _Nordic_Read size 0,3 offset 5
+*            _delay_us size 0,1 offset 10
+*            _ClockEight size 0,2 offset 8
+*                _delay_us size 0,1 offset 10
+
+Estimated maximum call depth: 5
+
+
+		Name          Link     Load   Length Selector Space Scale
+C:\Users\JOHN~1.SJA\AppData\Local\Temp\s148.obj
+		init             0        0        C       0     0
+		end_init         C        C       12       0     0
+		temp            7E       7E        1      7E     1
+Nordic_i2c.obj  text2          4E5      4E5       68     9CA     0
+		text3          45F      45F       16     8BE     0
+		text0          475      475       17     8EA     0
+		text1          4A4      4A4       41     948     0
+nordicmanager.obj
+		idata_0        7FF      7FF        1     FFE     0
+		rdata_0         3C       3C        1      20     1
+		rbss_0          20       20        6      20     1
+		temp            7E       7E        2      7E     1
+		text1          5DF      5DF       93     BBE     0
+		text0          54D      54D       92     A9A     0
+main.obj        eeprom_da        0     2100      100    4200     2
+		config        2007     2007        1    400E     0
+		rbss_0          26       26        B      20     1
+		temp            7E       7E        1      7E     1
+		text5          43A      43A       12     874     0
+		text4          44C      44C       13     898     0
+		text3          429      429        8     852     0
+		text0          672      672      18D     CE4     0
+		text2          48C      48C       18     918     0
+		text1          431      431        9     862     0
+
+C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\lib\pic21--u.lib
+
+C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\lib\pic40b-c.lib
+btemp0.obj      temp            7E       7E        1      7E     1
+btemp1.obj      temp            7E       7E        2      7E     1
+codeptr.obj     
+stringtab.obj   stringtab       1E       1E       13       0     0
+		code_ptr        3D       3D        2      20     1
+
+C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\lib\pic21--u.lib
+
+COMMON          rbss_0          31       31        B      20     1
+
+TOTAL		Name          Link     Load   Length
+	CLASS	CODE     
+		idata_0        7FF      7FF        1
+		init             0        0        C
+		end_init         C        C       12
+		text2          4E5      4E5       68
+		text3          45F      45F       16
+		text0          475      475       17
+		text1          4A4      4A4       41
+		text1          5DF      5DF       93
+		text0          54D      54D       92
+		text5          43A      43A       12
+		text4          44C      44C       13
+		text3          429      429        8
+		text0          672      672      18D
+		text2          48C      48C       18
+		text1          431      431        9
+
+	CLASS	CONST    
+
+	CLASS	ENTRY    
+		stringtab       1E       1E       13
+
+	CLASS	STRING   
+
+	CLASS	BANK0    
+		rdata_0         3C       3C        1
+		rbss_0          20       20       1C
+		temp            7E       7E        2
+		code_ptr        3D       3D        2
+
+	CLASS	BANK1    
+
+	CLASS	COMBANK  
+
+	CLASS	CONFIG   
+		config        2007     2007        1
+
+	CLASS	IDLOC    
+
+	CLASS	EEDATA   
+		eeprom_da        0     2100      100
+
+	CLASS	BANK3    
+
+	CLASS	BANK2    
+
+
+
+SEGMENTS	Name		Load	Length	 Top	Selector    Space Class
+
+		reset_vec       000000	000031	000031	       0       0  CODE    
+		rbit_0          000020	00001F	00003F	      20       1  BANK0   
+		temp            00007E	000002	000080	      7E       1  COMBANK 
+		text3           000429	000008	000431	     852       0  CODE    
+		text1           000431	000009	00043A	     862       0  CODE    
+		text5           00043A	000012	00044C	     874       0  CODE    
+		text4           00044C	000013	00045F	     898       0  CODE    
+		text3           00045F	000016	000475	     8BE       0  CODE    
+		text0           000475	000017	00048C	     8EA       0  CODE    
+		text2           00048C	000018	0004A4	     918       0  CODE    
+		text1           0004A4	000041	0004E5	     948       0  CODE    
+		text2           0004E5	000068	00054D	     9CA       0  CODE    
+		text0           00054D	000092	0005DF	     A9A       0  CODE    
+		text1           0005DF	000093	000672	     BBE       0  CODE    
+		text0           000672	00018D	0007FF	     CE4       0  CODE    
+		idata_0         0007FF	000001	000800	     FFE       0  CODE    
+		config          002007	000001	002008	    400E       0  CONFIG  
+		eeprom_data     002100	000100	002200	    4200       2  EEDATA  
+
+
+UNUSED ADDRESS RANGES
+
+	BANK0            003F-007D
+	BANK1            00A0-00BF
+	CODE             0031-0428
+	COMBANK          0070-007D
+	CONST            0031-0428
+	ENTRY            0031-0428
+	IDLOC            2000-2003
+	STRING           0031-0428
+
+                                  Symbol Table
+
+?_EEpromWrite            rbss_0      0031
+?_Nordic_Readback        rbss_0      0031
+?_Nordic_Send            rbss_0      0036
+?a_EEpromRead            rbss_0      0031
+?a_EEpromWrite           rbss_0      0032
+?a_Nordic_Read           rbss_0      0036
+?a_Nordic_Readback       rbss_0      0032
+?a_Nordic_Send           rbss_0      0037
+?a_delay_ms              rbss_0      0031
+?a_delay_us              rbss_0      003B
+_EEpromRead              text3       0429
+_EEpromWrite             text4       044C
+_N_ADDR                  rdata_0     003C
+_NordicReg1RED           eeprom_data 0000
+_NordicReg1REDA          eeprom_data 0040
+_NordicReg2BLUE          eeprom_data 0080
+_NordicReg2BLUEA         eeprom_data 00C0
+_Nordic_Read             text2       04E5
+_Nordic_Readback         text3       045F
+_Nordic_Send             text1       04A4
+_Nordic_Wakeup           text0       054D
+_Nordic_Wakeup2          text1       05DF
+_TransmissionError       rbss_0      0026
+__Beeprom_data           eeprom_data 2100
+__Bnvbit_0               nvbit_0     0062
+__Bnvbit_1               nvbit_1     00A0
+__Bnvbit_2               nvbit_2     0062
+__Bnvbit_3               nvbit_3     0062
+__Bptbit_0               ptbit_0     0062
+__Brbit_0                rbit_0      0020
+__Brbit_1                rbit_1      00A0
+__Brbit_2                rbit_2      0062
+__Brbit_3                rbit_3      0062
+__Hclrtext               clrtext     001E
+__Hcode                  code        0062
+__Hcode_ptr              code_ptr    003F
+__Hcommon_ram            common_ram  0062
+__Hconfig                config      2008
+__Heeprom_data           eeprom_data 0100
+__Hend_init              end_init    001E
+__Hfloat_text0           float_text0 0031
+__Hfloat_text1           float_text1 0031
+__Hfloat_text2           float_text2 0031
+__Hfloat_text3           float_text3 0031
+__Hfloat_text4           float_text4 0031
+__Hidata_0               idata_0     0800
+__Hidata_1               idata_1     0031
+__Hidata_2               idata_2     0062
+__Hidata_3               idata_3     0062
+__Hidloc                 idloc       2000
+__Hinit                  init        000C
+__Hinit23                init23      000C
+__Hintcode               intcode     0000
+__Hintentry              intentry    0000
+__Hintret                intret      0000
+__Hintsave               intsave     0062
+__Hintsave_0             intsave_0   0070
+__Hintsave_1             intsave_1   00A0
+__Hintsave_2             intsave_2   0062
+__Hintsave_3             intsave_3   0062
+__Hmaintext              maintext    001E
+__Hnvbit_0               nvbit_0     0310
+__Hnvbit_1               nvbit_1     0500
+__Hnvbit_2               nvbit_2     0310
+__Hnvbit_3               nvbit_3     0310
+__Hnvram                 nvram       003D
+__Hnvram_1               nvram_1     00A0
+__Hnvram_2               nvram_2     0062
+__Hnvram_3               nvram_3     0062
+__Hpowerup               powerup     0031
+__Hpstrings              pstrings    0031
+__Hptbit_0               ptbit_0     0310
+__Hrbit_0                rbit_0      0100
+__Hrbit_1                rbit_1      0500
+__Hrbit_2                rbit_2      0310
+__Hrbit_3                rbit_3      0310
+__Hrbss_0                rbss_0      003C
+__Hrbss_1                rbss_1      00A0
+__Hrbss_2                rbss_2      0062
+__Hrbss_3                rbss_3      0062
+__Hrdata_0               rdata_0     003D
+__Hrdata_1               rdata_1     00A0
+__Hrdata_2               rdata_2     0062
+__Hrdata_3               rdata_3     0062
+__Hreset_vec             reset_vec   0000
+__Hstrings               strings     0031
+__Hstringtable           stringtable 0031
+__Hstruct                struct      003F
+__Htemp                  temp        0080
+__Htext                  text        0062
+__Lclrtext               clrtext     001E
+__Lcode                  code        0062
+__Lcode_ptr              code_ptr    003D
+__Lcommon_ram            common_ram  0062
+__Lconfig                config      2007
+__Leeprom_data           eeprom_data 0000
+__Lend_init              end_init    000C
+__Lfloat_text0           float_text0 0031
+__Lfloat_text1           float_text1 0031
+__Lfloat_text2           float_text2 0031
+__Lfloat_text3           float_text3 0031
+__Lfloat_text4           float_text4 0031
+__Lidata_0               idata_0     07FF
+__Lidata_1               idata_1     0031
+__Lidata_2               idata_2     0062
+__Lidata_3               idata_3     0062
+__Lidloc                 idloc       2000
+__Linit                  init        0000
+__Linit23                init23      000C
+__Lintcode               intcode     0000
+__Lintentry              intentry    0000
+__Lintret                intret      0000
+__Lintsave               intsave     0062
+__Lintsave_0             intsave_0   0070
+__Lintsave_1             intsave_1   00A0
+__Lintsave_2             intsave_2   0062
+__Lintsave_3             intsave_3   0062
+__Lmaintext              maintext    001E
+__Lnvbit_0               nvbit_0     0310
+__Lnvbit_1               nvbit_1     0500
+__Lnvbit_2               nvbit_2     0310
+__Lnvbit_3               nvbit_3     0310
+__Lnvram                 nvram       003D
+__Lnvram_1               nvram_1     00A0
+__Lnvram_2               nvram_2     0062
+__Lnvram_3               nvram_3     0062
+__Lpowerup               powerup     0031
+__Lpstrings              pstrings    0031
+__Lptbit_0               ptbit_0     0310
+__Lrbit_0                rbit_0      0100
+__Lrbit_1                rbit_1      0500
+__Lrbit_2                rbit_2      0310
+__Lrbit_3                rbit_3      0310
+__Lrbss_0                rbss_0      0020
+__Lrbss_1                rbss_1      00A0
+__Lrbss_2                rbss_2      0062
+__Lrbss_3                rbss_3      0062
+__Lrdata_0               rdata_0     003C
+__Lrdata_1               rdata_1     00A0
+__Lrdata_2               rdata_2     0062
+__Lrdata_3               rdata_3     0062
+__Lreset_vec             reset_vec   0000
+__Lstrings               strings     0031
+__Lstringtable           stringtable 001E
+__Lstruct                struct      003F
+__Ltemp                  temp        007E
+__Ltext                  text        0062
+__S0                     (abs)       2008
+__S1                     (abs)       00A0
+__S2                     (abs)       2200
+__end_of_EEpromRead      text4       044C
+__end_of_EEpromWrite     text5       043A
+__end_of_Nordic_Read     text3       045F
+__end_of_Nordic_Readback text4       0031
+__end_of_Nordic_Send     text2       04E5
+__end_of_Nordic_Wakeup   text1       05DF
+__end_of_Nordic_Wakeup2  text2       0031
+__end_of_delay_ms        text3       0429
+__end_of_delay_us        text2       048C
+__end_of_main            text1       0431
+__end_of_setup_ports     text6       0031
+_address                 rbss_0      0020
+_blue_address_changed    rbss_0      0027
+_data                    rbss_0      0029
+_data8                   rbss_0      0021
+_delay_ms                text2       048C
+_delay_us                text1       0431
+_exit                    init        0000
+_i                       rbss_0      002B
+_main                    text0       0672
+_pointer                 rbss_0      0022
+_red_address_changed     rbss_0      002D
+_setup_ports             text5       043A
+_timeout                 rbss_0      002F
+clear_bank0              init        0000
+clear_bit0               init        0000
+clear_ram                end_init    0010
+code_ptr                 code_ptr    003D
+copy_bank0               init        0004
+copy_data                end_init    0015
+intlevel0                intentry    0000
+intlevel1                intentry    0000
+reset_vec                reset_vec   0000
+start                    init        0000
+string_indir             stringtable 0020
+string_table             stringtable 001E
+used_btemp0              (abs)       0001
+used_btemp1              (abs)       0001
+used_code_ptr            (abs)       0001

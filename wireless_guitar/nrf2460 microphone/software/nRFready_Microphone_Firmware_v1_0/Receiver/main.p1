@@ -1,0 +1,1738 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"16 C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\include\pic16f684.h
+[v _INDF `Vuc 1 s@0 ]
+"17
+[v _TMR0 `Vuc 1 s@1 ]
+"18
+[v _PCL `Vuc 1 s@2 ]
+"19
+[v _STATUS `Vuc 1 s@3 ]
+"20
+[v _FSR `uc 1 s@4 ]
+"21
+[v _PORTA `Vuc 1 s@5 ]
+"22
+[v _PORTC `Vuc 1 s@7 ]
+"23
+[v _PCLATH `Vuc 1 s@10 ]
+"24
+[v _INTCON `Vuc 1 s@11 ]
+"25
+[v _PIR1 `Vuc 1 s@12 ]
+"26
+[v _TMR1L `Vuc 1 s@14 ]
+"27
+[v _TMR1H `Vuc 1 s@15 ]
+"28
+[v _T1CON `Vuc 1 s@16 ]
+"29
+[v _TMR2 `Vuc 1 s@17 ]
+"30
+[v _T2CON `Vuc 1 s@18 ]
+"31
+[v _CCPR1L `Vuc 1 s@19 ]
+"32
+[v _CCPR1H `Vuc 1 s@20 ]
+"33
+[v _CCP1CON `Vuc 1 s@21 ]
+"34
+[v _PWM1CON `Vuc 1 s@22 ]
+"35
+[v _ECCPAS `Vuc 1 s@23 ]
+"36
+[v _WDTCON `Vuc 1 s@24 ]
+"37
+[v _CMCON0 `Vuc 1 s@25 ]
+"38
+[v _CMCON1 `uc 1 s@26 ]
+"39
+[v _ADRESH `Vuc 1 s@30 ]
+"40
+[v _ADCON0 `Vuc 1 s@31 ]
+"41
+[v _OPTION `Xuc 1 s@129 ]
+"42
+[v _TRISA `VXuc 1 s@133 ]
+"43
+[v _TRISC `VXuc 1 s@135 ]
+"44
+[v _PIE1 `Xuc 1 s@140 ]
+"45
+[v _PCON `VXuc 1 s@142 ]
+"46
+[v _OSCCON `VXuc 1 s@143 ]
+"47
+[v _OSCTUNE `Xuc 1 s@144 ]
+"48
+[v _ANSEL `Xuc 1 s@145 ]
+"49
+[v _PR2 `Xuc 1 s@146 ]
+"50
+[v _WPUA `Xuc 1 s@149 ]
+"51
+[v _IOCA `Xuc 1 s@150 ]
+"52
+[v _VRCON `Xuc 1 s@153 ]
+"53
+[v _EEDAT `VXuc 1 s@154 ]
+"55
+[v _EEDATA `VXuc 1 s@154 ]
+"56
+[v _EEADR `Xuc 1 s@155 ]
+"58
+[v _EEADRL `Xuc 1 s@155 ]
+"59
+[v _EECON1 `VXuc 1 s@156 ]
+"60
+[v _EECON2 `VXuc 1 s@157 ]
+"61
+[v _ADRESL `VXuc 1 s@158 ]
+"62
+[v _ADCON1 `Xuc 1 s@159 ]
+"66
+[v _CARRY `Vb 1 s@24 ]
+"67
+[v _DC `Vb 1 s@25 ]
+"68
+[v _ZERO `Vb 1 s@26 ]
+"69
+[v _PD `Vb 1 s@27 ]
+"70
+[v _TO `Vb 1 s@28 ]
+"71
+[v _RP0 `b 1 s@29 ]
+"72
+[v _RP1 `b 1 s@30 ]
+"73
+[v _IRP `b 1 s@31 ]
+"76
+[v _RA0 `Vb 1 s@40 ]
+"77
+[v _RA1 `Vb 1 s@41 ]
+"78
+[v _RA2 `Vb 1 s@42 ]
+"79
+[v _RA3 `Vb 1 s@43 ]
+"80
+[v _RA4 `Vb 1 s@44 ]
+"81
+[v _RA5 `Vb 1 s@45 ]
+"84
+[v _RC0 `Vb 1 s@56 ]
+"85
+[v _RC1 `Vb 1 s@57 ]
+"86
+[v _RC2 `Vb 1 s@58 ]
+"87
+[v _RC3 `Vb 1 s@59 ]
+"88
+[v _RC4 `Vb 1 s@60 ]
+"89
+[v _RC5 `Vb 1 s@61 ]
+"92
+[v _RAIF `Vb 1 s@88 ]
+"93
+[v _INTF `Vb 1 s@89 ]
+"94
+[v _T0IF `Vb 1 s@90 ]
+"95
+[v _RAIE `b 1 s@91 ]
+"96
+[v _INTE `b 1 s@92 ]
+"97
+[v _T0IE `b 1 s@93 ]
+"98
+[v _PEIE `b 1 s@94 ]
+"99
+[v _GIE `b 1 s@95 ]
+"102
+[v _TMR1IF `Vb 1 s@96 ]
+"103
+[v _TMR2IF `Vb 1 s@97 ]
+"104
+[v _OSFIF `Vb 1 s@98 ]
+"105
+[v _C1IF `Vb 1 s@99 ]
+"106
+[v _C2IF `Vb 1 s@100 ]
+"107
+[v _CCP1IF `Vb 1 s@101 ]
+"108
+[v _ADIF `Vb 1 s@102 ]
+"109
+[v _EEIF `Vb 1 s@103 ]
+"112
+[v _TMR1ON `b 1 s@128 ]
+"113
+[v _TMR1CS `b 1 s@129 ]
+"114
+[v _T1SYNC `b 1 s@130 ]
+"115
+[v _T1OSCEN `b 1 s@131 ]
+"116
+[v _T1CKPS0 `b 1 s@132 ]
+"117
+[v _T1CKPS1 `b 1 s@133 ]
+"118
+[v _T1GE `b 1 s@134 ]
+"119
+[v _T1GINV `b 1 s@135 ]
+"122
+[v _T2CKPS0 `b 1 s@144 ]
+"123
+[v _T2CKPS1 `b 1 s@145 ]
+"124
+[v _TMR2ON `b 1 s@146 ]
+"125
+[v _TOUTPS0 `b 1 s@147 ]
+"126
+[v _TOUTPS1 `b 1 s@148 ]
+"127
+[v _TOUTPS2 `b 1 s@149 ]
+"128
+[v _TOUTPS3 `b 1 s@150 ]
+"131
+[v _CCP1M0 `b 1 s@168 ]
+"132
+[v _CCP1M1 `b 1 s@169 ]
+"133
+[v _CCP1M2 `b 1 s@170 ]
+"134
+[v _CCP1M3 `b 1 s@171 ]
+"135
+[v _DC1B0 `b 1 s@172 ]
+"136
+[v _DC1B1 `b 1 s@173 ]
+"137
+[v _P1M0 `b 1 s@174 ]
+"138
+[v _P1M1 `b 1 s@175 ]
+"141
+[v _PDC0 `Vb 1 s@176 ]
+"142
+[v _PDC1 `Vb 1 s@177 ]
+"143
+[v _PDC2 `Vb 1 s@178 ]
+"144
+[v _PDC3 `Vb 1 s@179 ]
+"145
+[v _PDC4 `Vb 1 s@180 ]
+"146
+[v _PDC5 `Vb 1 s@181 ]
+"147
+[v _PDC6 `Vb 1 s@182 ]
+"148
+[v _PRSEN `Vb 1 s@183 ]
+"151
+[v _PSSBD0 `b 1 s@184 ]
+"152
+[v _PSSBD1 `b 1 s@185 ]
+"153
+[v _PSSAC0 `b 1 s@186 ]
+"154
+[v _PSSAC1 `b 1 s@187 ]
+"155
+[v _ECCPAS0 `b 1 s@188 ]
+"156
+[v _ECCPAS1 `b 1 s@189 ]
+"157
+[v _ECCPAS2 `b 1 s@190 ]
+"158
+[v _ECCPASE `Vb 1 s@191 ]
+"161
+[v _SWDTEN `b 1 s@192 ]
+"162
+[v _WDTPS0 `b 1 s@193 ]
+"163
+[v _WDTPS1 `b 1 s@194 ]
+"164
+[v _WDTPS2 `b 1 s@195 ]
+"165
+[v _WDTPS3 `b 1 s@196 ]
+"168
+[v _CM0 `b 1 s@200 ]
+"169
+[v _CM1 `b 1 s@201 ]
+"170
+[v _CM2 `b 1 s@202 ]
+"171
+[v _CIS `b 1 s@203 ]
+"172
+[v _C1INV `b 1 s@204 ]
+"173
+[v _C2INV `b 1 s@205 ]
+"174
+[v _C1OUT `Vb 1 s@206 ]
+"175
+[v _C2OUT `Vb 1 s@207 ]
+"178
+[v _C2SYNC `b 1 s@208 ]
+"179
+[v _T1GSS `b 1 s@209 ]
+"182
+[v _ADON `b 1 s@248 ]
+"183
+[v _GODONE `Vb 1 s@249 ]
+"184
+[v _CHS0 `b 1 s@250 ]
+"185
+[v _CHS1 `b 1 s@251 ]
+"186
+[v _CHS2 `b 1 s@252 ]
+"187
+[v _VCFG `b 1 s@254 ]
+"188
+[v _ADFM `b 1 s@255 ]
+"191
+[v _PS0 `Xb 1 s@1032 ]
+"192
+[v _PS1 `Xb 1 s@1033 ]
+"193
+[v _PS2 `Xb 1 s@1034 ]
+"194
+[v _PSA `Xb 1 s@1035 ]
+"195
+[v _T0SE `Xb 1 s@1036 ]
+"196
+[v _T0CS `Xb 1 s@1037 ]
+"197
+[v _INTEDG `Xb 1 s@1038 ]
+"198
+[v _RAPU `Xb 1 s@1039 ]
+"201
+[v _TRISA0 `VXb 1 s@1064 ]
+"202
+[v _TRISA1 `VXb 1 s@1065 ]
+"203
+[v _TRISA2 `VXb 1 s@1066 ]
+"204
+[v _TRISA3 `VXb 1 s@1067 ]
+"205
+[v _TRISA4 `VXb 1 s@1068 ]
+"206
+[v _TRISA5 `VXb 1 s@1069 ]
+"209
+[v _TRISC0 `VXb 1 s@1080 ]
+"210
+[v _TRISC1 `VXb 1 s@1081 ]
+"211
+[v _TRISC2 `VXb 1 s@1082 ]
+"212
+[v _TRISC3 `VXb 1 s@1083 ]
+"213
+[v _TRISC4 `VXb 1 s@1084 ]
+"214
+[v _TRISC5 `VXb 1 s@1085 ]
+"217
+[v _TMR1IE `Xb 1 s@1120 ]
+"218
+[v _TMR2IE `Xb 1 s@1121 ]
+"219
+[v _OSFIE `Xb 1 s@1122 ]
+"220
+[v _C1IE `Xb 1 s@1123 ]
+"221
+[v _C2IE `Xb 1 s@1124 ]
+"222
+[v _CCP1IE `Xb 1 s@1125 ]
+"223
+[v _ADIE `Xb 1 s@1126 ]
+"224
+[v _EEIE `Xb 1 s@1127 ]
+"227
+[v _BOD `VXb 1 s@1136 ]
+"228
+[v _POR `VXb 1 s@1137 ]
+"229
+[v _SBODEN `Xb 1 s@1140 ]
+"230
+[v _ULPWUE `Xb 1 s@1141 ]
+"233
+[v _SCS `Xb 1 s@1144 ]
+"234
+[v _LTS `VXb 1 s@1145 ]
+"235
+[v _HTS `VXb 1 s@1146 ]
+"236
+[v _OSTS `VXb 1 s@1147 ]
+"237
+[v _IRCF0 `Xb 1 s@1148 ]
+"238
+[v _IRCF1 `Xb 1 s@1149 ]
+"239
+[v _IRCF2 `Xb 1 s@1150 ]
+"242
+[v _TUN0 `Xb 1 s@1152 ]
+"243
+[v _TUN1 `Xb 1 s@1153 ]
+"244
+[v _TUN2 `Xb 1 s@1154 ]
+"245
+[v _TUN3 `Xb 1 s@1155 ]
+"246
+[v _TUN4 `Xb 1 s@1156 ]
+"249
+[v _ANS0 `Xb 1 s@1160 ]
+"250
+[v _ANS1 `Xb 1 s@1161 ]
+"251
+[v _ANS2 `Xb 1 s@1162 ]
+"252
+[v _ANS3 `Xb 1 s@1163 ]
+"253
+[v _ANS4 `Xb 1 s@1164 ]
+"254
+[v _ANS5 `Xb 1 s@1165 ]
+"255
+[v _ANS6 `Xb 1 s@1166 ]
+"256
+[v _ANS7 `Xb 1 s@1167 ]
+"259
+[v _WPUA0 `Xb 1 s@1192 ]
+"260
+[v _WPUA1 `Xb 1 s@1193 ]
+"261
+[v _WPUA2 `Xb 1 s@1194 ]
+"262
+[v _WPUA4 `Xb 1 s@1196 ]
+"263
+[v _WPUA5 `Xb 1 s@1197 ]
+"266
+[v _IOCA0 `Xb 1 s@1200 ]
+"267
+[v _IOCA1 `Xb 1 s@1201 ]
+"268
+[v _IOCA2 `Xb 1 s@1202 ]
+"269
+[v _IOCA3 `Xb 1 s@1203 ]
+"270
+[v _IOCA4 `Xb 1 s@1204 ]
+"271
+[v _IOCA5 `Xb 1 s@1205 ]
+"274
+[v _VR0 `Xb 1 s@1224 ]
+"275
+[v _VR1 `Xb 1 s@1225 ]
+"276
+[v _VR2 `Xb 1 s@1226 ]
+"277
+[v _VR3 `Xb 1 s@1227 ]
+"278
+[v _VRR `Xb 1 s@1229 ]
+"279
+[v _VREN `Xb 1 s@1231 ]
+"282
+[v _RD `VXb 1 s@1248 ]
+"283
+[v _WR `VXb 1 s@1249 ]
+"284
+[v _WREN `Xb 1 s@1250 ]
+"285
+[v _WRERR `VXb 1 s@1251 ]
+"288
+[v _ADCS0 `Xb 1 s@1276 ]
+"289
+[v _ADCS1 `Xb 1 s@1277 ]
+"290
+[v _ADCS2 `Xb 1 s@1278 ]
+"19 C:\Projects\Nordic\dual wireless mic ref design\clean source code\RX\pinouts.h
+[v _BYTE `uc 1 t ]
+"18 C:\Projects\Nordic\dual wireless mic ref design\clean source code\RX\main.c
+[; 	psect config,class=CONFIG,delta=2 ;#
+[; 	dw 0x30D4 ;#
+"20
+[v _TransmissionError `uc 1 e ]
+"26
+[v _int1 `b 1 t ]
+"29
+[v _i `ui 1 e ]
+[v _data `ui 1 e ]
+[v _red_address_changed `ui 1 e ]
+[v _blue_address_changed `ui 1 e ]
+[v _timeout `ui 1 e ]
+"32
+[v _NordicReg1RED `Tuc -> 64 `i e ]
+[i _NordicReg1RED
+:U ..
+"34
+-> -> 0 `i `uc
+"35
+-> -> 81 `i `uc
+"36
+-> -> 0 `i `uc
+"37
+-> -> 0 `i `uc
+"38
+-> -> 0 `i `uc
+"39
+-> -> 0 `i `uc
+"40
+-> -> 0 `i `uc
+"41
+-> -> 0 `i `uc
+"42
+-> -> 0 `i `uc
+"43
+-> -> 0 `i `uc
+"44
+-> -> 0 `i `uc
+"45
+-> -> 0 `i `uc
+"46
+-> -> 52 `i `uc
+"47
+-> -> 10 `i `uc
+"48
+-> -> 66 `i `uc
+"49
+-> -> 79 `i `uc
+"50
+-> -> 24 `i `uc
+"51
+-> -> 38 `i `uc
+"52
+-> -> 0 `i `uc
+"53
+-> -> 0 `i `uc
+"54
+-> -> 0 `i `uc
+"55
+-> -> 0 `i `uc
+"56
+-> -> 0 `i `uc
+"57
+-> -> 0 `i `uc
+"58
+-> -> 0 `i `uc
+"59
+-> -> 0 `i `uc
+"60
+-> -> 0 `i `uc
+"61
+-> -> 0 `i `uc
+"62
+-> -> 0 `i `uc
+"63
+-> -> 0 `i `uc
+"64
+-> -> 0 `i `uc
+"65
+-> -> 0 `i `uc
+"66
+-> -> 0 `i `uc
+"67
+-> -> 0 `i `uc
+"68
+-> -> 0 `i `uc
+"69
+-> -> 0 `i `uc
+"70
+-> -> 0 `i `uc
+"71
+-> -> 0 `i `uc
+"72
+-> -> 0 `i `uc
+"73
+-> -> 0 `i `uc
+"74
+-> -> 0 `i `uc
+"75
+-> -> 0 `i `uc
+"76
+-> -> 0 `i `uc
+"77
+-> -> 0 `i `uc
+"78
+-> -> 0 `i `uc
+"79
+-> -> 0 `i `uc
+"80
+-> -> 0 `i `uc
+"81
+-> -> 0 `i `uc
+"82
+-> -> 0 `i `uc
+"83
+-> -> 0 `i `uc
+"84
+-> -> 0 `i `uc
+"85
+-> -> 2 `i `uc
+"86
+-> -> 6 `i `uc
+"87
+-> -> 3 `i `uc
+"88
+-> -> 0 `i `uc
+"89
+-> -> 0 `i `uc
+"90
+-> -> 0 `i `uc
+"91
+-> -> 59 `i `uc
+"92
+-> -> 246 `i `uc
+"93
+-> -> 243 `i `uc
+"94
+-> -> 83 `i `uc
+"95
+-> -> 23 `i `uc
+"96
+-> -> 0 `i `uc
+"97
+-> -> 0 `i `uc
+..
+]"100
+[v _NordicReg1REDA `Tuc -> 64 `i e ]
+[i _NordicReg1REDA
+:U ..
+"102
+-> -> 0 `i `uc
+"103
+-> -> 0 `i `uc
+"104
+-> -> 0 `i `uc
+"105
+-> -> 0 `i `uc
+"106
+-> -> 0 `i `uc
+"107
+-> -> 0 `i `uc
+"108
+-> -> 0 `i `uc
+"109
+-> -> 0 `i `uc
+"110
+-> -> 0 `i `uc
+"111
+-> -> 3 `i `uc
+"112
+-> -> 0 `i `uc
+"113
+-> -> 0 `i `uc
+"114
+-> -> 0 `i `uc
+"115
+-> -> 0 `i `uc
+"116
+-> -> 0 `i `uc
+"117
+-> -> 0 `i `uc
+"118
+-> -> 0 `i `uc
+"119
+-> -> 0 `i `uc
+"120
+-> -> 6 `i `uc
+"121
+-> -> 0 `i `uc
+"122
+-> -> 0 `i `uc
+"123
+-> -> 0 `i `uc
+"124
+-> -> 3 `i `uc
+"125
+-> -> 0 `i `uc
+"126
+-> -> 0 `i `uc
+"127
+-> -> 0 `i `uc
+"128
+-> -> 0 `i `uc
+"129
+-> -> 0 `i `uc
+"130
+-> -> 0 `i `uc
+"131
+-> -> 0 `i `uc
+"132
+-> -> 0 `i `uc
+"133
+-> -> 0 `i `uc
+"134
+-> -> 0 `i `uc
+"135
+-> -> 0 `i `uc
+"136
+-> -> 0 `i `uc
+"137
+-> -> 0 `i `uc
+"138
+-> -> 0 `i `uc
+"139
+-> -> 0 `i `uc
+"140
+-> -> 0 `i `uc
+"141
+-> -> 0 `i `uc
+"142
+-> -> 0 `i `uc
+"143
+-> -> 0 `i `uc
+"144
+-> -> 0 `i `uc
+"145
+-> -> 0 `i `uc
+"146
+-> -> 0 `i `uc
+"147
+-> -> 0 `i `uc
+"148
+-> -> 0 `i `uc
+"149
+-> -> 0 `i `uc
+"150
+-> -> 0 `i `uc
+"151
+-> -> 0 `i `uc
+"152
+-> -> 0 `i `uc
+"153
+-> -> 0 `i `uc
+"154
+-> -> 0 `i `uc
+"155
+-> -> 0 `i `uc
+"156
+-> -> 0 `i `uc
+"157
+-> -> 0 `i `uc
+"158
+-> -> 0 `i `uc
+"159
+-> -> 0 `i `uc
+"160
+-> -> 0 `i `uc
+"161
+-> -> 0 `i `uc
+"162
+-> -> 0 `i `uc
+"163
+-> -> 0 `i `uc
+"164
+-> -> 0 `i `uc
+"168
+-> -> 0 `i `uc
+..
+]"170
+[v _NordicReg2BLUE `Tuc -> 64 `i e ]
+[i _NordicReg2BLUE
+:U ..
+"172
+-> -> 0 `i `uc
+"173
+-> -> 81 `i `uc
+"174
+-> -> 0 `i `uc
+"175
+-> -> 0 `i `uc
+"176
+-> -> 0 `i `uc
+"177
+-> -> 0 `i `uc
+"178
+-> -> 0 `i `uc
+"179
+-> -> 0 `i `uc
+"180
+-> -> 0 `i `uc
+"181
+-> -> 0 `i `uc
+"182
+-> -> 0 `i `uc
+"183
+-> -> 0 `i `uc
+"184
+-> -> 31 `i `uc
+"185
+-> -> 59 `i `uc
+"186
+-> -> 17 `i `uc
+"187
+-> -> 4 `i `uc
+"188
+-> -> 45 `i `uc
+"189
+-> -> 73 `i `uc
+"190
+-> -> 0 `i `uc
+"191
+-> -> 0 `i `uc
+"192
+-> -> 0 `i `uc
+"193
+-> -> 0 `i `uc
+"194
+-> -> 0 `i `uc
+"195
+-> -> 0 `i `uc
+"196
+-> -> 0 `i `uc
+"197
+-> -> 0 `i `uc
+"198
+-> -> 0 `i `uc
+"199
+-> -> 0 `i `uc
+"200
+-> -> 0 `i `uc
+"201
+-> -> 0 `i `uc
+"202
+-> -> 0 `i `uc
+"203
+-> -> 0 `i `uc
+"204
+-> -> 0 `i `uc
+"205
+-> -> 0 `i `uc
+"206
+-> -> 0 `i `uc
+"207
+-> -> 0 `i `uc
+"208
+-> -> 0 `i `uc
+"209
+-> -> 0 `i `uc
+"210
+-> -> 0 `i `uc
+"211
+-> -> 0 `i `uc
+"212
+-> -> 0 `i `uc
+"213
+-> -> 0 `i `uc
+"214
+-> -> 0 `i `uc
+"215
+-> -> 0 `i `uc
+"216
+-> -> 0 `i `uc
+"217
+-> -> 0 `i `uc
+"218
+-> -> 0 `i `uc
+"219
+-> -> 0 `i `uc
+"220
+-> -> 0 `i `uc
+"221
+-> -> 0 `i `uc
+"222
+-> -> 0 `i `uc
+"223
+-> -> 2 `i `uc
+"224
+-> -> 6 `i `uc
+"225
+-> -> 3 `i `uc
+"226
+-> -> 0 `i `uc
+"227
+-> -> 0 `i `uc
+"228
+-> -> 0 `i `uc
+"229
+-> -> 171 `i `uc
+"230
+-> -> 49 `i `uc
+"231
+-> -> 62 `i `uc
+"232
+-> -> 63 `i `uc
+"233
+-> -> 58 `i `uc
+"234
+-> -> 0 `i `uc
+"235
+-> -> 0 `i `uc
+..
+]"238
+[v _NordicReg2BLUEA `Tuc -> 64 `i e ]
+[i _NordicReg2BLUEA
+:U ..
+"240
+-> -> 0 `i `uc
+"241
+-> -> 0 `i `uc
+"242
+-> -> 0 `i `uc
+"243
+-> -> 0 `i `uc
+"244
+-> -> 0 `i `uc
+"245
+-> -> 0 `i `uc
+"246
+-> -> 0 `i `uc
+"247
+-> -> 0 `i `uc
+"248
+-> -> 0 `i `uc
+"249
+-> -> 3 `i `uc
+"250
+-> -> 0 `i `uc
+"251
+-> -> 0 `i `uc
+"252
+-> -> 0 `i `uc
+"253
+-> -> 0 `i `uc
+"254
+-> -> 0 `i `uc
+"255
+-> -> 0 `i `uc
+"256
+-> -> 0 `i `uc
+"257
+-> -> 0 `i `uc
+"258
+-> -> 6 `i `uc
+"259
+-> -> 0 `i `uc
+"260
+-> -> 0 `i `uc
+"261
+-> -> 0 `i `uc
+"262
+-> -> 3 `i `uc
+"263
+-> -> 0 `i `uc
+"264
+-> -> 0 `i `uc
+"265
+-> -> 0 `i `uc
+"266
+-> -> 0 `i `uc
+"267
+-> -> 0 `i `uc
+"268
+-> -> 0 `i `uc
+"269
+-> -> 0 `i `uc
+"270
+-> -> 0 `i `uc
+"271
+-> -> 0 `i `uc
+"272
+-> -> 0 `i `uc
+"273
+-> -> 0 `i `uc
+"274
+-> -> 0 `i `uc
+"275
+-> -> 0 `i `uc
+"276
+-> -> 0 `i `uc
+"277
+-> -> 0 `i `uc
+"278
+-> -> 0 `i `uc
+"279
+-> -> 0 `i `uc
+"280
+-> -> 0 `i `uc
+"281
+-> -> 0 `i `uc
+"282
+-> -> 0 `i `uc
+"283
+-> -> 0 `i `uc
+"284
+-> -> 0 `i `uc
+"285
+-> -> 0 `i `uc
+"286
+-> -> 0 `i `uc
+"287
+-> -> 0 `i `uc
+"288
+-> -> 0 `i `uc
+"289
+-> -> 0 `i `uc
+"290
+-> -> 0 `i `uc
+"291
+-> -> 0 `i `uc
+"292
+-> -> 0 `i `uc
+"293
+-> -> 0 `i `uc
+"294
+-> -> 0 `i `uc
+"295
+-> -> 0 `i `uc
+"296
+-> -> 0 `i `uc
+"297
+-> -> 0 `i `uc
+"298
+-> -> 0 `i `uc
+"299
+-> -> 0 `i `uc
+"300
+-> -> 0 `i `uc
+"301
+-> -> 0 `i `uc
+"302
+-> -> 0 `i `uc
+"305
+-> -> 0 `i `uc
+..
+]"314
+[v _main `(v 1 e ]
+[p mainexit ]
+{
+[e :U _main ]
+[f ]
+[; ;main.c: 313: void main(void)
+[; ;main.c: 314: {
+[; ;main.c: 316: setup_ports();
+"316
+[v _setup_ports `(v 0 ef ]
+[e ( _setup_ports ..  ]
+[; ;main.c: 317: RC4=0;
+"317
+[e = _RC4 -> -> 0 `i `b ]
+[; ;main.c: 318: RC5=0;
+"318
+[e = _RC5 -> -> 0 `i `b ]
+[; ;main.c: 320: RC0=0;
+"320
+[e = _RC0 -> -> 0 `i `b ]
+[; ;main.c: 321: delay_us(500);
+"321
+[v _delay_us `(v 0 ef1`uc ]
+[e ( _delay_us (1 -> -> 500 `i `uc ]
+[; ;main.c: 322: delay_ms(100);
+"322
+[v _delay_ms `(v 0 ef1`uc ]
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 323: delay_ms(100);
+"323
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 324: delay_ms(100);
+"324
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 325: delay_ms(100);
+"325
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 326: delay_ms(100);
+"326
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 327: delay_ms(100);
+"327
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 328: delay_ms(100);
+"328
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 329: delay_ms(100);
+"329
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 331: N_ADDR=0xD2;
+"331
+[v _N_ADDR `uc 0 e ]
+[e = _N_ADDR -> -> 210 `i `uc ]
+[; ;main.c: 332: Nordic_Wakeup();
+"332
+[v _Nordic_Wakeup `(v 0 ef ]
+[e ( _Nordic_Wakeup ..  ]
+[; ;main.c: 334: N_ADDR=0x52;
+"334
+[e = _N_ADDR -> -> 82 `i `uc ]
+[; ;main.c: 335: Nordic_Wakeup2();
+"335
+[v _Nordic_Wakeup2 `(v 0 ef ]
+[e ( _Nordic_Wakeup2 ..  ]
+[; ;main.c: 337: RA2=0;
+"337
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 338: RA4=0;
+"338
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 340: delay_ms(100);
+"340
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 342: while(1)
+"342
+[e :U 3 ]
+[; ;main.c: 343: {
+[; ;main.c: 344: N_ADDR=0xD2;
+"344
+[e = _N_ADDR -> -> 210 `i `uc ]
+[; ;main.c: 345: if(!(Nordic_Read(0x03)&0x01))
+"345
+[v _Nordic_Read `(uc 0 ef1`uc ]
+[e $ ! ! != & -> ( _Nordic_Read (1 -> -> 3 `i `uc `i -> 1 `i -> 0 `i 5 ]
+[; ;main.c: 346: {
+[; ;main.c: 347: RA4=1;
+"347
+[e = _RA4 -> -> 1 `i `b ]
+[; ;main.c: 348: delay_ms(255);
+"348
+[e ( _delay_ms (1 -> -> 255 `i `uc ]
+[; ;main.c: 349: RA4=0;
+"349
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 350: delay_ms(255);
+"350
+[e ( _delay_ms (1 -> -> 255 `i `uc ]
+"351
+[; ;main.c: 351: }
+[e $U 6 ]
+"352
+[e :U 5 ]
+[; ;main.c: 352: else
+[; ;main.c: 353: {
+[; ;main.c: 354: RA4=1;
+"354
+[e = _RA4 -> -> 1 `i `b ]
+"355
+[e :U 6 ]
+[; ;main.c: 355: }
+[; ;main.c: 358: N_ADDR=0x52;
+"358
+[e = _N_ADDR -> -> 82 `i `uc ]
+[; ;main.c: 359: if(!(Nordic_Read(0x03)&0x01))
+"359
+[e $ ! ! != & -> ( _Nordic_Read (1 -> -> 3 `i `uc `i -> 1 `i -> 0 `i 7 ]
+[; ;main.c: 360: {
+[; ;main.c: 361: RA2=1;
+"361
+[e = _RA2 -> -> 1 `i `b ]
+[; ;main.c: 362: delay_ms(255);
+"362
+[e ( _delay_ms (1 -> -> 255 `i `uc ]
+[; ;main.c: 363: RA2=0;
+"363
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 364: delay_ms(255);
+"364
+[e ( _delay_ms (1 -> -> 255 `i `uc ]
+"365
+[; ;main.c: 365: }
+[e $U 8 ]
+"366
+[e :U 7 ]
+[; ;main.c: 366: else
+[; ;main.c: 367: {
+[; ;main.c: 368: RA2=1;
+"368
+[e = _RA2 -> -> 1 `i `b ]
+"369
+[e :U 8 ]
+[; ;main.c: 369: }
+[; ;main.c: 370: delay_ms(255);
+"370
+[e ( _delay_ms (1 -> -> 255 `i `uc ]
+[; ;main.c: 374: if (!RA5)
+"374
+[e $ ! ! _RA5 9 ]
+[; ;main.c: 375: {
+[; ;main.c: 376: delay_ms(255);
+"376
+[e ( _delay_ms (1 -> -> 255 `i `uc ]
+[; ;main.c: 377: delay_ms(255);
+"377
+[e ( _delay_ms (1 -> -> 255 `i `uc ]
+[; ;main.c: 378: delay_ms(255);
+"378
+[e ( _delay_ms (1 -> -> 255 `i `uc ]
+[; ;main.c: 379: if (!RA5)
+"379
+[e $ ! ! _RA5 10 ]
+[; ;main.c: 380: {
+[; ;main.c: 381: RC4=1;RC5=1;
+"381
+[e = _RC4 -> -> 1 `i `b ]
+[e = _RC5 -> -> 1 `i `b ]
+[; ;main.c: 383: while(!RA5)
+"383
+[e $U 11 ]
+[e :U 12 ]
+[; ;main.c: 384: {
+[; ;main.c: 385: RA2=1;
+"385
+[e = _RA2 -> -> 1 `i `b ]
+[; ;main.c: 386: RA4=1;
+"386
+[e = _RA4 -> -> 1 `i `b ]
+[; ;main.c: 387: delay_ms(100);
+"387
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 388: RA2=0;
+"388
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 389: RA4=0;
+"389
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 390: delay_ms(100);
+"390
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+"391
+[e :U 11 ]
+"383
+[e $ ! _RA5 12 ]
+[e :U 13 ]
+[; ;main.c: 391: }
+[; ;main.c: 393: N_ADDR=0xD2;
+"393
+[e = _N_ADDR -> -> 210 `i `uc ]
+[; ;main.c: 394: Nordic_Send(0x39, 0x00);
+"394
+[v _Nordic_Send `(v 0 ef2`uc`uc ]
+[e ( _Nordic_Send (2 , -> -> 57 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 395: Nordic_Send(0x3A, 0x1A);
+"395
+[e ( _Nordic_Send (2 , -> -> 58 `i `uc -> -> 26 `i `uc ]
+[; ;main.c: 396: Nordic_Send(0x3B, 0x2B);
+"396
+[e ( _Nordic_Send (2 , -> -> 59 `i `uc -> -> 43 `i `uc ]
+[; ;main.c: 397: Nordic_Send(0x3C, 0x3C);
+"397
+[e ( _Nordic_Send (2 , -> -> 60 `i `uc -> -> 60 `i `uc ]
+[; ;main.c: 398: Nordic_Send(0x3D, 0x4D);
+"398
+[e ( _Nordic_Send (2 , -> -> 61 `i `uc -> -> 77 `i `uc ]
+[; ;main.c: 399: Nordic_Send(0x36, 0x10);
+"399
+[e ( _Nordic_Send (2 , -> -> 54 `i `uc -> -> 16 `i `uc ]
+[; ;main.c: 401: N_ADDR=0x52;
+"401
+[e = _N_ADDR -> -> 82 `i `uc ]
+[; ;main.c: 402: Nordic_Send(0x39, 0x5D);
+"402
+[e ( _Nordic_Send (2 , -> -> 57 `i `uc -> -> 93 `i `uc ]
+[; ;main.c: 403: Nordic_Send(0x3A, 0x6C);
+"403
+[e ( _Nordic_Send (2 , -> -> 58 `i `uc -> -> 108 `i `uc ]
+[; ;main.c: 404: Nordic_Send(0x3B, 0x7B);
+"404
+[e ( _Nordic_Send (2 , -> -> 59 `i `uc -> -> 123 `i `uc ]
+[; ;main.c: 405: Nordic_Send(0x3C, 0x8A);
+"405
+[e ( _Nordic_Send (2 , -> -> 60 `i `uc -> -> 138 `i `uc ]
+[; ;main.c: 406: Nordic_Send(0x3D, 0x90);
+"406
+[e ( _Nordic_Send (2 , -> -> 61 `i `uc -> -> 144 `i `uc ]
+[; ;main.c: 407: Nordic_Send(0x36, 0x10);
+"407
+[e ( _Nordic_Send (2 , -> -> 54 `i `uc -> -> 16 `i `uc ]
+[; ;main.c: 411: while ((red_address_changed == 0) && (blue_address_changed == 0) && (timeout !=1 ))
+"411
+[e $U 14 ]
+[e :U 15 ]
+[; ;main.c: 412: {
+[; ;main.c: 413: N_ADDR=0xD2;
+"413
+[e = _N_ADDR -> -> 210 `i `uc ]
+[; ;main.c: 414: if (Nordic_Read(0x39)!=0x00)
+"414
+[e $ ! != -> ( _Nordic_Read (1 -> -> 57 `i `uc `i -> 0 `i 17 ]
+[; ;main.c: 415: red_address_changed=1;
+"415
+[e = _red_address_changed -> -> 1 `i `ui ]
+[e :U 17 ]
+[; ;main.c: 416: if (Nordic_Read(0x3A)!=0x1A)
+"416
+[e $ ! != -> ( _Nordic_Read (1 -> -> 58 `i `uc `i -> 26 `i 18 ]
+[; ;main.c: 417: red_address_changed=1;
+"417
+[e = _red_address_changed -> -> 1 `i `ui ]
+[e :U 18 ]
+[; ;main.c: 418: if (Nordic_Read(0x3B)!=0x2B)
+"418
+[e $ ! != -> ( _Nordic_Read (1 -> -> 59 `i `uc `i -> 43 `i 19 ]
+[; ;main.c: 419: red_address_changed=1;
+"419
+[e = _red_address_changed -> -> 1 `i `ui ]
+[e :U 19 ]
+[; ;main.c: 420: if (Nordic_Read(0x3C)!=0x3C)
+"420
+[e $ ! != -> ( _Nordic_Read (1 -> -> 60 `i `uc `i -> 60 `i 20 ]
+[; ;main.c: 421: red_address_changed=1;
+"421
+[e = _red_address_changed -> -> 1 `i `ui ]
+[e :U 20 ]
+[; ;main.c: 422: if (Nordic_Read(0x3D)!=0x4D)
+"422
+[e $ ! != -> ( _Nordic_Read (1 -> -> 61 `i `uc `i -> 77 `i 21 ]
+[; ;main.c: 423: red_address_changed=1;
+"423
+[e = _red_address_changed -> -> 1 `i `ui ]
+[e :U 21 ]
+[; ;main.c: 425: N_ADDR=0x52;
+"425
+[e = _N_ADDR -> -> 82 `i `uc ]
+[; ;main.c: 426: if (Nordic_Read(0x39)!=0x5D)
+"426
+[e $ ! != -> ( _Nordic_Read (1 -> -> 57 `i `uc `i -> 93 `i 22 ]
+[; ;main.c: 427: blue_address_changed=1;
+"427
+[e = _blue_address_changed -> -> 1 `i `ui ]
+[e :U 22 ]
+[; ;main.c: 428: if (Nordic_Read(0x3A)!=0x6C)
+"428
+[e $ ! != -> ( _Nordic_Read (1 -> -> 58 `i `uc `i -> 108 `i 23 ]
+[; ;main.c: 429: blue_address_changed=1;
+"429
+[e = _blue_address_changed -> -> 1 `i `ui ]
+[e :U 23 ]
+[; ;main.c: 430: if (Nordic_Read(0x3B)!=0x7B)
+"430
+[e $ ! != -> ( _Nordic_Read (1 -> -> 59 `i `uc `i -> 123 `i 24 ]
+[; ;main.c: 431: blue_address_changed=1;
+"431
+[e = _blue_address_changed -> -> 1 `i `ui ]
+[e :U 24 ]
+[; ;main.c: 432: if (Nordic_Read(0x3C)!=0x8A)
+"432
+[e $ ! != -> ( _Nordic_Read (1 -> -> 60 `i `uc `i -> 138 `i 25 ]
+[; ;main.c: 433: blue_address_changed=1;
+"433
+[e = _blue_address_changed -> -> 1 `i `ui ]
+[e :U 25 ]
+[; ;main.c: 434: if (Nordic_Read(0x3D)!=0x90)
+"434
+[e $ ! != -> ( _Nordic_Read (1 -> -> 61 `i `uc `i -> 144 `i 26 ]
+[; ;main.c: 435: blue_address_changed=1;
+"435
+[e = _blue_address_changed -> -> 1 `i `ui ]
+[e :U 26 ]
+[; ;main.c: 437: i++;
+"437
+[e ++ _i -> -> 1 `i `ui ]
+[; ;main.c: 438: if (i==60)
+"438
+[e $ ! == _i -> -> 60 `i `ui 27 ]
+[; ;main.c: 439: {
+[; ;main.c: 440: timeout=1;
+"440
+[e = _timeout -> -> 1 `i `ui ]
+[; ;main.c: 441: i=0;
+"441
+[e = _i -> -> 0 `i `ui ]
+"442
+[e :U 27 ]
+[; ;main.c: 442: }
+[; ;main.c: 444: RA2=1;
+"444
+[e = _RA2 -> -> 1 `i `b ]
+[; ;main.c: 445: RA4=1;
+"445
+[e = _RA4 -> -> 1 `i `b ]
+[; ;main.c: 446: delay_ms(100);
+"446
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 447: RA2=0;
+"447
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 448: RA4=0;
+"448
+[e = _RA4 -> -> 0 `i `b ]
+[; ;main.c: 449: delay_ms(100);
+"449
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+"450
+[e :U 14 ]
+"411
+[e $ && && == _red_address_changed -> -> 0 `i `ui == _blue_address_changed -> -> 0 `i `ui != _timeout -> -> 1 `i `ui 15 ]
+[e :U 16 ]
+[; ;main.c: 450: }
+[; ;main.c: 452: if (timeout != 1)
+"452
+[e $ ! != _timeout -> -> 1 `i `ui 28 ]
+[; ;main.c: 453: {
+[; ;main.c: 454: for (i=0;i<5;i++)
+"454
+[e = _i -> -> 0 `i `ui ]
+[e $U 32 ]
+"455
+[e :U 29 ]
+[; ;main.c: 455: delay_ms(255);
+[e ( _delay_ms (1 -> -> 255 `i `uc ]
+"454
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 32 ]
+[e $ < _i -> -> 5 `i `ui 29 ]
+[e :U 30 ]
+[; ;main.c: 457: for (i=0;i<5;i++)
+"457
+[e = _i -> -> 0 `i `ui ]
+[e $U 36 ]
+"458
+[e :U 33 ]
+[; ;main.c: 458: {
+[; ;main.c: 459: N_ADDR=0xD2;
+"459
+[e = _N_ADDR -> -> 210 `i `uc ]
+[; ;main.c: 460: delay_ms(10);
+"460
+[e ( _delay_ms (1 -> -> 10 `i `uc ]
+[; ;main.c: 461: if (red_address_changed==1)
+"461
+[e $ ! == _red_address_changed -> -> 1 `i `ui 37 ]
+[; ;main.c: 462: {
+[; ;main.c: 463: data=Nordic_Read(0x39+i);
+"463
+[e = _data -> ( _Nordic_Read (1 -> + -> -> 57 `i `ui _i `uc `ui ]
+[; ;main.c: 464: EEpromWrite(0x39+i,Nordic_Read(0x39+i));
+"464
+[v _EEpromWrite `(v 0 ef2`uc`uc ]
+[e ( _EEpromWrite (2 , -> + -> -> 57 `i `ui _i `uc ( _Nordic_Read (1 -> + -> -> 57 `i `ui _i `uc ]
+"465
+[; ;main.c: 465: }
+[e $U 38 ]
+"466
+[e :U 37 ]
+[; ;main.c: 466: else
+[; ;main.c: 467: {
+[; ;main.c: 468: data=EEpromRead(0x39+i);
+"468
+[v _EEpromRead `(uc 0 ef1`uc ]
+[e = _data -> ( _EEpromRead (1 -> + -> -> 57 `i `ui _i `uc `ui ]
+[; ;main.c: 469: Nordic_Readback(0x39+i,data);
+"469
+[v _Nordic_Readback `(uc 0 ef2`uc`uc ]
+[e ( _Nordic_Readback (2 , -> + -> -> 57 `i `ui _i `uc -> _data `uc ]
+"472
+[e :U 38 ]
+[; ;main.c: 472: }
+[; ;main.c: 474: N_ADDR=0x52;
+"474
+[e = _N_ADDR -> -> 82 `i `uc ]
+[; ;main.c: 475: delay_ms(10);
+"475
+[e ( _delay_ms (1 -> -> 10 `i `uc ]
+[; ;main.c: 476: if (blue_address_changed==1)
+"476
+[e $ ! == _blue_address_changed -> -> 1 `i `ui 39 ]
+[; ;main.c: 477: {
+[; ;main.c: 478: data=Nordic_Read(0x39+i);
+"478
+[e = _data -> ( _Nordic_Read (1 -> + -> -> 57 `i `ui _i `uc `ui ]
+[; ;main.c: 479: EEpromWrite((0x39+128)+i,Nordic_Read(0x39+i));
+"479
+[e ( _EEpromWrite (2 , -> + -> + -> 57 `i -> 128 `i `ui _i `uc ( _Nordic_Read (1 -> + -> -> 57 `i `ui _i `uc ]
+"480
+[; ;main.c: 480: }
+[e $U 40 ]
+"481
+[e :U 39 ]
+[; ;main.c: 481: else
+[; ;main.c: 482: {
+[; ;main.c: 483: data=EEpromRead((0x39+128)+i);
+"483
+[e = _data -> ( _EEpromRead (1 -> + -> + -> 57 `i -> 128 `i `ui _i `uc `ui ]
+[; ;main.c: 484: Nordic_Readback(0x39+i, data);
+"484
+[e ( _Nordic_Readback (2 , -> + -> -> 57 `i `ui _i `uc -> _data `uc ]
+"486
+[e :U 40 ]
+[; ;main.c: 486: }
+[; ;main.c: 488: delay_ms(50);
+"488
+[e ( _delay_ms (1 -> -> 50 `i `uc ]
+"457
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 36 ]
+[e $ < _i -> -> 5 `i `ui 33 ]
+[e :U 34 ]
+[; ;main.c: 489: }
+[; ;main.c: 490: if (red_address_changed==0)
+"490
+[e $ ! == _red_address_changed -> -> 0 `i `ui 41 ]
+[; ;main.c: 491: {
+[; ;main.c: 492: N_ADDR=0xD2;
+"492
+[e = _N_ADDR -> -> 210 `i `uc ]
+[; ;main.c: 493: Nordic_Send(0x36, 0x10);
+"493
+[e ( _Nordic_Send (2 , -> -> 54 `i `uc -> -> 16 `i `uc ]
+[; ;main.c: 494: RC0=0;
+"494
+[e = _RC0 -> -> 0 `i `b ]
+[; ;main.c: 496: delay_ms(100);
+"496
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 497: delay_ms(100);
+"497
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 498: delay_ms(100);
+"498
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 501: N_ADDR=0xD2;
+"501
+[e = _N_ADDR -> -> 210 `i `uc ]
+[; ;main.c: 502: Nordic_Wakeup();
+"502
+[e ( _Nordic_Wakeup ..  ]
+"505
+[e :U 41 ]
+[; ;main.c: 505: }
+[; ;main.c: 506: if (blue_address_changed==0)
+"506
+[e $ ! == _blue_address_changed -> -> 0 `i `ui 42 ]
+[; ;main.c: 507: {
+[; ;main.c: 508: N_ADDR=0x52;
+"508
+[e = _N_ADDR -> -> 82 `i `uc ]
+[; ;main.c: 509: Nordic_Send(0x36, 0x10);
+"509
+[e ( _Nordic_Send (2 , -> -> 54 `i `uc -> -> 16 `i `uc ]
+[; ;main.c: 510: RC0=0;
+"510
+[e = _RC0 -> -> 0 `i `b ]
+[; ;main.c: 512: delay_ms(100);
+"512
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 513: delay_ms(100);
+"513
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 514: delay_ms(100);
+"514
+[e ( _delay_ms (1 -> -> 100 `i `uc ]
+[; ;main.c: 517: N_ADDR=0x52;
+"517
+[e = _N_ADDR -> -> 82 `i `uc ]
+[; ;main.c: 518: Nordic_Wakeup2();
+"518
+[e ( _Nordic_Wakeup2 ..  ]
+"520
+[e :U 42 ]
+"521
+[e :U 28 ]
+[; ;main.c: 520: }
+[; ;main.c: 521: }
+[; ;main.c: 538: timeout=0;
+"538
+[e = _timeout -> -> 0 `i `ui ]
+[; ;main.c: 539: i=0;
+"539
+[e = _i -> -> 0 `i `ui ]
+[; ;main.c: 540: red_address_changed=0;
+"540
+[e = _red_address_changed -> -> 0 `i `ui ]
+[; ;main.c: 541: blue_address_changed=0;
+"541
+[e = _blue_address_changed -> -> 0 `i `ui ]
+[; ;main.c: 542: RC4=0;RC5=0;
+"542
+[e = _RC4 -> -> 0 `i `b ]
+[e = _RC5 -> -> 0 `i `b ]
+[; ;main.c: 543: delay_ms(255);
+"543
+[e ( _delay_ms (1 -> -> 255 `i `uc ]
+"544
+[e :U 10 ]
+"545
+[e :U 9 ]
+"546
+[e :U 2 ]
+"342
+[e $U 3 ]
+[e :U 4 ]
+"547
+[; ;main.c: 544: }
+[; ;main.c: 545: }
+[; ;main.c: 546: }
+[; ;main.c: 547: }
+[e :UE 1 ]
+}
+"550
+[v _delay_us `(v 1 ef1`uc ]
+{
+[v _time `uc 1 r1 ]
+[e :U _delay_us ]
+[f ]
+[; ;main.c: 549: void delay_us(BYTE time)
+[; ;main.c: 550: {
+[; ;main.c: 551: while ( time )
+"551
+[e $U 44 ]
+[e :U 45 ]
+[; ;main.c: 552: {
+[; ;main.c: 553: time--;
+"553
+[e -- _time -> -> 1 `i `uc ]
+"554
+[e :U 44 ]
+"551
+[e $ != -> _time `i -> -> -> 0 `i `uc `i 45 ]
+[e :U 46 ]
+"555
+[; ;main.c: 554: }
+[; ;main.c: 555: }
+[e :UE 43 ]
+}
+"557
+[v _delay_ms `(v 1 ef1`uc ]
+{
+[v _time `uc 1 r1 ]
+[e :U _delay_ms ]
+[f ]
+[; ;main.c: 556: void delay_ms(BYTE time)
+[; ;main.c: 557: {
+"558
+[v _temp `uc 1 a ]
+[; ;main.c: 558: BYTE temp=20;
+[e = _temp -> -> 20 `i `uc ]
+"559
+[v _temp2 `uc 1 a ]
+[; ;main.c: 559: BYTE temp2=19;
+[e = _temp2 -> -> 19 `i `uc ]
+[; ;main.c: 561: while ( time )
+"561
+[e $U 48 ]
+[e :U 49 ]
+[; ;main.c: 562: {
+[; ;main.c: 563: while (temp2 )
+"563
+[e $U 51 ]
+[e :U 52 ]
+[; ;main.c: 564: {
+[; ;main.c: 565: while ( temp )
+"565
+[e $U 54 ]
+[e :U 55 ]
+[; ;main.c: 566: {
+[; ;main.c: 567: temp--;
+"567
+[e -- _temp -> -> 1 `i `uc ]
+"568
+[e :U 54 ]
+"565
+[e $ != -> _temp `i -> -> -> 0 `i `uc `i 55 ]
+[e :U 56 ]
+[; ;main.c: 568: }
+[; ;main.c: 569: temp2--;
+"569
+[e -- _temp2 -> -> 1 `i `uc ]
+[; ;main.c: 570: temp=20;
+"570
+[e = _temp -> -> 20 `i `uc ]
+"571
+[e :U 51 ]
+"563
+[e $ != -> _temp2 `i -> -> -> 0 `i `uc `i 52 ]
+[e :U 53 ]
+[; ;main.c: 571: }
+[; ;main.c: 572: temp2=19;
+"572
+[e = _temp2 -> -> 19 `i `uc ]
+[; ;main.c: 573: time--;
+"573
+[e -- _time -> -> 1 `i `uc ]
+"574
+[e :U 48 ]
+"561
+[e $ != -> _time `i -> -> -> 0 `i `uc `i 49 ]
+[e :U 50 ]
+"575
+[; ;main.c: 574: }
+[; ;main.c: 575: }
+[e :UE 47 ]
+}
+"578
+[v _EEpromRead `(uc 1 ef1`uc ]
+{
+[v _address `uc 1 r1 ]
+[e :U _EEpromRead ]
+[f ]
+[; ;main.c: 577: BYTE EEpromRead(BYTE address)
+[; ;main.c: 578: {
+[; ;main.c: 581: EEADR=address;
+"581
+[e = _EEADR _address ]
+[; ;main.c: 582: RD=1;
+"582
+[e = _RD -> -> 1 `i `b ]
+[; ;main.c: 583: return (EEDAT);
+"583
+[e ) _EEDAT ]
+[e $UE 57 ]
+"585
+[; ;main.c: 585: }
+[e :UE 57 ]
+}
+"588
+[v _EEpromWrite `(v 1 ef2`uc`uc ]
+{
+[v _address `uc 1 r1 ]
+[v _value `uc 1 r2 ]
+[e :U _EEpromWrite ]
+[f ]
+[; ;main.c: 587: void EEpromWrite(BYTE address, BYTE value)
+[; ;main.c: 588: {
+[; ;main.c: 589: EEADR=address;
+"589
+[e = _EEADR _address ]
+[; ;main.c: 590: EEDAT=value;
+"590
+[e = _EEDAT _value ]
+[; ;main.c: 597: WREN=1;
+"597
+[e = _WREN -> -> 1 `i `b ]
+[; ;main.c: 598: GIE=0;
+"598
+[e = _GIE -> -> 0 `i `b ]
+[; ;main.c: 599: EECON2=0x55;
+"599
+[e = _EECON2 -> -> 85 `i `uc ]
+[; ;main.c: 600: EECON2=0xAA;
+"600
+[e = _EECON2 -> -> 170 `i `uc ]
+[; ;main.c: 601: WR=1;
+"601
+[e = _WR -> -> 1 `i `b ]
+[; ;main.c: 602: GIE=1;
+"602
+[e = _GIE -> -> 1 `i `b ]
+[; ;main.c: 603: WREN=0;
+"603
+[e = _WREN -> -> 0 `i `b ]
+"604
+[; ;main.c: 604: }
+[e :UE 58 ]
+}
+"609
+[v _setup_ports `(v 1 ef ]
+{
+[e :U _setup_ports ]
+[f ]
+[; ;main.c: 608: void setup_ports(void)
+[; ;main.c: 609: {
+[; ;main.c: 610: OSCCON = 0x71;
+"610
+[e = _OSCCON -> -> 113 `i `uc ]
+[; ;main.c: 611: ANSEL = 0;
+"611
+[e = _ANSEL -> -> 0 `i `uc ]
+[; ;main.c: 612: CMCON0=7;
+"612
+[e = _CMCON0 -> -> 7 `i `uc ]
+[; ;main.c: 613: CMCON1=0;
+"613
+[e = _CMCON1 -> -> 0 `i `uc ]
+[; ;main.c: 614: ADON=0;
+"614
+[e = _ADON -> -> 0 `i `b ]
+[; ;main.c: 616: TRISA=0x20;
+"616
+[e = _TRISA -> -> 32 `i `uc ]
+[; ;main.c: 617: TRISC=0x02;
+"617
+[e = _TRISC -> -> 2 `i `uc ]
+[; ;main.c: 618: PORTA=0x00;
+"618
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;main.c: 619: PORTC=0x00;
+"619
+[e = _PORTC -> -> 0 `i `uc ]
+"621
+[; ;main.c: 621: }
+[e :UE 59 ]
+}

@@ -1,0 +1,96 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"28 C:\Projects\Nordic\dual wireless mic ref design\clean source code\TX\types.h
+[v _WORD `us 1 t ]
+"29
+[v _BYTE `uc 1 t ]
+"30
+[v _DWORD `ul 1 t ]
+"31
+[v _STRING `*uc 1 t ]
+"32
+[v _SBYTE `c 1 t ]
+"37
+[v _bool `uc 1 t ]
+[c E7
+"38
+0
+1
+.. ]
+[n E7 . false true ]
+[c E10
+"39
+0
+1
+.. ]
+[n E10 . FALSE TRUE ]
+"45
+[v F14 `(v 1 tf ]
+[v _VoidFunction `*F14 1 t ]
+"17 C:\Projects\Nordic\dual wireless mic ref design\clean source code\TX\delay.c
+[v _delay_ms `(v 1 ef1`uc ]
+{
+[v _time `uc 1 r1 ]
+[e :U _delay_ms ]
+[f ]
+[; ;delay.c: 16: void delay_ms(BYTE time)
+[; ;delay.c: 17: {
+"18
+[v _temp `uc 1 a ]
+[; ;delay.c: 18: BYTE temp=50;
+[e = _temp -> -> 50 `i `uc ]
+"19
+[v _temp2 `uc 1 a ]
+[; ;delay.c: 19: BYTE temp2=16;
+[e = _temp2 -> -> 16 `i `uc ]
+[; ;delay.c: 21: while ( time )
+"21
+[e $U 2 ]
+[e :U 3 ]
+[; ;delay.c: 22: {
+[; ;delay.c: 23: while (temp2 )
+"23
+[e $U 5 ]
+[e :U 6 ]
+[; ;delay.c: 24: {
+[; ;delay.c: 25: while ( temp )
+"25
+[e $U 8 ]
+[e :U 9 ]
+[; ;delay.c: 26: {
+[; ;delay.c: 27: temp--;
+"27
+[e -- _temp -> -> 1 `i `uc ]
+"28
+[e :U 8 ]
+"25
+[e $ != -> _temp `i -> -> -> 0 `i `uc `i 9 ]
+[e :U 10 ]
+[; ;delay.c: 28: }
+[; ;delay.c: 29: temp2--;
+"29
+[e -- _temp2 -> -> 1 `i `uc ]
+[; ;delay.c: 30: temp=50;
+"30
+[e = _temp -> -> 50 `i `uc ]
+"31
+[e :U 5 ]
+"23
+[e $ != -> _temp2 `i -> -> -> 0 `i `uc `i 6 ]
+[e :U 7 ]
+[; ;delay.c: 31: }
+[; ;delay.c: 32: temp2=8;
+"32
+[e = _temp2 -> -> 8 `i `uc ]
+[; ;delay.c: 33: time--;
+"33
+[e -- _time -> -> 1 `i `uc ]
+"34
+[e :U 2 ]
+"21
+[e $ != -> _time `i -> -> -> 0 `i `uc `i 3 ]
+[e :U 4 ]
+"35
+[; ;delay.c: 34: }
+[; ;delay.c: 35: }
+[e :UE 1 ]
+}

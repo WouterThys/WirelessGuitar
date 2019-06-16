@@ -1,0 +1,392 @@
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL3 build 3862 
+                                                      Mon Oct 10 13:15:24 2011
+
+HI-TECH Software Code Generator build 3862
+     1                           	processor	16F684
+     2                           	opt	pw 79
+     3                           	psect	text0,local,class=CODE,delta=2
+     4                           	psect	text1,local,class=CODE,delta=2
+     5  0000                     
+     6  0000                     
+     7  0000                     
+     8  0000                     
+     9  0000                     
+    10  0000                     
+    11  0000                     
+    12  0000                     
+    13  0000                     
+    14  0000                     
+    15  0000                     
+    16                           
+    17                           	psect	text0
+    18  0283                     _AKM_Constructor
+    19                           ;	_address assigned to ?a_AKM_Constructor+0
+    20  0000                     _AKM_Constructor$address	set	?a_AKM_Constructor
+    21                           ;AKMmanager.c: 19: void AKM_Constructor(void)
+    22  0283  1283               	bcf	3,5
+    23  0284  1485               	bsf	5,1
+    24                           ;AKMmanager.c: 23: address=(0x10+0xA0);
+    25  0285  30B0               	movlw	-80
+    26  0286  00B2               	movwf	?a_AKM_Constructor
+    27                           ;AKMmanager.c: 24: SPI_Send(address,0x07,AKM_TA
+      +                          RGET);
+    28  0287  3007               	movlw	7
+    29  0288  00B7               	movwf	?_SPI_Send
+    30  0289  01B8               	clrf	?_SPI_Send+1
+    31  028A  0AB8               	incf	?_SPI_Send+1
+    32  028B  0832               	movf	?a_AKM_Constructor,w
+    33  028C  23F9               	call	_SPI_Send
+    34                           ;AKMmanager.c: 25: SPI_Send(++address,0x26,AKM_
+      +                          TARGET);
+    35  028D  3026               	movlw	38
+    36  028E  00B7               	movwf	?_SPI_Send
+    37  028F  01B8               	clrf	?_SPI_Send+1
+    38  0290  0AB8               	incf	?_SPI_Send+1
+    39  0291  0AB2               	incf	?a_AKM_Constructor
+    40  0292  0832               	movf	?a_AKM_Constructor,w
+    41  0293  23F9               	call	_SPI_Send
+    42                           ;AKMmanager.c: 26: SPI_Send(++address,0x14,AKM_
+      +                          TARGET);
+    43  0294  3014               	movlw	20
+    44  0295  00B7               	movwf	?_SPI_Send
+    45  0296  01B8               	clrf	?_SPI_Send+1
+    46  0297  0AB8               	incf	?_SPI_Send+1
+    47  0298  0AB2               	incf	?a_AKM_Constructor
+    48  0299  0832               	movf	?a_AKM_Constructor,w
+    49  029A  23F9               	call	_SPI_Send
+    50                           ;AKMmanager.c: 27: SPI_Send(++address,0x01,AKM_
+      +                          TARGET);
+    51  029B  01B7               	clrf	?_SPI_Send
+    52  029C  0AB7               	incf	?_SPI_Send
+    53  029D  01B8               	clrf	?_SPI_Send+1
+    54  029E  0AB8               	incf	?_SPI_Send+1
+    55  029F  0AB2               	incf	?a_AKM_Constructor
+    56  02A0  0832               	movf	?a_AKM_Constructor,w
+    57  02A1  23F9               	call	_SPI_Send
+    58                           ;AKMmanager.c: 28: SPI_Send(++address,0x23,AKM_
+      +                          TARGET);
+    59  02A2  3023               	movlw	35
+    60  02A3  00B7               	movwf	?_SPI_Send
+    61  02A4  01B8               	clrf	?_SPI_Send+1
+    62  02A5  0AB8               	incf	?_SPI_Send+1
+    63  02A6  0AB2               	incf	?a_AKM_Constructor
+    64  02A7  0832               	movf	?a_AKM_Constructor,w
+    65  02A8  23F9               	call	_SPI_Send
+    66                           ;AKMmanager.c: 29: SPI_Send(++address,0x90,AKM_
+      +                          TARGET);
+    67  02A9  3090               	movlw	-112
+    68  02AA  00B7               	movwf	?_SPI_Send
+    69  02AB  01B8               	clrf	?_SPI_Send+1
+    70  02AC  0AB8               	incf	?_SPI_Send+1
+    71  02AD  0AB2               	incf	?a_AKM_Constructor
+    72  02AE  0832               	movf	?a_AKM_Constructor,w
+    73  02AF  23F9               	call	_SPI_Send
+    74                           ;AKMmanager.c: 30: SPI_Send(++address,0x00,AKM_
+      +                          TARGET);
+    75  02B0  01B7               	clrf	?_SPI_Send
+    76  02B1  01B8               	clrf	?_SPI_Send+1
+    77  02B2  0AB8               	incf	?_SPI_Send+1
+    78  02B3  0AB2               	incf	?a_AKM_Constructor
+    79  02B4  0832               	movf	?a_AKM_Constructor,w
+    80  02B5  23F9               	call	_SPI_Send
+    81                           ;AKMmanager.c: 31: SPI_Send(++address,0x00,AKM_
+      +                          TARGET);
+    82  02B6  01B7               	clrf	?_SPI_Send
+    83  02B7  01B8               	clrf	?_SPI_Send+1
+    84  02B8  0AB8               	incf	?_SPI_Send+1
+    85  02B9  0AB2               	incf	?a_AKM_Constructor
+    86  02BA  0832               	movf	?a_AKM_Constructor,w
+    87  02BB  23F9               	call	_SPI_Send
+    88                           ;AKMmanager.c: 32: SPI_Send(++address,0x91,AKM_
+      +                          TARGET);
+    89  02BC  3091               	movlw	-111
+    90  02BD  00B7               	movwf	?_SPI_Send
+    91  02BE  01B8               	clrf	?_SPI_Send+1
+    92  02BF  0AB8               	incf	?_SPI_Send+1
+    93  02C0  0AB2               	incf	?a_AKM_Constructor
+    94  02C1  0832               	movf	?a_AKM_Constructor,w
+    95  02C2  23F9               	call	_SPI_Send
+    96                           ;AKMmanager.c: 33: SPI_Send(++address,0x00,AKM_
+      +                          TARGET);
+    97  02C3  01B7               	clrf	?_SPI_Send
+    98  02C4  01B8               	clrf	?_SPI_Send+1
+    99  02C5  0AB8               	incf	?_SPI_Send+1
+   100  02C6  0AB2               	incf	?a_AKM_Constructor
+   101  02C7  0832               	movf	?a_AKM_Constructor,w
+   102  02C8  23F9               	call	_SPI_Send
+   103                           ;AKMmanager.c: 34: SPI_Send(++address,0x00,AKM_
+      +                          TARGET);
+   104  02C9  01B7               	clrf	?_SPI_Send
+   105  02CA  01B8               	clrf	?_SPI_Send+1
+   106  02CB  0AB8               	incf	?_SPI_Send+1
+   107  02CC  0AB2               	incf	?a_AKM_Constructor
+   108  02CD  0832               	movf	?a_AKM_Constructor,w
+   109  02CE  23F9               	call	_SPI_Send
+   110                           ;AKMmanager.c: 35: SPI_Send(++address,0xE1,AKM_
+      +                          TARGET);
+   111  02CF  30E1               	movlw	-31
+   112  02D0  00B7               	movwf	?_SPI_Send
+   113  02D1  01B8               	clrf	?_SPI_Send+1
+   114  02D2  0AB8               	incf	?_SPI_Send+1
+   115  02D3  0AB2               	incf	?a_AKM_Constructor
+   116  02D4  0832               	movf	?a_AKM_Constructor,w
+   117  02D5  23F9               	call	_SPI_Send
+   118                           ;AKMmanager.c: 36: SPI_Send(++address,0x00,AKM_
+      +                          TARGET);
+   119  02D6  01B7               	clrf	?_SPI_Send
+   120  02D7  01B8               	clrf	?_SPI_Send+1
+   121  02D8  0AB8               	incf	?_SPI_Send+1
+   122  02D9  0AB2               	incf	?a_AKM_Constructor
+   123  02DA  0832               	movf	?a_AKM_Constructor,w
+   124  02DB  23F9               	call	_SPI_Send
+   125                           ;AKMmanager.c: 37: SPI_Send(++address,0x50,AKM_
+      +                          TARGET);
+   126  02DC  3050               	movlw	80
+   127  02DD  00B7               	movwf	?_SPI_Send
+   128  02DE  01B8               	clrf	?_SPI_Send+1
+   129  02DF  0AB8               	incf	?_SPI_Send+1
+   130  02E0  0AB2               	incf	?a_AKM_Constructor
+   131  02E1  0832               	movf	?a_AKM_Constructor,w
+   132  02E2  23F9               	call	_SPI_Send
+   133                           ;AKMmanager.c: 38: SPI_Send(++address,0x02,AKM_
+      +                          TARGET);
+   134  02E3  3002               	movlw	2
+   135  02E4  00B7               	movwf	?_SPI_Send
+   136  02E5  01B8               	clrf	?_SPI_Send+1
+   137  02E6  0AB8               	incf	?_SPI_Send+1
+   138  02E7  0AB2               	incf	?a_AKM_Constructor
+   139  02E8  0832               	movf	?a_AKM_Constructor,w
+   140  02E9  23F9               	call	_SPI_Send
+   141                           ;AKMmanager.c: 39: }
+   142  02EA  0008               	return	;W free
+   143                           
+   144                           	psect	text1
+   145  04BE                     __end_of_AKM_Constructor
+   146  0000                     
+   147  0000                     
+   148  0000                     
+   149  0000                     
+   150  0000                     
+   151  0000                     
+   152  0000                     
+   153  0000                     
+   154  0000                     
+   155  0000                     
+   156  0000                     
+   157  0000                     
+   158  0000                     
+   159  0000                     
+   160  0000                     
+   161  0000                     
+   162  0000                     
+   163  0000                     
+   164  0000                     
+   165  0000                     
+   166  0000                     
+   167  0000                     
+   168  0000                     
+   169  0000                     
+   170  0000                     
+   171  0000                     
+   172  0000                     
+   173  0000                     
+   174  0000                     
+   175  0000                     
+   176  0000                     
+   177  0000                     
+   178  0000                     
+   179  0000                     
+   180  0000                     
+   181  0000                     
+   182  0000                     
+   183  0000                     
+   184  0000                     
+   185  0000                     
+   186  0000                     
+   187  0000                     
+   188  0000                     
+   189  0000                     
+   190  0000                     
+   191  0000                     
+   192  0000                     
+   193  0000                     
+   194  0000                     
+   195  0000                     
+   196  0000                     
+   197  0000                     
+   198  0000                     
+   199  0000                     
+   200  0000                     
+   201  0000                     
+   202  0000                     
+   203  0000                     
+   204  0000                     
+   205  0000                     
+   206  0000                     
+   207  0000                     
+   208  0000                     
+   209  0000                     
+   210  0000                     
+   211  0000                     
+   212  0000                     
+   213  0000                     
+   214  0000                     
+   215  0000                     
+   216  0000                     
+   217  0000                     
+   218  0000                     
+   219  0000                     
+   220  0000                     
+   221  0000                     
+   222  0000                     
+   223  0000                     
+   224  0000                     
+   225  0000                     
+   226  0000                     
+   227  0000                     
+   228  0000                     
+   229  0000                     
+   230  0000                     
+   231  0000                     
+   232  0000                     
+   233  0000                     
+   234  0000                     
+   235  0000                     
+   236  0000                     
+   237  0000                     
+   238  0000                     
+   239  0000                     
+   240  0000                     
+   241  0000                     
+   242  0000                     
+   243  0000                     
+   244  0000                     
+   245  0000                     
+   246  0000                     
+   247  0000                     
+   248  0000                     
+   249  0000                     
+   250  0000                     
+   251  0000                     
+   252  0000                     
+   253  0000                     
+   254  0000                     
+   255  0000                     
+   256  0000                     
+   257  0000                     
+   258  0000                     
+   259  0000                     
+   260  0000                     
+   261  0000                     
+   262  0000                     
+   263  0000                     
+   264  0000                     
+   265  0000                     
+   266  0000                     
+   267  0000                     
+   268  0000                     
+   269  0000                     
+   270  0000                     
+   271  0000                     
+   272  0000                     
+   273  0000                     
+   274  0000                     
+   275  0000                     
+   276  0000                     
+   277  0000                     
+   278  0000                     
+   279  0000                     
+   280  0000                     
+   281  0000                     
+   282  0000                     
+   283  0000                     
+   284  0000                     
+   285  0000                     
+   286  0000                     
+   287  0000                     
+   288  0000                     
+   289  0000                     
+   290  0000                     
+   291  0000                     
+   292  0000                     
+   293  0000                     
+   294  0000                     
+   295  0000                     
+   296  0000                     
+   297  0000                     
+   298  0000                     
+   299  0000                     
+   300  0000                     
+   301  0000                     
+   302  0000                     
+   303  0000                     
+   304  0000                     
+   305  0000                     
+   306  0000                     
+   307  0000                     
+   308  0000                     
+   309  0000                     
+   310  0000                     
+   311  0000                     
+   312  0000                     
+   313  0000                     
+   314  0000                     
+   315  0000                     
+   316  0000                     
+   317  0000                     
+   318  0000                     
+   319  0000                     
+   320  0000                     
+   321  0000                     
+   322  0000                     
+   323  0000                     
+   324  0000                     
+   325  0000                     
+   326  0000                     
+   327  0000                     
+   328  0000                     
+   329  0000                     
+   330  0000                     
+   331  0000                     
+   332  0000                     
+   333  0000                     
+   334  0000                     
+   335  0000                     
+   336  0000                     
+   337  0000                     
+   338  0000                     
+   339  0000                     
+   340  0000                     
+   341  0000                     
+   342  0000                     
+   343  0000                     
+   344  0000                     
+   345  0000                     
+   346  0000                     
+   347  0000                     
+   348  0000                     
+   349  0000                     
+   350  0000                     
+   351  0000                     
+   352  0000                     
+   353  0000                     
+   354  0000                     
+   355  0000                     
+   356  0000                     
+   357  0000                     
+   358  0000                     
+   359  0000                     
+   360  0000                     
+   361  0000                     
+   362  0000                     
+   363  0000                     
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL3 build 3862 
+Symbol Table                                          Mon Oct 10 13:15:24 2011
+
+        _AKM_Constructor 0283                 _SPI_Send 03F9  
+      ?a_AKM_Constructor 0032  __end_of_AKM_Constructor 04BE  
+                  status 0003                ?_SPI_Send 0037  

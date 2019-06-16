@@ -1,0 +1,812 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F2550 ]
+[d frameptr 4065 ]
+"50 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/main_lcd.c
+[e E4834 . `uc
+lINIT 0
+lSEARCH_A 1
+lSEARCH_HW 2
+lWAIT 3
+lTRANSMIT 4
+lMENU 5
+lMENU_UP 6
+lMENU_DOWN 7
+lMENU_OK 8
+lRESET 9
+lSTEMMEN 10
+lMETRONOOM 11
+lMOPJE 12
+lTETTEN 13
+lLCD 14
+]
+"51
+[e E4865 . `uc
+mMENU 0
+mRESET 1
+mSTEMMEN 2
+mMETRONOOM 3
+mMOPJE 4
+mTETTEN 5
+mLCD 6
+]
+"52
+[e E4874 . `uc
+smBRIGHTNESS 0
+smSCRSPEED 1
+smLED 2
+]
+"7 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/common_files/c/timer0.c
+[v _init_timer0 init_timer0 `(v  1 e 0 0 ]
+"22
+[v _enable_timer0 enable_timer0 `(v  1 e 0 0 ]
+"26
+[v _disable_timer0 disable_timer0 `(v  1 e 0 0 ]
+"7 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/common_files/c/timer2.c
+[v _init_timer2 init_timer2 `(v  1 e 0 0 ]
+"8 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/common_files/c/uart_m.c
+[v _init_uart_m init_uart_m `(v  1 e 0 0 ]
+"37
+[v _uart_write_m uart_write_m `(v  1 e 0 0 ]
+"42
+[v _uart_write_string uart_write_string `(v  1 e 0 0 ]
+"48
+[v _uart_read_m uart_read_m `(uc  1 e 1 0 ]
+"53
+[v _uart_read_string uart_read_string `(v  1 e 0 0 ]
+"59
+[v _enable_uart_m enable_uart_m `(v  1 e 0 0 ]
+"68
+[v _disable_uart_m disable_uart_m `(v  1 e 0 0 ]
+"75
+[v _terminal_write_m terminal_write_m `(v  1 e 0 0 ]
+"87
+[v _putch putch `(v  1 e 0 0 ]
+"93
+[v _lcd_write lcd_write `(v  1 e 0 0 ]
+"109
+[v _uart_write_block uart_write_block `(v  1 e 0 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/abdiv.c
+[v ___abdiv __abdiv `(c  1 e 1 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/abmod.c
+[v ___abmod __abmod `(c  1 e 1 0 ]
+"31 /opt/microchip/xc8/v1.33/sources/common/abtofl.c
+[v ___abtofl __abtofl `(d  1 e 3 0 ]
+"33 /opt/microchip/xc8/v1.33/sources/common/abtoft.c
+[v ___abtoft __abtoft `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+"36 /opt/microchip/xc8/v1.33/sources/common/altofl.c
+[v ___altofl __altofl `(d  1 e 3 0 ]
+"42 /opt/microchip/xc8/v1.33/sources/common/altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/atdiv.c
+[v ___atdiv __atdiv `(m  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/atmod.c
+[v ___atmod __atmod `(m  1 e 3 0 ]
+"37 /opt/microchip/xc8/v1.33/sources/common/attofl.c
+[v ___attofl __attofl `(d  1 e 3 0 ]
+"37 /opt/microchip/xc8/v1.33/sources/common/attoft.c
+[v ___attoft __attoft `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"31 /opt/microchip/xc8/v1.33/sources/common/awtofl.c
+[v ___awtofl __awtofl `(d  1 e 3 0 ]
+"32 /opt/microchip/xc8/v1.33/sources/common/awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+"63 /opt/microchip/xc8/v1.33/sources/common/double.c
+[v ___flpack __flpack `(d  1 e 3 0 ]
+"88 /opt/microchip/xc8/v1.33/sources/common/fladd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"49 /opt/microchip/xc8/v1.33/sources/common/fldiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+"62 /opt/microchip/xc8/v1.33/sources/common/flmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.33/sources/common/flneg.c
+[v ___flneg __flneg `(d  1 e 3 0 ]
+"62 /opt/microchip/xc8/v1.33/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"20 /opt/microchip/xc8/v1.33/sources/common/flsub.c
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"43 /opt/microchip/xc8/v1.33/sources/common/fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"86 /opt/microchip/xc8/v1.33/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"49 /opt/microchip/xc8/v1.33/sources/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"62 /opt/microchip/xc8/v1.33/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.33/sources/common/ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+"20 /opt/microchip/xc8/v1.33/sources/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"44 /opt/microchip/xc8/v1.33/sources/common/fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+"27 /opt/microchip/xc8/v1.33/sources/common/lbtofl.c
+[v ___lbtofl __lbtofl `(d  1 e 3 0 ]
+"27 /opt/microchip/xc8/v1.33/sources/common/lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"30 /opt/microchip/xc8/v1.33/sources/common/lltofl.c
+[v ___lltofl __lltofl `(d  1 e 3 0 ]
+"35 /opt/microchip/xc8/v1.33/sources/common/lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/ltdiv.c
+[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/ltmod.c
+[v ___ltmod __ltmod `(um  1 e 3 0 ]
+"30 /opt/microchip/xc8/v1.33/sources/common/lttofl.c
+[v ___lttofl __lttofl `(d  1 e 3 0 ]
+"30 /opt/microchip/xc8/v1.33/sources/common/lttoft.c
+[v ___lttoft __lttoft `(f  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"8 /opt/microchip/xc8/v1.33/sources/common/lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"28 /opt/microchip/xc8/v1.33/sources/common/lwtofl.c
+[v ___lwtofl __lwtofl `(d  1 e 3 0 ]
+"28 /opt/microchip/xc8/v1.33/sources/common/lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.33/sources/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 /opt/microchip/xc8/v1.33/sources/common/Umul24.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.33/sources/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"4 /opt/microchip/xc8/v1.33/sources/common/Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asfladd.c
+[v ___asfladd __asfladd `(d  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asfldiv.c
+[v ___asfldiv __asfldiv `(d  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asflmul.c
+[v ___asflmul __asflmul `(d  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asflsub.c
+[v ___asflsub __asflsub `(d  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asftadd.c
+[v ___asftadd __asftadd `(f  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asftdiv.c
+[v ___asftdiv __asftdiv `(f  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asftmul.c
+[v ___asftmul __asftmul `(f  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/asftsub.c
+[v ___asftsub __asftsub `(f  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.33/sources/pic18/aslmul.c
+[v ___aslmul __aslmul `(ul  1 e 4 0 ]
+"81 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/lcd_hd44780.c
+[v __delay_10ms _delay_10ms `(v  1 e 0 0 ]
+"88
+[v _LCDByte LCDByte `(v  1 e 0 0 ]
+"142
+[v _LCDBusyLoop LCDBusyLoop `(v  1 e 0 0 ]
+"198
+[v _LCDInit LCDInit `(v  1 e 0 0 ]
+"258
+[v _LCDLoadCostum LCDLoadCostum `(v  1 e 0 0 ]
+"296
+[v _LCDWriteString LCDWriteString `(v  1 e 0 0 ]
+"356
+[v _LCDWriteSmartString LCDWriteSmartString `(v  1 e 0 0 ]
+"383
+[v _LCDWriteInt LCDWriteInt `(v  1 e 0 0 ]
+"420
+[v _LCDWriteBin LCDWriteBin `(v  1 e 0 0 ]
+"456
+[v _LCDWriteHex LCDWriteHex `(v  1 e 0 0 ]
+"491
+[v _LCDGotoXY LCDGotoXY `(v  1 e 0 0 ]
+"55 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/main_lcd.c
+[v _init_pic init_pic `(v  1 e 0 0 ]
+"73
+[v _main main `(v  1 e 0 0 ]
+"409
+[v _ISR ISR `II(v  1 e 0 0 ]
+"428
+[v _read_buttons read_buttons `(uc  1 e 1 0 ]
+"455
+[v _lcd_update lcd_update `(v  1 e 0 0 ]
+"551
+[v _lcd_start_up lcd_start_up `(v  1 e 0 0 ]
+"571
+[v _lcd_connection lcd_connection `(v  1 e 0 0 ]
+"609
+[v _lcd_screensaver lcd_screensaver `(v  1 e 0 0 ]
+"5 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/common_files/c/uart_m.c
+[v _read_data read_data `uc  1 e 1 0 ]
+"6
+[v _new_data new_data `uc  1 e 1 0 ]
+"2376 /opt/microchip/xc8/v1.33/include/pic18f2550.h
+[v _PORTA PORTA `VEuc  1 e 1 @3968 ]
+[s S471 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+]
+"2423
+[s S479 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+]
+[s S487 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 VREFM 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S493 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 HLVDIN 1 0 :1:5 
+]
+[s S496 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RA7 1 0 :1:7 
+]
+[s S499 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RJPU 1 0 :1:7 
+]
+[s S502 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+]
+[u S504 . 1 `S471 1 . 1 0 `S479 1 . 1 0 `S487 1 . 1 0 `S493 1 . 1 0 `S496 1 . 1 0 `S499 1 . 1 0 `S502 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES504  1 e 1 @3968 ]
+"2532
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+[s S598 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"2562
+[s S607 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S615 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S618 . 1 `S598 1 . 1 0 `S607 1 . 1 0 `S615 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES618  1 e 1 @3969 ]
+[s S27 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"2690
+[s S36 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S43 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S50 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+]
+[s S53 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S56 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[s S59 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 RC3 1 0 :1:3 
+]
+[u S62 . 1 `S27 1 . 1 0 `S36 1 . 1 0 `S43 1 . 1 0 `S50 1 . 1 0 `S53 1 . 1 0 `S56 1 . 1 0 `S59 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES62  1 e 1 @3970 ]
+"3409
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"3606
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"3827
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+[s S112 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"3859
+[s S119 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[s S126 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 TRISC3 1 0 :1:3 
+]
+[u S129 . 1 `S112 1 . 1 0 `S119 1 . 1 0 `S126 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES129  1 e 1 @3988 ]
+[s S318 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"4080
+[s S326 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[s S329 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+]
+[u S332 . 1 `S318 1 . 1 0 `S326 1 . 1 0 `S329 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES332  1 e 1 @3997 ]
+"4153
+[v _PIR1bits PIR1bits `VES332  1 e 1 @3998 ]
+[s S968 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"4609
+[s S977 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 ADEN 1 0 :1:3 
+]
+[s S980 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[s S983 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S986 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S989 . 1 `uc 1 RCD8 1 0 :1:0 
+]
+[u S991 . 1 `S968 1 . 1 0 `S977 1 . 1 0 `S980 1 . 1 0 `S983 1 . 1 0 `S986 1 . 1 0 `S989 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES991  1 e 1 @4011 ]
+[s S881 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"4837
+[s S890 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 BRGH1 1 0 :1:2 
+]
+[s S893 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[s S896 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SENDB1 1 0 :1:3 
+]
+[s S899 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SYNC1 1 0 :1:4 
+]
+[s S902 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+]
+[s S905 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX91 1 0 :1:6 
+]
+[s S908 . 1 `uc 1 TX9D1 1 0 :1:0 
+]
+[s S910 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 TXEN1 1 0 :1:5 
+]
+[s S913 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S916 . 1 `uc 1 TXD8 1 0 :1:0 
+]
+[u S918 . 1 `S881 1 . 1 0 `S890 1 . 1 0 `S893 1 . 1 0 `S896 1 . 1 0 `S899 1 . 1 0 `S902 1 . 1 0 `S905 1 . 1 0 `S908 1 . 1 0 `S910 1 . 1 0 `S913 1 . 1 0 `S916 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES918  1 e 1 @4012 ]
+"5074
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"5085
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"5096
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+[s S1022 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 TXCKP 1 0 :1:4 
+`uc 1 RXDTP 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"5636
+[s S1031 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCMT 1 0 :1:6 
+]
+[s S1036 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RXCKP 1 0 :1:5 
+]
+[s S1039 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 W4E 1 0 :1:1 
+]
+[u S1042 . 1 `S1022 1 . 1 0 `S1031 1 . 1 0 `S1036 1 . 1 0 `S1039 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES1042  1 e 1 @4024 ]
+[s S259 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 VCFG 1 0 :2:4 
+]
+"6042
+[s S262 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+]
+[s S269 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+]
+[s S272 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 VCFG01 1 0 :1:4 
+]
+[s S275 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 VCFG11 1 0 :1:5 
+]
+[u S278 . 1 `S259 1 . 1 0 `S262 1 . 1 0 `S269 1 . 1 0 `S272 1 . 1 0 `S275 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES278  1 e 1 @4033 ]
+[s S834 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 TOUTPS 1 0 :4:3 
+]
+"6677
+[s S838 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+[s S846 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 TOUTPS0 1 0 :1:3 
+`uc 1 TOUTPS1 1 0 :1:4 
+`uc 1 TOUTPS2 1 0 :1:5 
+`uc 1 TOUTPS3 1 0 :1:6 
+]
+[u S852 . 1 `S834 1 . 1 0 `S838 1 . 1 0 `S846 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES852  1 e 1 @4042 ]
+"6746
+[v _PR2 PR2 `VEuc  1 e 1 @4043 ]
+[s S546 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"7529
+[s S553 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+]
+[u S557 . 1 `S546 1 . 1 0 `S553 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES557  1 e 1 @4053 ]
+"7584
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+[s S384 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"8049
+[s S393 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S402 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[s S411 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S420 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S424 . 1 `S384 1 . 1 0 `S393 1 . 1 0 `S402 1 . 1 0 `S411 1 . 1 0 `S420 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES424  1 e 1 @4082 ]
+"9285
+[v _RCIF RCIF `VEb  1 e 0 @31989 ]
+"16 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/custom_char.h
+[v ___costum0 __costum0 `C[64]uc  1 e 64 0 ]
+"29
+[v ___costum1 __costum1 `C[64]uc  1 e 64 0 ]
+"42
+[v ___costum2 __costum2 `C[64]uc  1 e 64 0 ]
+"55
+[v ___costum3 __costum3 `C[64]uc  1 e 64 0 ]
+"68
+[v ___costum4 __costum4 `C[64]uc  1 e 64 0 ]
+"81
+[v ___HexVal __HexVal `[16]uc  1 e 16 0 ]
+"128 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/lcd_hd44780.h
+[v ___brght __brght `C[15]uc  1 e 15 0 ]
+"42 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/main_lcd.c
+[v _inputs inputs `uc  1 e 1 0 ]
+"43
+[v _buttons_new buttons_new `uc  1 e 1 0 ]
+[v _buttons_old buttons_old `uc  1 e 1 0 ]
+[v _buttons_change buttons_change `uc  1 e 1 0 ]
+"44
+[v _uart_tx_block uart_tx_block `[8]uc  1 e 8 0 ]
+"45
+[v _uart_rx_block uart_rx_block `[8]uc  1 e 8 0 ]
+"46
+[v _uart_block_count uart_block_count `uc  1 e 1 0 ]
+"47
+[v _i i `uc  1 e 1 0 ]
+[v _j j `uc  1 e 1 0 ]
+[v _first first `uc  1 e 1 0 ]
+[v _scrs scrs `uc  1 e 1 0 ]
+[v _scrs_cnt scrs_cnt `uc  1 e 1 0 ]
+[v _scrs_speed scrs_speed `uc  1 e 1 0 ]
+[v _brightness brightness `uc  1 e 1 0 ]
+"50
+[v _fsm_new_state fsm_new_state `E4834  1 e 1 0 ]
+[v _fsm_old_state fsm_old_state `E4834  1 e 1 0 ]
+"51
+[v _main_menu main_menu `E4865  1 e 1 0 ]
+"52
+[v _sub_menu sub_menu `E4874  1 e 1 0 ]
+"73
+[v _main main `(v  1 e 0 0 ]
+{
+"400
+} 0
+"109 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/common_files/c/uart_m.c
+[v _uart_write_block uart_write_block `(v  1 e 0 0 ]
+{
+[v uart_write_block@data data `*.39uc  1 p 2 14 ]
+[v uart_write_block@length length `uc  1 p 1 16 ]
+"116
+} 0
+"428 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/main_lcd.c
+[v _read_buttons read_buttons `(uc  1 e 1 0 ]
+{
+"443
+} 0
+"455
+[v _lcd_update lcd_update `(v  1 e 0 0 ]
+{
+"549
+} 0
+"609
+[v _lcd_screensaver lcd_screensaver `(v  1 e 0 0 ]
+{
+"647
+} 0
+"571
+[v _lcd_connection lcd_connection `(v  1 e 0 0 ]
+{
+"607
+} 0
+"258 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/lcd_hd44780.c
+[v _LCDLoadCostum LCDLoadCostum `(v  1 e 0 0 ]
+{
+[v LCDLoadCostum@select select `uc  1 a 1 wreg ]
+"261
+[v LCDLoadCostum@__i __i `uc  1 a 1 24 ]
+"258
+[v LCDLoadCostum@select select `uc  1 a 1 wreg ]
+"260
+[v LCDLoadCostum@select select `uc  1 a 1 23 ]
+"294
+} 0
+"383
+[v _LCDWriteInt LCDWriteInt `(v  1 e 0 0 ]
+{
+"395
+[v LCDWriteInt@str str `[5]uc  1 a 5 2 ]
+"396
+[v LCDWriteInt@i i `i  1 a 2 9 ]
+[v LCDWriteInt@j j `i  1 a 2 7 ]
+"383
+[v LCDWriteInt@val val `i  1 p 2 23 ]
+[v LCDWriteInt@field_length field_length `c  1 p 1 25 ]
+[v LCDWriteInt@F4932 F4932 `[5]uc  1 s 5 F4932 ]
+"418
+} 0
+"8 /opt/microchip/xc8/v1.33/sources/common/awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"11
+[v ___awmod@sign sign `uc  1 a 1 19 ]
+[v ___awmod@counter counter `uc  1 a 1 18 ]
+"8
+[v ___awmod@dividend dividend `i  1 p 2 14 ]
+[v ___awmod@divisor divisor `i  1 p 2 16 ]
+"35
+} 0
+"8 /opt/microchip/xc8/v1.33/sources/common/awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 20 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 19 ]
+[v ___awdiv@counter counter `uc  1 a 1 18 ]
+"8
+[v ___awdiv@dividend dividend `i  1 p 2 14 ]
+[v ___awdiv@divisor divisor `i  1 p 2 16 ]
+"42
+} 0
+"551 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/main_lcd.c
+[v _lcd_start_up lcd_start_up `(v  1 e 0 0 ]
+{
+"554
+[v lcd_start_up@start start `[6]uc  1 a 6 1 ]
+"555
+[v lcd_start_up@st st `*.39Cuc  1 a 2 9 ]
+"553
+[v lcd_start_up@x_pos x_pos `uc  1 a 1 8 ]
+"552
+[v lcd_start_up@busy busy `uc  1 a 1 7 ]
+"553
+[v lcd_start_up@F5019 F5019 `[6]uc  1 s 6 F5019 ]
+"568
+} 0
+"81 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/lcd_hd44780.c
+[v __delay_10ms _delay_10ms `(v  1 e 0 0 ]
+{
+[v __delay_10ms@length length `i  1 p 2 14 ]
+"86
+} 0
+"296
+[v _LCDWriteString LCDWriteString `(v  1 e 0 0 ]
+{
+"329
+[v LCDWriteString@cc cc `c  1 a 1 0 ]
+"296
+[v LCDWriteString@msg msg `*.35Cuc  1 p 2 23 ]
+"342
+} 0
+"491
+[v _LCDGotoXY LCDGotoXY `(v  1 e 0 0 ]
+{
+[v LCDGotoXY@x x `uc  1 a 1 wreg ]
+[v LCDGotoXY@x x `uc  1 a 1 wreg ]
+[v LCDGotoXY@y y `uc  1 p 1 23 ]
+[v LCDGotoXY@x x `uc  1 a 1 24 ]
+"531
+} 0
+"55 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/main_lcd.c
+[v _init_pic init_pic `(v  1 e 0 0 ]
+{
+"71
+} 0
+"8 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/common_files/c/uart_m.c
+[v _init_uart_m init_uart_m `(v  1 e 0 0 ]
+{
+[v init_uart_m@baud baud `i  1 p 2 14 ]
+[v init_uart_m@TX_inv TX_inv `uc  1 p 1 16 ]
+[v init_uart_m@RX_inv RX_inv `uc  1 p 1 17 ]
+"35
+} 0
+"7 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/common_files/c/timer0.c
+[v _init_timer0 init_timer0 `(v  1 e 0 0 ]
+{
+[v init_timer0@eight_bit eight_bit `uc  1 a 1 wreg ]
+[v init_timer0@eight_bit eight_bit `uc  1 a 1 wreg ]
+[v init_timer0@presc presc `uc  1 p 1 14 ]
+[v init_timer0@presc_val presc_val `uc  1 p 1 15 ]
+[v init_timer0@eight_bit eight_bit `uc  1 a 1 16 ]
+"16
+} 0
+"59 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/common_files/c/uart_m.c
+[v _enable_uart_m enable_uart_m `(v  1 e 0 0 ]
+{
+"66
+} 0
+"198 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/lcd_hd44780.c
+[v _LCDInit LCDInit `(v  1 e 0 0 ]
+{
+[v LCDInit@style style `uc  1 a 1 wreg ]
+"252
+[v LCDInit@__i __i `uc  1 a 1 24 ]
+"198
+[v LCDInit@style style `uc  1 a 1 wreg ]
+"216
+[v LCDInit@style style `uc  1 a 1 23 ]
+"256
+} 0
+"88
+[v _LCDByte LCDByte `(v  1 e 0 0 ]
+{
+[v LCDByte@c c `uc  1 a 1 wreg ]
+"97
+[v LCDByte@temp temp `uc  1 a 1 22 ]
+"96
+[v LCDByte@ln ln `uc  1 a 1 20 ]
+[v LCDByte@hn hn `uc  1 a 1 19 ]
+"88
+[v LCDByte@c c `uc  1 a 1 wreg ]
+[v LCDByte@isdata isdata `uc  1 p 1 17 ]
+"99
+[v LCDByte@c c `uc  1 a 1 21 ]
+"140
+} 0
+"142
+[v _LCDBusyLoop LCDBusyLoop `(v  1 e 0 0 ]
+{
+"145
+[v LCDBusyLoop@status status `uc  1 a 1 16 ]
+[v LCDBusyLoop@temp temp `uc  1 a 1 15 ]
+[v LCDBusyLoop@busy busy `uc  1 a 1 14 ]
+"196
+} 0
+"409 /home/wouter/GoogleDrive/wireless_guitar/C/pic18/lcd18f.X/main_lcd.c
+[v _ISR ISR `II(v  1 e 0 0 ]
+{
+"419
+} 0

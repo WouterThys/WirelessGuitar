@@ -1,0 +1,488 @@
+HI-TECH Software C Compiler 
+
+Linker command line:
+
+--edf=C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\dat\en_msgs.txt \
+  -h+TX.sym -z -Q16F684 -ol.obj -MTX.map -E1 -ACODE=00h-07FFh \
+  -ACONST=00h-0FFhx8 -AENTRY=00h-0FFhx8 -ASTRING=00h-0FFhx8 \
+  -ABANK0=020h-07Fh -ABANK1=0A0h-0BFh -ACOMBANK=070h-07Fh \
+  -preset_vec=00h,intentry=04h,intcode,intret,init,init23,end_init,clrtext,maintext,stringtable,pstrings,strings \
+  -ppowerup=CODE -ptemp=-COMBANK -pintsave_0=-COMBANK \
+  -prbit_0=BANK0,rbss_0=BANK0,rdata_0=BANK0,idata_0=CODE -pnvram=BANK0 \
+  -pintsave_1=BANK1 -prbit_1=BANK1,rbss_1=BANK1,rdata_1=BANK1,idata_1=CODE \
+  -pnvram_1=BANK1,nvbit_1=BANK1 -ACONFIG=02007h-02007h -pconfig=CONFIG \
+  -AIDLOC=02000h-02003h -pidloc=IDLOC -AEEDATA=00h-0FFh/02100h \
+  -peeprom_data=EEDATA -pfloat_text0=CODE,float_text1=CODE,float_text2=CODE \
+  -pfloat_text3=CODE,float_text4=CODE \
+  C:\Users\JOHN~1.SJA\AppData\Local\Temp\s568.obj AKMmanager.obj delay.obj \
+  Main.obj nordicmanager.obj Software_spi.obj statemachine.obj table.obj \
+  timers.obj \
+  C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\lib\pic21--u.lib \
+  C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\lib\pic40b-c.lib \
+  C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\lib\pic21--u.lib 
+
+Object code version is 3.10
+
+Machine type is 16F684
+
+Call graph:
+
+*_main size 0,0 offset 0
+     _SetupProcessor size 0,0 offset 0
+     _Timer_Constructor size 0,0 offset 0
+     _IntializeStateMachine size 0,0 offset 0
+         __Timer_Start size 2,1 offset 0
+*    _ProcessStateMachine size 0,0 offset 0
+         __Timer_IsExpired size 0,3 offset 0
+         __Timer_Start size 2,1 offset 0
+         _ProcessButton size 0,0 offset 0
+             _delay_ms size 0,3 offset 8
+         _ProcessLink size 0,0 offset 0
+             _Nordic_LinkPresent size 0,1 offset 0
+                 _Nordic_Read size 0,3 offset 5
+                     _delay_ms size 0,3 offset 8
+                     _ClockEight size 0,2 offset 8
+             _delay_ms size 0,3 offset 8
+*        _ProcessNordicBoot size 0,0 offset 0
+*            _delay_ms size 0,3 offset 8
+*            _Nordic_Wakeup size 0,5 offset 0
+*                _SPI_Send size 2,1 offset 5
+*                    _delay_ms size 0,3 offset 8
+                     _ClockEight size 0,2 offset 8
+*                _Nordic_Read size 0,3 offset 5
+*                    _delay_ms size 0,3 offset 8
+                     _ClockEight size 0,2 offset 8
+                 string_table size 0,0 offset 5
+         _ProcessAKMBoot size 0,0 offset 0
+             _AKM_Constructor size 0,1 offset 0
+                 _SPI_Send size 2,1 offset 5
+                     _delay_ms size 0,3 offset 8
+                     _ClockEight size 0,2 offset 8
+         _ProcessEnterSleep size 0,0 offset 0
+             _SPI_Send size 2,1 offset 5
+                 _delay_ms size 0,3 offset 8
+                 _ClockEight size 0,2 offset 8
+             _delay_ms size 0,3 offset 8
+*        _ProcessPairing size 0,0 offset 0
+*            _SPI_Send size 2,1 offset 5
+*                _delay_ms size 0,3 offset 8
+                 _ClockEight size 0,2 offset 8
+*            _delay_ms size 0,3 offset 8
+*            _Nordic_LinkPresent size 0,1 offset 0
+*                _Nordic_Read size 0,3 offset 5
+*                    _delay_ms size 0,3 offset 8
+                     _ClockEight size 0,2 offset 8
+*            _Nordic_Read size 0,3 offset 5
+*                _delay_ms size 0,3 offset 8
+                 _ClockEight size 0,2 offset 8
+             string_table size 0,0 offset 5
+
+Estimated maximum call depth: 5
+
+*_ISR size 0,0 offset 11
+*    _TimerSystem_TickIsr size 0,0 offset 11
+
+Estimated maximum call depth: 2
+
+
+		Name          Link     Load   Length Selector Space Scale
+C:\Users\JOHN~1.SJA\AppData\Local\Temp\s568.obj
+		reset_vec        0        0        1       0     0
+		init            2A       2A        C       8     0
+		end_init        36       36       12       8     0
+		temp            7E       7E        1      7E     1
+AKMmanager.obj  text0          283      283       68     506     0
+delay.obj       text0          44F      44F       18     506     0
+Main.obj        intcode         15       15        4       8     0
+		intentry         4        4        9       8     0
+		intret          21       21        9       8     0
+		intsave_0       7D       7D        1      7D     1
+		config        2007     2007        1    400E     0
+		intsave         3E       3E        3      20     1
+		text0          4B0      4B0        7     506     0
+		text1          417      417       1E     506     0
+nordicmanager.obj
+		temp            7E       7E        2      7E     1
+		text1          2EB      2EB       3C     506     0
+		text0          4A9      4A9        7     506     0
+Software_spi.obj
+		text2          327      327       33     506     0
+		text1          3F9      3F9       1E     506     0
+		text0          3B2      3B2       24     506     0
+statemachine.obj
+		idata_0         5B       5B        1       8     0
+		rdata_0         3D       3D        1      20     1
+		rbss_0          21       21        D      20     1
+		rbit_0         100       20        1      20     1    8
+		temp            7E       7E        2      7E     1
+		text7          435      435       1A     506     0
+		text8          387      387       2B     506     0
+		text5          4B7      4B7        4     506     0
+		text6          48A      48A        B     506     0
+		text0          4BB      4BB        3     506     0
+		text3           5C       5C       A3       8     0
+		text4           FF       FF       96       8     0
+		text1          4A0      4A0        9     506     0
+		text2          467      467       13     506     0
+table.obj       const1         195      195        6     32A     0
+		const2         200      200       83     400     0
+timers.obj      rbss_0          2E       2E        4      20     1
+		temp            7E       7E        2      7E     1
+		text3          495      495        B     506     0
+		text0          47A      47A       10     506     0
+		text2          35A      35A       2D     506     0
+		text1          3D6      3D6       23     506     0
+
+C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\lib\pic21--u.lib
+
+C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\lib\pic40b-c.lib
+btemp0.obj      temp            7E       7E        1      7E     1
+btemp1.obj      temp            7E       7E        2      7E     1
+codeptr.obj     
+sbtemp0.obj     intcode         19       19        2       8     0
+		intentry         D        D        2       8     0
+		intsave         45       45        1      20     1
+sbtemp10.obj    
+sbtemp11.obj    
+sbtemp12.obj    
+sbtemp13.obj    
+sbtemp14.obj    
+sbtemp1.obj     intcode         1B       1B        2       8     0
+		intentry         F        F        2       8     0
+		intsave         46       46        1      20     1
+sbtemp2.obj     
+sbtemp3.obj     
+sbtemp4.obj     
+sbtemp5.obj     
+sbtemp6.obj     
+sbtemp7.obj     
+sbtemp8.obj     
+sbtemp9.obj     
+scodeptr.obj    intcode         1D       1D        4       8     0
+		intentry        11       11        4       8     0
+		intsave         43       43        2      20     1
+stringtab.obj   stringtab       48       48       13       8     0
+		code_ptr        41       41        2      20     1
+
+C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\lib\pic21--u.lib
+
+COMMON          rbss_0          32       32        B      20     1
+
+TOTAL		Name          Link     Load   Length
+	CLASS	CODE     
+		intcode         15       15        C
+		intentry         4        4       11
+		intret          21       21        9
+		reset_vec        0        0        1
+		idata_0         5B       5B        1
+		init            2A       2A        C
+		end_init        36       36       12
+		text0          283      283       68
+		text0          44F      44F       18
+		text0          4B0      4B0        7
+		text1          417      417       1E
+		text1          2EB      2EB       3C
+		text0          4A9      4A9        7
+		text2          327      327       33
+		text1          3F9      3F9       1E
+		text0          3B2      3B2       24
+		text7          435      435       1A
+		text8          387      387       2B
+		text5          4B7      4B7        4
+		text6          48A      48A        B
+		text0          4BB      4BB        3
+		text3           5C       5C       A3
+		text4           FF       FF       96
+		text1          4A0      4A0        9
+		text2          467      467       13
+		text3          495      495        B
+		text0          47A      47A       10
+		text2          35A      35A       2D
+		text1          3D6      3D6       23
+
+	CLASS	CONST    
+		const1         195      195        6
+		const2         200      200       83
+
+	CLASS	ENTRY    
+		stringtab       48       48       13
+
+	CLASS	STRING   
+
+	CLASS	BANK0    
+		rdata_0         3D       3D        1
+		rbss_0          21       21       1C
+		rbit_0         100       20        1
+		temp            7E       7E        2
+		intsave         3E       3E        3
+		code_ptr        41       41        2
+		intsave         45       45        1
+		intsave         46       46        1
+		intsave         43       43        2
+
+	CLASS	BANK1    
+
+	CLASS	COMBANK  
+		intsave_0       7D       7D        1
+
+	CLASS	CONFIG   
+		config        2007     2007        1
+
+	CLASS	IDLOC    
+
+	CLASS	EEDATA   
+
+	CLASS	BANK3    
+
+	CLASS	BANK2    
+
+
+
+SEGMENTS	Name		Load	Length	 Top	Selector    Space Class
+
+		reset_vec       000000	000001	000001	       0       0  CODE    
+		intentry        000004	000191	000195	       8       0  CODE    
+		rbit_0          000020	000027	000047	      20       1  BANK0   
+		intsave_0       00007D	000001	00007E	      7D       1  COMBANK 
+		temp            00007E	000002	000080	      7E       1  COMBANK 
+		const1          000195	000006	00019B	     32A       0  CONST   
+		const2          000200	000083	000283	     400       0  CONST   
+		text0           000283	00023B	0004BE	     506       0  CODE    
+		config          002007	000001	002008	    400E       0  CONFIG  
+
+
+UNUSED ADDRESS RANGES
+
+	BANK0            0047-007C
+	BANK1            00A0-00BF
+	CODE             0001-0003
+	                 019B-01FF
+	                 04BE-07FF
+	COMBANK          0070-007C
+	CONST            0001-0003
+	                 019B-01FF
+	                 04BE-07FF
+	EEDATA           2100-21FF
+	ENTRY            0001-0003
+	                 019B-01FF
+	                 04BE-07FF
+	IDLOC            2000-2003
+	STRING           0001-0003
+	                 019B-01FF
+	                 04BE-07FF
+
+                                  Symbol Table
+
+?_SPI_Send                     rbss_0      0037
+?__Timer_Start                 rbss_0      0032
+?a_AKM_Constructor             rbss_0      0032
+?a_ClockEight                  rbss_0      003A
+?a_Nordic_LinkPresent          rbss_0      0032
+?a_Nordic_Read                 rbss_0      0037
+?a_Nordic_Wakeup               rbss_0      0032
+?a_SPI_Send                    rbss_0      0039
+?a__Timer_IsExpired            rbss_0      0032
+?a__Timer_Start                rbss_0      0034
+?a_delay_ms                    rbss_0      003A
+_AKM_Constructor               text0       0283
+_ClockEight                    text0       03B2
+_GetCurrentState               text0       04BB
+_ISR                           intcode     0015
+_IntializeStateMachine         text1       04A0
+_NordicRegData                 const2      0201
+_Nordic_LinkPresent            text0       04A9
+_Nordic_Read                   text2       0327
+_Nordic_Wakeup                 text1       02EB
+_PairingAddress                const1      0196
+_ProcessStateMachine           text8       0387
+_SPI_Send                      text1       03F9
+_SetupProcessor                text1       0417
+_TimerSystem_TickIsr           text3       0495
+_Timer_Constructor             text0       047A
+_Timer_SysTime                 rbss_0      002E
+__Beeprom_data                 eeprom_data 2100
+__Bnvbit_0                     nvbit_0     00B8
+__Bnvbit_1                     nvbit_1     00A0
+__Bnvbit_2                     nvbit_2     00B8
+__Bnvbit_3                     nvbit_3     00B8
+__Bptbit_0                     ptbit_0     00B8
+__Brbit_0                      rbit_0      0020
+__Brbit_1                      rbit_1      00A0
+__Brbit_2                      rbit_2      00B8
+__Brbit_3                      rbit_3      00B8
+__Hclrtext                     clrtext     0048
+__Hcode                        code        00B8
+__Hcode_ptr                    code_ptr    0043
+__Hcommon_ram                  common_ram  00B8
+__Hconfig                      config      2008
+__Heeprom_data                 eeprom_data 0000
+__Hend_init                    end_init    0048
+__Hfloat_text0                 float_text0 005C
+__Hfloat_text1                 float_text1 005C
+__Hfloat_text2                 float_text2 005C
+__Hfloat_text3                 float_text3 005C
+__Hfloat_text4                 float_text4 005C
+__Hidata_0                     idata_0     005C
+__Hidata_1                     idata_1     005C
+__Hidata_2                     idata_2     00B8
+__Hidata_3                     idata_3     00B8
+__Hidloc                       idloc       2000
+__Hinit                        init        0036
+__Hinit23                      init23      0036
+__Hintcode                     intcode     0021
+__Hintentry                    intentry    0015
+__Hintret                      intret      002A
+__Hintsave                     intsave     00B8
+__Hintsave_0                   intsave_0   007E
+__Hintsave_1                   intsave_1   00A0
+__Hintsave_2                   intsave_2   00B8
+__Hintsave_3                   intsave_3   00B8
+__Hmaintext                    maintext    0048
+__Hnvbit_0                     nvbit_0     05C0
+__Hnvbit_1                     nvbit_1     0500
+__Hnvbit_2                     nvbit_2     05C0
+__Hnvbit_3                     nvbit_3     05C0
+__Hnvram                       nvram       003E
+__Hnvram_1                     nvram_1     00A0
+__Hnvram_2                     nvram_2     00B8
+__Hnvram_3                     nvram_3     00B8
+__Hpowerup                     powerup     005B
+__Hpstrings                    pstrings    005B
+__Hptbit_0                     ptbit_0     05C0
+__Hrbit_0                      rbit_0      0101
+__Hrbit_1                      rbit_1      0500
+__Hrbit_2                      rbit_2      05C0
+__Hrbit_3                      rbit_3      05C0
+__Hrbss_0                      rbss_0      003D
+__Hrbss_1                      rbss_1      00A0
+__Hrbss_2                      rbss_2      00B8
+__Hrbss_3                      rbss_3      00B8
+__Hrdata_0                     rdata_0     003E
+__Hrdata_1                     rdata_1     00A0
+__Hrdata_2                     rdata_2     00B8
+__Hrdata_3                     rdata_3     00B8
+__Hreset_vec                   reset_vec   0001
+__Hstrings                     strings     005B
+__Hstringtable                 stringtable 005B
+__Hstruct                      struct      0047
+__Htemp                        temp        0080
+__Htext                        text        00B8
+__Hxtemp                       xtemp       0047
+__Lclrtext                     clrtext     0048
+__Lcode                        code        00B8
+__Lcode_ptr                    code_ptr    0041
+__Lcommon_ram                  common_ram  00B8
+__Lconfig                      config      2007
+__Leeprom_data                 eeprom_data 0000
+__Lend_init                    end_init    0036
+__Lfloat_text0                 float_text0 005C
+__Lfloat_text1                 float_text1 005C
+__Lfloat_text2                 float_text2 005C
+__Lfloat_text3                 float_text3 005C
+__Lfloat_text4                 float_text4 005C
+__Lidata_0                     idata_0     005B
+__Lidata_1                     idata_1     005C
+__Lidata_2                     idata_2     00B8
+__Lidata_3                     idata_3     00B8
+__Lidloc                       idloc       2000
+__Linit                        init        002A
+__Linit23                      init23      0036
+__Lintcode                     intcode     0015
+__Lintentry                    intentry    0004
+__Lintret                      intret      0021
+__Lintsave                     intsave     00B8
+__Lintsave_0                   intsave_0   007D
+__Lintsave_1                   intsave_1   00A0
+__Lintsave_2                   intsave_2   00B8
+__Lintsave_3                   intsave_3   00B8
+__Lmaintext                    maintext    0048
+__Lnvbit_0                     nvbit_0     05C0
+__Lnvbit_1                     nvbit_1     0500
+__Lnvbit_2                     nvbit_2     05C0
+__Lnvbit_3                     nvbit_3     05C0
+__Lnvram                       nvram       003E
+__Lnvram_1                     nvram_1     00A0
+__Lnvram_2                     nvram_2     00B8
+__Lnvram_3                     nvram_3     00B8
+__Lpowerup                     powerup     005B
+__Lpstrings                    pstrings    005B
+__Lptbit_0                     ptbit_0     05C0
+__Lrbit_0                      rbit_0      0100
+__Lrbit_1                      rbit_1      0500
+__Lrbit_2                      rbit_2      05C0
+__Lrbit_3                      rbit_3      05C0
+__Lrbss_0                      rbss_0      0021
+__Lrbss_1                      rbss_1      00A0
+__Lrbss_2                      rbss_2      00B8
+__Lrbss_3                      rbss_3      00B8
+__Lrdata_0                     rdata_0     003D
+__Lrdata_1                     rdata_1     00A0
+__Lrdata_2                     rdata_2     00B8
+__Lrdata_3                     rdata_3     00B8
+__Lreset_vec                   reset_vec   0000
+__Lstrings                     strings     005B
+__Lstringtable                 stringtable 0048
+__Lstruct                      struct      0047
+__Ltemp                        temp        007E
+__Ltext                        text        00B8
+__Lxtemp                       xtemp       0047
+__S0                           (abs)       2008
+__S1                           (abs)       00A0
+__S2                           (abs)       2100
+__Timer_IsExpired              text2       035A
+__Timer_Start                  text1       03D6
+__end_of_AKM_Constructor       text1       04BE
+__end_of_ClockEight            text1       03F9
+__end_of_GetCurrentState       text1       04A0
+__end_of_ISR                   intentry    000D
+__end_of_IntializeStateMachine text2       0467
+__end_of_Nordic_LinkPresent    text1       02EB
+__end_of_Nordic_Read           text3       04BE
+__end_of_Nordic_Wakeup         text2       04BE
+__end_of_ProcessStateMachine   text9       04BE
+__end_of_SPI_Send              text2       0327
+__end_of_SetupProcessor        text2       04BE
+__end_of_TimerSystem_TickIsr   text4       04BE
+__end_of_Timer_Constructor     text1       03D6
+__end_of__Timer_IsExpired      text3       0495
+__end_of__Timer_Start          text2       035A
+__end_of_delay_ms              text1       04BE
+__end_of_main                  text1       0417
+_delay_ms                      text0       044F
+_exit                          init        002A
+_main                          text0       04B0
+_now                           rbss_0      0030
+clear_bank0                    init        002A
+clear_bit0                     init        002A
+clear_ram                      end_init    003A
+code_ptr                       code_ptr    0041
+copy_bank0                     init        002E
+copy_data                      end_init    003F
+int_entry                      intentry    0004
+int_func                       intcode     0015
+int_restore                    intret      0025
+intlevel0                      intentry    0004
+intlevel1                      intentry    0004
+reset_vec                      reset_vec   0000
+save_btemp0                    intentry    000D
+save_btemp1                    intentry    000F
+save_btemp10                   intentry    000F
+save_btemp11                   intentry    000F
+save_btemp12                   intentry    000F
+save_btemp13                   intentry    000F
+save_btemp14                   intentry    000F
+save_btemp2                    intentry    0011
+save_btemp3                    intentry    0011
+save_btemp4                    intentry    0011
+save_btemp5                    intentry    0011
+save_btemp6                    intentry    0011
+save_btemp7                    intentry    0011
+save_btemp8                    intentry    0011
+save_btemp9                    intentry    0011
+save_code_ptr                  intentry    0011
+start                          init        002A
+string_indir                   stringtable 004A
+string_table                   stringtable 0048
+used_btemp0                    (abs)       0001
+used_btemp1                    (abs)       0001
+used_code_ptr                  (abs)       0001

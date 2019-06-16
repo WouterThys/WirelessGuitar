@@ -1,0 +1,30 @@
+[p GLOBOPT AUTOSTATIC PIC14 PICMIDHI PICLOMID SPACEOPT ]
+"28 C:\Projects\Nordic\dual wireless mic ref design\clean source code\TX\types.h
+[v _WORD `us  1 t 2 ]
+"29
+[v _BYTE `uc  1 t 1 ]
+"30
+[v _DWORD `ul  1 t 4 ]
+"31
+[v _STRING `*uc  1 t 1 ]
+"32
+[v _SBYTE `c  1 t 1 ]
+"37
+[v _bool `uc  1 t 1 ]
+"38
+[e E7 .
+false 0
+true 1
+]
+"39
+[e E10 .
+FALSE 0
+TRUE 1
+]
+"45
+[v F14 `(v  1 t 0 ]
+[v _VoidFunction `*F14  1 t 2 ]
+"19 C:\Projects\Nordic\dual wireless mic ref design\clean source code\TX\table.c
+[v _PairingAddress `Cuc  5a e 5 0 ]
+"28
+[v _NordicRegData `Cuc  130a e 130 0 ]

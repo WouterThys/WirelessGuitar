@@ -1,0 +1,13 @@
+_delay_us: CODE, 398 0 12
+_Nordic_Read: CODE, 689 0 181
+_main: CODE, 1383 0 665
+_Nordic_Send: CODE, 596 0 93
+_EEpromWrite: CODE, 425 0 16
+_Nordic_Wakeup: CODE, 870 0 256
+_Nordic_Wakeup2: CODE, 1126 0 257
+_setup_ports: CODE, 441 0 18
+_delay_ms: CODE, 502 0 46
+_ClockEight: CODE, 548 0 48
+_Nordic_Readback: CODE, 459 0 43
+_EEpromRead: CODE, 373 0 8
+Total: 1643

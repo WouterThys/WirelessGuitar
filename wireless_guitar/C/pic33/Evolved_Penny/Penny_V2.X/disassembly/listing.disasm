@@ -1,0 +1,2602 @@
+Disassembly Listing for Penny_V2
+Generated From:
+C:/Users/waldo/Dropbox/wireless_guitar/C/pic33/Evolved_Penny/Penny_V2.X/dist/default/production/Penny_V2.X.production.elf
+15-mrt-2015 16:42:11
+
+---  C:/Users/waldo/Dropbox/wireless_guitar/C/pic33/common_files/traps.c  -------------------------------
+1:                 /******************************************************************************/
+2:                 /* Files to Include                                                           */
+3:                 /******************************************************************************/
+4:                 
+5:                 /* Device header file */
+6:                 #if defined(__XC16__)
+7:                     #include <xc.h>
+8:                 #elif defined(__C30__)
+9:                     #if defined(__dsPIC33E__)
+10:                    	#include <p33Exxxx.h>
+11:                    #elif defined(__dsPIC33F__)
+12:                    	#include <p33Fxxxx.h>
+13:                    #endif
+14:                #endif
+15:                
+16:                #include <stdint.h>        /* Includes uint16_t definition */
+17:                #include <stdbool.h>       /* Includes true/false definition */
+18:                
+19:                /******************************************************************************/
+20:                /* Trap Function Prototypes                                                   */
+21:                /******************************************************************************/
+22:                
+23:                /* <Other function prototypes for debugging trap code may be inserted here>   */
+24:                
+25:                /* Use if INTCON2 ALTIVT=1 */
+26:                void __attribute__((interrupt,no_auto_psv)) _OscillatorFail(void);
+27:                void __attribute__((interrupt,no_auto_psv)) _AddressError(void);
+28:                void __attribute__((interrupt,no_auto_psv)) _StackError(void);
+29:                void __attribute__((interrupt,no_auto_psv)) _MathError(void);
+30:                
+31:                #if defined(__HAS_DMA__)
+32:                
+33:                void __attribute__((interrupt,no_auto_psv)) _DMACError(void);
+34:                
+35:                #endif
+36:                
+37:                #if defined(__dsPIC33F__)
+38:                
+39:                /* Use if INTCON2 ALTIVT=0 */
+40:                void __attribute__((interrupt,no_auto_psv)) _AltOscillatorFail(void);
+41:                void __attribute__((interrupt,no_auto_psv)) _AltAddressError(void);
+42:                void __attribute__((interrupt,no_auto_psv)) _AltStackError(void);
+43:                void __attribute__((interrupt,no_auto_psv)) _AltMathError(void);
+44:                
+45:                    #if defined(__HAS_DMA__)
+46:                
+47:                    void __attribute__((interrupt,no_auto_psv)) _AltDMACError(void);
+48:                
+49:                    #endif
+50:                
+51:                #endif
+52:                
+53:                /* Default interrupt handler */
+54:                void __attribute__((interrupt,no_auto_psv)) _DefaultInterrupt(void);
+55:                
+56:                #if defined(__dsPIC33E__)
+57:                
+58:                /* These are additional traps in the 33E family.  Refer to the PIC33E
+59:                migration guide.  There are no Alternate Vectors in the 33E family. */
+60:                void __attribute__((interrupt,no_auto_psv)) _HardTrapError(void);
+61:                void __attribute__((interrupt,no_auto_psv)) _SoftTrapError(void);
+62:                
+63:                #endif
+64:                
+65:                /******************************************************************************/
+66:                /* Trap Handling                                                              */
+67:                /*                                                                            */
+68:                /* These trap routines simply ensure that the device continuously loops       */
+69:                /* within each routine.  Users who actually experience one of these traps     */
+70:                /* can add code to handle the error.  Some basic examples for trap code,      */
+71:                /* including assembly routines that process trap sources, are available at    */
+72:                /* www.microchip.com/codeexamples                                             */
+73:                /******************************************************************************/
+74:                
+75:                /* Primary (non-alternate) address error trap function declarations */
+76:                void __attribute__((interrupt,no_auto_psv)) _OscillatorFail(void)
+77:                {
+0002D2  FA0000     LNK #0x0
+78:                        INTCON1bits.OSCFAIL = 0;        /* Clear the trap flag */
+0002D4  A928C0     BCLR INTCON1, #1
+79:                        while(1);
+0002D6  37FFFF     BRA 0x2D6
+80:                }
+81:                
+82:                void __attribute__((interrupt,no_auto_psv)) _AddressError(void)
+83:                {
+0002D8  FA0000     LNK #0x0
+84:                        INTCON1bits.ADDRERR = 0;        /* Clear the trap flag */
+0002DA  A968C0     BCLR INTCON1, #3
+85:                        while (1);
+0002DC  37FFFF     BRA 0x2DC
+86:                }
+87:                void __attribute__((interrupt,no_auto_psv)) _StackError(void)
+88:                {
+0002DE  FA0000     LNK #0x0
+89:                        INTCON1bits.STKERR = 0;         /* Clear the trap flag */
+0002E0  A948C0     BCLR INTCON1, #2
+90:                        while (1);
+0002E2  37FFFF     BRA 0x2E2
+91:                }
+92:                
+93:                void __attribute__((interrupt,no_auto_psv)) _MathError(void)
+94:                {
+0002E4  FA0000     LNK #0x0
+95:                        INTCON1bits.MATHERR = 0;        /* Clear the trap flag */
+0002E6  A988C0     BCLR INTCON1, #4
+96:                        while (1);
+0002E8  37FFFF     BRA 0x2E8
+97:                }
+98:                
+99:                #if defined(__HAS_DMA__)
+100:               
+101:               void __attribute__((interrupt,no_auto_psv)) _DMACError(void)
+102:               {
+0002EA  FA0000     LNK #0x0
+103:                       INTCON1bits.DMACERR = 0;        /* Clear the trap flag */
+0002EC  A9A8C0     BCLR INTCON1, #5
+104:                       while (1);
+0002EE  37FFFF     BRA 0x2EE
+105:               }
+106:               
+107:               #endif
+108:               
+109:               #if defined(__dsPIC33F__)
+110:               
+111:               /* Alternate address error trap function declarations */
+112:               void __attribute__((interrupt,no_auto_psv)) _AltOscillatorFail(void)
+113:               {
+114:                       INTCON1bits.OSCFAIL = 0;        /* Clear the trap flag */
+115:                       while (1);
+116:               }
+117:               
+118:               void __attribute__((interrupt,no_auto_psv)) _AltAddressError(void)
+119:               {
+120:                       INTCON1bits.ADDRERR = 0;        /* Clear the trap flag */
+121:                       while (1);
+122:               }
+123:               
+124:               void __attribute__((interrupt,no_auto_psv)) _AltStackError(void)
+125:               {
+126:                       INTCON1bits.STKERR = 0;         /* Clear the trap flag */
+127:                       while (1);
+128:               }
+129:               
+130:               void __attribute__((interrupt,no_auto_psv)) _AltMathError(void)
+131:               {
+132:                       INTCON1bits.MATHERR = 0;        /* Clear the trap flag */
+133:                       while (1);
+134:               }
+135:               
+136:                   #if defined(__HAS_DMA__)
+137:               
+138:                   void __attribute__((interrupt,no_auto_psv)) _AltDMACError(void)
+139:                   {
+140:                        INTCON1bits.DMACERR = 0;        /* Clear the trap flag */
+141:                        while (1);
+142:                   }
+143:               
+144:                   #endif
+145:               
+146:               #endif
+147:               
+148:               /******************************************************************************/
+149:               /* Default Interrupt Handler                                                  */
+150:               /*                                                                            */
+151:               /* This executes when an interrupt occurs for an interrupt source with an     */
+152:               /* improperly defined or undefined interrupt handling routine.                */
+153:               /******************************************************************************/
+154:               void __attribute__((interrupt,no_auto_psv)) _DefaultInterrupt(void)
+155:               {
+0002F0  FA0000     LNK #0x0
+156:                       while(1);
+0002F2  37FFFF     BRA 0x2F2
+157:               }
+158:               
+159:               #if defined(__dsPIC33E__)
+160:               
+161:               /* These traps are new to the dsPIC33E family.  Refer to the device Interrupt
+162:               chapter of the FRM to understand trap priority. */
+163:               void __attribute__((interrupt,no_auto_psv)) _HardTrapError(void)
+164:               {
+0002F4  FA0000     LNK #0x0
+165:                   while(1);
+0002F6  37FFFF     BRA 0x2F6
+166:               }
+167:               void __attribute__((interrupt,no_auto_psv)) _SoftTrapError(void)
+168:               {
+0002F8  FA0000     LNK #0x0
+169:                   while(1);
+0002FA  37FFFF     BRA 0x2FA
+170:               }
+171:               
+172:               #endif
+---  C:/Users/waldo/Dropbox/wireless_guitar/C/pic33/common_files/system.c  ------------------------------
+1:                 /******************************************************************************/
+2:                 /* Files to Include                                                           */
+3:                 /******************************************************************************/
+4:                 
+5:                 /* Device header file */
+6:                 #if defined(__XC16__)
+7:                 #include <xc.h>
+8:                 #elif defined(__C30__)
+9:                 #if defined(__dsPIC33E__)
+10:                #include <p33Exxxx.h>
+11:                #elif defined(__dsPIC33F__)
+12:                #include <p33Fxxxx.h>
+13:                #endif
+14:                #endif
+15:                
+16:                
+17:                #include <stdint.h>          /* For uint16_t definition                       */
+18:                #include <stdbool.h>         /* For true/false definition                     */
+19:                
+20:                #include "system.h"          /* variables/params used by system.c             */
+21:                
+22:                /******************************************************************************/
+23:                /* System Level Functions                                                     */
+24:                /*                                                                            */
+25:                /* Custom oscillator configuration funtions, reset source evaluation          */
+26:                /* functions, and other non-peripheral microcontroller initialization         */
+27:                /* functions get placed in system.c.                                          */
+28:                /*                                                                            */
+29:                /******************************************************************************/
+30:                
+31:                /* Refer to the device Family Reference Manual Oscillator section for
+32:                information about available oscillator configurations.  Typically
+33:                this would involve configuring the oscillator tuning register or clock
+34:                switching useing the compiler's __builtin_write_OSCCON functions.
+35:                Refer to the C Compiler for PIC24 MCUs and dsPIC DSCs User Guide in the
+36:                compiler installation directory /doc folder for documentation on the
+37:                __builtin functions.*/
+38:                
+39:                void ConfigureOscillator(void) {
+000D52  FA0000     LNK #0x0
+40:                
+41:                    /* Disable Watch Dog Timer */
+42:                    RCONbits.SWDTEN = 0;
+000D54  A9A740     BCLR RCON, #5
+43:                
+44:                    /* When clock switch occurs switch to */
+45:                
+46:                    // Clock PLL = 280 MHZ   Fosc = 140 Mhz    Fcy = 70 Mhz
+47:                    // bit 15 Unimplemented: Read as ?0?
+48:                    // bit 14-12 COSC<2:0>: Current Oscillator Selection bits (read-only)
+49:                    // 111 = Fast RC Oscillator (FRC) with Divide-by-n
+50:                    //110 = Fast RC Oscillator (FRC) with Divide-by-16
+51:                    //101 = Low-Power RC Oscillator (LPRC)
+52:                    //100 = Reserved
+53:                    //011 = Primary Oscillator (XT, HS, EC) with PLL
+54:                    //010 = Primary Oscillator (XT, HS, EC)
+55:                    //001 = Fast RC Oscillator (FRC) with divide-by-N and PLL (FRCPLL)
+56:                    //000 = Fast RC Oscillator (FRC)
+57:                    //bit 11 Unimplemented: Read as ?0?
+58:                    OSCCONbits.NOSC = 0b001;
+000D56  803A14     MOV OSCCON, W4
+000D58  A08004     BSET W4, #8
+000D5A  A19004     BCLR W4, #9
+000D5C  A1A004     BCLR W4, #10
+000D5E  883A14     MOV W4, OSCCON
+59:                    //111 = Fast RC Oscillator (FRC) with Divide-by-n
+60:                    //110 = Fast RC Oscillator (FRC) with Divide-by-16
+61:                    //101 = Low-Power RC Oscillator (LPRC)
+62:                    //100 = Reserved
+63:                    //011 = Primary Oscillator (XT, HS, EC) with PLL
+64:                    //010 = Primary Oscillator (XT, HS, EC)
+65:                    //001 = Fast RC Oscillator (FRC) with divide-by-N and PLL (FRCPLL)*****************
+66:                    //000 = Fast RC Oscillator (FRC)
+67:                    OSCCONbits.CLKLOCK = 0; //bit 7 CLKLOCK: Clock Lock Enable bit
+000D60  A9E742     BCLR OSCCON, #7
+68:                    //1 = If (FCKSM0 = 1), then clock and PLL configurations are locked
+69:                    //If (FCKSM0 = 0), then clock and PLL configurations may be modified
+70:                    //0 = Clock and PLL selections are not locked, configurations may be modified
+71:                    OSCCONbits.IOLOCK = 0; //bit 6 IOLOCK: I/O Lock Enable bit
+000D62  A9C742     BCLR OSCCON, #6
+72:                    //1 = I/O Lock is active
+73:                    //0 = I/O Lock is not active
+74:                    //bit 5 LOCK: PLL Lock Status bit (read-only)
+75:                    //1 = Indicates that PLL is in lock, or PLL start-up timer is satisfied
+76:                    //0 = Indicates that PLL is out of lock, start-up timer is in progress or PLL is disabled
+77:                    //bit 4 Unimplemented: Read as ?0?
+78:                    //bit 3 CF: Clock Fail Detect bit
+79:                    //1 = FSCM has detected clock failure
+80:                    //0 = FSCM has not detected clock failure
+81:                    //bit 2-1 Unimplemented: Read as ?0?
+82:                    OSCCONbits.OSWEN = 1; //bit 0 OSWEN: Oscillator Switch Enable bit
+000D64  A80742     BSET OSCCON, #0
+83:                    //1 = Request oscillator switch to selection specified by NOSC<2:0> bits
+84:                    //0 = Oscillator switch is complete
+85:                    while (OSCCONbits.COSC != 0b001);
+000D66  000000     NOP
+000D68  803A15     MOV OSCCON, W5
+000D6A  270004     MOV #0x7000, W4
+000D6C  628284     AND W5, W4, W5
+000D6E  210004     MOV #0x1000, W4
+000D70  528F84     SUB W5, W4, [W15]
+000D72  3AFFFA     BRA NZ, 0xD68
+86:                
+87:                    /* Wait for Clock switch to occur */
+88:                    /* Wait for PLL to lock, only if PLL is needed */
+89:                    /* while(OSCCONbits.LOCK != 1); */
+90:                
+91:                
+92:                    /* Refernece clock on OSC2*/
+93:                    REFOCONbits.ROON = 1;   // Enable clock on output
+000D74  A8E74F     BSET 0x74F, #7
+94:                    REFOCONbits.ROSEL = 0;  // System clock is used as the reference clock
+000D76  A9874F     BCLR 0x74F, #4
+95:                    REFOCONbits.RODIV = 0b0000; // Refernce clock not divided
+000D78  803A74     MOV REFOCON, W4
+000D7A  A18004     BCLR W4, #8
+000D7C  A19004     BCLR W4, #9
+000D7E  A1A004     BCLR W4, #10
+000D80  A1B004     BCLR W4, #11
+000D82  883A74     MOV W4, REFOCON
+96:                
+97:                }
+000D84  FA8000     ULNK
+000D86  060000     RETURN
+98:                
+99:                void PLLset(void) {
+000D88  FA0000     LNK #0x0
+100:                   CLKDIVbits.ROI = 0; //bit 15 ROI: Recover on Interrupt bit
+000D8A  A9E745     BCLR 0x745, #7
+101:                   //1 = Interrupts will clear the DOZEN bit and the processor clock and peripheral clock ratio is set to 1:1
+102:                   //0 = Interrupts have no effect on the DOZEN bit
+103:                   CLKDIVbits.DOZE0 = 0;
+000D8C  A98745     BCLR 0x745, #4
+104:                   CLKDIVbits.DOZE1 = 0;
+000D8E  A9A745     BCLR 0x745, #5
+105:                   CLKDIVbits.DOZE2 = 0; //bit 14-12 DOZE<2:0>: Processor Clock Reduction Select bits
+000D90  A9C745     BCLR 0x745, #6
+106:                   //111 = FCY divided by 128
+107:                   //110 = FCY divided by 64
+108:                   //101 = FCY divided by 32
+109:                   //100 = FCY divided by 16
+110:                   //011 = FCY divided by 8 (default)
+111:                   //010 = FCY divided by 4
+112:                   //001 = FCY divided by 2
+113:                   //000 = FCY divided by 1
+114:                   CLKDIVbits.DOZEN = 0; //bit 11 DOZEN: Doze Mode Enable bit
+000D92  A96745     BCLR 0x745, #3
+115:                   //1 = DOZE<2:0> field specifies the ratio between the peripheral clocks and the processor clocks
+116:                   //0 = Processor clock and peripheral clock ratio forced to 1:1
+117:                   CLKDIVbits.FRCDIV0 = 0;
+000D94  A90745     BCLR 0x745, #0
+118:                   CLKDIVbits.FRCDIV1 = 0;
+000D96  A92745     BCLR 0x745, #1
+119:                   CLKDIVbits.FRCDIV2 = 0; //bit 10-8 FRCDIV<2:0>: Internal Fast RC Oscillator Postscaler bits
+000D98  A94745     BCLR 0x745, #2
+120:                   //111 = FRC divided by 256
+121:                   //110 = FRC divided by 64
+122:                   //101 = FRC divided by 32
+123:                   //100 = FRC divided by 16
+124:                   //011 = FRC divided by 8
+125:                   //010 = FRC divided by 4
+126:                   //001 = FRC divided by 2
+127:                   //000 = FRC divided by 1 (default)
+128:                   CLKDIVbits.PLLPOST0 = 0;
+000D9A  A9C744     BCLR CLKDIV, #6
+129:                   CLKDIVbits.PLLPOST1 = 0; //bit 7-6 PLLPOST<1:0>: PLL VCO Output Divider Select bits (also denoted as ?N2?, PLL postscaler)
+000D9C  A9E744     BCLR CLKDIV, #7
+130:                   //11 = Output divided by 8
+131:                   //10 = Reserved
+132:                   //01 = Output divided by 4 (default)
+133:                   //00 = Output divided by 2
+134:                   //bit 5 Unimplemented: Read as ?0?
+135:                   CLKDIVbits.PLLPRE0 = 0;
+000D9E  A90744     BCLR CLKDIV, #0
+136:                   CLKDIVbits.PLLPRE1 = 0;
+000DA0  A92744     BCLR CLKDIV, #1
+137:                   CLKDIVbits.PLLPRE2 = 0;
+000DA2  A94744     BCLR CLKDIV, #2
+138:                   CLKDIVbits.PLLPRE3 = 0;
+000DA4  A96744     BCLR CLKDIV, #3
+139:                   CLKDIVbits.PLLPRE4 = 0;
+000DA6  A98744     BCLR CLKDIV, #4
+140:                   //bit 4-0 PLLPRE<4:0>: PLL Phase Detector Input Divider Select bits (also denoted as ?N1?, PLL prescaler)
+141:                   //11111 = Input divided by 33
+142:                   //?
+143:                   //?
+144:                   //?
+145:                   //00001 = Input divided by 3
+146:                   //00000 = Input divided by 2 (default)
+147:                   PLLFBDbits.PLLDIV = 74;
+000DA8  803A35     MOV PLLFBD, W5
+000DAA  2FE004     MOV #0xFE00, W4
+000DAC  628284     AND W5, W4, W5
+000DAE  2004A4     MOV #0x4A, W4
+000DB0  720205     IOR W4, W5, W4
+000DB2  883A34     MOV W4, PLLFBD
+148:               }
+000DB4  FA8000     ULNK
+000DB6  060000     RETURN
+149:               
+---  C:/Users/waldo/Dropbox/wireless_guitar/C/pic33/Evolved_Penny/Penny_V2.X/wl_module.c  ---------------
+1:                 #include <stdio.h>
+2:                 #include <stdint.h>        /* Includes uint16_t definition                    */
+3:                 #include <stdbool.h>       /* Includes true/false definition                  */
+4:                 #include <delay.h>         /* Includes delay functions                        */
+5:                 #include "../../common_files/common_defs&vars.h"
+6:                 #include "../../common_files/nRF24L01.h"
+7:                 #include "wl_module.h"
+8:                 #include "user.h"
+9:                 
+10:                
+11:                // *** VARIABLES *** //
+12:                volatile uint8_t PTX; // Flag which denotes transmitting mode
+13:                volatile uint8_t ACK; // Flag which denotes acknownledgement
+14:                uint8_t payload[PL_LENGTH]; //holds the payload
+15:                
+16:                
+17:                void nrf_init(void) {
+0007CC  FA0000     LNK #0x0
+18:                    // Initialize and enable spi module
+19:                    InitSpiMaster();
+0007CE  0701B5     RCALL InitSpiMaster
+20:                
+21:                    // Define CSN, CE as Output, IRQ as Input, set them to default
+22:                    TRISBbits.TRISB12 = 0; // CE
+0007D0  A98E11     BCLR 0xE11, #4
+23:                    TRISBbits.TRISB11 = 0; // CSN
+0007D2  A96E11     BCLR 0xE11, #3
+24:                    TRISBbits.TRISB10 = 1; // IRQ
+0007D4  A84E11     BSET 0xE11, #2
+25:                
+26:                    // Clear the nRF interrupt status flag
+27:                    nrf_int_status = 0;
+0007D6  EB4200     CLR.B W4
+0007D8  784304     MOV.B W4, W6
+0007DA  210E65     MOV #0x10E6, W5
+0007DC  784A86     MOV.B W6, [W5]
+28:                
+29:                    nrf_CE_L;   // No nrf rw
+0007DE  A98E15     BCLR 0xE15, #4
+30:                    nrf_CSN_H;  // No SPI rw
+0007E0  A86E15     BSET 0xE15, #3
+31:                }
+0007E2  FA8000     ULNK
+0007E4  060000     RETURN
+32:                
+33:                void nrf_tx_config(uint8_t tx_nr, uint8_t AckMode) {
+0007E6  FA0008     LNK #0x8
+0007E8  984760     MOV.B W0, [W14+6]
+0007EA  984771     MOV.B W1, [W14+7]
+34:                    uint8_t tx_addr[5]; // Default 5 bytes address widths
+35:                    TX_POWERDOWN;
+0007EC  B3C4C1     MOV.B #0x4C, W1
+0007EE  EB4000     CLR.B W0
+0007F0  0700C5     RCALL nrf_config_register
+36:                    nrf_CE_L;   // No nrf rw
+0007F2  A98E15     BCLR 0xE15, #4
+37:                    nrf_CSN_H;  // No SPI rw
+0007F4  A86E15     BSET 0xE15, #3
+38:                    // Set RF channel
+39:                    nrf_config_register(RF_CH, nrf_CH);
+0007F6  B3C031     MOV.B #0x3, W1
+0007F8  B3C050     MOV.B #0x5, W0
+0007FA  0700C0     RCALL nrf_config_register
+40:                    // Set data speed & Output Power configured in wl_module.h
+41:                    nrf_config_register(RF_SETUP, nrf_RF_SETUP);
+0007FC  B3C061     MOV.B #0x6, W1
+0007FE  B3C060     MOV.B #0x6, W0
+000800  0700BD     RCALL nrf_config_register
+42:                    //Config the CONFIG Register (Mask IRQ, CRC, etc)
+43:                    nrf_config_register(CONFIG, nrf_CONFIG_TX);
+000802  B3C4C1     MOV.B #0x4C, W1
+000804  EB4000     CLR.B W0
+000806  0700BA     RCALL nrf_config_register
+44:                    // Disable auto acknowledgement function
+45:                    nrf_config_register(EN_AA, AckMode);
+000808  9040FE     MOV.B [W14+7], W1
+00080A  B3C010     MOV.B #0x1, W0
+00080C  0700B7     RCALL nrf_config_register
+46:                    // Set waiting time to 750µs, no retransmit
+47:                    nrf_config_register(SETUP_RETR, (SETUP_RETR_ARD_500 | SETUP_RETR_ARC_1));
+00080E  B3C111     MOV.B #0x11, W1
+000810  B3C040     MOV.B #0x4, W0
+000812  0700B4     RCALL nrf_config_register
+48:                    // Clear all STATUS bits
+49:                    nrf_config_register(STATUS, nrf_STATUS);
+000814  B3C701     MOV.B #0x70, W1
+000816  B3C070     MOV.B #0x7, W0
+000818  0700B1     RCALL nrf_config_register
+50:                
+51:                    //set the TX address for the pipe with the same number as the iteration
+52:                    switch (tx_nr) {
+00081A  90426E     MOV.B [W14+6], W4
+00081C  FB8204     ZE W4, W4
+00081E  DEA2CF     ASR W4, #15, W5
+000820  200056     MOV #0x5, W6
+000822  200007     MOV #0x0, W7
+000824  520F86     SUB W4, W6, [W15]
+000826  5A8F87     SUBB W5, W7, [W15]
+000828  3E0061     BRA GTU, 0x8EC
+00082A  010604     BRA W4
+00082C  370005     BRA 0x838
+00082E  370013     BRA 0x856
+000830  370021     BRA 0x874
+000832  37002F     BRA 0x892
+000834  37003D     BRA 0x8B0
+000836  37004B     BRA 0x8CE
+53:                        case 0: //setup TX address as default RX address for pipe 0 (E7:E7:E7:E7:E7)
+54:                            tx_addr[0] = tx_addr[1] = tx_addr[2] = tx_addr[3] = tx_addr[4] = RX_ADDR_P0_B0_DEFAULT_VAL;
+000838  B3CE74     MOV.B #0xE7, W4
+00083A  984744     MOV.B W4, [W14+4]
+00083C  90424E     MOV.B [W14+4], W4
+00083E  984734     MOV.B W4, [W14+3]
+000840  90423E     MOV.B [W14+3], W4
+000842  984724     MOV.B W4, [W14+2]
+000844  90422E     MOV.B [W14+2], W4
+000846  984714     MOV.B W4, [W14+1]
+000848  90421E     MOV.B [W14+1], W4
+00084A  784F04     MOV.B W4, [W14]
+55:                            nrf_set_TADDR(tx_addr);
+00084C  78000E     MOV W14, W0
+00084E  070125     RCALL nrf_set_TADDR
+56:                            nrf_set_RADDR(tx_addr);
+000850  78000E     MOV W14, W0
+000852  07011B     RCALL nrf_set_RADDR
+57:                            break;
+000854  37004B     BRA 0x8EC
+58:                        case 1: //setup TX address as default RX address for pipe 1 (C2:C2:C2:C2:C2)
+59:                            tx_addr[0] = tx_addr[1] = tx_addr[2] = tx_addr[3] = tx_addr[4] = RX_ADDR_P1_B0_DEFAULT_VAL;
+000856  B3CC24     MOV.B #0xC2, W4
+000858  984744     MOV.B W4, [W14+4]
+00085A  90424E     MOV.B [W14+4], W4
+00085C  984734     MOV.B W4, [W14+3]
+00085E  90423E     MOV.B [W14+3], W4
+000860  984724     MOV.B W4, [W14+2]
+000862  90422E     MOV.B [W14+2], W4
+000864  984714     MOV.B W4, [W14+1]
+000866  90421E     MOV.B [W14+1], W4
+000868  784F04     MOV.B W4, [W14]
+60:                            nrf_set_TADDR(tx_addr);
+00086A  78000E     MOV W14, W0
+00086C  070116     RCALL nrf_set_TADDR
+61:                            nrf_set_RADDR(tx_addr);
+00086E  78000E     MOV W14, W0
+000870  07010C     RCALL nrf_set_RADDR
+62:                            break;
+000872  37003C     BRA 0x8EC
+63:                        case 2: //setup TX address as default RX address for pipe 2 (C2:C2:C2:C2:C3)
+64:                            tx_addr[1] = tx_addr[2] = tx_addr[3] = tx_addr[4] = RX_ADDR_P1_B0_DEFAULT_VAL;
+000874  B3CC24     MOV.B #0xC2, W4
+000876  984744     MOV.B W4, [W14+4]
+000878  90424E     MOV.B [W14+4], W4
+00087A  984734     MOV.B W4, [W14+3]
+00087C  90423E     MOV.B [W14+3], W4
+00087E  984724     MOV.B W4, [W14+2]
+000880  90422E     MOV.B [W14+2], W4
+000882  984714     MOV.B W4, [W14+1]
+65:                            tx_addr[0] = RX_ADDR_P2_DEFAULT_VAL;
+000884  B3CC34     MOV.B #0xC3, W4
+000886  784F04     MOV.B W4, [W14]
+66:                            nrf_set_TADDR(tx_addr);
+000888  78000E     MOV W14, W0
+00088A  070107     RCALL nrf_set_TADDR
+67:                            nrf_set_RADDR(tx_addr);
+00088C  78000E     MOV W14, W0
+00088E  0700FD     RCALL nrf_set_RADDR
+68:                            break;
+000890  37002D     BRA 0x8EC
+69:                        case 3: //setup TX address as default RX address for pipe 3 (C2:C2:C2:C2:C4)
+70:                            tx_addr[1] = tx_addr[2] = tx_addr[3] = tx_addr[4] = RX_ADDR_P1_B0_DEFAULT_VAL;
+000892  B3CC24     MOV.B #0xC2, W4
+000894  984744     MOV.B W4, [W14+4]
+000896  90424E     MOV.B [W14+4], W4
+000898  984734     MOV.B W4, [W14+3]
+00089A  90423E     MOV.B [W14+3], W4
+00089C  984724     MOV.B W4, [W14+2]
+00089E  90422E     MOV.B [W14+2], W4
+0008A0  984714     MOV.B W4, [W14+1]
+71:                            tx_addr[0] = RX_ADDR_P3_DEFAULT_VAL;
+0008A2  B3CC44     MOV.B #0xC4, W4
+0008A4  784F04     MOV.B W4, [W14]
+72:                            nrf_set_TADDR(tx_addr);
+0008A6  78000E     MOV W14, W0
+0008A8  0700F8     RCALL nrf_set_TADDR
+73:                            nrf_set_RADDR(tx_addr);
+0008AA  78000E     MOV W14, W0
+0008AC  0700EE     RCALL nrf_set_RADDR
+74:                            break;
+0008AE  37001E     BRA 0x8EC
+75:                        case 4: //setup TX address as default RX address for pipe 4 (C2:C2:C2:C2:C5)
+76:                            tx_addr[1] = tx_addr[2] = tx_addr[3] = tx_addr[4] = RX_ADDR_P1_B0_DEFAULT_VAL;
+0008B0  B3CC24     MOV.B #0xC2, W4
+0008B2  984744     MOV.B W4, [W14+4]
+0008B4  90424E     MOV.B [W14+4], W4
+0008B6  984734     MOV.B W4, [W14+3]
+0008B8  90423E     MOV.B [W14+3], W4
+0008BA  984724     MOV.B W4, [W14+2]
+0008BC  90422E     MOV.B [W14+2], W4
+0008BE  984714     MOV.B W4, [W14+1]
+77:                            tx_addr[0] = RX_ADDR_P4_DEFAULT_VAL;
+0008C0  B3CC54     MOV.B #0xC5, W4
+0008C2  784F04     MOV.B W4, [W14]
+78:                            nrf_set_TADDR(tx_addr);
+0008C4  78000E     MOV W14, W0
+0008C6  0700E9     RCALL nrf_set_TADDR
+79:                            nrf_set_RADDR(tx_addr);
+0008C8  78000E     MOV W14, W0
+0008CA  0700DF     RCALL nrf_set_RADDR
+80:                            break;
+0008CC  37000F     BRA 0x8EC
+81:                        case 5: //setup TX address as default RX address for pipe 5 (C2:C2:C2:C2:C6)
+82:                            tx_addr[1] = tx_addr[2] = tx_addr[3] = tx_addr[4] = RX_ADDR_P1_B0_DEFAULT_VAL;
+0008CE  B3CC24     MOV.B #0xC2, W4
+0008D0  984744     MOV.B W4, [W14+4]
+0008D2  90424E     MOV.B [W14+4], W4
+0008D4  984734     MOV.B W4, [W14+3]
+0008D6  90423E     MOV.B [W14+3], W4
+0008D8  984724     MOV.B W4, [W14+2]
+0008DA  90422E     MOV.B [W14+2], W4
+0008DC  984714     MOV.B W4, [W14+1]
+83:                            tx_addr[0] = RX_ADDR_P5_DEFAULT_VAL;
+0008DE  B3CC64     MOV.B #0xC6, W4
+0008E0  784F04     MOV.B W4, [W14]
+84:                            nrf_set_TADDR(tx_addr);
+0008E2  78000E     MOV W14, W0
+0008E4  0700DA     RCALL nrf_set_TADDR
+85:                            nrf_set_RADDR(tx_addr);
+0008E6  78000E     MOV W14, W0
+0008E8  0700D0     RCALL nrf_set_RADDR
+86:                            break;
+0008EA  000000     NOP
+87:                    }
+88:                    TX_POWERUP;
+0008EC  B3C4E1     MOV.B #0x4E, W1
+0008EE  EB4000     CLR.B W0
+0008F0  070045     RCALL nrf_config_register
+89:                
+90:                }
+0008F2  FA8000     ULNK
+0008F4  060000     RETURN
+91:                
+92:                
+93:                void nrf_rx_config(uint8_t tx_nr, uint8_t AckMode) {
+0008F6  FA0002     LNK #0x2
+0008F8  784F00     MOV.B W0, [W14]
+0008FA  984711     MOV.B W1, [W14+1]
+94:                    // Power down
+95:                    RX_POWERDOWN;
+0008FC  B3C2D1     MOV.B #0x2D, W1
+0008FE  EB4000     CLR.B W0
+000900  07003D     RCALL nrf_config_register
+96:                
+97:                    // Ready to init registers
+98:                    nrf_CE_L;
+000902  A98E15     BCLR 0xE15, #4
+99:                    nrf_CSN_H;
+000904  A86E15     BSET 0xE15, #3
+100:               
+101:                   // Set RF channel
+102:                   nrf_config_register(RF_CH,nrf_CH);
+000906  B3C031     MOV.B #0x3, W1
+000908  B3C050     MOV.B #0x5, W0
+00090A  070038     RCALL nrf_config_register
+103:                   // Set data speed & Output Power configured in wl_module.h
+104:                   nrf_config_register(RF_SETUP,nrf_RF_SETUP);
+00090C  B3C061     MOV.B #0x6, W1
+00090E  B3C060     MOV.B #0x6, W0
+000910  070035     RCALL nrf_config_register
+105:                   // Set length of incoming payload
+106:                   nrf_config_register(tx_nr, PL_LENGTH);
+000912  B3C201     MOV.B #0x20, W1
+000914  78401E     MOV.B [W14], W0
+000916  070032     RCALL nrf_config_register
+107:                   // Disable auto acknowledgement function
+108:                   nrf_config_register(EN_AA, AckMode);
+000918  90409E     MOV.B [W14+1], W1
+00091A  B3C010     MOV.B #0x1, W0
+00091C  07002F     RCALL nrf_config_register
+109:                   //Config the CONFIG Register (Mask IRQ, CRC, etc)
+110:                   nrf_config_register(CONFIG, nrf_CONFIG_RX);
+00091E  B3C2C1     MOV.B #0x2C, W1
+000920  EB4000     CLR.B W0
+000922  07002C     RCALL nrf_config_register
+111:                   // Set waiting time to 750µs, no retransmit
+112:                   nrf_config_register(SETUP_RETR, (SETUP_RETR_ARD_750 | SETUP_RETR_ARC_5));
+000924  B3C251     MOV.B #0x25, W1
+000926  B3C040     MOV.B #0x4, W0
+000928  070029     RCALL nrf_config_register
+113:                   // Clear all STATUS bits
+114:                   nrf_config_register(STATUS, nrf_STATUS);
+00092A  B3C701     MOV.B #0x70, W1
+00092C  B3C070     MOV.B #0x7, W0
+00092E  070026     RCALL nrf_config_register
+115:                   // Clear FIFO
+116:                   WriteSpi_8b(FLUSH_RX);
+000930  B3CE20     MOV.B #0xE2, W0
+000932  070126     RCALL WriteSpi_8b
+117:                   WriteSpi_8b(FLUSH_TX);
+000934  B3CE10     MOV.B #0xE1, W0
+000936  070124     RCALL WriteSpi_8b
+118:               
+119:                   RX_POWERUP;     // Power up in receiving mode
+000938  B3C2F1     MOV.B #0x2F, W1
+00093A  EB4000     CLR.B W0
+00093C  07001F     RCALL nrf_config_register
+120:               }
+00093E  FA8000     ULNK
+000940  060000     RETURN
+121:               
+122:               uint8_t nrf_find_rx(uint8_t rx_nr) {
+000942  FA0002     LNK #0x2
+000944  784F00     MOV.B W0, [W14]
+123:                   nrf_send_array(payload, PL_LENGTH); // Send something that can be acknowledged
+000946  B3C201     MOV.B #0x20, W1
+000948  210C20     MOV #0x10C2, W0
+00094A  07005F     RCALL nrf_send_array
+124:                   while (!(nrf_int_status & NRF_INT_MASK)); // Wait for interrupt to come
+00094C  000000     NOP
+00094E  210E64     MOV #0x10E6, W4
+000950  784214     MOV.B [W4], W4
+000952  524FE0     SUB.B W4, #0x0, [W15]
+000954  3DFFFC     BRA GE, 0x94E
+125:                   nrf_int_status &= ~NRF_INT_MASK; // Clear the flag
+000956  210E64     MOV #0x10E6, W4
+000958  784214     MOV.B [W4], W4
+00095A  A17404     BCLR.B W4, #7
+00095C  784304     MOV.B W4, W6
+00095E  210E65     MOV #0x10E6, W5
+000960  784A86     MOV.B W6, [W5]
+126:                   if (nrf_int_status & (1 << TX_DS)) { // IRQ: Package has been sent and acknowledged
+000962  210E64     MOV #0x10E6, W4
+000964  784214     MOV.B [W4], W4
+000966  FB8284     ZE W4, W5
+000968  200204     MOV #0x20, W4
+00096A  628204     AND W5, W4, W4
+00096C  520FE0     SUB W4, #0x0, [W15]
+00096E  320002     BRA Z, 0x974
+127:                       return 1;
+000970  B3C014     MOV.B #0x1, W4
+000972  370001     BRA 0x976
+128:                   } else {
+129:                       return 0;
+000974  EB4200     CLR.B W4
+130:                   }
+131:               }
+000976  784004     MOV.B W4, W0
+000978  FA8000     ULNK
+00097A  060000     RETURN
+132:               
+133:               void nrf_config_register(uint8_t reg, uint8_t value) {
+00097C  FA0002     LNK #0x2
+00097E  784F00     MOV.B W0, [W14]
+000980  984711     MOV.B W1, [W14+1]
+134:                   nrf_CSN_L;
+000982  A96E15     BCLR 0xE15, #3
+135:                   WriteSpi_8b(W_REGISTER | (REGISTER_MASK & reg));
+000984  78421E     MOV.B [W14], W4
+000986  6242FF     AND.B W4, #0x1F, W5
+000988  B3C204     MOV.B #0x20, W4
+00098A  72C204     IOR.B W5, W4, W4
+00098C  784004     MOV.B W4, W0
+00098E  0700F8     RCALL WriteSpi_8b
+136:                   WriteSpi_8b(value);
+000990  90401E     MOV.B [W14+1], W0
+000992  0700F6     RCALL WriteSpi_8b
+137:                   nrf_CSN_H;
+000994  A86E15     BSET 0xE15, #3
+138:               }
+000996  FA8000     ULNK
+000998  060000     RETURN
+139:               
+140:               
+141:                uint8_t nrf_read_register(uint8_t reg) {
+00099A  FA0004     LNK #0x4
+00099C  984720     MOV.B W0, [W14+2]
+142:                   unsigned char tmp;
+143:                   nrf_CSN_L;
+00099E  A96E15     BCLR 0xE15, #3
+144:                   WriteSpi_8b(R_REGISTER | (REGISTER_MASK & reg));
+0009A0  90422E     MOV.B [W14+2], W4
+0009A2  62427F     AND.B W4, #0x1F, W4
+0009A4  784004     MOV.B W4, W0
+0009A6  0700EC     RCALL WriteSpi_8b
+145:                   tmp = WriteSpi_8b(NOOP);
+0009A8  EBC000     SETM.B W0
+0009AA  0700EA     RCALL WriteSpi_8b
+0009AC  784200     MOV.B W0, W4
+0009AE  784F04     MOV.B W4, [W14]
+146:                   nrf_CSN_H;
+0009B0  A86E15     BSET 0xE15, #3
+147:                   return tmp;
+0009B2  78421E     MOV.B [W14], W4
+148:               }
+0009B4  784004     MOV.B W4, W0
+0009B6  FA8000     ULNK
+0009B8  060000     RETURN
+149:               
+150:               
+151:               void nrf_write_register(uint8_t reg, uint8_t * value, uint8_t len) {
+0009BA  FA0006     LNK #0x6
+0009BC  784F00     MOV.B W0, [W14]
+0009BE  980711     MOV W1, [W14+2]
+0009C0  984742     MOV.B W2, [W14+4]
+152:                   nrf_CSN_L;
+0009C2  A96E15     BCLR 0xE15, #3
+153:                   WriteSpi_8b(W_REGISTER | (REGISTER_MASK & reg));
+0009C4  78421E     MOV.B [W14], W4
+0009C6  6242FF     AND.B W4, #0x1F, W5
+0009C8  B3C204     MOV.B #0x20, W4
+0009CA  72C204     IOR.B W5, W4, W4
+0009CC  784004     MOV.B W4, W0
+0009CE  0700D8     RCALL WriteSpi_8b
+154:                   WriteSpi_array(value,len);
+0009D0  9040CE     MOV.B [W14+4], W1
+0009D2  90001E     MOV [W14+2], W0
+0009D4  0700F3     RCALL WriteSpi_array
+155:                   nrf_CSN_H;
+0009D6  A86E15     BSET 0xE15, #3
+156:               }
+0009D8  FA8000     ULNK
+0009DA  060000     RETURN
+157:               
+158:               
+159:               void nrf_send_byte(uint8_t value) {
+0009DC  FA0002     LNK #0x2
+0009DE  784F00     MOV.B W0, [W14]
+160:                   nrf_CE_L;
+0009E0  A98E15     BCLR 0xE15, #4
+161:                   TX_POWERUP;                     // Power up
+0009E2  B3C4E1     MOV.B #0x4E, W1
+0009E4  EB4000     CLR.B W0
+0009E6  07FFCA     RCALL nrf_config_register
+162:               
+163:                   nrf_CSN_L;                      // Pull down chip select
+0009E8  A96E15     BCLR 0xE15, #3
+164:                   WriteSpi_8b( FLUSH_TX );              // Write cmd to flush tx fifo
+0009EA  B3CE10     MOV.B #0xE1, W0
+0009EC  0700C9     RCALL WriteSpi_8b
+165:                   nrf_CSN_H;                      // Pull up chip select
+0009EE  A86E15     BSET 0xE15, #3
+166:               
+167:                   nrf_CSN_L;                      // Pull down chip select
+0009F0  A96E15     BCLR 0xE15, #3
+168:                   WriteSpi_8b( W_TX_PAYLOAD );    // Write cmd to write payload
+0009F2  B3CA00     MOV.B #0xA0, W0
+0009F4  0700C5     RCALL WriteSpi_8b
+169:                   WriteSpi_8b(value);             // Write payload
+0009F6  78401E     MOV.B [W14], W0
+0009F8  0700C3     RCALL WriteSpi_8b
+170:                   nrf_CSN_H;                      // Pull up chip select
+0009FA  A86E15     BSET 0xE15, #3
+171:               
+172:                   nrf_CE_H;                       // Start transmission
+0009FC  A88E15     BSET 0xE15, #4
+173:                   Delay_us(10);
+0009FE  202BC0     MOV #0x2BC, W0
+000A00  200001     MOV #0x0, W1
+000A02  0701F3     RCALL ___delay32
+174:                   nrf_CE_L;
+000A04  A98E15     BCLR 0xE15, #4
+175:               }
+000A06  FA8000     ULNK
+000A08  060000     RETURN
+176:               
+177:               void nrf_send_array(uint8_t * value, uint8_t len) {    
+000A0A  FA0004     LNK #0x4
+000A0C  780F00     MOV W0, [W14]
+000A0E  984721     MOV.B W1, [W14+2]
+178:                   nrf_CE_L;                       // Hold CE low
+000A10  A98E15     BCLR 0xE15, #4
+179:                   TX_POWERUP;                     // Power up
+000A12  B3C4E1     MOV.B #0x4E, W1
+000A14  EB4000     CLR.B W0
+000A16  07FFB2     RCALL nrf_config_register
+180:               
+181:                   nrf_CSN_L;                      // Pull down chip select
+000A18  A96E15     BCLR 0xE15, #3
+182:                   WriteSpi_8b( FLUSH_TX );        // Write cmd to flush tx fifo
+000A1A  B3CE10     MOV.B #0xE1, W0
+000A1C  0700B1     RCALL WriteSpi_8b
+183:                   nrf_CSN_H;                      // Pull up chip select
+000A1E  A86E15     BSET 0xE15, #3
+184:               
+185:                   nrf_CSN_L;                      // Pull down chip select
+000A20  A96E15     BCLR 0xE15, #3
+186:                   WriteSpi_8b( W_TX_PAYLOAD );    // Write cmd to write payload
+000A22  B3CA00     MOV.B #0xA0, W0
+000A24  0700AD     RCALL WriteSpi_8b
+187:                   WriteSpi_array(value,len);      // Write payload
+000A26  9040AE     MOV.B [W14+2], W1
+000A28  78001E     MOV [W14], W0
+000A2A  0700C8     RCALL WriteSpi_array
+188:                   nrf_CSN_H;                      // Pull up chip select
+000A2C  A86E15     BSET 0xE15, #3
+189:               
+190:                   nrf_CE_H;                       // Start transmission
+000A2E  A88E15     BSET 0xE15, #4
+191:                   Delay_us(10);
+000A30  202BC0     MOV #0x2BC, W0
+000A32  200001     MOV #0x0, W1
+000A34  0701DA     RCALL ___delay32
+192:                   nrf_CE_L;
+000A36  A98E15     BCLR 0xE15, #4
+193:               }
+000A38  FA8000     ULNK
+000A3A  060000     RETURN
+194:               
+195:               uint8_t nrf_get_data_byte(void) {
+000A3C  FA0002     LNK #0x2
+196:                   unsigned char status,data;
+197:                   nrf_CE_L;
+000A3E  A98E15     BCLR 0xE15, #4
+198:                   nrf_CSN_L;                                 // Pull down chip select
+000A40  A96E15     BCLR 0xE15, #3
+199:                   status = WriteSpi_8b( R_RX_PAYLOAD );      // Send cmd to read rx payload
+000A42  B3C610     MOV.B #0x61, W0
+000A44  07009D     RCALL WriteSpi_8b
+000A46  784200     MOV.B W0, W4
+000A48  784F04     MOV.B W4, [W14]
+200:                   data = WriteSpi_8b(NOOP);                  // Read payload
+000A4A  EBC000     SETM.B W0
+000A4C  070099     RCALL WriteSpi_8b
+000A4E  784200     MOV.B W0, W4
+000A50  984714     MOV.B W4, [W14+1]
+201:                   nrf_CSN_H;                                 // Pull up chip select
+000A52  A86E15     BSET 0xE15, #3
+202:                   nrf_config_register(STATUS,(1<<RX_DR));    // Reset status registe
+000A54  B3C401     MOV.B #0x40, W1
+000A56  B3C070     MOV.B #0x7, W0
+000A58  07FF91     RCALL nrf_config_register
+203:                   nrf_CE_H;
+000A5A  A88E15     BSET 0xE15, #4
+204:                   return data;
+000A5C  90421E     MOV.B [W14+1], W4
+205:               }
+000A5E  784004     MOV.B W4, W0
+000A60  FA8000     ULNK
+000A62  060000     RETURN
+206:               
+207:               uint8_t nrf_get_data_array(uint8_t * data) {
+000A64  FA0004     LNK #0x4
+000A66  980710     MOV W0, [W14+2]
+208:                   unsigned char status;
+209:               //    nrf_CE_L;
+210:                   nrf_CSN_L;                                 // Pull down chip select
+000A68  A96E15     BCLR 0xE15, #3
+211:                   status = WriteSpi_8b( R_RX_PAYLOAD );      // Send cmd to read rx payload
+000A6A  B3C610     MOV.B #0x61, W0
+000A6C  070089     RCALL WriteSpi_8b
+000A6E  784200     MOV.B W0, W4
+000A70  784F04     MOV.B W4, [W14]
+212:                   ReadSpi_array(data,data,PL_LENGTH);        // Read payload
+000A72  B3C202     MOV.B #0x20, W2
+000A74  90009E     MOV [W14+2], W1
+000A76  90001E     MOV [W14+2], W0
+000A78  0700B4     RCALL ReadSpi_array
+213:                   nrf_CSN_H;                                 // Pull up chip select
+000A7A  A86E15     BSET 0xE15, #3
+214:                   nrf_config_register(STATUS,(1<<RX_DR));    // Reset status register
+000A7C  B3C401     MOV.B #0x40, W1
+000A7E  B3C070     MOV.B #0x7, W0
+000A80  07FF7D     RCALL nrf_config_register
+215:               //    nrf_CE_H;
+216:                   return status;
+000A82  78421E     MOV.B [W14], W4
+217:               }
+000A84  784004     MOV.B W4, W0
+000A86  FA8000     ULNK
+000A88  060000     RETURN
+218:               
+219:               void nrf_set_RADDR(uint8_t * adr) {
+000A8A  FA0002     LNK #0x2
+000A8C  780F00     MOV W0, [W14]
+220:                   //nrf_CE_L;
+221:                   nrf_write_register(RX_ADDR_P0,adr,5);
+000A8E  B3C052     MOV.B #0x5, W2
+000A90  78009E     MOV [W14], W1
+000A92  B3C0A0     MOV.B #0xA, W0
+000A94  07FF92     RCALL nrf_write_register
+222:                   //nrf_CE_H;
+223:               }
+000A96  FA8000     ULNK
+000A98  060000     RETURN
+224:               
+225:               void nrf_set_TADDR(uint8_t * adr)
+226:               // Sets the transmitting address
+227:               {
+000A9A  FA0002     LNK #0x2
+000A9C  780F00     MOV W0, [W14]
+228:                   nrf_write_register(TX_ADDR, adr,5);
+000A9E  B3C052     MOV.B #0x5, W2
+000AA0  78009E     MOV [W14], W1
+000AA2  B3C100     MOV.B #0x10, W0
+000AA4  07FF8A     RCALL nrf_write_register
+229:               }
+000AA6  FA8000     ULNK
+000AA8  060000     RETURN
+230:               
+---  C:/Users/waldo/Dropbox/wireless_guitar/C/pic33/Evolved_Penny/Penny_V2.X/user.c  --------------------
+1:                 /******************************************************************************/
+2:                 /* Files to Include                                                           */
+3:                 /******************************************************************************/
+4:                 
+5:                 /* Device header file */
+6:                 #if defined(__XC16__)
+7:                 #include <xc.h>
+8:                 #elif defined(__C30__)
+9:                 #if defined(__dsPIC33E__)
+10:                #include <p33Exxxx.h>
+11:                #elif defined(__dsPIC33F__)
+12:                #include <p33Fxxxx.h>
+13:                #endif
+14:                #endif
+15:                
+16:                #include <delay.h>
+17:                #include <stdint.h>          /* For uint16_t definition                       */
+18:                #include <stdbool.h>         /* For true/false definition                     */
+19:                #include "user.h"            /* variables/params used by user.c               */
+20:                #include "dsp.h"
+21:                #include "../../common_files/system.h"
+22:                #include "../../common_files/common_defs&vars.h"
+23:                
+24:                /******************************************************************************/
+25:                /* User Functions                                                             */
+26:                /******************************************************************************/
+27:                
+28:                /* <Initialize variables in user.h and insert code for user algorithms.> */
+29:                
+30:                void InitApp(void) {
+000AAA  FA0000     LNK #0x0
+31:                    // Setup analog functionality and port direction 
+32:                    TRISA = 0x0000;
+000AAC  EB0200     CLR W4
+000AAE  887004     MOV W4, TRISA
+33:                    ANSELA = 0x0000;
+000AB0  EB0200     CLR W4
+000AB2  887074     MOV W4, ANSELA
+34:                    PORTA = 0x0000;
+000AB4  EB0200     CLR W4
+000AB6  887014     MOV W4, PORTA
+35:                
+36:                    TRISB = 0x0000;
+000AB8  EB0200     CLR W4
+000ABA  887084     MOV W4, TRISB
+37:                    ANSELB = 0x0000;
+000ABC  EB0200     CLR W4
+000ABE  8870F4     MOV W4, ANSELB
+38:                    PORTB = 0x0000;
+000AC0  EB0200     CLR W4
+000AC2  887094     MOV W4, PORTB
+39:                }
+000AC4  FA8000     ULNK
+000AC6  060000     RETURN
+40:                
+41:                
+42:                /*******************************************************************************/
+43:                /*******************************************************************************/
+44:                /**    **    **    *****     ******     ********                               */
+45:                /**    **    **   **   **    **   **    ********                               */
+46:                /**    **    **   **   **    ******        **                                  */
+47:                /**     **  **    *******    **  **        **                                  */
+48:                /**       **      **   **    **   **       **                                  */
+49:                /*******************************************************************************/
+50:                /*******************************************************************************/
+51:                void InitUart1(void) {
+000AC8  FA0000     LNK #0x0
+52:                     /* UART TRIS SELECT */
+53:                    TRISBbits.TRISB5 = 1; // RX
+000ACA  A8AE10     BSET TRISB, #5
+54:                    TRISBbits.TRISB6 = 0; // TX
+000ACC  A9CE10     BCLR TRISB, #6
+55:                    PORTBbits.RB6 = 1; // TX when not controlled by UART : high !!!
+000ACE  A8CE12     BSET PORTB, #6
+56:                
+57:                    /* SELELCT OUTPUT PORTS */
+58:                    RPINR18bits.U1RXR = 37; // Select Pin14 (= RP37) to RXUART1
+000AD0  803625     MOV RPINR18, W5
+000AD2  2FF804     MOV #0xFF80, W4
+000AD4  628284     AND W5, W4, W5
+000AD6  200254     MOV #0x25, W4
+000AD8  720205     IOR W4, W5, W4
+000ADA  883624     MOV W4, RPINR18
+59:                    RPOR2bits.RP38R = 0b000001; // Select Pin15 (= RP38) to TXUART1, RP38 tied to UART1 Transmit
+000ADC  803425     MOV RPOR2, W5
+000ADE  2FFC04     MOV #0xFFC0, W4
+000AE0  628204     AND W5, W4, W4
+000AE2  A00004     BSET W4, #0
+000AE4  883424     MOV W4, RPOR2
+60:                
+61:                    // U1MODE Register Settings
+62:                    U1MODEbits.UARTEN = 0; //UARTx is disabled; all UARTx pins are controlled by PORT latches; UARTx power consumption minimal
+000AE6  A9E221     BCLR 0x221, #7
+63:                    U1MODEbits.USIDL = 0; //Continue module operation in Idle mode
+000AE8  A9A221     BCLR 0x221, #5
+64:                    U1MODEbits.IREN = 0; //IrDA encoder and decoder disabled
+000AEA  A98221     BCLR 0x221, #4
+65:                    U1MODEbits.UEN = 0b00; //UxTX and UxRX pins are enabled and used; UxCTS and UxRTS/BCLKx pins controlled by PORT latches
+000AEC  801104     MOV U1MODE, W4
+000AEE  A18004     BCLR W4, #8
+000AF0  A19004     BCLR W4, #9
+000AF2  881104     MOV W4, U1MODE
+66:                    U1MODEbits.LPBACK = 0; //Loopback mode is disabled
+000AF4  A9C220     BCLR U1MODE, #6
+67:                    U1MODEbits.ABAUD = 0; //Baud rate measurement disabled or completed
+000AF6  A9A220     BCLR U1MODE, #5
+68:                    U1MODEbits.URXINV = 1; //1 = UxRX Idle state is ?0?
+000AF8  A88220     BSET U1MODE, #4
+69:                    U1MODEbits.BRGH = 0; //BRG generates 16 clocks per bit period (16x baud clock, Standard mode)
+000AFA  A96220     BCLR U1MODE, #3
+70:                    U1MODEbits.PDSEL = 0b00; //8-bit data, no parity
+000AFC  801104     MOV U1MODE, W4
+000AFE  A11004     BCLR W4, #1
+000B00  A12004     BCLR W4, #2
+000B02  881104     MOV W4, U1MODE
+71:                    U1MODEbits.STSEL = 0; //One Stop bit
+000B04  A90220     BCLR U1MODE, #0
+72:                
+73:                    // U1STA Register Settings
+74:                    U1STAbits.UTXISEL0 = 0; //bit 15,13 UTXISEL<1:0>: Transmission Interrupt Mode Selection bits
+000B06  A9A223     BCLR 0x223, #5
+75:                    U1STAbits.URXISEL1 = 0; // Interrupt when a character is transferred to the Transmit Shift Register (this implies there is at least one character open in the transmit buffer)
+000B08  A9E222     BCLR U1STA, #7
+76:                    U1STAbits.UTXINV = 1; //UxTX Idle state is ?0?
+000B0A  A8C223     BSET 0x223, #6
+77:                    U1STAbits.UTXEN = 0; //Transmit disabled, any pending transmission is aborted and buffer is reset. UxTX pin controlled by port.
+000B0C  A94223     BCLR 0x223, #2
+78:                    U1STAbits.URXISEL = 0b00; //Interrupt is set when any character is received and transferred from the UxRSR to the receive buffer. Receive buffer has one or more characters
+000B0E  801114     MOV U1STA, W4
+000B10  A16004     BCLR W4, #6
+000B12  A17004     BCLR W4, #7
+000B14  881114     MOV W4, U1STA
+79:                    U1STAbits.ADDEN = 0; //Address Detect mode disabled
+000B16  A9A222     BCLR U1STA, #5
+80:                
+81:                    // U1BRG Register Settings
+82:                    U1BRG = 455; // 455  --->  Baud = 9600   Fcy = 70 Mhz
+000B18  201C74     MOV #0x1C7, W4
+000B1A  881144     MOV W4, U1BRG
+83:                }
+000B1C  FA8000     ULNK
+000B1E  060000     RETURN
+84:                
+85:                 void putch(uint8_t byte) {
+000B20  FA0002     LNK #0x2
+000B22  784F00     MOV.B W0, [W14]
+86:                     U1TXREG = byte;
+000B24  78429E     MOV.B [W14], W5
+000B26  FB8205     ZE W5, W4
+000B28  881124     MOV W4, U1TXREG
+87:                     while(U1STAbits.TRMT == 0) {}
+000B2A  000000     NOP
+000B2C  801115     MOV U1STA, W5
+000B2E  201004     MOV #0x100, W4
+000B30  628204     AND W5, W4, W4
+000B32  520FE0     SUB W4, #0x0, [W15]
+000B34  32FFFB     BRA Z, 0xB2C
+88:                 }
+000B36  FA8000     ULNK
+000B38  060000     RETURN
+89:                
+90:                
+91:                /*******************************************************************************/
+92:                /*******************************************************************************/
+93:                /**    *****      *****      **                                                */
+94:                /**    **         **   *     **                                                */
+95:                /**      **       *****      **                                                */
+96:                /**        **     **         **                                                */
+97:                /**    ******     **         **                                                */
+98:                /*******************************************************************************/
+99:                /*******************************************************************************/
+100:               void InitSpiMaster(void) {
+000B3A  FA0000     LNK #0x0
+101:                   /* SPI TRIS SELECT*/
+102:                   TRISBbits.TRISB7 = 0; // SCK1 is clock output (Master mode)
+000B3C  A9EE10     BCLR TRISB, #7
+103:                   TRISBbits.TRISB8 = 0; // SD01 is data output
+000B3E  A90E11     BCLR 0xE11, #0
+104:                   TRISBbits.TRISB9 = 1; // SDI1 is data input
+000B40  A82E11     BSET 0xE11, #1
+105:               
+106:                   SPI1BUF = 0; // Clear the buffer
+000B42  EB0200     CLR W4
+000B44  881244     MOV W4, SPI1BUF
+107:               
+108:                   // SPI1STAT Register Settings
+109:                   SPI1STATbits.SPIEN = 0; // Disable SPI module
+000B46  A9E241     BCLR 0x241, #7
+110:                   SPI1STATbits.SPISIDL = 0; // Continue module operation in Idle mode
+000B48  A9A241     BCLR 0x241, #5
+111:                   SPI1STATbits.SPIBEC = 0; // Number of SPIx transfers are pending.
+000B4A  801204     MOV SPI1STAT, W4
+000B4C  A18004     BCLR W4, #8
+000B4E  A19004     BCLR W4, #9
+000B50  A1A004     BCLR W4, #10
+000B52  881204     MOV W4, SPI1STAT
+112:                   SPI1STATbits.SPIROV = 0; // No Receive Overflow has occurred
+000B54  A9C240     BCLR SPI1STAT, #6
+113:               
+114:                   // SPI1CON1 Register Settings
+115:                   SPI1CON1bits.DISSCK = 0; // SPIx clock on SCKx pin is enabled
+000B56  A98243     BCLR 0x243, #4
+116:                   SPI1CON1bits.DISSDO = 0; // SDOx pin is controlled by the module
+000B58  A96243     BCLR 0x243, #3
+117:                   SPI1CON1bits.MODE16 = 0; // Communication is byte-wide (8 bits)
+000B5A  A94243     BCLR 0x243, #2
+118:                   SPI1CON1bits.SMP = 1; // Input data is sampled at the end of data output time
+000B5C  A82243     BSET 0x243, #1
+119:                   SPI1CON1bits.CKE = 1; // Serial output data changes on transition from active clock state to Idle clock state (see bit 6)
+000B5E  A80243     BSET 0x243, #0
+120:                   SPI1CON1bits.CKP = 0; // Idle state for clock is a low level; active state is a high level
+000B60  A9C242     BCLR SPI1CON1, #6
+121:                   SPI1CON1bits.MSTEN = 1; // Master mode enabled
+000B62  A8A242     BSET SPI1CON1, #5
+122:                   SPI1CON1bits.SPRE = 0b111; // Secondary prescale 1:1
+000B64  801214     MOV SPI1CON1, W4
+000B66  A02004     BSET W4, #2
+000B68  A03004     BSET W4, #3
+000B6A  A04004     BSET W4, #4
+000B6C  881214     MOV W4, SPI1CON1
+123:                   SPI1CON1bits.PPRE = 0b00; // Primary prescale 64:1
+000B6E  801214     MOV SPI1CON1, W4
+000B70  A10004     BCLR W4, #0
+000B72  A11004     BCLR W4, #1
+000B74  881214     MOV W4, SPI1CON1
+124:                   
+125:                   // SPI1CON2 Register Settings
+126:                   SPI1CON2bits.FRMEN = 0; // Framed SPIx support is disabled
+000B76  A9E245     BCLR 0x245, #7
+127:                   SPI1CON2bits.SPIBEN = 0; // Enhanced buffer is disabled (Legacy mode)
+000B78  A90244     BCLR SPI1CON2, #0
+128:                   
+129:                   // Enable SPI module
+130:                   SPI1STATbits.SPIEN = 1; // Enable SPI module
+000B7A  A8E241     BSET 0x241, #7
+131:               }
+000B7C  FA8000     ULNK
+000B7E  060000     RETURN
+132:               
+133:               uint8_t WriteSpi_8b(uint8_t data) {
+000B80  FA0002     LNK #0x2
+000B82  784F00     MOV.B W0, [W14]
+134:                    SPI1BUF = data;
+000B84  78429E     MOV.B [W14], W5
+000B86  FB8205     ZE W5, W4
+000B88  881244     MOV W4, SPI1BUF
+135:                    while(!SPI1STATbits.SPIRBF) {}
+000B8A  000000     NOP
+000B8C  801204     MOV SPI1STAT, W4
+000B8E  620261     AND W4, #0x1, W4
+000B90  520FE0     SUB W4, #0x0, [W15]
+000B92  32FFFC     BRA Z, 0xB8C
+136:                    return SPI1BUF;
+000B94  801244     MOV SPI1BUF, W4
+000B96  784204     MOV.B W4, W4
+137:               
+138:               }
+000B98  784004     MOV.B W4, W0
+000B9A  FA8000     ULNK
+000B9C  060000     RETURN
+139:               
+140:               uint8_t WriteSpi_16b(uint16_t data) {
+000B9E  FA0002     LNK #0x2
+000BA0  780F00     MOV W0, [W14]
+141:                    SPI1CON1bits.MODE16 = 1;
+000BA2  A84243     BSET 0x243, #2
+142:                    SPI1BUF = data;
+000BA4  78021E     MOV [W14], W4
+000BA6  881244     MOV W4, SPI1BUF
+143:                    while(!SPI1STATbits.SPIRBF) {}
+000BA8  000000     NOP
+000BAA  801204     MOV SPI1STAT, W4
+000BAC  620261     AND W4, #0x1, W4
+000BAE  520FE0     SUB W4, #0x0, [W15]
+000BB0  32FFFC     BRA Z, 0xBAA
+144:                    return SPI1BUF;
+000BB2  801244     MOV SPI1BUF, W4
+000BB4  784204     MOV.B W4, W4
+145:               }
+000BB6  784004     MOV.B W4, W0
+000BB8  FA8000     ULNK
+000BBA  060000     RETURN
+146:               
+147:               uint8_t WriteSpi_array(uint8_t * data, uint8_t length){
+000BBC  FA0004     LNK #0x4
+000BBE  780F00     MOV W0, [W14]
+000BC0  984721     MOV.B W1, [W14+2]
+148:                   while(length){
+000BC2  370008     BRA 0xBD4
+000BD4  90422E     MOV.B [W14+2], W4
+000BD6  524FE0     SUB.B W4, #0x0, [W15]
+000BD8  3AFFF5     BRA NZ, 0xBC4
+149:                       WriteSpi_8b(*data);
+000BC4  78021E     MOV [W14], W4
+000BC6  784214     MOV.B [W4], W4
+000BC8  784004     MOV.B W4, W0
+000BCA  07FFDA     RCALL WriteSpi_8b
+150:                       length--;
+000BCC  90422E     MOV.B [W14+2], W4
+000BCE  E94204     DEC.B W4, W4
+000BD0  984724     MOV.B W4, [W14+2]
+151:               	data++;
+000BD2  E80F1E     INC [W14], [W14]
+152:                   }
+153:                   return 1;
+000BDA  B3C014     MOV.B #0x1, W4
+154:               }
+000BDC  784004     MOV.B W4, W0
+000BDE  FA8000     ULNK
+000BE0  060000     RETURN
+155:               
+156:               void    ReadSpi_array(uint8_t * dataout, uint8_t * datain, uint8_t length){
+000BE2  FA0006     LNK #0x6
+000BE4  780F00     MOV W0, [W14]
+000BE6  980711     MOV W1, [W14+2]
+000BE8  984742     MOV.B W2, [W14+4]
+157:                   while(length){
+000BEA  370014     BRA 0xC14
+000C14  90424E     MOV.B [W14+4], W4
+000C16  524FE0     SUB.B W4, #0x0, [W15]
+000C18  3AFFE9     BRA NZ, 0xBEC
+158:               	SPI1BUF = *dataout;  // Load one byte
+000BEC  78021E     MOV [W14], W4
+000BEE  784214     MOV.B [W4], W4
+000BF0  FB8204     ZE W4, W4
+000BF2  881244     MOV W4, SPI1BUF
+159:               	while(!SPI1STATbits.SPIRBF) {}    // Wait for buffer full            // Clear flag
+000BF4  000000     NOP
+000BF6  801204     MOV SPI1STAT, W4
+000BF8  620261     AND W4, #0x1, W4
+000BFA  520FE0     SUB W4, #0x0, [W15]
+000BFC  32FFFC     BRA Z, 0xBF6
+160:                       *datain = SPI1BUF;   // Read out data
+000BFE  801244     MOV SPI1BUF, W4
+000C00  784284     MOV.B W4, W5
+000C02  90021E     MOV [W14+2], W4
+000C04  784A05     MOV.B W5, [W4]
+161:                       length--;
+000C06  90424E     MOV.B [W14+4], W4
+000C08  E94204     DEC.B W4, W4
+000C0A  984744     MOV.B W4, [W14+4]
+162:               	dataout++;
+000C0C  E80F1E     INC [W14], [W14]
+163:                       datain++;
+000C0E  90021E     MOV [W14+2], W4
+000C10  E80204     INC W4, W4
+000C12  980714     MOV W4, [W14+2]
+164:                   }
+165:               }
+000C1A  FA8000     ULNK
+000C1C  060000     RETURN
+166:               
+167:               /*******************************************************************************/
+168:               /*******************************************************************************/
+169:               /**     *****     *****         ****                                           */
+170:               /**    **   **    **   **     **                                               */
+171:               /**    **   **    **    **   **                                                */
+172:               /**    *******    **   **     **                                               */
+173:               /**    **   **    *****         ****                                           */
+174:               /*******************************************************************************/
+175:               /*******************************************************************************/
+176:               uint16_t dmaBuffer = 0;
+177:               uint16_t AdcBufferA[NUMSAMP] __attribute__((space(xmemory)));
+178:               uint16_t AdcBufferB[NUMSAMP] __attribute__((space(xmemory)));
+179:               uint16_t AdcBufferAt[NUMSAMP] __attribute__((space(xmemory)));
+180:               uint16_t AdcBufferBt[NUMSAMP] __attribute__((space(xmemory)));
+181:               
+182:               void InitAdc1(void) {
+000C1E  FA0000     LNK #0x0
+183:                   /* ADC TRIS SELECT*/
+184:                   _TRISA0 = 1;
+000C20  A80E00     BSET TRISA, #0
+185:                   ANSELA = 0x0001;
+000C22  200014     MOV #0x1, W4
+000C24  887074     MOV W4, ANSELA
+186:               
+187:                   // ADCON1 Register Settings
+188:                   AD1CON1bits.ADON = 0; //0 = ADC is off
+000C26  A9E321     BCLR 0x321, #7
+189:                   AD1CON1bits.ADSIDL = 0; //Continues module operation in Idle mode
+000C28  A9A321     BCLR 0x321, #5
+190:                   AD1CON1bits.ADDMABM = 1; //DMA buffers are written in the order of conversion; the module provides an address to the DMA channel that is the same as the address used for the non-DMA stand-alone buffer
+000C2A  A88321     BSET 0x321, #4
+191:                   AD1CON1bits.AD12B = 0; //10-bit, 4-channel ADC operation
+000C2C  A94321     BCLR 0x321, #2
+192:                   AD1CON1bits.FORM = 0b00; //Integer (D OUT = 0000 00dd dddd dddd)
+000C2E  801904     MOV AD1CON1, W4
+000C30  A18004     BCLR W4, #8
+000C32  A19004     BCLR W4, #9
+000C34  881904     MOV W4, AD1CON1
+193:                   AD1CON1bits.SSRC = 0b010; //Timer3 compare ends sampling and starts conversion
+000C36  801904     MOV AD1CON1, W4
+000C38  A15004     BCLR W4, #5
+000C3A  A06004     BSET W4, #6
+000C3C  A17004     BCLR W4, #7
+000C3E  881904     MOV W4, AD1CON1
+194:                   AD1CON1bits.SSRCG = 0; //Sample Trigger Source Group bit, See SSRC<2:0> for details.
+000C40  A98320     BCLR AD1CON1, #4
+195:                   AD1CON1bits.ASAM = 1; //Sampling begins immediately after the last conversion; SAMP bit is auto-set
+000C42  A84320     BSET AD1CON1, #2
+196:                   AD1CON1bits.SAMP = 0; //ADC Sample-and-Hold amplifiers are holding
+000C44  A92320     BCLR AD1CON1, #1
+197:               
+198:                   // AD1CON2 Register Settings
+199:                   AD1CON2bits.VCFG = 0b000; //Converter Voltage Reference Configuration bits
+000C46  801914     MOV AD1CON2, W4
+000C48  A1D004     BCLR W4, #13
+000C4A  A1E004     BCLR W4, #14
+000C4C  A1F004     BCLR W4, #15
+000C4E  881914     MOV W4, AD1CON2
+200:                   AD1CON2bits.CSCNA = 0; //Does not scan inputs
+000C50  A94323     BCLR 0x323, #2
+201:                   AD1CON2bits.CHPS = 0b00; //Converts CH0
+000C52  801914     MOV AD1CON2, W4
+000C54  A18004     BCLR W4, #8
+000C56  A19004     BCLR W4, #9
+000C58  881914     MOV W4, AD1CON2
+202:                   AD1CON2bits.SMPI = 0b0000; //Increments the DMA address after completion of every sample/conversion operation
+000C5A  801915     MOV AD1CON2, W5
+000C5C  2FF834     MOV #0xFF83, W4
+000C5E  628204     AND W5, W4, W4
+000C60  881914     MOV W4, AD1CON2
+203:                   AD1CON2bits.BUFM = 0; //Always starts filling the buffer from the start address.
+000C62  A92322     BCLR AD1CON2, #1
+204:                   AD1CON2bits.ALTS = 0; //Always uses channel input selects for Sample MUXA
+000C64  A90322     BCLR AD1CON2, #0
+205:               
+206:                   // AD1CON3 Register Settings
+207:                   AD1CON3bits.ADRC = 1; //Clock derived from system clock
+000C66  A8E325     BSET 0x325, #7
+208:                   AD1CON3bits.ADCS = 255;
+000C68  EBC200     SETM.B W4
+000C6A  784304     MOV.B W4, W6
+000C6C  203245     MOV #0x324, W5
+000C6E  784A86     MOV.B W6, [W5]
+209:               
+210:                   // AD1CON4 Register Settings
+211:                   AD1CON4bits.ADDMAEN = 1; //Conversion results are stored in the ADC1BUF0 register for transfer to RAM using DMA
+000C70  A80333     BSET 0x333, #0
+212:                   AD1CON4bits.DMABL = 0b000; //Allocates 1 word of buffer to each analog input
+000C72  801994     MOV AD1CON4, W4
+000C74  A10004     BCLR W4, #0
+000C76  A11004     BCLR W4, #1
+000C78  A12004     BCLR W4, #2
+000C7A  881994     MOV W4, AD1CON4
+213:               
+214:                   // AD1CHS0 Register Settings
+215:                   AD1CHS0bits.CH0NA = 0; //Channel 0 negative input is V REFL
+000C7C  A9E328     BCLR AD1CHS0, #7
+216:                   AD1CHS0bits.CH0SA = 0b00000; //Channel 0 positive input is AN0 (1,3)
+000C7E  801945     MOV AD1CHS0, W5
+000C80  2FFE04     MOV #0xFFE0, W4
+000C82  628204     AND W5, W4, W4
+000C84  881944     MOV W4, AD1CHS0
+217:               
+218:                   AD1CON1bits.ADON = 1; //bit 15 ADON: ADC1 Operating Mode bit
+000C86  A8E321     BSET 0x321, #7
+219:               }
+000C88  FA8000     ULNK
+000C8A  060000     RETURN
+220:               
+221:               void InitDma0(void) {
+000C8C  FA0000     LNK #0x0
+222:                   // DMA0CON Register Settings
+223:                   DMA0CONbits.CHEN = 0; //Channel is disabled
+000C8E  A9EB01     BCLR 0xB01, #7
+224:                   DMA0CONbits.SIZE = 0; //Word
+000C90  A9CB01     BCLR 0xB01, #6
+225:                   DMA0CONbits.DIR = 0; //Reads from peripheral address, writes to RAM address
+000C92  A9AB01     BCLR 0xB01, #5
+226:                   DMA0CONbits.HALF = 0; //Initiates interrupt when all of the data has been moved
+000C94  A98B01     BCLR 0xB01, #4
+227:                   DMA0CONbits.NULLW = 0; //Normal operation
+000C96  A96B01     BCLR 0xB01, #3
+228:                   DMA0CONbits.AMODE = 0b00; //Register Indirect with Post-Increment mode
+000C98  805804     MOV DMA0CON, W4
+000C9A  A14004     BCLR W4, #4
+000C9C  A15004     BCLR W4, #5
+000C9E  885804     MOV W4, DMA0CON
+229:                   DMA0CONbits.MODE = 0b10; //Continuous, Ping-Pong modes are enabled
+000CA0  805804     MOV DMA0CON, W4
+000CA2  A10004     BCLR W4, #0
+000CA4  A01004     BSET W4, #1
+000CA6  885804     MOV W4, DMA0CON
+230:               
+231:                   // DMA0REQ Register Settings
+232:                   DMA0REQbits.FORCE = 0; //Automatic DMA transfer initiation by DMA request
+000CA8  A9EB03     BCLR 0xB03, #7
+233:                   DMA0REQbits.IRQSEL = 0b00001101; //00001101 = ADC1 ? ADC1 Convert done
+000CAA  B3C0D4     MOV.B #0xD, W4
+000CAC  784304     MOV.B W4, W6
+000CAE  20B025     MOV #0xB02, W5
+000CB0  784A86     MOV.B W6, [W5]
+234:               
+235:                   // Primary Start Address bits (source or destination)
+236:                   DMA0STAL = (uint16_t) & AdcBufferA;
+000CB2  210004     MOV #0x1000, W4
+000CB4  885824     MOV W4, DMA0STAL
+237:                   DMA0STAH = (uint16_t) & AdcBufferA;
+000CB6  210004     MOV #0x1000, W4
+000CB8  885834     MOV W4, DMA0STAH
+238:               
+239:                   // Primary Start Address bits (source or destination)
+240:                   DMA0STBL = (uint16_t) & AdcBufferB;
+000CBA  210304     MOV #0x1030, W4
+000CBC  885844     MOV W4, DMA0STBL
+241:                   DMA0STBH = (uint16_t) & AdcBufferB;
+000CBE  210304     MOV #0x1030, W4
+000CC0  885854     MOV W4, DMA0STBH
+242:               
+243:                   // Peripheral Address Register bits
+244:                   DMA0PAD = (int16_t) & ADC1BUF0;
+000CC2  203004     MOV #0x300, W4
+000CC4  885864     MOV W4, DMA0PAD
+245:               
+246:                   // Peripheral Count Number
+247:                   DMA0CNT = (NUMSAMP - 1);
+000CC6  200174     MOV #0x17, W4
+000CC8  885874     MOV W4, DMA0CNT
+248:               
+249:                   DMA0CONbits.CHEN = 1; //DMA Channel Enable bit
+000CCA  A8EB01     BSET 0xB01, #7
+250:               }
+000CCC  FA8000     ULNK
+000CCE  060000     RETURN
+251:               
+252:               void InitTmr3(void) {
+000CD0  FA0000     LNK #0x0
+253:                  TMR3 = 0x0000;
+000CD2  EB0200     CLR W4
+000CD4  880854     MOV W4, TMR3
+254:                  PR3 = SAMPPRD;
+000CD6  21B574     MOV #0x1B57, W4
+000CD8  880874     MOV W4, PR3
+255:                  T3CONbits.TCKPS = 0b00;
+000CDA  800894     MOV T3CON, W4
+000CDC  A14004     BCLR W4, #4
+000CDE  A15004     BCLR W4, #5
+000CE0  880894     MOV W4, T3CON
+256:               }
+000CE2  FA8000     ULNK
+000CE4  060000     RETURN
+---  C:/Users/waldo/Dropbox/wireless_guitar/C/pic33/Evolved_Penny/Penny_V2.X/main.c  --------------------
+1:                 /******************************************************************************/
+2:                 /* Files to Include                                                           */
+3:                 /******************************************************************************/
+4:                 
+5:                 /* Device header file */
+6:                 #if defined(__XC16__)
+7:                 #include <xc.h>
+8:                 #elif defined(__C30__)
+9:                 #if defined(__dsPIC33E__)
+10:                #include <p33Exxxx.h>
+11:                #elif defined(__dsPIC33F__)
+12:                #include <p33Fxxxx.h>
+13:                #endif
+14:                #endif
+15:                
+16:                #include <stdio.h>
+17:                #include <stdint.h>        /* Includes uint16_t definition                    */
+18:                #include <stdbool.h>       /* Includes true/false definition                  */
+19:                #include <delay.h>         /* Includes delay functions                        */
+20:                #include "dsp.h"           /* Includes dsp functions                          */
+21:                #include "../../common_files/system.h"              /* System funct/params, like osc/peripheral config */
+22:                #include "../../common_files/common_defs&vars.h"    /* Common defines for all the PICs */
+23:                #include "wl_module.h"           /* Functions of the NORDIC */
+24:                #include "user.h"          /* User funct/params, such as InitApp              */
+25:                #include "interrupts.h"    /* Interrupts functions                            */
+26:                
+27:                /******************************************************************************/
+28:                /* Global Variable Declaration                                                */
+29:                /******************************************************************************/
+30:                void bananen(void);
+31:                uint8_t count;
+32:                
+33:                /******************************************************************************/
+34:                /* Main Program                                                               */
+35:                
+36:                /******************************************************************************/
+37:                
+38:                int16_t main(void) {
+000CE6  FA0000     LNK #0x0
+39:                    /* Disable the interrupts */
+40:                    DisableInterrupts();
+000CE8  07FB31     RCALL DisableInterrupts
+41:                    /* Configure the oscillator for the device */
+42:                    PLLset();
+000CEA  07004E     RCALL PLLset
+43:                    ConfigureOscillator();
+000CEC  070032     RCALL ConfigureOscillator
+44:                
+45:                    Delay_ms(1);
+000CEE  211700     MOV #0x1170, W0
+000CF0  200011     MOV #0x1, W1
+000CF2  07007B     RCALL ___delay32
+46:                
+47:                    /* Initialize IO ports and peripherals */
+48:                    InitApp();
+000CF4  07FEDA     RCALL InitApp
+49:                    InitDma0();       // Init DMA0 with ADC, enable included
+000CF6  07FFCA     RCALL InitDma0
+50:                    InitAdc1();       // Init ADC1 with DMA0, enable included
+000CF8  07FF92     RCALL InitAdc1
+51:                    InitTmr3();         // Init Timer3 for Adc sample frequency, NO enable included
+000CFA  07FFEA     RCALL InitTmr3
+52:                
+53:                    nrf_init();       // Init the SPI and Hardware ports
+000CFC  07FD67     RCALL nrf_init
+54:                    nrf_rx_config(RX_PW_P0,nrf_ENAA_P0); // Init the nRF module, Pipe0 - AutoAck
+000CFE  B3C011     MOV.B #0x1, W1
+000D00  B3C110     MOV.B #0x11, W0
+000D02  07FDF9     RCALL nrf_rx_config
+55:                    Delay_ms(5);
+000D04  257300     MOV #0x5730, W0
+000D06  200051     MOV #0x5, W1
+000D08  070070     RCALL ___delay32
+56:                
+57:                    InitInterrupts();   // Init the interrupts
+000D0A  07FAF8     RCALL InitInterrupts
+58:                    EnableInterrupts(); // Enable interrupts
+000D0C  07FB28     RCALL EnableInterrupts
+59:                    nrf_CE_H;           // Listening for pakets
+000D0E  A88E15     BSET 0xE15, #4
+000D10  370001     BRA 0xD14
+60:                
+61:                
+62:                    while (1) {
+63:                        if(nrf_int_status & NRF_INT_MASK) {
+000D14  210E64     MOV #0x10E6, W4
+000D16  784214     MOV.B [W4], W4
+000D18  524FE0     SUB.B W4, #0x0, [W15]
+000D1A  3D000C     BRA GE, 0xD34
+64:                            if(payload[PL_COMMAND] == (ANOUCHKA + aSEARCH_HW)){
+65:                //                _LATB14 = 1;
+66:                            } else {
+67:                            }
+68:                
+69:                            if(payload[PL_COMMAND] == (ANOUCHKA + aPREPARE)){
+000D1C  210C25     MOV #0x10C2, W5
+000D1E  784295     MOV.B [W5], W5
+000D20  B3CA34     MOV.B #0xA3, W4
+000D22  52CF84     SUB.B W5, W4, [W15]
+000D24  3A0007     BRA NZ, 0xD34
+70:                //                _LATB13 = 1;
+71:                                nrf_tx_config(nrf_TX_NR_0, nrf_ENAA_P0); // Init the nRF module as TX , Pipe0 - AutoAck
+000D26  B3C011     MOV.B #0x1, W1
+000D28  EB4000     CLR.B W0
+000D2A  07FD5D     RCALL nrf_tx_config
+72:                                Delay_ms(50);
+000D2C  267E00     MOV #0x67E0, W0
+000D2E  200351     MOV #0x35, W1
+000D30  07005C     RCALL ___delay32
+73:                                T3CONbits.TON = 1;
+000D32  A8E113     BSET 0x113, #7
+74:                            } else {
+75:                            }
+76:                        }
+77:                
+78:                        if(fail) {
+000D34  808754     MOV fail, W4
+000D36  520FE0     SUB W4, #0x0, [W15]
+000D38  32FFEC     BRA Z, 0xD12
+79:                            fail = 0;
+000D3A  EB0200     CLR W4
+000D3C  888754     MOV W4, fail
+80:                            DisableInterrupts();
+000D3E  07FB06     RCALL DisableInterrupts
+81:                            nrf_rx_config(RX_PW_P0,nrf_ENAA_P0); // Init the nRF module, Pipe0 - AutoAck
+000D40  B3C011     MOV.B #0x1, W1
+000D42  B3C110     MOV.B #0x11, W0
+000D44  07FDD8     RCALL nrf_rx_config
+82:                            Delay_ms(5);
+000D46  257300     MOV #0x5730, W0
+000D48  200051     MOV #0x5, W1
+000D4A  07004F     RCALL ___delay32
+83:                            EnableInterrupts(); // Enable interrupts
+000D4C  07FB08     RCALL EnableInterrupts
+84:                            nrf_CE_H;           // Listening for pakets
+000D4E  A88E15     BSET 0xE15, #4
+85:                
+86:                        }
+87:                
+88:                    }
+000D12  000000     NOP
+000D50  37FFE1     BRA 0xD14
+89:                }
+90:                
+91:                
+---  C:/Users/waldo/Dropbox/wireless_guitar/C/pic33/Evolved_Penny/Penny_V2.X/interrupts.c  --------------
+1:                 /******************************************************************************/
+2:                 /* Files to Include                                                           */
+3:                 /******************************************************************************/
+4:                 
+5:                 /* Device header file */
+6:                 #if defined(__XC16__)
+7:                 #include <xc.h>
+8:                 #elif defined(__C30__)
+9:                 #if defined(__dsPIC33E__)
+10:                #include <p33Exxxx.h>
+11:                #elif defined(__dsPIC33F__)
+12:                #include <p33Fxxxx.h>
+13:                #endif
+14:                #endif
+15:                
+16:                #include <stdint.h>        /* Includes uint16_t definition   */
+17:                #include <stdbool.h>       /* Includes true/false definition */
+18:                #include <delay.h>
+19:                
+20:                #include "user.h"
+21:                #include "interrupts.h"
+22:                #include "wl_module.h"
+23:                #include "../../common_files/common_defs&vars.h"
+24:                
+25:                /******************************************************************************/
+26:                /* Interrupt Vector Options                                                   */
+27:                /******************************************************************************/
+28:                /*                                                                            */
+29:                /* Refer to the C30 (MPLAB C Compiler for PIC24F MCUs and dsPIC33F DSCs) User */
+30:                /* Guide for an up to date list of the available interrupt options.           */
+31:                /* Alternately these names can be pulled from the device linker scripts.      */
+32:                /*                                                                            */
+33:                /* dsPIC33F Primary Interrupt Vector Names:                                   */
+34:                /*                                                                            */
+35:                /* _INT0Interrupt      _C1Interrupt                                           */
+36:                /* _IC1Interrupt       _DMA3Interrupt                                         */
+37:                /* _OC1Interrupt       _IC3Interrupt                                          */
+38:                /* _T1Interrupt        _IC4Interrupt                                          */
+39:                /* _DMA0Interrupt      _IC5Interrupt                                          */
+40:                /* _IC2Interrupt       _IC6Interrupt                                          */
+41:                /* _OC2Interrupt       _OC5Interrupt                                          */
+42:                /* _T2Interrupt        _OC6Interrupt                                          */
+43:                /* _T3Interrupt        _OC7Interrupt                                          */
+44:                /* _SPI1ErrInterrupt   _OC8Interrupt                                          */
+45:                /* _SPI1Interrupt      _DMA4Interrupt                                         */
+46:                /* _U1RXInterrupt      _T6Interrupt                                           */
+47:                /* _U1TXInterrupt      _T7Interrupt                                           */
+48:                /* _ADC1Interrupt      _SI2C2Interrupt                                        */
+49:                /* _DMA1Interrupt      _MI2C2Interrupt                                        */
+50:                /* _SI2C1Interrupt     _T8Interrupt                                           */
+51:                /* _MI2C1Interrupt     _T9Interrupt                                           */
+52:                /* _CNInterrupt        _INT3Interrupt                                         */
+53:                /* _INT1Interrupt      _INT4Interrupt                                         */
+54:                /* _ADC2Interrupt      _C2RxRdyInterrupt                                      */
+55:                /* _DMA2Interrupt      _C2Interrupt                                           */
+56:                /* _OC3Interrupt       _DCIErrInterrupt                                       */
+57:                /* _OC4Interrupt       _DCIInterrupt                                          */
+58:                /* _T4Interrupt        _DMA5Interrupt                                         */
+59:                /* _T5Interrupt        _U1ErrInterrupt                                        */
+60:                /* _INT2Interrupt      _U2ErrInterrupt                                        */
+61:                /* _U2RXInterrupt      _DMA6Interrupt                                         */
+62:                /* _U2TXInterrupt      _DMA7Interrupt                                         */
+63:                /* _SPI2ErrInterrupt   _C1TxReqInterrupt                                      */
+64:                /* _SPI2Interrupt      _C2TxReqInterrupt                                      */
+65:                /* _C1RxRdyInterrupt                                                          */
+66:                /*                                                                            */
+67:                /* dsPIC33E Primary Interrupt Vector Names:                                   */
+68:                /*                                                                            */
+69:                /* _INT0Interrupt     _IC4Interrupt      _U4TXInterrupt                       */
+70:                /* _IC1Interrupt      _IC5Interrupt      _SPI3ErrInterrupt                    */
+71:                /* _OC1Interrupt      _IC6Interrupt      _SPI3Interrupt                       */
+72:                /* _T1Interrupt       _OC5Interrupt      _OC9Interrupt                        */
+73:                /* _DMA0Interrupt     _OC6Interrupt      _IC9Interrupt                        */
+74:                /* _IC2Interrupt      _OC7Interrupt      _PWM1Interrupt                       */
+75:                /* _OC2Interrupt      _OC8Interrupt      _PWM2Interrupt                       */
+76:                /* _T2Interrupt       _PMPInterrupt      _PWM3Interrupt                       */
+77:                /* _T3Interrupt       _DMA4Interrupt     _PWM4Interrupt                       */
+78:                /* _SPI1ErrInterrupt  _T6Interrupt       _PWM5Interrupt                       */
+79:                /* _SPI1Interrupt     _T7Interrupt       _PWM6Interrupt                       */
+80:                /* _U1RXInterrupt     _SI2C2Interrupt    _PWM7Interrupt                       */
+81:                /* _U1TXInterrupt     _MI2C2Interrupt    _DMA8Interrupt                       */
+82:                /* _AD1Interrupt      _T8Interrupt       _DMA9Interrupt                       */
+83:                /* _DMA1Interrupt     _T9Interrupt       _DMA10Interrupt                      */
+84:                /* _NVMInterrupt      _INT3Interrupt     _DMA11Interrupt                      */
+85:                /* _SI2C1Interrupt    _INT4Interrupt     _SPI4ErrInterrupt                    */
+86:                /* _MI2C1Interrupt    _C2RxRdyInterrupt  _SPI4Interrupt                       */
+87:                /* _CM1Interrupt      _C2Interrupt       _OC10Interrupt                       */
+88:                /* _CNInterrupt       _QEI1Interrupt     _IC10Interrupt                       */
+89:                /* _INT1Interrupt     _DCIEInterrupt     _OC11Interrupt                       */
+90:                /* _AD2Interrupt      _DCIInterrupt      _IC11Interrupt                       */
+91:                /* _IC7Interrupt      _DMA5Interrupt     _OC12Interrupt                       */
+92:                /* _IC8Interrupt      _RTCCInterrupt     _IC12Interrupt                       */
+93:                /* _DMA2Interrupt     _U1ErrInterrupt    _DMA12Interrupt                      */
+94:                /* _OC3Interrupt      _U2ErrInterrupt    _DMA13Interrupt                      */
+95:                /* _OC4Interrupt      _CRCInterrupt      _DMA14Interrupt                      */
+96:                /* _T4Interrupt       _DMA6Interrupt     _OC13Interrupt                       */
+97:                /* _T5Interrupt       _DMA7Interrupt     _IC13Interrupt                       */
+98:                /* _INT2Interrupt     _C1TxReqInterrupt  _OC14Interrupt                       */
+99:                /* _U2RXInterrupt     _C2TxReqInterrupt  _IC14Interrupt                       */
+100:               /* _U2TXInterrupt     _QEI2Interrupt     _OC15Interrupt                       */
+101:               /* _SPI2ErrInterrupt  _U3ErrInterrupt    _IC15Interrupt                       */
+102:               /* _SPI2Interrupt     _U3RXInterrupt     _OC16Interrupt                       */
+103:               /* _C1RxRdyInterrupt  _U3TXInterrupt     _IC16Interrupt                       */
+104:               /* _C1Interrupt       _USB1Interrupt     _ICDInterrupt                        */
+105:               /* _DMA3Interrupt     _U4ErrInterrupt    _PWMSpEventMatchInterrupt            */
+106:               /* _IC3Interrupt      _U4RXInterrupt     _PWMSecSpEventMatchInterrupt         */
+107:               /*                                                                            */
+108:               /* For alternate interrupt vector naming, simply add 'Alt' between the prim.  */
+109:               /* interrupt vector name '_' and the first character of the primary interrupt */
+110:               /* vector name.  There is no Alternate Vector or 'AIVT' for the 33E family.   */
+111:               /*                                                                            */
+112:               /* For example, the vector name _ADC2Interrupt becomes _AltADC2Interrupt in   */
+113:               /* the alternate vector table.                                                */
+114:               /*                                                                            */
+115:               /* Example Syntax:                                                            */
+116:               /*                                                                            */
+117:               /* void __attribute__((interrupt,auto_psv)) <Vector Name>(void)               */
+118:               /* {                                                                          */
+119:               /*     <Clear Interrupt Flag>                                                 */
+120:               /* }                                                                          */
+121:               /*                                                                            */
+122:               /* For more comprehensive interrupt examples refer to the C30 (MPLAB C        */
+123:               /* Compiler for PIC24 MCUs and dsPIC DSCs) User Guide in the                  */
+124:               /* <C30 compiler instal directory>/doc directory for the latest compiler      */
+125:               /* release.  For XC16, refer to the MPLAB XC16 C Compiler User's Guide in the */
+126:               /* <XC16 compiler instal directory>/doc folder.                               */
+127:               /*                                                                            */
+128:               /******************************************************************************/
+129:               /* Interrupt Initialises                                                      */
+130:               /******************************************************************************/
+131:               uint16_t ReceivedChar;
+132:               uint16_t AdcFlag = 0;
+133:               uint8_t nrf_int_status = 0;
+134:               
+135:               void InitInterrupts(void) {
+0002FC  FA0000     LNK #0x0
+136:                   INTCON1 = 0x0000;       // Clear all special pending flags
+0002FE  EB0200     CLR W4
+000300  884604     MOV W4, INTCON1
+137:                   INTCON3 = 0x0000;
+000302  EB0200     CLR W4
+000304  884624     MOV W4, INTCON3
+138:                   INTCON4 = 0x0000;
+000306  EB0200     CLR W4
+000308  884634     MOV W4, INTCON4
+139:               
+140:                   _NSTDIS = 0; // Enable Interrupt Nesting   MUST !!!!
+00030A  A9E8C1     BCLR 0x8C1, #7
+141:               
+142:                   /* I N T 1 */
+143:                   _INT1R = 42;  // INT1 on RP42
+00030C  803505     MOV RPINR0, W5
+00030E  280FF4     MOV #0x80FF, W4
+000310  628284     AND W5, W4, W5
+000312  22A004     MOV #0x2A00, W4
+000314  720205     IOR W4, W5, W4
+000316  883504     MOV W4, RPINR0
+144:                   _INT1EP = 1; // Falling edge interrupt
+000318  A828C2     BSET INTCON2, #1
+145:                   _INT1IF = 0;
+00031A  A98802     BCLR IFS1, #4
+146:                   _INT1IP = INT1_IP;
+00031C  804254     MOV IPC5, W4
+00031E  A00004     BSET W4, #0
+000320  A11004     BCLR W4, #1
+000322  A02004     BSET W4, #2
+000324  884254     MOV W4, IPC5
+147:                   _INT1IE = 1;
+000326  A88822     BSET IEC1, #4
+148:               
+149:                   /* T I M E R 3 */
+150:                   _T3IP = TMR3_IP;// Set Timer 3 Interrupt Priority Level
+000328  804224     MOV IPC2, W4
+00032A  A00004     BSET W4, #0
+00032C  A01004     BSET W4, #1
+00032E  A02004     BSET W4, #2
+000330  884224     MOV W4, IPC2
+151:                   _T3IF = 0;      // Clear Timer 3 Interrupt Flag
+000332  A90801     BCLR 0x801, #0
+152:                   _T3IE = 1;      // Enable Timer3 interrupt
+000334  A80821     BSET 0x821, #0
+153:               
+154:                   /* A D C 1 */
+155:                   _AD1IF = 0;     // Clear ADC flag
+000336  A9A801     BCLR 0x801, #5
+156:                   _AD1IE = 0;     // Do not enable interrupts
+000338  A9A821     BCLR 0x821, #5
+157:               
+158:                   /* D M A 0 */
+159:                   _DMA0IF = 0;    // Clear the DMA interupt flag bit
+00033A  A98800     BCLR IFS0, #4
+160:                   _DMA0IP = DMA0_IP;
+00033C  804214     MOV IPC1, W4
+00033E  A10004     BCLR W4, #0
+000340  A01004     BSET W4, #1
+000342  A02004     BSET W4, #2
+000344  884214     MOV W4, IPC1
+161:                   _DMA0IE = 1;    // Set the interrupt enable bit
+000346  A88820     BSET IEC0, #4
+162:               
+163:                   return;
+164:               }
+000348  FA8000     ULNK
+00034A  060000     RETURN
+165:               
+166:               void DisableInterrupts(void) {
+00034C  FA0000     LNK #0x0
+167:                   _IPL = 0b111; // Set CPU at Level = 7  (DISABLE ALL INTERRUPTS)
+00034E  800214     MOV SR, W4
+000350  A05004     BSET W4, #5
+000352  A06004     BSET W4, #6
+000354  A07004     BSET W4, #7
+000356  880214     MOV W4, SR
+168:                   _GIE = 0;
+000358  A9E8C3     BCLR 0x8C3, #7
+169:                   return;
+170:               }
+00035A  FA8000     ULNK
+00035C  060000     RETURN
+171:               
+172:               void EnableInterrupts(void) {
+00035E  FA0000     LNK #0x0
+173:                   _IPL = 0b000; // Set CPU at Level = 0
+000360  800214     MOV SR, W4
+000362  A15004     BCLR W4, #5
+000364  A16004     BCLR W4, #6
+000366  A17004     BCLR W4, #7
+000368  880214     MOV W4, SR
+174:                   _IPL3 = 0; // Lower priority
+00036A  A96044     BCLR CORCON, #3
+175:                   _GIE = 1; // GIE = 1
+00036C  A8E8C3     BSET 0x8C3, #7
+176:                   return;
+177:               }
+00036E  FA8000     ULNK
+000370  060000     RETURN
+178:               
+179:               
+180:               /******************************************************************************/
+181:               /* Interrupt Routines                                                         */
+182:               /******************************************************************************/
+183:               void __attribute__((__interrupt__, no_auto_psv)) _T3Interrupt(void) {
+000372  BE9F84     MOV.D W4, [W15++]
+000374  781F86     MOV W6, [W15++]
+000376  FA0000     LNK #0x0
+184:                   _LATA2 = !_LATA2;
+000378  807024     MOV LATA, W4
+00037A  620264     AND W4, #0x4, W4
+00037C  A7F004     BTSC W4, #15
+00037E  EA0204     NEG W4, W4
+000380  E90204     DEC W4, W4
+000382  DE224F     LSR W4, #15, W4
+000384  784204     MOV.B W4, W4
+000386  FB8204     ZE W4, W4
+000388  620261     AND W4, #0x1, W4
+00038A  DD2242     SL W4, #2, W4
+00038C  807026     MOV LATA, W6
+00038E  2FFFB5     MOV #0xFFFB, W5
+000390  630285     AND W6, W5, W5
+000392  720205     IOR W4, W5, W4
+000394  887024     MOV W4, LATA
+185:                   _T3IF = 0;      // Clear Timer3 interrupt flag
+000396  A90801     BCLR 0x801, #0
+186:               }
+000398  FA8000     ULNK
+00039A  78034F     MOV [--W15], W6
+00039C  BE024F     MOV.D [--W15], W4
+00039E  064000     RETFIE
+187:               
+188:               uint8_t i;
+189:               uint16_t NoAck_cnt;
+190:               uint16_t fail;
+191:               void __attribute__((__interrupt__, no_auto_psv)) _DMA0Interrupt(void) {
+0003A0  F80036     PUSH RCOUNT
+0003A2  BE9F80     MOV.D W0, [W15++]
+0003A4  BE9F82     MOV.D W2, [W15++]
+0003A6  BE9F84     MOV.D W4, [W15++]
+0003A8  BE9F86     MOV.D W6, [W15++]
+0003AA  FA0000     LNK #0x0
+192:                   if (dmaBuffer == 0) {
+0003AC  808774     MOV dmaBuffer, W4
+0003AE  520FE0     SUB W4, #0x0, [W15]
+0003B0  3A00C5     BRA NZ, 0x53C
+193:                       for (i = 0; i < PL_BLOCKS; i++) {
+0003B2  EB4200     CLR.B W4
+0003B4  784304     MOV.B W4, W6
+0003B6  210E75     MOV #0x10E7, W5
+0003B8  784A86     MOV.B W6, [W5]
+0003BA  3700BB     BRA 0x532
+000526  210E74     MOV #0x10E7, W4
+000528  784214     MOV.B [W4], W4
+00052A  E84204     INC.B W4, W4
+00052C  784304     MOV.B W4, W6
+00052E  210E75     MOV #0x10E7, W5
+000530  784A86     MOV.B W6, [W5]
+000532  210E74     MOV #0x10E7, W4
+000534  784214     MOV.B [W4], W4
+000536  524FE5     SUB.B W4, #0x5, [W15]
+000538  36FF41     BRA LEU, 0x3BC
+00053A  3700C4     BRA 0x6C4
+194:                           // MSBs of block
+195:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i)] = (AdcBufferA[4 * i ] & MSB_MASK) >> 2; // MSB1
+0003BC  210E74     MOV #0x10E7, W4
+0003BE  784214     MOV.B [W4], W4
+0003C0  FB8204     ZE W4, W4
+0003C2  B922E5     MUL.SU W4, #5, W4
+0003C4  E80304     INC W4, W6
+0003C6  210E74     MOV #0x10E7, W4
+0003C8  784214     MOV.B [W4], W4
+0003CA  FB8204     ZE W4, W4
+0003CC  DD2242     SL W4, #2, W4
+0003CE  420284     ADD W4, W4, W5
+0003D0  210004     MOV #0x1000, W4
+0003D2  428204     ADD W5, W4, W4
+0003D4  780294     MOV [W4], W5
+0003D6  203004     MOV #0x300, W4
+0003D8  628204     AND W5, W4, W4
+0003DA  DE2242     LSR W4, #2, W4
+0003DC  784284     MOV.B W4, W5
+0003DE  210C24     MOV #0x10C2, W4
+0003E0  430204     ADD W6, W4, W4
+0003E2  784A05     MOV.B W5, [W4]
+196:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i)] += (AdcBufferA[4 * i + 1] & MSB_MASK) >> 4; // MSB2
+0003E4  210E74     MOV #0x10E7, W4
+0003E6  784214     MOV.B [W4], W4
+0003E8  FB8204     ZE W4, W4
+0003EA  B922E5     MUL.SU W4, #5, W4
+0003EC  E80304     INC W4, W6
+0003EE  210E74     MOV #0x10E7, W4
+0003F0  784214     MOV.B [W4], W4
+0003F2  FB8204     ZE W4, W4
+0003F4  B922E5     MUL.SU W4, #5, W4
+0003F6  E80284     INC W4, W5
+0003F8  210C24     MOV #0x10C2, W4
+0003FA  428204     ADD W5, W4, W4
+0003FC  784294     MOV.B [W4], W5
+0003FE  210E74     MOV #0x10E7, W4
+000400  784214     MOV.B [W4], W4
+000402  FB8204     ZE W4, W4
+000404  DD2242     SL W4, #2, W4
+000406  E80204     INC W4, W4
+000408  420384     ADD W4, W4, W7
+00040A  210004     MOV #0x1000, W4
+00040C  438204     ADD W7, W4, W4
+00040E  780394     MOV [W4], W7
+000410  203004     MOV #0x300, W4
+000412  638204     AND W7, W4, W4
+000414  DE2244     LSR W4, #4, W4
+000416  784204     MOV.B W4, W4
+000418  42C284     ADD.B W5, W4, W5
+00041A  210C24     MOV #0x10C2, W4
+00041C  430204     ADD W6, W4, W4
+00041E  784A05     MOV.B W5, [W4]
+197:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i)] += (AdcBufferA[4 * i + 2] & MSB_MASK) >> 6; // MSB3
+000420  210E74     MOV #0x10E7, W4
+000422  784214     MOV.B [W4], W4
+000424  FB8204     ZE W4, W4
+000426  B922E5     MUL.SU W4, #5, W4
+000428  E80304     INC W4, W6
+00042A  210E74     MOV #0x10E7, W4
+00042C  784214     MOV.B [W4], W4
+00042E  FB8204     ZE W4, W4
+000430  B922E5     MUL.SU W4, #5, W4
+000432  E80284     INC W4, W5
+000434  210C24     MOV #0x10C2, W4
+000436  428204     ADD W5, W4, W4
+000438  784294     MOV.B [W4], W5
+00043A  210E74     MOV #0x10E7, W4
+00043C  784214     MOV.B [W4], W4
+00043E  FB8204     ZE W4, W4
+000440  DD2242     SL W4, #2, W4
+000442  E88204     INC2 W4, W4
+000444  420384     ADD W4, W4, W7
+000446  210004     MOV #0x1000, W4
+000448  438204     ADD W7, W4, W4
+00044A  780394     MOV [W4], W7
+00044C  203004     MOV #0x300, W4
+00044E  638204     AND W7, W4, W4
+000450  DE2246     LSR W4, #6, W4
+000452  784204     MOV.B W4, W4
+000454  42C284     ADD.B W5, W4, W5
+000456  210C24     MOV #0x10C2, W4
+000458  430204     ADD W6, W4, W4
+00045A  784A05     MOV.B W5, [W4]
+198:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i)] += (AdcBufferA[4 * i + 3] & MSB_MASK) >> 8; // MSB4
+00045C  210E74     MOV #0x10E7, W4
+00045E  784214     MOV.B [W4], W4
+000460  FB8204     ZE W4, W4
+000462  B922E5     MUL.SU W4, #5, W4
+000464  E80304     INC W4, W6
+000466  210E74     MOV #0x10E7, W4
+000468  784214     MOV.B [W4], W4
+00046A  FB8204     ZE W4, W4
+00046C  B922E5     MUL.SU W4, #5, W4
+00046E  E80284     INC W4, W5
+000470  210C24     MOV #0x10C2, W4
+000472  428204     ADD W5, W4, W4
+000474  784294     MOV.B [W4], W5
+000476  210E74     MOV #0x10E7, W4
+000478  784214     MOV.B [W4], W4
+00047A  FB8204     ZE W4, W4
+00047C  DD2242     SL W4, #2, W4
+00047E  420263     ADD W4, #0x3, W4
+000480  420384     ADD W4, W4, W7
+000482  210004     MOV #0x1000, W4
+000484  438204     ADD W7, W4, W4
+000486  780394     MOV [W4], W7
+000488  203004     MOV #0x300, W4
+00048A  638204     AND W7, W4, W4
+00048C  DE2248     LSR W4, #8, W4
+00048E  784204     MOV.B W4, W4
+000490  42C284     ADD.B W5, W4, W5
+000492  210C24     MOV #0x10C2, W4
+000494  430204     ADD W6, W4, W4
+000496  784A05     MOV.B W5, [W4]
+199:               
+200:                           // LSBs of block
+201:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i) + 1] = (AdcBufferA[4 * i ] & LSB_MASK); // LSB1
+000498  210E74     MOV #0x10E7, W4
+00049A  784214     MOV.B [W4], W4
+00049C  FB8204     ZE W4, W4
+00049E  B922E5     MUL.SU W4, #5, W4
+0004A0  E88304     INC2 W4, W6
+0004A2  210E74     MOV #0x10E7, W4
+0004A4  784214     MOV.B [W4], W4
+0004A6  FB8204     ZE W4, W4
+0004A8  DD2242     SL W4, #2, W4
+0004AA  420284     ADD W4, W4, W5
+0004AC  210004     MOV #0x1000, W4
+0004AE  428204     ADD W5, W4, W4
+0004B0  780214     MOV [W4], W4
+0004B2  784284     MOV.B W4, W5
+0004B4  210C24     MOV #0x10C2, W4
+0004B6  430204     ADD W6, W4, W4
+0004B8  784A05     MOV.B W5, [W4]
+202:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i) + 2] = (AdcBufferA[4 * i + 1] & LSB_MASK); // LSB2
+0004BA  210E74     MOV #0x10E7, W4
+0004BC  784214     MOV.B [W4], W4
+0004BE  FB8204     ZE W4, W4
+0004C0  B922E5     MUL.SU W4, #5, W4
+0004C2  420363     ADD W4, #0x3, W6
+0004C4  210E74     MOV #0x10E7, W4
+0004C6  784214     MOV.B [W4], W4
+0004C8  FB8204     ZE W4, W4
+0004CA  DD2242     SL W4, #2, W4
+0004CC  E80204     INC W4, W4
+0004CE  420284     ADD W4, W4, W5
+0004D0  210004     MOV #0x1000, W4
+0004D2  428204     ADD W5, W4, W4
+0004D4  780214     MOV [W4], W4
+0004D6  784284     MOV.B W4, W5
+0004D8  210C24     MOV #0x10C2, W4
+0004DA  430204     ADD W6, W4, W4
+0004DC  784A05     MOV.B W5, [W4]
+203:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i) + 3] = (AdcBufferA[4 * i + 2] & LSB_MASK); // LSB3
+0004DE  210E74     MOV #0x10E7, W4
+0004E0  784214     MOV.B [W4], W4
+0004E2  FB8204     ZE W4, W4
+0004E4  B922E5     MUL.SU W4, #5, W4
+0004E6  420364     ADD W4, #0x4, W6
+0004E8  210E74     MOV #0x10E7, W4
+0004EA  784214     MOV.B [W4], W4
+0004EC  FB8204     ZE W4, W4
+0004EE  DD2242     SL W4, #2, W4
+0004F0  E88204     INC2 W4, W4
+0004F2  420284     ADD W4, W4, W5
+0004F4  210004     MOV #0x1000, W4
+0004F6  428204     ADD W5, W4, W4
+0004F8  780214     MOV [W4], W4
+0004FA  784284     MOV.B W4, W5
+0004FC  210C24     MOV #0x10C2, W4
+0004FE  430204     ADD W6, W4, W4
+000500  784A05     MOV.B W5, [W4]
+204:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i) + 4] = (AdcBufferA[4 * i + 3] & LSB_MASK); // LSB4
+000502  210E74     MOV #0x10E7, W4
+000504  784214     MOV.B [W4], W4
+000506  FB8204     ZE W4, W4
+000508  E80204     INC W4, W4
+00050A  B923E5     MUL.SU W4, #5, W6
+00050C  210E74     MOV #0x10E7, W4
+00050E  784214     MOV.B [W4], W4
+000510  FB8204     ZE W4, W4
+000512  DD2242     SL W4, #2, W4
+000514  420263     ADD W4, #0x3, W4
+000516  420284     ADD W4, W4, W5
+000518  210004     MOV #0x1000, W4
+00051A  428204     ADD W5, W4, W4
+00051C  780214     MOV [W4], W4
+00051E  784284     MOV.B W4, W5
+000520  210C24     MOV #0x10C2, W4
+000522  430204     ADD W6, W4, W4
+000524  784A05     MOV.B W5, [W4]
+205:                       }
+206:               
+207:                   } else { //T3CONbits.TON = 0; AD1CON1bits.ADON = 0;    // stop after filling 2 buffers (debugging only)
+208:                       for (i = 0; i < PL_BLOCKS; i++) {
+00053C  EB4200     CLR.B W4
+00053E  784304     MOV.B W4, W6
+000540  210E75     MOV #0x10E7, W5
+000542  784A86     MOV.B W6, [W5]
+000544  3700BB     BRA 0x6BC
+0006B0  210E74     MOV #0x10E7, W4
+0006B2  784214     MOV.B [W4], W4
+0006B4  E84204     INC.B W4, W4
+0006B6  784304     MOV.B W4, W6
+0006B8  210E75     MOV #0x10E7, W5
+0006BA  784A86     MOV.B W6, [W5]
+0006BC  210E74     MOV #0x10E7, W4
+0006BE  784214     MOV.B [W4], W4
+0006C0  524FE5     SUB.B W4, #0x5, [W15]
+0006C2  36FF41     BRA LEU, 0x546
+209:                           // MSBs of block
+210:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i)] = (AdcBufferB[4 * i ] & MSB_MASK) >> 2; // MSB1
+000546  210E74     MOV #0x10E7, W4
+000548  784214     MOV.B [W4], W4
+00054A  FB8204     ZE W4, W4
+00054C  B922E5     MUL.SU W4, #5, W4
+00054E  E80304     INC W4, W6
+000550  210E74     MOV #0x10E7, W4
+000552  784214     MOV.B [W4], W4
+000554  FB8204     ZE W4, W4
+000556  DD2242     SL W4, #2, W4
+000558  420284     ADD W4, W4, W5
+00055A  210304     MOV #0x1030, W4
+00055C  428204     ADD W5, W4, W4
+00055E  780294     MOV [W4], W5
+000560  203004     MOV #0x300, W4
+000562  628204     AND W5, W4, W4
+000564  DE2242     LSR W4, #2, W4
+000566  784284     MOV.B W4, W5
+000568  210C24     MOV #0x10C2, W4
+00056A  430204     ADD W6, W4, W4
+00056C  784A05     MOV.B W5, [W4]
+211:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i)] += (AdcBufferB[4 * i + 1] & MSB_MASK) >> 4; // MSB2
+00056E  210E74     MOV #0x10E7, W4
+000570  784214     MOV.B [W4], W4
+000572  FB8204     ZE W4, W4
+000574  B922E5     MUL.SU W4, #5, W4
+000576  E80304     INC W4, W6
+000578  210E74     MOV #0x10E7, W4
+00057A  784214     MOV.B [W4], W4
+00057C  FB8204     ZE W4, W4
+00057E  B922E5     MUL.SU W4, #5, W4
+000580  E80284     INC W4, W5
+000582  210C24     MOV #0x10C2, W4
+000584  428204     ADD W5, W4, W4
+000586  784294     MOV.B [W4], W5
+000588  210E74     MOV #0x10E7, W4
+00058A  784214     MOV.B [W4], W4
+00058C  FB8204     ZE W4, W4
+00058E  DD2242     SL W4, #2, W4
+000590  E80204     INC W4, W4
+000592  420384     ADD W4, W4, W7
+000594  210304     MOV #0x1030, W4
+000596  438204     ADD W7, W4, W4
+000598  780394     MOV [W4], W7
+00059A  203004     MOV #0x300, W4
+00059C  638204     AND W7, W4, W4
+00059E  DE2244     LSR W4, #4, W4
+0005A0  784204     MOV.B W4, W4
+0005A2  42C284     ADD.B W5, W4, W5
+0005A4  210C24     MOV #0x10C2, W4
+0005A6  430204     ADD W6, W4, W4
+0005A8  784A05     MOV.B W5, [W4]
+212:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i)] += (AdcBufferB[4 * i + 2] & MSB_MASK) >> 6; // MSB3
+0005AA  210E74     MOV #0x10E7, W4
+0005AC  784214     MOV.B [W4], W4
+0005AE  FB8204     ZE W4, W4
+0005B0  B922E5     MUL.SU W4, #5, W4
+0005B2  E80304     INC W4, W6
+0005B4  210E74     MOV #0x10E7, W4
+0005B6  784214     MOV.B [W4], W4
+0005B8  FB8204     ZE W4, W4
+0005BA  B922E5     MUL.SU W4, #5, W4
+0005BC  E80284     INC W4, W5
+0005BE  210C24     MOV #0x10C2, W4
+0005C0  428204     ADD W5, W4, W4
+0005C2  784294     MOV.B [W4], W5
+0005C4  210E74     MOV #0x10E7, W4
+0005C6  784214     MOV.B [W4], W4
+0005C8  FB8204     ZE W4, W4
+0005CA  DD2242     SL W4, #2, W4
+0005CC  E88204     INC2 W4, W4
+0005CE  420384     ADD W4, W4, W7
+0005D0  210304     MOV #0x1030, W4
+0005D2  438204     ADD W7, W4, W4
+0005D4  780394     MOV [W4], W7
+0005D6  203004     MOV #0x300, W4
+0005D8  638204     AND W7, W4, W4
+0005DA  DE2246     LSR W4, #6, W4
+0005DC  784204     MOV.B W4, W4
+0005DE  42C284     ADD.B W5, W4, W5
+0005E0  210C24     MOV #0x10C2, W4
+0005E2  430204     ADD W6, W4, W4
+0005E4  784A05     MOV.B W5, [W4]
+213:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i)] += (AdcBufferB[4 * i + 3] & MSB_MASK) >> 8; // MSB4
+0005E6  210E74     MOV #0x10E7, W4
+0005E8  784214     MOV.B [W4], W4
+0005EA  FB8204     ZE W4, W4
+0005EC  B922E5     MUL.SU W4, #5, W4
+0005EE  E80304     INC W4, W6
+0005F0  210E74     MOV #0x10E7, W4
+0005F2  784214     MOV.B [W4], W4
+0005F4  FB8204     ZE W4, W4
+0005F6  B922E5     MUL.SU W4, #5, W4
+0005F8  E80284     INC W4, W5
+0005FA  210C24     MOV #0x10C2, W4
+0005FC  428204     ADD W5, W4, W4
+0005FE  784294     MOV.B [W4], W5
+000600  210E74     MOV #0x10E7, W4
+000602  784214     MOV.B [W4], W4
+000604  FB8204     ZE W4, W4
+000606  DD2242     SL W4, #2, W4
+000608  420263     ADD W4, #0x3, W4
+00060A  420384     ADD W4, W4, W7
+00060C  210304     MOV #0x1030, W4
+00060E  438204     ADD W7, W4, W4
+000610  780394     MOV [W4], W7
+000612  203004     MOV #0x300, W4
+000614  638204     AND W7, W4, W4
+000616  DE2248     LSR W4, #8, W4
+000618  784204     MOV.B W4, W4
+00061A  42C284     ADD.B W5, W4, W5
+00061C  210C24     MOV #0x10C2, W4
+00061E  430204     ADD W6, W4, W4
+000620  784A05     MOV.B W5, [W4]
+214:               
+215:                           // LSBs of block
+216:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i) + 1] = (AdcBufferB[4 * i ] & LSB_MASK); // LSB1
+000622  210E74     MOV #0x10E7, W4
+000624  784214     MOV.B [W4], W4
+000626  FB8204     ZE W4, W4
+000628  B922E5     MUL.SU W4, #5, W4
+00062A  E88304     INC2 W4, W6
+00062C  210E74     MOV #0x10E7, W4
+00062E  784214     MOV.B [W4], W4
+000630  FB8204     ZE W4, W4
+000632  DD2242     SL W4, #2, W4
+000634  420284     ADD W4, W4, W5
+000636  210304     MOV #0x1030, W4
+000638  428204     ADD W5, W4, W4
+00063A  780214     MOV [W4], W4
+00063C  784284     MOV.B W4, W5
+00063E  210C24     MOV #0x10C2, W4
+000640  430204     ADD W6, W4, W4
+000642  784A05     MOV.B W5, [W4]
+217:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i) + 2] = (AdcBufferB[4 * i + 1] & LSB_MASK); // LSB2
+000644  210E74     MOV #0x10E7, W4
+000646  784214     MOV.B [W4], W4
+000648  FB8204     ZE W4, W4
+00064A  B922E5     MUL.SU W4, #5, W4
+00064C  420363     ADD W4, #0x3, W6
+00064E  210E74     MOV #0x10E7, W4
+000650  784214     MOV.B [W4], W4
+000652  FB8204     ZE W4, W4
+000654  DD2242     SL W4, #2, W4
+000656  E80204     INC W4, W4
+000658  420284     ADD W4, W4, W5
+00065A  210304     MOV #0x1030, W4
+00065C  428204     ADD W5, W4, W4
+00065E  780214     MOV [W4], W4
+000660  784284     MOV.B W4, W5
+000662  210C24     MOV #0x10C2, W4
+000664  430204     ADD W6, W4, W4
+000666  784A05     MOV.B W5, [W4]
+218:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i) + 3] = (AdcBufferB[4 * i + 2] & LSB_MASK); // LSB3
+000668  210E74     MOV #0x10E7, W4
+00066A  784214     MOV.B [W4], W4
+00066C  FB8204     ZE W4, W4
+00066E  B922E5     MUL.SU W4, #5, W4
+000670  420364     ADD W4, #0x4, W6
+000672  210E74     MOV #0x10E7, W4
+000674  784214     MOV.B [W4], W4
+000676  FB8204     ZE W4, W4
+000678  DD2242     SL W4, #2, W4
+00067A  E88204     INC2 W4, W4
+00067C  420284     ADD W4, W4, W5
+00067E  210304     MOV #0x1030, W4
+000680  428204     ADD W5, W4, W4
+000682  780214     MOV [W4], W4
+000684  784284     MOV.B W4, W5
+000686  210C24     MOV #0x10C2, W4
+000688  430204     ADD W6, W4, W4
+00068A  784A05     MOV.B W5, [W4]
+219:                           payload[PL_BLOCK_START + (PL_BLOCK_LENGTH * i) + 4] = (AdcBufferB[4 * i + 3] & LSB_MASK); // LSB4
+00068C  210E74     MOV #0x10E7, W4
+00068E  784214     MOV.B [W4], W4
+000690  FB8204     ZE W4, W4
+000692  E80204     INC W4, W4
+000694  B923E5     MUL.SU W4, #5, W6
+000696  210E74     MOV #0x10E7, W4
+000698  784214     MOV.B [W4], W4
+00069A  FB8204     ZE W4, W4
+00069C  DD2242     SL W4, #2, W4
+00069E  420263     ADD W4, #0x3, W4
+0006A0  420284     ADD W4, W4, W5
+0006A2  210304     MOV #0x1030, W4
+0006A4  428204     ADD W5, W4, W4
+0006A6  780214     MOV [W4], W4
+0006A8  784284     MOV.B W4, W5
+0006AA  210C24     MOV #0x10C2, W4
+0006AC  430204     ADD W6, W4, W4
+0006AE  784A05     MOV.B W5, [W4]
+220:                       }
+221:               
+222:                   }
+223:                   nrf_send_array(payload,PL_LENGTH);
+0006C4  B3C201     MOV.B #0x20, W1
+0006C6  210C20     MOV #0x10C2, W0
+0006C8  0701A0     RCALL nrf_send_array
+224:                   if(ACK) {
+0006CA  210C14     MOV #0x10C1, W4
+0006CC  784214     MOV.B [W4], W4
+0006CE  524FE0     SUB.B W4, #0x0, [W15]
+0006D0  320008     BRA Z, 0x6E2
+225:                       ACK = NoAck_cnt = 0;
+0006D2  EB0200     CLR W4
+0006D4  888744     MOV W4, NoAck_cnt
+0006D6  EB4200     CLR.B W4
+0006D8  784304     MOV.B W4, W6
+0006DA  210C15     MOV #0x10C1, W5
+0006DC  784A86     MOV.B W6, [W5]
+226:                       _LATB14 = 0;
+0006DE  A9CE15     BCLR 0xE15, #6
+0006E0  37001A     BRA 0x716
+227:                   } else {
+228:                       _LATB14 = 1;
+0006E2  A8CE15     BSET 0xE15, #6
+229:                       _LATB13 = !_LATB13;
+0006E4  8070A5     MOV LATB, W5
+0006E6  220004     MOV #0x2000, W4
+0006E8  628204     AND W5, W4, W4
+0006EA  A7F004     BTSC W4, #15
+0006EC  EA0204     NEG W4, W4
+0006EE  E90204     DEC W4, W4
+0006F0  DE224F     LSR W4, #15, W4
+0006F2  784204     MOV.B W4, W4
+0006F4  FB8204     ZE W4, W4
+0006F6  620261     AND W4, #0x1, W4
+0006F8  DD224D     SL W4, #13, W4
+0006FA  8070A6     MOV LATB, W6
+0006FC  2DFFF5     MOV #0xDFFF, W5
+0006FE  630285     AND W6, W5, W5
+000700  720205     IOR W4, W5, W4
+000702  8870A4     MOV W4, LATB
+230:                       NoAck_cnt++;
+000704  808744     MOV NoAck_cnt, W4
+000706  E80204     INC W4, W4
+000708  888744     MOV W4, NoAck_cnt
+231:                       if(NoAck_cnt > 10) {
+00070A  808744     MOV NoAck_cnt, W4
+00070C  520FEA     SUB W4, #0xA, [W15]
+00070E  360003     BRA LEU, 0x716
+232:                           fail = 1;
+000710  200014     MOV #0x1, W4
+000712  888754     MOV W4, fail
+233:                           T3CONbits.TON = 0;
+000714  A9E113     BCLR 0x113, #7
+234:                       }
+235:                   }
+236:                   dmaBuffer ^= 1;
+000716  808774     MOV dmaBuffer, W4
+000718  A20004     BTG W4, #0
+00071A  888774     MOV W4, dmaBuffer
+237:                   _DMA0IF = 0; //Clear the DMA0 Interrupt Flag
+00071C  A98800     BCLR IFS0, #4
+238:               }
+00071E  FA8000     ULNK
+000720  BE034F     MOV.D [--W15], W6
+000722  BE024F     MOV.D [--W15], W4
+000724  BE014F     MOV.D [--W15], W2
+000726  BE004F     MOV.D [--W15], W0
+000728  F90036     POP RCOUNT
+00072A  064000     RETFIE
+239:               
+240:               
+241:               void __attribute__((__interrupt__, no_auto_psv)) _INT1Interrupt(void) {
+00072C  F80036     PUSH RCOUNT
+00072E  BE9F80     MOV.D W0, [W15++]
+000730  BE9F82     MOV.D W2, [W15++]
+000732  BE9F84     MOV.D W4, [W15++]
+000734  BE9F86     MOV.D W6, [W15++]
+000736  FA0000     LNK #0x0
+242:                   nrf_CSN_L; // Pull down chip select
+000738  A96E15     BCLR 0xE15, #3
+243:                   nrf_int_status = (WriteSpi_8b(NOOP) | NRF_INT_MASK); // Set first (unused in status) bit to indicate interrupt ocurred
+00073A  EBC000     SETM.B W0
+00073C  070221     RCALL WriteSpi_8b
+00073E  784200     MOV.B W0, W4
+000740  B3C805     MOV.B #0x80, W5
+000742  724205     IOR.B W4, W5, W4
+000744  784304     MOV.B W4, W6
+000746  210E65     MOV #0x10E6, W5
+000748  784A86     MOV.B W6, [W5]
+244:                   nrf_CSN_H; // Pull up chip select
+00074A  A86E15     BSET 0xE15, #3
+245:               
+246:                   if (nrf_int_status & (1 << TX_DS)) { // IRQ: Package has been sent
+00074C  210E64     MOV #0x10E6, W4
+00074E  784214     MOV.B [W4], W4
+000750  FB8284     ZE W4, W5
+000752  200204     MOV #0x20, W4
+000754  628204     AND W5, W4, W4
+000756  520FE0     SUB W4, #0x0, [W15]
+000758  320013     BRA Z, 0x780
+247:                       nrf_config_register(STATUS, (1 << TX_DS)); //Clear Interrupt Bit
+00075A  B3C201     MOV.B #0x20, W1
+00075C  B3C070     MOV.B #0x7, W0
+00075E  07010E     RCALL nrf_config_register
+248:                       ACK = 1;
+000760  B3C014     MOV.B #0x1, W4
+000762  784304     MOV.B W4, W6
+000764  210C15     MOV #0x10C1, W5
+000766  784A86     MOV.B W6, [W5]
+249:                       _LATB15 = !_LATB15;
+000768  8070A4     MOV LATB, W4
+00076A  EA8204     COM W4, W4
+00076C  DE224F     LSR W4, #15, W4
+00076E  784204     MOV.B W4, W4
+000770  FB8204     ZE W4, W4
+000772  DD224F     SL W4, #15, W4
+000774  8070A6     MOV LATB, W6
+000776  27FFF5     MOV #0x7FFF, W5
+000778  630285     AND W6, W5, W5
+00077A  720205     IOR W4, W5, W4
+00077C  8870A4     MOV W4, LATB
+00077E  370001     BRA 0x782
+250:                   } else {
+251:                       _LATB15 = 0;
+000780  A9EE15     BCLR 0xE15, #7
+252:                   }
+253:               
+254:                   if (nrf_int_status & (1 << RX_DR)) { // / IRQ: Package has been received
+000782  210E64     MOV #0x10E6, W4
+000784  784214     MOV.B [W4], W4
+000786  FB8284     ZE W4, W5
+000788  200404     MOV #0x40, W4
+00078A  628204     AND W5, W4, W4
+00078C  520FE0     SUB W4, #0x0, [W15]
+00078E  320002     BRA Z, 0x794
+255:                       nrf_get_data_array(payload);
+000790  210C20     MOV #0x10C2, W0
+000792  070168     RCALL nrf_get_data_array
+256:                   }
+257:               
+258:                   if (nrf_int_status & (1 << MAX_RT)) { // IRQ: Package has not been sent, try again
+000794  210E64     MOV #0x10E6, W4
+000796  784214     MOV.B [W4], W4
+000798  FB8204     ZE W4, W4
+00079A  620270     AND W4, #0x10, W4
+00079C  520FE0     SUB W4, #0x0, [W15]
+00079E  320003     BRA Z, 0x7A6
+259:                       nrf_config_register(STATUS, (1 << MAX_RT)); // Clear Interrupt Bit
+0007A0  B3C101     MOV.B #0x10, W1
+0007A2  B3C070     MOV.B #0x7, W0
+0007A4  0700EB     RCALL nrf_config_register
+260:                   }
+261:               
+262:                   if (nrf_int_status & (1 << TX_FULL)) { //TX_FIFO Full <-- this is not an IRQ
+0007A6  210E64     MOV #0x10E6, W4
+0007A8  784214     MOV.B [W4], W4
+0007AA  FB8204     ZE W4, W4
+0007AC  620261     AND W4, #0x1, W4
+0007AE  784204     MOV.B W4, W4
+0007B0  524FE0     SUB.B W4, #0x0, [W15]
+0007B2  320004     BRA Z, 0x7BC
+263:                       nrf_CSN_L; // Pull down chip select
+0007B4  A96E15     BCLR 0xE15, #3
+264:                       WriteSpi_8b(FLUSH_TX); // Flush TX-FIFO
+0007B6  B3CE10     MOV.B #0xE1, W0
+0007B8  0701E3     RCALL WriteSpi_8b
+265:                       nrf_CSN_H; // Pull up chip select
+0007BA  A86E15     BSET 0xE15, #3
+266:               
+267:                   }
+268:               //    if (T3CONbits.TON) {
+269:               //       nrf_config_register(STATUS, (1 << TX_DS)); //Clear Interrupt Bit
+270:               //       ACK = 1;
+271:               //       _LATB15 = !_LATB15;
+272:               //    } else {
+273:               //        nrf_CSN_L; // Pull down chip select
+274:               //        nrf_int_status = (WriteSpi_8b(NOOP) | NRF_INT_MASK); // Set first (unused in status) bit to indicate interrupt ocurred
+275:               //        nrf_CSN_H; // Pull up chip select
+276:               //
+277:               //        if (nrf_int_status & (1 << RX_DR)) { // / IRQ: Package has been received
+278:               //            nrf_get_data_array(payload);
+279:               //            _LATB13 = 1;
+280:               //        } else {
+281:               //            _LATB13 = 0;
+282:               //        }
+283:               //
+284:               //        if (nrf_int_status & (1 << MAX_RT)) { // IRQ: Package has not been sent, try again
+285:               //            nrf_config_register(STATUS, (1 << MAX_RT)); // Clear Interrupt Bit
+286:               //        }
+287:               //
+288:               //        if (nrf_int_status & (1 << TX_FULL)) { //TX_FIFO Full <-- this is not an IRQ
+289:               //            nrf_CSN_L; // Pull down chip select
+290:               //            WriteSpi_8b(FLUSH_TX); // Flush TX-FIFO
+291:               //            nrf_CSN_H; // Pull up chip select
+292:               //
+293:               //        }
+294:               //    }
+295:                   // reset INT2 flag
+296:                   _INT1IF = 0; // Clear INT1 interrupt flag
+0007BC  A98802     BCLR IFS1, #4
+297:               }
+0007BE  FA8000     ULNK
+0007C0  BE034F     MOV.D [--W15], W6
+0007C2  BE024F     MOV.D [--W15], W4
+0007C4  BE014F     MOV.D [--W15], W2
+0007C6  BE004F     MOV.D [--W15], W0
+0007C8  F90036     POP RCOUNT
+0007CA  064000     RETFIE
+298:               

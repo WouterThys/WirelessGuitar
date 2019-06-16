@@ -1,0 +1,932 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"16 C:\Program Files (x86)\HI-TECH Software\PICC\STD\9.60\include\pic16f684.h
+[v _INDF `Vuc 1 s@0 ]
+"17
+[v _TMR0 `Vuc 1 s@1 ]
+"18
+[v _PCL `Vuc 1 s@2 ]
+"19
+[v _STATUS `Vuc 1 s@3 ]
+"20
+[v _FSR `uc 1 s@4 ]
+"21
+[v _PORTA `Vuc 1 s@5 ]
+"22
+[v _PORTC `Vuc 1 s@7 ]
+"23
+[v _PCLATH `Vuc 1 s@10 ]
+"24
+[v _INTCON `Vuc 1 s@11 ]
+"25
+[v _PIR1 `Vuc 1 s@12 ]
+"26
+[v _TMR1L `Vuc 1 s@14 ]
+"27
+[v _TMR1H `Vuc 1 s@15 ]
+"28
+[v _T1CON `Vuc 1 s@16 ]
+"29
+[v _TMR2 `Vuc 1 s@17 ]
+"30
+[v _T2CON `Vuc 1 s@18 ]
+"31
+[v _CCPR1L `Vuc 1 s@19 ]
+"32
+[v _CCPR1H `Vuc 1 s@20 ]
+"33
+[v _CCP1CON `Vuc 1 s@21 ]
+"34
+[v _PWM1CON `Vuc 1 s@22 ]
+"35
+[v _ECCPAS `Vuc 1 s@23 ]
+"36
+[v _WDTCON `Vuc 1 s@24 ]
+"37
+[v _CMCON0 `Vuc 1 s@25 ]
+"38
+[v _CMCON1 `uc 1 s@26 ]
+"39
+[v _ADRESH `Vuc 1 s@30 ]
+"40
+[v _ADCON0 `Vuc 1 s@31 ]
+"41
+[v _OPTION `Xuc 1 s@129 ]
+"42
+[v _TRISA `VXuc 1 s@133 ]
+"43
+[v _TRISC `VXuc 1 s@135 ]
+"44
+[v _PIE1 `Xuc 1 s@140 ]
+"45
+[v _PCON `VXuc 1 s@142 ]
+"46
+[v _OSCCON `VXuc 1 s@143 ]
+"47
+[v _OSCTUNE `Xuc 1 s@144 ]
+"48
+[v _ANSEL `Xuc 1 s@145 ]
+"49
+[v _PR2 `Xuc 1 s@146 ]
+"50
+[v _WPUA `Xuc 1 s@149 ]
+"51
+[v _IOCA `Xuc 1 s@150 ]
+"52
+[v _VRCON `Xuc 1 s@153 ]
+"53
+[v _EEDAT `VXuc 1 s@154 ]
+"55
+[v _EEDATA `VXuc 1 s@154 ]
+"56
+[v _EEADR `Xuc 1 s@155 ]
+"58
+[v _EEADRL `Xuc 1 s@155 ]
+"59
+[v _EECON1 `VXuc 1 s@156 ]
+"60
+[v _EECON2 `VXuc 1 s@157 ]
+"61
+[v _ADRESL `VXuc 1 s@158 ]
+"62
+[v _ADCON1 `Xuc 1 s@159 ]
+"66
+[v _CARRY `Vb 1 s@24 ]
+"67
+[v _DC `Vb 1 s@25 ]
+"68
+[v _ZERO `Vb 1 s@26 ]
+"69
+[v _PD `Vb 1 s@27 ]
+"70
+[v _TO `Vb 1 s@28 ]
+"71
+[v _RP0 `b 1 s@29 ]
+"72
+[v _RP1 `b 1 s@30 ]
+"73
+[v _IRP `b 1 s@31 ]
+"76
+[v _RA0 `Vb 1 s@40 ]
+"77
+[v _RA1 `Vb 1 s@41 ]
+"78
+[v _RA2 `Vb 1 s@42 ]
+"79
+[v _RA3 `Vb 1 s@43 ]
+"80
+[v _RA4 `Vb 1 s@44 ]
+"81
+[v _RA5 `Vb 1 s@45 ]
+"84
+[v _RC0 `Vb 1 s@56 ]
+"85
+[v _RC1 `Vb 1 s@57 ]
+"86
+[v _RC2 `Vb 1 s@58 ]
+"87
+[v _RC3 `Vb 1 s@59 ]
+"88
+[v _RC4 `Vb 1 s@60 ]
+"89
+[v _RC5 `Vb 1 s@61 ]
+"92
+[v _RAIF `Vb 1 s@88 ]
+"93
+[v _INTF `Vb 1 s@89 ]
+"94
+[v _T0IF `Vb 1 s@90 ]
+"95
+[v _RAIE `b 1 s@91 ]
+"96
+[v _INTE `b 1 s@92 ]
+"97
+[v _T0IE `b 1 s@93 ]
+"98
+[v _PEIE `b 1 s@94 ]
+"99
+[v _GIE `b 1 s@95 ]
+"102
+[v _TMR1IF `Vb 1 s@96 ]
+"103
+[v _TMR2IF `Vb 1 s@97 ]
+"104
+[v _OSFIF `Vb 1 s@98 ]
+"105
+[v _C1IF `Vb 1 s@99 ]
+"106
+[v _C2IF `Vb 1 s@100 ]
+"107
+[v _CCP1IF `Vb 1 s@101 ]
+"108
+[v _ADIF `Vb 1 s@102 ]
+"109
+[v _EEIF `Vb 1 s@103 ]
+"112
+[v _TMR1ON `b 1 s@128 ]
+"113
+[v _TMR1CS `b 1 s@129 ]
+"114
+[v _T1SYNC `b 1 s@130 ]
+"115
+[v _T1OSCEN `b 1 s@131 ]
+"116
+[v _T1CKPS0 `b 1 s@132 ]
+"117
+[v _T1CKPS1 `b 1 s@133 ]
+"118
+[v _T1GE `b 1 s@134 ]
+"119
+[v _T1GINV `b 1 s@135 ]
+"122
+[v _T2CKPS0 `b 1 s@144 ]
+"123
+[v _T2CKPS1 `b 1 s@145 ]
+"124
+[v _TMR2ON `b 1 s@146 ]
+"125
+[v _TOUTPS0 `b 1 s@147 ]
+"126
+[v _TOUTPS1 `b 1 s@148 ]
+"127
+[v _TOUTPS2 `b 1 s@149 ]
+"128
+[v _TOUTPS3 `b 1 s@150 ]
+"131
+[v _CCP1M0 `b 1 s@168 ]
+"132
+[v _CCP1M1 `b 1 s@169 ]
+"133
+[v _CCP1M2 `b 1 s@170 ]
+"134
+[v _CCP1M3 `b 1 s@171 ]
+"135
+[v _DC1B0 `b 1 s@172 ]
+"136
+[v _DC1B1 `b 1 s@173 ]
+"137
+[v _P1M0 `b 1 s@174 ]
+"138
+[v _P1M1 `b 1 s@175 ]
+"141
+[v _PDC0 `Vb 1 s@176 ]
+"142
+[v _PDC1 `Vb 1 s@177 ]
+"143
+[v _PDC2 `Vb 1 s@178 ]
+"144
+[v _PDC3 `Vb 1 s@179 ]
+"145
+[v _PDC4 `Vb 1 s@180 ]
+"146
+[v _PDC5 `Vb 1 s@181 ]
+"147
+[v _PDC6 `Vb 1 s@182 ]
+"148
+[v _PRSEN `Vb 1 s@183 ]
+"151
+[v _PSSBD0 `b 1 s@184 ]
+"152
+[v _PSSBD1 `b 1 s@185 ]
+"153
+[v _PSSAC0 `b 1 s@186 ]
+"154
+[v _PSSAC1 `b 1 s@187 ]
+"155
+[v _ECCPAS0 `b 1 s@188 ]
+"156
+[v _ECCPAS1 `b 1 s@189 ]
+"157
+[v _ECCPAS2 `b 1 s@190 ]
+"158
+[v _ECCPASE `Vb 1 s@191 ]
+"161
+[v _SWDTEN `b 1 s@192 ]
+"162
+[v _WDTPS0 `b 1 s@193 ]
+"163
+[v _WDTPS1 `b 1 s@194 ]
+"164
+[v _WDTPS2 `b 1 s@195 ]
+"165
+[v _WDTPS3 `b 1 s@196 ]
+"168
+[v _CM0 `b 1 s@200 ]
+"169
+[v _CM1 `b 1 s@201 ]
+"170
+[v _CM2 `b 1 s@202 ]
+"171
+[v _CIS `b 1 s@203 ]
+"172
+[v _C1INV `b 1 s@204 ]
+"173
+[v _C2INV `b 1 s@205 ]
+"174
+[v _C1OUT `Vb 1 s@206 ]
+"175
+[v _C2OUT `Vb 1 s@207 ]
+"178
+[v _C2SYNC `b 1 s@208 ]
+"179
+[v _T1GSS `b 1 s@209 ]
+"182
+[v _ADON `b 1 s@248 ]
+"183
+[v _GODONE `Vb 1 s@249 ]
+"184
+[v _CHS0 `b 1 s@250 ]
+"185
+[v _CHS1 `b 1 s@251 ]
+"186
+[v _CHS2 `b 1 s@252 ]
+"187
+[v _VCFG `b 1 s@254 ]
+"188
+[v _ADFM `b 1 s@255 ]
+"191
+[v _PS0 `Xb 1 s@1032 ]
+"192
+[v _PS1 `Xb 1 s@1033 ]
+"193
+[v _PS2 `Xb 1 s@1034 ]
+"194
+[v _PSA `Xb 1 s@1035 ]
+"195
+[v _T0SE `Xb 1 s@1036 ]
+"196
+[v _T0CS `Xb 1 s@1037 ]
+"197
+[v _INTEDG `Xb 1 s@1038 ]
+"198
+[v _RAPU `Xb 1 s@1039 ]
+"201
+[v _TRISA0 `VXb 1 s@1064 ]
+"202
+[v _TRISA1 `VXb 1 s@1065 ]
+"203
+[v _TRISA2 `VXb 1 s@1066 ]
+"204
+[v _TRISA3 `VXb 1 s@1067 ]
+"205
+[v _TRISA4 `VXb 1 s@1068 ]
+"206
+[v _TRISA5 `VXb 1 s@1069 ]
+"209
+[v _TRISC0 `VXb 1 s@1080 ]
+"210
+[v _TRISC1 `VXb 1 s@1081 ]
+"211
+[v _TRISC2 `VXb 1 s@1082 ]
+"212
+[v _TRISC3 `VXb 1 s@1083 ]
+"213
+[v _TRISC4 `VXb 1 s@1084 ]
+"214
+[v _TRISC5 `VXb 1 s@1085 ]
+"217
+[v _TMR1IE `Xb 1 s@1120 ]
+"218
+[v _TMR2IE `Xb 1 s@1121 ]
+"219
+[v _OSFIE `Xb 1 s@1122 ]
+"220
+[v _C1IE `Xb 1 s@1123 ]
+"221
+[v _C2IE `Xb 1 s@1124 ]
+"222
+[v _CCP1IE `Xb 1 s@1125 ]
+"223
+[v _ADIE `Xb 1 s@1126 ]
+"224
+[v _EEIE `Xb 1 s@1127 ]
+"227
+[v _BOD `VXb 1 s@1136 ]
+"228
+[v _POR `VXb 1 s@1137 ]
+"229
+[v _SBODEN `Xb 1 s@1140 ]
+"230
+[v _ULPWUE `Xb 1 s@1141 ]
+"233
+[v _SCS `Xb 1 s@1144 ]
+"234
+[v _LTS `VXb 1 s@1145 ]
+"235
+[v _HTS `VXb 1 s@1146 ]
+"236
+[v _OSTS `VXb 1 s@1147 ]
+"237
+[v _IRCF0 `Xb 1 s@1148 ]
+"238
+[v _IRCF1 `Xb 1 s@1149 ]
+"239
+[v _IRCF2 `Xb 1 s@1150 ]
+"242
+[v _TUN0 `Xb 1 s@1152 ]
+"243
+[v _TUN1 `Xb 1 s@1153 ]
+"244
+[v _TUN2 `Xb 1 s@1154 ]
+"245
+[v _TUN3 `Xb 1 s@1155 ]
+"246
+[v _TUN4 `Xb 1 s@1156 ]
+"249
+[v _ANS0 `Xb 1 s@1160 ]
+"250
+[v _ANS1 `Xb 1 s@1161 ]
+"251
+[v _ANS2 `Xb 1 s@1162 ]
+"252
+[v _ANS3 `Xb 1 s@1163 ]
+"253
+[v _ANS4 `Xb 1 s@1164 ]
+"254
+[v _ANS5 `Xb 1 s@1165 ]
+"255
+[v _ANS6 `Xb 1 s@1166 ]
+"256
+[v _ANS7 `Xb 1 s@1167 ]
+"259
+[v _WPUA0 `Xb 1 s@1192 ]
+"260
+[v _WPUA1 `Xb 1 s@1193 ]
+"261
+[v _WPUA2 `Xb 1 s@1194 ]
+"262
+[v _WPUA4 `Xb 1 s@1196 ]
+"263
+[v _WPUA5 `Xb 1 s@1197 ]
+"266
+[v _IOCA0 `Xb 1 s@1200 ]
+"267
+[v _IOCA1 `Xb 1 s@1201 ]
+"268
+[v _IOCA2 `Xb 1 s@1202 ]
+"269
+[v _IOCA3 `Xb 1 s@1203 ]
+"270
+[v _IOCA4 `Xb 1 s@1204 ]
+"271
+[v _IOCA5 `Xb 1 s@1205 ]
+"274
+[v _VR0 `Xb 1 s@1224 ]
+"275
+[v _VR1 `Xb 1 s@1225 ]
+"276
+[v _VR2 `Xb 1 s@1226 ]
+"277
+[v _VR3 `Xb 1 s@1227 ]
+"278
+[v _VRR `Xb 1 s@1229 ]
+"279
+[v _VREN `Xb 1 s@1231 ]
+"282
+[v _RD `VXb 1 s@1248 ]
+"283
+[v _WR `VXb 1 s@1249 ]
+"284
+[v _WREN `Xb 1 s@1250 ]
+"285
+[v _WRERR `VXb 1 s@1251 ]
+"288
+[v _ADCS0 `Xb 1 s@1276 ]
+"289
+[v _ADCS1 `Xb 1 s@1277 ]
+"290
+[v _ADCS2 `Xb 1 s@1278 ]
+"19 C:\Projects\Nordic\dual wireless mic ref design\clean source code\RX\pinouts.h
+[v _BYTE `uc 1 t ]
+"19 C:\Projects\Nordic\dual wireless mic ref design\clean source code\RX\Nordic_i2c.c
+[v _ClockEight `(v 0 sf1`uc ]
+"22
+[v _ClockEight `(v 1 sf1`uc ]
+{
+[v _temp `uc 1 r1 ]
+[e :U _ClockEight ]
+[f ]
+[; ;Nordic_i2c.c: 21: static void ClockEight( BYTE temp)
+[; ;Nordic_i2c.c: 22: {
+"23
+[v _t `uc 1 a ]
+[; ;Nordic_i2c.c: 23: BYTE t;
+[; ;Nordic_i2c.c: 24: for(t=0;t<8;t++)
+"24
+[e = _t -> -> 0 `i `uc ]
+[e $ < -> _t `i -> 8 `i 2 ]
+[e $U 3 ]
+"25
+[e :U 2 ]
+[; ;Nordic_i2c.c: 25: {
+[; ;Nordic_i2c.c: 27: (RC2=0);
+"27
+[e = _RC2 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 29: if(temp & 0x80)
+"29
+[e $ ! != & -> _temp `i -> 128 `i -> 0 `i 5 ]
+[; ;Nordic_i2c.c: 30: (RC2=1);
+"30
+[e = _RC2 -> -> 1 `i `b ]
+[e :U 5 ]
+[; ;Nordic_i2c.c: 31: delay_us(100);
+"31
+[v _delay_us `(v 0 ef1`uc ]
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 32: (RC3=1);
+"32
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 33: delay_us(100);
+"33
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 34: (RC3=0);
+"34
+[e = _RC3 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 35: delay_us(100);
+"35
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 36: temp = temp<<1;
+"36
+[e = _temp -> << -> _temp `i -> 1 `i `uc ]
+[; ;Nordic_i2c.c: 37: (RC2=0);
+"37
+[e = _RC2 -> -> 0 `i `b ]
+"24
+[e ++ _t -> -> 1 `i `uc ]
+[e $ < -> _t `i -> 8 `i 2 ]
+[e :U 3 ]
+"39
+[; ;Nordic_i2c.c: 38: }
+[; ;Nordic_i2c.c: 39: }
+[e :UE 1 ]
+}
+"42
+[v _Nordic_Send `(v 1 ef2`uc`uc ]
+{
+[v _address `uc 1 r1 ]
+[v _data8 `uc 1 r2 ]
+[e :U _Nordic_Send ]
+[f ]
+[; ;Nordic_i2c.c: 41: void Nordic_Send( BYTE address, BYTE data8)
+[; ;Nordic_i2c.c: 42: {
+"44
+[v _temp `uc 1 a ]
+[; ;Nordic_i2c.c: 44: BYTE temp;
+[; ;Nordic_i2c.c: 45: TransmissionError=0;
+"45
+[v _TransmissionError `uc 0 e ]
+[e = _TransmissionError -> -> 0 `i `uc ]
+[; ;Nordic_i2c.c: 48: (RC3=1);
+"48
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 49: (RC2=1);
+"49
+[e = _RC2 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 50: delay_us(100);
+"50
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 51: (RC2=0);
+"51
+[e = _RC2 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 52: delay_us(100);
+"52
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 53: (RC3=0);
+"53
+[e = _RC3 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 54: delay_us(100);
+"54
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 56: temp = N_ADDR;
+"56
+[v _N_ADDR `uc 0 e ]
+[e = _temp _N_ADDR ]
+[; ;Nordic_i2c.c: 57: ClockEight( temp);
+"57
+[e ( _ClockEight (1 _temp ]
+[; ;Nordic_i2c.c: 62: TRISC|=0x04;;
+"62
+[e =| _TRISC -> -> 4 `i `uc ]
+[; ;Nordic_i2c.c: 63: delay_us(3);
+"63
+[e ( _delay_us (1 -> -> 3 `i `uc ]
+[; ;Nordic_i2c.c: 64: (RC3=1);
+"64
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 65: delay_us(100);
+"65
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 66: if(RC2)
+"66
+[e $ ! _RC2 7 ]
+[; ;Nordic_i2c.c: 67: {
+[; ;Nordic_i2c.c: 68: TransmissionError |= 1;
+"68
+[e =| _TransmissionError -> -> 1 `i `uc ]
+"69
+[e :U 7 ]
+[; ;Nordic_i2c.c: 69: }
+[; ;Nordic_i2c.c: 70: (RC3=0);
+"70
+[e = _RC3 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 76: TRISC&=0xFB;;
+"76
+[e =& _TRISC -> -> 251 `i `uc ]
+[; ;Nordic_i2c.c: 78: ClockEight( address);
+"78
+[e ( _ClockEight (1 _address ]
+[; ;Nordic_i2c.c: 84: TRISC|=0x04;;
+"84
+[e =| _TRISC -> -> 4 `i `uc ]
+[; ;Nordic_i2c.c: 85: (RC3=1);
+"85
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 86: delay_us(100);
+"86
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 87: if(RC2)
+"87
+[e $ ! _RC2 8 ]
+[; ;Nordic_i2c.c: 88: {
+[; ;Nordic_i2c.c: 89: TransmissionError |= 1;
+"89
+[e =| _TransmissionError -> -> 1 `i `uc ]
+"90
+[e :U 8 ]
+[; ;Nordic_i2c.c: 90: }
+[; ;Nordic_i2c.c: 92: (RC3=0);
+"92
+[e = _RC3 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 97: TRISC&=0xFB;;
+"97
+[e =& _TRISC -> -> 251 `i `uc ]
+[; ;Nordic_i2c.c: 99: ClockEight( data8);
+"99
+[e ( _ClockEight (1 _data8 ]
+[; ;Nordic_i2c.c: 105: TRISC|=0x04;;
+"105
+[e =| _TRISC -> -> 4 `i `uc ]
+[; ;Nordic_i2c.c: 107: (RC3=1);
+"107
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 108: delay_us(100);
+"108
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 109: if(RC2)
+"109
+[e $ ! _RC2 9 ]
+[; ;Nordic_i2c.c: 110: {
+[; ;Nordic_i2c.c: 111: TransmissionError |= 1;
+"111
+[e =| _TransmissionError -> -> 1 `i `uc ]
+"113
+[e :U 9 ]
+[; ;Nordic_i2c.c: 113: }
+[; ;Nordic_i2c.c: 115: (RC3=0);
+"115
+[e = _RC3 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 120: TRISC&=0xFB;;
+"120
+[e =& _TRISC -> -> 251 `i `uc ]
+[; ;Nordic_i2c.c: 122: (RC2=0);
+"122
+[e = _RC2 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 123: delay_us(100);
+"123
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 124: (RC3=1);
+"124
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 125: delay_us(100);
+"125
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 126: (RC2=1);
+"126
+[e = _RC2 -> -> 1 `i `b ]
+"128
+[; ;Nordic_i2c.c: 128: }
+[e :UE 6 ]
+}
+"130
+[v _Nordic_Read `(uc 1 ef1`uc ]
+{
+[v _raddress `uc 1 r1 ]
+[e :U _Nordic_Read ]
+[f ]
+[; ;Nordic_i2c.c: 129: BYTE Nordic_Read( BYTE raddress)
+[; ;Nordic_i2c.c: 130: {
+"131
+[v _t `uc 1 a ]
+[v _temp `uc 1 a ]
+[; ;Nordic_i2c.c: 131: BYTE t; BYTE temp;
+[; ;Nordic_i2c.c: 132: TransmissionError=0;
+"132
+[e = _TransmissionError -> -> 0 `i `uc ]
+[; ;Nordic_i2c.c: 135: (RC3=1);
+"135
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 136: (RC2=1);
+"136
+[e = _RC2 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 137: delay_us(100);
+"137
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 138: (RC2=0);
+"138
+[e = _RC2 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 139: delay_us(100);
+"139
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 140: (RC3=0);
+"140
+[e = _RC3 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 141: delay_us(100);
+"141
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 143: temp = N_ADDR;
+"143
+[e = _temp _N_ADDR ]
+[; ;Nordic_i2c.c: 144: ClockEight( temp);
+"144
+[e ( _ClockEight (1 _temp ]
+[; ;Nordic_i2c.c: 150: TRISC|=0x04;;
+"150
+[e =| _TRISC -> -> 4 `i `uc ]
+[; ;Nordic_i2c.c: 152: (RC3=1);
+"152
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 153: delay_us(100);
+"153
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 154: if(RC2)
+"154
+[e $ ! _RC2 11 ]
+[; ;Nordic_i2c.c: 155: {
+[; ;Nordic_i2c.c: 156: TransmissionError |= 1;
+"156
+[e =| _TransmissionError -> -> 1 `i `uc ]
+"157
+[e :U 11 ]
+[; ;Nordic_i2c.c: 157: }
+[; ;Nordic_i2c.c: 158: (RC3=0);
+"158
+[e = _RC3 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 164: TRISC&=0xFB;;
+"164
+[e =& _TRISC -> -> 251 `i `uc ]
+[; ;Nordic_i2c.c: 167: delay_us(100);
+"167
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 168: ClockEight( raddress);
+"168
+[e ( _ClockEight (1 _raddress ]
+[; ;Nordic_i2c.c: 175: TRISC|=0x04;;
+"175
+[e =| _TRISC -> -> 4 `i `uc ]
+[; ;Nordic_i2c.c: 177: (RC3=1);
+"177
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 178: delay_us(100);
+"178
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 179: if(RC2)
+"179
+[e $ ! _RC2 12 ]
+[; ;Nordic_i2c.c: 180: {
+[; ;Nordic_i2c.c: 182: TransmissionError |= 1;
+"182
+[e =| _TransmissionError -> -> 1 `i `uc ]
+"184
+[e :U 12 ]
+[; ;Nordic_i2c.c: 184: }
+[; ;Nordic_i2c.c: 186: (RC3=0);
+"186
+[e = _RC3 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 188: TRISC&=0xFB;;
+"188
+[e =& _TRISC -> -> 251 `i `uc ]
+[; ;Nordic_i2c.c: 191: (RC2=1);
+"191
+[e = _RC2 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 193: delay_us(100);
+"193
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 194: (RC3=1);
+"194
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 195: delay_us(100);
+"195
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 196: (RC2=0);
+"196
+[e = _RC2 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 197: delay_us(100);
+"197
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 198: (RC3=0);
+"198
+[e = _RC3 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 199: delay_us(100);
+"199
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 201: temp = N_ADDR+1;
+"201
+[e = _temp -> + -> _N_ADDR `i -> 1 `i `uc ]
+[; ;Nordic_i2c.c: 202: ClockEight( temp);
+"202
+[e ( _ClockEight (1 _temp ]
+[; ;Nordic_i2c.c: 205: TRISC|=0x04;;
+"205
+[e =| _TRISC -> -> 4 `i `uc ]
+[; ;Nordic_i2c.c: 207: (RC3=1);
+"207
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 208: delay_us(100);
+"208
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 209: if(RC2)
+"209
+[e $ ! _RC2 13 ]
+[; ;Nordic_i2c.c: 210: {
+[; ;Nordic_i2c.c: 211: TransmissionError |= 1;
+"211
+[e =| _TransmissionError -> -> 1 `i `uc ]
+"214
+[e :U 13 ]
+[; ;Nordic_i2c.c: 214: }
+[; ;Nordic_i2c.c: 215: (RC3=0);
+"215
+[e = _RC3 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 219: temp=30;
+"219
+[e = _temp -> -> 30 `i `uc ]
+[; ;Nordic_i2c.c: 220: while ( --temp ) ;
+"220
+[e $U 14 ]
+[e :U 15 ]
+[e :U 14 ]
+[e $ != -> =- _temp -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 15 ]
+[e :U 16 ]
+[; ;Nordic_i2c.c: 222: temp = 0;
+"222
+[e = _temp -> -> 0 `i `uc ]
+[; ;Nordic_i2c.c: 224: for(t=0;t<8;t++)
+"224
+[e = _t -> -> 0 `i `uc ]
+[e $ < -> _t `i -> 8 `i 17 ]
+[e $U 18 ]
+"225
+[e :U 17 ]
+[; ;Nordic_i2c.c: 225: {
+[; ;Nordic_i2c.c: 226: temp = temp<<1;
+"226
+[e = _temp -> << -> _temp `i -> 1 `i `uc ]
+[; ;Nordic_i2c.c: 227: delay_us(100);
+"227
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 228: (RC3=1);
+"228
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 229: delay_us(100);
+"229
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 230: if(RC2)
+"230
+[e $ ! _RC2 20 ]
+[; ;Nordic_i2c.c: 231: temp=temp+1;
+"231
+[e = _temp -> + -> _temp `i -> 1 `i `uc ]
+[e :U 20 ]
+[; ;Nordic_i2c.c: 232: (RC3=0);
+"232
+[e = _RC3 -> -> 0 `i `b ]
+"224
+[e ++ _t -> -> 1 `i `uc ]
+[e $ < -> _t `i -> 8 `i 17 ]
+[e :U 18 ]
+[; ;Nordic_i2c.c: 233: }
+[; ;Nordic_i2c.c: 238: (RC3=1);
+"238
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 239: delay_us(100);
+"239
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 240: if(!RC2)
+"240
+[e $ ! ! _RC2 21 ]
+[; ;Nordic_i2c.c: 241: {
+[; ;Nordic_i2c.c: 242: TransmissionError |= 1;
+"242
+[e =| _TransmissionError -> -> 1 `i `uc ]
+"244
+[e :U 21 ]
+[; ;Nordic_i2c.c: 244: }
+[; ;Nordic_i2c.c: 245: (RC3=0);
+"245
+[e = _RC3 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 253: TRISC&=0xFB;;
+"253
+[e =& _TRISC -> -> 251 `i `uc ]
+[; ;Nordic_i2c.c: 255: (RC2=0);
+"255
+[e = _RC2 -> -> 0 `i `b ]
+[; ;Nordic_i2c.c: 256: (RC3=1);
+"256
+[e = _RC3 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 257: delay_us(100);
+"257
+[e ( _delay_us (1 -> -> 100 `i `uc ]
+[; ;Nordic_i2c.c: 258: (RC2=1);
+"258
+[e = _RC2 -> -> 1 `i `b ]
+[; ;Nordic_i2c.c: 259: return(temp);
+"259
+[e ) _temp ]
+[e $UE 10 ]
+"260
+[; ;Nordic_i2c.c: 260: }
+[e :UE 10 ]
+}
+"263
+[v _Nordic_Readback `(uc 1 ef2`uc`uc ]
+{
+[v _address `uc 1 r1 ]
+[v _data8 `uc 1 r2 ]
+[e :U _Nordic_Readback ]
+[f ]
+[; ;Nordic_i2c.c: 262: BYTE Nordic_Readback ( BYTE address, BYTE data8)
+[; ;Nordic_i2c.c: 263: {
+"264
+[v _raddress `uc 1 a ]
+[v _rdata `uc 1 a ]
+"265
+[v _temp `uc 1 a ]
+[; ;Nordic_i2c.c: 264: BYTE raddress,rdata;
+[; ;Nordic_i2c.c: 265: BYTE temp=250;
+[e = _temp -> -> 250 `i `uc ]
+[; ;Nordic_i2c.c: 266: raddress=address;
+"266
+[e = _raddress _address ]
+[; ;Nordic_i2c.c: 267: rdata=data8;
+"267
+[e = _rdata _data8 ]
+[; ;Nordic_i2c.c: 268: Nordic_Send(address,data8);
+"268
+[e ( _Nordic_Send (2 , _address _data8 ]
+[; ;Nordic_i2c.c: 269: while ( --temp );
+"269
+[e $U 23 ]
+[e :U 24 ]
+[e :U 23 ]
+[e $ != -> =- _temp -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 24 ]
+[e :U 25 ]
+[; ;Nordic_i2c.c: 270: data8= Nordic_Read(address);
+"270
+[e = _data8 ( _Nordic_Read (1 _address ]
+[; ;Nordic_i2c.c: 271: return (rdata==data8 );
+"271
+[e ) -> -> == -> _rdata `i -> _data8 `i `i `uc ]
+[e $UE 22 ]
+"273
+[; ;Nordic_i2c.c: 273: }
+[e :UE 22 ]
+}

@@ -1,0 +1,1323 @@
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL3 build 3862 
+                                                      Mon Oct 10 13:14:39 2011
+
+HI-TECH Software Code Generator build 3862
+     1                           	processor	16F684
+     2                           	opt	pw 79
+     3                           	psect	text0,local,class=CODE,delta=2
+     4                           	psect	config,global,class=CONFIG,delta=2
+     5                           	psect	eeprom_data,global,class=EEDATA,space=2,
+      +                          delta=2
+     6                           	psect	text1,local,class=CODE,delta=2
+     7                           	psect	text2,local,class=CODE,delta=2
+     8                           	psect	text3,local,class=CODE,delta=2
+     9                           	psect	text4,local,class=CODE,delta=2
+    10                           	psect	text5,local,class=CODE,delta=2
+    11                           	psect	text6,local,class=CODE,delta=2
+    12                           	psect	rbss_0,global,class=BANK0,space=1,delta=
+      +                          1
+    13                           	psect	temp,global,ovrld,class=BANK0,space=1,de
+      +                          lta=1
+    14  0000                     
+    15  0000                     
+    16  0000                     
+    17  0000                     
+    18  0000                     
+    19  0000                     
+    20  0000                     
+    21  0000                     
+    22  0000                     
+    23  0000                     
+    24  0000                     	;#
+    25                           
+    26                           	psect	text0
+    27  0672                     _main
+    28                           ;main.c: 313: void main(void)
+    29  0672  243A               	call	_setup_ports
+    30                           ;main.c: 317: RC4=0;
+    31  0673  1207               	bcf	7,4
+    32                           ;main.c: 318: RC5=0;
+    33  0674  1287               	bcf	7,5
+    34                           ;main.c: 320: RC0=0;
+    35  0675  1007               	bcf	7,0
+    36                           ;main.c: 321: delay_us(500);
+    37  0676  30F4               	movlw	-12
+    38  0677  2431               	call	_delay_us
+    39                           ;main.c: 322: delay_ms(100);
+    40  0678  3064               	movlw	100
+    41  0679  248C               	call	_delay_ms
+    42                           ;main.c: 323: delay_ms(100);
+    43  067A  3064               	movlw	100
+    44  067B  248C               	call	_delay_ms
+    45                           ;main.c: 324: delay_ms(100);
+    46  067C  3064               	movlw	100
+    47  067D  248C               	call	_delay_ms
+    48                           ;main.c: 325: delay_ms(100);
+    49  067E  3064               	movlw	100
+    50  067F  248C               	call	_delay_ms
+    51                           ;main.c: 326: delay_ms(100);
+    52  0680  3064               	movlw	100
+    53  0681  248C               	call	_delay_ms
+    54                           ;main.c: 327: delay_ms(100);
+    55  0682  3064               	movlw	100
+    56  0683  248C               	call	_delay_ms
+    57                           ;main.c: 328: delay_ms(100);
+    58  0684  3064               	movlw	100
+    59  0685  248C               	call	_delay_ms
+    60                           ;main.c: 329: delay_ms(100);
+    61  0686  3064               	movlw	100
+    62  0687  248C               	call	_delay_ms
+    63                           ;main.c: 331: N_ADDR=0xD2;
+    64  0688  30D2               	movlw	-46
+    65  0689  00BC               	movwf	_N_ADDR
+    66                           ;main.c: 332: Nordic_Wakeup();
+    67  068A  254D               	call	_Nordic_Wakeup
+    68                           ;main.c: 334: N_ADDR=0x52;
+    69  068B  3052               	movlw	82
+    70  068C  00BC               	movwf	_N_ADDR
+    71                           ;main.c: 335: Nordic_Wakeup2();
+    72  068D  25DF               	call	_Nordic_Wakeup2
+    73                           ;main.c: 337: RA2=0;
+    74  068E  1105               	bcf	5,2
+    75                           ;main.c: 338: RA4=0;
+    76  068F  1205               	bcf	5,4
+    77                           ;main.c: 340: delay_ms(100);
+    78  0690  3064               	movlw	100
+    79  0691                     L1
+    80  0691  248C               	call	_delay_ms
+    81  0692                     l3
+    82                           ;main.c: 342: while(1)
+    83                           ;main.c: 343: {
+    84  0692  30D2               	movlw	-46
+    85  0693  00BC               	movwf	_N_ADDR
+    86                           ;main.c: 345: if(!(Nordic_Read(0x03)&0x01))
+    87  0694  3003               	movlw	3
+    88  0695  24E5               	call	_Nordic_Read
+    89  0696  00FE               	movwf	btemp
+    90                           ;main.c: 346: {
+    91  0697  1605               	bsf	5,4
+    92  0698  187E               	btfsc	btemp,0
+    93  0699  2E9F               	goto	l6
+    94                           ;main.c: 348: delay_ms(255);
+    95  069A  30FF               	movlw	-1
+    96  069B  248C               	call	_delay_ms
+    97                           ;main.c: 349: RA4=0;
+    98  069C  1205               	bcf	5,4
+    99                           ;main.c: 350: delay_ms(255);
+   100  069D  30FF               	movlw	-1
+   101  069E  248C               	call	_delay_ms
+   102                           ;main.c: 351: }
+   103                           ;main.c: 352: else
+   104  069F                     l6
+   105                           ;main.c: 355: }
+   106  069F  3052               	movlw	82
+   107  06A0  00BC               	movwf	_N_ADDR
+   108                           ;main.c: 359: if(!(Nordic_Read(0x03)&0x01))
+   109  06A1  3003               	movlw	3
+   110  06A2  24E5               	call	_Nordic_Read
+   111  06A3  00FE               	movwf	btemp
+   112                           ;main.c: 360: {
+   113  06A4  1505               	bsf	5,2
+   114                           ;main.c: 362: delay_ms(255);
+   115  06A5  30FF               	movlw	-1
+   116  06A6  187E               	btfsc	btemp,0
+   117  06A7  2EAD               	goto	L2
+   118  06A8  248C               	call	_delay_ms
+   119                           ;main.c: 363: RA2=0;
+   120  06A9  1105               	bcf	5,2
+   121                           ;main.c: 364: delay_ms(255);
+   122  06AA  30FF               	movlw	-1
+   123  06AB  248C               	call	_delay_ms
+   124                           ;main.c: 365: }
+   125                           ;main.c: 366: else
+   126                           ;main.c: 369: }
+   127  06AC  30FF               	movlw	-1
+   128  06AD                     L2
+   129  06AD  248C               	call	_delay_ms
+   130                           ;main.c: 374: if (!RA5)
+   131  06AE  1A85               	btfsc	5,5
+   132  06AF  2E92               	goto	l3
+   133                           ;main.c: 375: {
+   134  06B0  30FF               	movlw	-1
+   135  06B1  248C               	call	_delay_ms
+   136                           ;main.c: 377: delay_ms(255);
+   137  06B2  30FF               	movlw	-1
+   138  06B3  248C               	call	_delay_ms
+   139                           ;main.c: 378: delay_ms(255);
+   140  06B4  30FF               	movlw	-1
+   141  06B5  248C               	call	_delay_ms
+   142                           ;main.c: 379: if (!RA5)
+   143  06B6  1A85               	btfsc	5,5
+   144  06B7  2E92               	goto	l3
+   145                           ;main.c: 380: {
+   146  06B8  1607               	bsf	7,4
+   147  06B9  1687               	bsf	7,5
+   148                           ;main.c: 383: while(!RA5)
+   149  06BA                     l11
+   150  06BA  1A85               	btfsc	5,5
+   151  06BB  2EC5               	goto	l13
+   152                           ;main.c: 384: {
+   153  06BC  1505               	bsf	5,2
+   154                           ;main.c: 386: RA4=1;
+   155  06BD  1605               	bsf	5,4
+   156                           ;main.c: 387: delay_ms(100);
+   157  06BE  3064               	movlw	100
+   158  06BF  248C               	call	_delay_ms
+   159                           ;main.c: 388: RA2=0;
+   160  06C0  1105               	bcf	5,2
+   161                           ;main.c: 389: RA4=0;
+   162  06C1  1205               	bcf	5,4
+   163                           ;main.c: 390: delay_ms(100);
+   164  06C2  3064               	movlw	100
+   165  06C3  248C               	call	_delay_ms
+   166  06C4  2EBA               	goto	l11
+   167  06C5                     l13
+   168                           ;main.c: 391: }
+   169  06C5  30D2               	movlw	-46
+   170  06C6  00BC               	movwf	_N_ADDR
+   171                           ;main.c: 394: Nordic_Send(0x39, 0x00);
+   172  06C7  01B6               	clrf	?_Nordic_Send
+   173  06C8  3039               	movlw	57
+   174  06C9  24A4               	call	_Nordic_Send
+   175                           ;main.c: 395: Nordic_Send(0x3A, 0x1A);
+   176  06CA  301A               	movlw	26
+   177  06CB  00B6               	movwf	?_Nordic_Send
+   178  06CC  303A               	movlw	58
+   179  06CD  24A4               	call	_Nordic_Send
+   180                           ;main.c: 396: Nordic_Send(0x3B, 0x2B);
+   181  06CE  302B               	movlw	43
+   182  06CF  00B6               	movwf	?_Nordic_Send
+   183  06D0  303B               	movlw	59
+   184  06D1  24A4               	call	_Nordic_Send
+   185                           ;main.c: 397: Nordic_Send(0x3C, 0x3C);
+   186  06D2  303C               	movlw	60
+   187  06D3  00B6               	movwf	?_Nordic_Send
+   188  06D4  24A4               	call	_Nordic_Send
+   189                           ;main.c: 398: Nordic_Send(0x3D, 0x4D);
+   190  06D5  304D               	movlw	77
+   191  06D6  00B6               	movwf	?_Nordic_Send
+   192  06D7  303D               	movlw	61
+   193  06D8  24A4               	call	_Nordic_Send
+   194                           ;main.c: 399: Nordic_Send(0x36, 0x10);
+   195  06D9  3010               	movlw	16
+   196  06DA  00B6               	movwf	?_Nordic_Send
+   197  06DB  3036               	movlw	54
+   198  06DC  24A4               	call	_Nordic_Send
+   199                           ;main.c: 401: N_ADDR=0x52;
+   200  06DD  3052               	movlw	82
+   201  06DE  00BC               	movwf	_N_ADDR
+   202                           ;main.c: 402: Nordic_Send(0x39, 0x5D);
+   203  06DF  305D               	movlw	93
+   204  06E0  00B6               	movwf	?_Nordic_Send
+   205  06E1  3039               	movlw	57
+   206  06E2  24A4               	call	_Nordic_Send
+   207                           ;main.c: 403: Nordic_Send(0x3A, 0x6C);
+   208  06E3  306C               	movlw	108
+   209  06E4  00B6               	movwf	?_Nordic_Send
+   210  06E5  303A               	movlw	58
+   211  06E6  24A4               	call	_Nordic_Send
+   212                           ;main.c: 404: Nordic_Send(0x3B, 0x7B);
+   213  06E7  307B               	movlw	123
+   214  06E8  00B6               	movwf	?_Nordic_Send
+   215  06E9  303B               	movlw	59
+   216  06EA  24A4               	call	_Nordic_Send
+   217                           ;main.c: 405: Nordic_Send(0x3C, 0x8A);
+   218  06EB  308A               	movlw	-118
+   219  06EC  00B6               	movwf	?_Nordic_Send
+   220  06ED  303C               	movlw	60
+   221  06EE  24A4               	call	_Nordic_Send
+   222                           ;main.c: 406: Nordic_Send(0x3D, 0x90);
+   223  06EF  3090               	movlw	-112
+   224  06F0  00B6               	movwf	?_Nordic_Send
+   225  06F1  303D               	movlw	61
+   226  06F2  24A4               	call	_Nordic_Send
+   227                           ;main.c: 407: Nordic_Send(0x36, 0x10);
+   228  06F3  3010               	movlw	16
+   229  06F4  00B6               	movwf	?_Nordic_Send
+   230  06F5  3036               	movlw	54
+   231  06F6  24A4               	call	_Nordic_Send
+   232                           ;main.c: 411: while ((red_address_changed == 0)
+      +                           && (blue_address_changed == 0) && (timeout !=1
+      +                           ))
+   233  06F7  2F61               	goto	l14
+   234  06F8                     l15
+   235                           ;main.c: 412: {
+   236  06F8  30D2               	movlw	-46
+   237  06F9  00BC               	movwf	_N_ADDR
+   238                           ;main.c: 414: if (Nordic_Read(0x39)!=0x00)
+   239  06FA  3039               	movlw	57
+   240  06FB  24E5               	call	_Nordic_Read
+   241  06FC  3800               	iorlw	0
+   242  06FD  1903               	btfsc	3,2
+   243  06FE  2F02               	goto	l17
+   244                           ;main.c: 415: red_address_changed=1;
+   245  06FF  01AD               	clrf	_red_address_changed
+   246  0700  0AAD               	incf	_red_address_changed
+   247  0701  01AE               	clrf	_red_address_changed+1
+   248  0702                     l17
+   249                           ;main.c: 416: if (Nordic_Read(0x3A)!=0x1A)
+   250  0702  303A               	movlw	58
+   251  0703  24E5               	call	_Nordic_Read
+   252  0704  3A1A               	xorlw	26
+   253  0705  1903               	btfsc	3,2
+   254  0706  2F0A               	goto	l18
+   255                           ;main.c: 417: red_address_changed=1;
+   256  0707  01AD               	clrf	_red_address_changed
+   257  0708  0AAD               	incf	_red_address_changed
+   258  0709  01AE               	clrf	_red_address_changed+1
+   259  070A                     l18
+   260                           ;main.c: 418: if (Nordic_Read(0x3B)!=0x2B)
+   261  070A  303B               	movlw	59
+   262  070B  24E5               	call	_Nordic_Read
+   263  070C  3A2B               	xorlw	43
+   264  070D  1903               	btfsc	3,2
+   265  070E  2F12               	goto	l19
+   266                           ;main.c: 419: red_address_changed=1;
+   267  070F  01AD               	clrf	_red_address_changed
+   268  0710  0AAD               	incf	_red_address_changed
+   269  0711  01AE               	clrf	_red_address_changed+1
+   270  0712                     l19
+   271                           ;main.c: 420: if (Nordic_Read(0x3C)!=0x3C)
+   272  0712  303C               	movlw	60
+   273  0713  24E5               	call	_Nordic_Read
+   274  0714  3A3C               	xorlw	60
+   275  0715  1903               	btfsc	3,2
+   276  0716  2F1A               	goto	l20
+   277                           ;main.c: 421: red_address_changed=1;
+   278  0717  01AD               	clrf	_red_address_changed
+   279  0718  0AAD               	incf	_red_address_changed
+   280  0719  01AE               	clrf	_red_address_changed+1
+   281  071A                     l20
+   282                           ;main.c: 422: if (Nordic_Read(0x3D)!=0x4D)
+   283  071A  303D               	movlw	61
+   284  071B  24E5               	call	_Nordic_Read
+   285  071C  3A4D               	xorlw	77
+   286  071D  1903               	btfsc	3,2
+   287  071E  2F22               	goto	l21
+   288                           ;main.c: 423: red_address_changed=1;
+   289  071F  01AD               	clrf	_red_address_changed
+   290  0720  0AAD               	incf	_red_address_changed
+   291  0721  01AE               	clrf	_red_address_changed+1
+   292  0722                     l21
+   293                           ;main.c: 425: N_ADDR=0x52;
+   294  0722  3052               	movlw	82
+   295  0723  00BC               	movwf	_N_ADDR
+   296                           ;main.c: 426: if (Nordic_Read(0x39)!=0x5D)
+   297  0724  3039               	movlw	57
+   298  0725  24E5               	call	_Nordic_Read
+   299  0726  3A5D               	xorlw	93
+   300  0727  1903               	btfsc	3,2
+   301  0728  2F2C               	goto	l22
+   302                           ;main.c: 427: blue_address_changed=1;
+   303  0729  01A7               	clrf	_blue_address_changed
+   304  072A  0AA7               	incf	_blue_address_changed
+   305  072B  01A8               	clrf	_blue_address_changed+1
+   306  072C                     l22
+   307                           ;main.c: 428: if (Nordic_Read(0x3A)!=0x6C)
+   308  072C  303A               	movlw	58
+   309  072D  24E5               	call	_Nordic_Read
+   310  072E  3A6C               	xorlw	108
+   311  072F  1903               	btfsc	3,2
+   312  0730  2F34               	goto	l23
+   313                           ;main.c: 429: blue_address_changed=1;
+   314  0731  01A7               	clrf	_blue_address_changed
+   315  0732  0AA7               	incf	_blue_address_changed
+   316  0733  01A8               	clrf	_blue_address_changed+1
+   317  0734                     l23
+   318                           ;main.c: 430: if (Nordic_Read(0x3B)!=0x7B)
+   319  0734  303B               	movlw	59
+   320  0735  24E5               	call	_Nordic_Read
+   321  0736  3A7B               	xorlw	123
+   322  0737  1903               	btfsc	3,2
+   323  0738  2F3C               	goto	l24
+   324                           ;main.c: 431: blue_address_changed=1;
+   325  0739  01A7               	clrf	_blue_address_changed
+   326  073A  0AA7               	incf	_blue_address_changed
+   327  073B  01A8               	clrf	_blue_address_changed+1
+   328  073C                     l24
+   329                           ;main.c: 432: if (Nordic_Read(0x3C)!=0x8A)
+   330  073C  303C               	movlw	60
+   331  073D  24E5               	call	_Nordic_Read
+   332  073E  3A8A               	xorlw	-118
+   333  073F  1903               	btfsc	3,2
+   334  0740  2F44               	goto	l25
+   335                           ;main.c: 433: blue_address_changed=1;
+   336  0741  01A7               	clrf	_blue_address_changed
+   337  0742  0AA7               	incf	_blue_address_changed
+   338  0743  01A8               	clrf	_blue_address_changed+1
+   339  0744                     l25
+   340                           ;main.c: 434: if (Nordic_Read(0x3D)!=0x90)
+   341  0744  303D               	movlw	61
+   342  0745  24E5               	call	_Nordic_Read
+   343  0746  3A90               	xorlw	-112
+   344  0747  1903               	btfsc	3,2
+   345  0748  2F4C               	goto	l26
+   346                           ;main.c: 435: blue_address_changed=1;
+   347  0749  01A7               	clrf	_blue_address_changed
+   348  074A  0AA7               	incf	_blue_address_changed
+   349  074B  01A8               	clrf	_blue_address_changed+1
+   350  074C                     l26
+   351                           ;main.c: 437: i++;
+   352  074C  0AAB               	incf	_i
+   353  074D  1903               	btfsc	3,2
+   354  074E  0AAC               	incf	_i+1
+   355                           ;main.c: 438: if (i==60)
+   356  074F  082B               	movf	_i,w
+   357  0750  3A3C               	xorlw	60
+   358  0751  042C               	iorwf	_i+1,w
+   359  0752  1D03               	btfss	3,2
+   360  0753  2F59               	goto	l27
+   361                           ;main.c: 439: {
+   362  0754  01AF               	clrf	_timeout
+   363  0755  0AAF               	incf	_timeout
+   364  0756  01B0               	clrf	_timeout+1
+   365                           ;main.c: 441: i=0;
+   366  0757  01AB               	clrf	_i
+   367  0758  01AC               	clrf	_i+1
+   368  0759                     l27
+   369                           ;main.c: 442: }
+   370  0759  1505               	bsf	5,2
+   371                           ;main.c: 445: RA4=1;
+   372  075A  1605               	bsf	5,4
+   373                           ;main.c: 446: delay_ms(100);
+   374  075B  3064               	movlw	100
+   375  075C  248C               	call	_delay_ms
+   376                           ;main.c: 447: RA2=0;
+   377  075D  1105               	bcf	5,2
+   378                           ;main.c: 448: RA4=0;
+   379  075E  1205               	bcf	5,4
+   380                           ;main.c: 449: delay_ms(100);
+   381  075F  3064               	movlw	100
+   382  0760  248C               	call	_delay_ms
+   383  0761                     l14
+   384  0761  082E               	movf	_red_address_changed+1,w
+   385  0762  042D               	iorwf	_red_address_changed,w
+   386  0763  1D03               	btfss	3,2
+   387  0764  2F6D               	goto	l16
+   388  0765  0828               	movf	_blue_address_changed+1,w
+   389  0766  0427               	iorwf	_blue_address_changed,w
+   390  0767  1D03               	btfss	3,2
+   391  0768  2F6D               	goto	l16
+   392  0769  032F               	decf	_timeout,w
+   393  076A  0430               	iorwf	_timeout+1,w
+   394  076B  1D03               	btfss	3,2
+   395  076C  2EF8               	goto	l15
+   396  076D                     l16
+   397                           ;main.c: 450: }
+   398  076D  032F               	decf	_timeout,w
+   399  076E  0430               	iorwf	_timeout+1,w
+   400  076F  1903               	btfsc	3,2
+   401  0770  2FF3               	goto	l28
+   402                           ;main.c: 453: {
+   403  0771  01AB               	clrf	_i
+   404  0772  01AC               	clrf	_i+1
+   405  0773                     l32
+   406  0773  3000               	movlw	0
+   407  0774  022C               	subwf	_i+1,w
+   408  0775  3005               	movlw	5
+   409  0776  1903               	btfsc	3,2
+   410  0777  022B               	subwf	_i,w
+   411  0778  1803               	btfsc	3,0
+   412  0779  2F80               	goto	l30
+   413                           ;main.c: 455: delay_ms(255);
+   414  077A  30FF               	movlw	-1
+   415  077B  248C               	call	_delay_ms
+   416  077C  0AAB               	incf	_i
+   417  077D  1903               	btfsc	3,2
+   418  077E  0AAC               	incf	_i+1
+   419  077F  2F73               	goto	l32
+   420  0780                     l30
+   421                           ;main.c: 457: for (i=0;i<5;i++)
+   422  0780  01AB               	clrf	_i
+   423  0781  01AC               	clrf	_i+1
+   424  0782                     l36
+   425  0782  3000               	movlw	0
+   426  0783  022C               	subwf	_i+1,w
+   427  0784  3005               	movlw	5
+   428  0785  1903               	btfsc	3,2
+   429  0786  022B               	subwf	_i,w
+   430  0787  1803               	btfsc	3,0
+   431  0788  2FCB               	goto	l34
+   432                           ;main.c: 458: {
+   433  0789  30D2               	movlw	-46
+   434  078A  00BC               	movwf	_N_ADDR
+   435                           ;main.c: 460: delay_ms(10);
+   436  078B  300A               	movlw	10
+   437  078C  248C               	call	_delay_ms
+   438                           ;main.c: 461: if (red_address_changed==1)
+   439  078D  032D               	decf	_red_address_changed,w
+   440  078E  042E               	iorwf	_red_address_changed+1,w
+   441  078F  1D03               	btfss	3,2
+   442  0790  2F9E               	goto	l37
+   443                           ;main.c: 462: {
+   444  0791  082B               	movf	_i,w
+   445  0792  3E39               	addlw	57
+   446  0793  24E5               	call	_Nordic_Read
+   447  0794  00A9               	movwf	_data
+   448  0795  01AA               	clrf	_data+1
+   449                           ;main.c: 464: EEpromWrite(0x39+i,Nordic_Read(0x
+      +                          39+i));
+   450  0796  082B               	movf	_i,w
+   451  0797  3E39               	addlw	57
+   452  0798  24E5               	call	_Nordic_Read
+   453  0799  00B1               	movwf	?_EEpromWrite
+   454  079A  082B               	movf	_i,w
+   455  079B  3E39               	addlw	57
+   456  079C  244C               	call	_EEpromWrite
+   457                           ;main.c: 465: }
+   458  079D  2FA7               	goto	l38
+   459  079E                     l37
+   460                           ;main.c: 466: else
+   461  079E  082B               	movf	_i,w
+   462  079F  3E39               	addlw	57
+   463  07A0  2429               	call	_EEpromRead
+   464  07A1  00A9               	movwf	_data
+   465  07A2  01AA               	clrf	_data+1
+   466                           ;main.c: 469: Nordic_Readback(0x39+i,data);
+   467  07A3  00B1               	movwf	?_Nordic_Readback
+   468  07A4  082B               	movf	_i,w
+   469  07A5  3E39               	addlw	57
+   470  07A6  245F               	call	_Nordic_Readback
+   471  07A7                     l38
+   472                           ;main.c: 472: }
+   473  07A7  3052               	movlw	82
+   474  07A8  00BC               	movwf	_N_ADDR
+   475                           ;main.c: 475: delay_ms(10);
+   476  07A9  300A               	movlw	10
+   477  07AA  248C               	call	_delay_ms
+   478                           ;main.c: 476: if (blue_address_changed==1)
+   479  07AB  0327               	decf	_blue_address_changed,w
+   480  07AC  0428               	iorwf	_blue_address_changed+1,w
+   481  07AD  1D03               	btfss	3,2
+   482  07AE  2FBC               	goto	l39
+   483                           ;main.c: 477: {
+   484  07AF  082B               	movf	_i,w
+   485  07B0  3E39               	addlw	57
+   486  07B1  24E5               	call	_Nordic_Read
+   487  07B2  00A9               	movwf	_data
+   488  07B3  01AA               	clrf	_data+1
+   489                           ;main.c: 479: EEpromWrite((0x39+128)+i,Nordic_R
+      +                          ead(0x39+i));
+   490  07B4  082B               	movf	_i,w
+   491  07B5  3E39               	addlw	57
+   492  07B6  24E5               	call	_Nordic_Read
+   493  07B7  00B1               	movwf	?_EEpromWrite
+   494  07B8  082B               	movf	_i,w
+   495  07B9  3EB9               	addlw	-71
+   496  07BA  244C               	call	_EEpromWrite
+   497                           ;main.c: 480: }
+   498  07BB  2FC5               	goto	l40
+   499  07BC                     l39
+   500                           ;main.c: 481: else
+   501  07BC  082B               	movf	_i,w
+   502  07BD  3EB9               	addlw	-71
+   503  07BE  2429               	call	_EEpromRead
+   504  07BF  00A9               	movwf	_data
+   505  07C0  01AA               	clrf	_data+1
+   506                           ;main.c: 484: Nordic_Readback(0x39+i, data);
+   507  07C1  00B1               	movwf	?_Nordic_Readback
+   508  07C2  082B               	movf	_i,w
+   509  07C3  3E39               	addlw	57
+   510  07C4  245F               	call	_Nordic_Readback
+   511  07C5                     l40
+   512                           ;main.c: 486: }
+   513  07C5  3032               	movlw	50
+   514  07C6  248C               	call	_delay_ms
+   515  07C7  0AAB               	incf	_i
+   516  07C8  1903               	btfsc	3,2
+   517  07C9  0AAC               	incf	_i+1
+   518  07CA  2F82               	goto	l36
+   519  07CB                     l34
+   520                           ;main.c: 489: }
+   521  07CB  082E               	movf	_red_address_changed+1,w
+   522  07CC  042D               	iorwf	_red_address_changed,w
+   523  07CD  1D03               	btfss	3,2
+   524  07CE  2FDF               	goto	l41
+   525                           ;main.c: 491: {
+   526  07CF  30D2               	movlw	-46
+   527  07D0  00BC               	movwf	_N_ADDR
+   528                           ;main.c: 493: Nordic_Send(0x36, 0x10);
+   529  07D1  3010               	movlw	16
+   530  07D2  00B6               	movwf	?_Nordic_Send
+   531  07D3  3036               	movlw	54
+   532  07D4  24A4               	call	_Nordic_Send
+   533                           ;main.c: 494: RC0=0;
+   534  07D5  1007               	bcf	7,0
+   535                           ;main.c: 496: delay_ms(100);
+   536  07D6  3064               	movlw	100
+   537  07D7  248C               	call	_delay_ms
+   538                           ;main.c: 497: delay_ms(100);
+   539  07D8  3064               	movlw	100
+   540  07D9  248C               	call	_delay_ms
+   541                           ;main.c: 498: delay_ms(100);
+   542  07DA  3064               	movlw	100
+   543  07DB  248C               	call	_delay_ms
+   544                           ;main.c: 501: N_ADDR=0xD2;
+   545  07DC  30D2               	movlw	-46
+   546  07DD  00BC               	movwf	_N_ADDR
+   547                           ;main.c: 502: Nordic_Wakeup();
+   548  07DE  254D               	call	_Nordic_Wakeup
+   549  07DF                     l41
+   550                           ;main.c: 505: }
+   551  07DF  0828               	movf	_blue_address_changed+1,w
+   552  07E0  0427               	iorwf	_blue_address_changed,w
+   553  07E1  1D03               	btfss	3,2
+   554  07E2  2FF3               	goto	l28
+   555                           ;main.c: 507: {
+   556  07E3  3052               	movlw	82
+   557  07E4  00BC               	movwf	_N_ADDR
+   558                           ;main.c: 509: Nordic_Send(0x36, 0x10);
+   559  07E5  3010               	movlw	16
+   560  07E6  00B6               	movwf	?_Nordic_Send
+   561  07E7  3036               	movlw	54
+   562  07E8  24A4               	call	_Nordic_Send
+   563                           ;main.c: 510: RC0=0;
+   564  07E9  1007               	bcf	7,0
+   565                           ;main.c: 512: delay_ms(100);
+   566  07EA  3064               	movlw	100
+   567  07EB  248C               	call	_delay_ms
+   568                           ;main.c: 513: delay_ms(100);
+   569  07EC  3064               	movlw	100
+   570  07ED  248C               	call	_delay_ms
+   571                           ;main.c: 514: delay_ms(100);
+   572  07EE  3064               	movlw	100
+   573  07EF  248C               	call	_delay_ms
+   574                           ;main.c: 517: N_ADDR=0x52;
+   575  07F0  3052               	movlw	82
+   576  07F1  00BC               	movwf	_N_ADDR
+   577                           ;main.c: 518: Nordic_Wakeup2();
+   578  07F2  25DF               	call	_Nordic_Wakeup2
+   579  07F3                     l28
+   580                           ;main.c: 520: }
+   581  07F3  01AF               	clrf	_timeout
+   582  07F4  01B0               	clrf	_timeout+1
+   583                           ;main.c: 539: i=0;
+   584  07F5  01AB               	clrf	_i
+   585  07F6  01AC               	clrf	_i+1
+   586                           ;main.c: 540: red_address_changed=0;
+   587  07F7  01AD               	clrf	_red_address_changed
+   588  07F8  01AE               	clrf	_red_address_changed+1
+   589                           ;main.c: 541: blue_address_changed=0;
+   590  07F9  01A7               	clrf	_blue_address_changed
+   591  07FA  01A8               	clrf	_blue_address_changed+1
+   592                           ;main.c: 542: RC4=0;RC5=0;
+   593  07FB  1207               	bcf	7,4
+   594  07FC  1287               	bcf	7,5
+   595                           ;main.c: 543: delay_ms(255);
+   596  07FD  30FF               	movlw	-1
+   597  07FE  2E91               	goto	L1
+   598                           
+   599                           	psect	config
+   600  2007  30D4               	dw	12500	;#
+   601                           
+   602                           	psect	eeprom_data
+   603  0000                     _NordicReg1RED
+   604  0000  0000               	db	0
+   605  0001  0051               	db	81
+   606  0002  0000               	db	0
+   607  0003  0000               	db	0
+   608  0004  0000               	db	0
+   609  0005  0000               	db	0
+   610  0006  0000               	db	0
+   611  0007  0000               	db	0
+   612  0008  0000               	db	0
+   613  0009  0000               	db	0
+   614  000A  0000               	db	0
+   615  000B  0000               	db	0
+   616  000C  0034               	db	52
+   617  000D  000A               	db	10
+   618  000E  0042               	db	66
+   619  000F  004F               	db	79
+   620  0010  0018               	db	24
+   621  0011  0026               	db	38
+   622  0012  0000               	db	0
+   623  0013  0000               	db	0
+   624  0014  0000               	db	0
+   625  0015  0000               	db	0
+   626  0016  0000               	db	0
+   627  0017  0000               	db	0
+   628  0018  0000               	db	0
+   629  0019  0000               	db	0
+   630  001A  0000               	db	0
+   631  001B  0000               	db	0
+   632  001C  0000               	db	0
+   633  001D  0000               	db	0
+   634  001E  0000               	db	0
+   635  001F  0000               	db	0
+   636  0020  0000               	db	0
+   637  0021  0000               	db	0
+   638  0022  0000               	db	0
+   639  0023  0000               	db	0
+   640  0024  0000               	db	0
+   641  0025  0000               	db	0
+   642  0026  0000               	db	0
+   643  0027  0000               	db	0
+   644  0028  0000               	db	0
+   645  0029  0000               	db	0
+   646  002A  0000               	db	0
+   647  002B  0000               	db	0
+   648  002C  0000               	db	0
+   649  002D  0000               	db	0
+   650  002E  0000               	db	0
+   651  002F  0000               	db	0
+   652  0030  0000               	db	0
+   653  0031  0000               	db	0
+   654  0032  0000               	db	0
+   655  0033  0002               	db	2
+   656  0034  0006               	db	6
+   657  0035  0003               	db	3
+   658  0036  0000               	db	0
+   659  0037  0000               	db	0
+   660  0038  0000               	db	0
+   661  0039  003B               	db	59
+   662  003A  00F6               	db	-10
+   663  003B  00F3               	db	-13
+   664  003C  0053               	db	83
+   665  003D  0017               	db	23
+   666  003E  0000               	db	0
+   667  003F  0000               	db	0
+   668  0040                     _NordicReg1REDA
+   669  0040  0000               	db	0
+   670  0041  0000               	db	0
+   671  0042  0000               	db	0
+   672  0043  0000               	db	0
+   673  0044  0000               	db	0
+   674  0045  0000               	db	0
+   675  0046  0000               	db	0
+   676  0047  0000               	db	0
+   677  0048  0000               	db	0
+   678  0049  0003               	db	3
+   679  004A  0000               	db	0
+   680  004B  0000               	db	0
+   681  004C  0000               	db	0
+   682  004D  0000               	db	0
+   683  004E  0000               	db	0
+   684  004F  0000               	db	0
+   685  0050  0000               	db	0
+   686  0051  0000               	db	0
+   687  0052  0006               	db	6
+   688  0053  0000               	db	0
+   689  0054  0000               	db	0
+   690  0055  0000               	db	0
+   691  0056  0003               	db	3
+   692  0057  0000               	db	0
+   693  0058  0000               	db	0
+   694  0059  0000               	db	0
+   695  005A  0000               	db	0
+   696  005B  0000               	db	0
+   697  005C  0000               	db	0
+   698  005D  0000               	db	0
+   699  005E  0000               	db	0
+   700  005F  0000               	db	0
+   701  0060  0000               	db	0
+   702  0061  0000               	db	0
+   703  0062  0000               	db	0
+   704  0063  0000               	db	0
+   705  0064  0000               	db	0
+   706  0065  0000               	db	0
+   707  0066  0000               	db	0
+   708  0067  0000               	db	0
+   709  0068  0000               	db	0
+   710  0069  0000               	db	0
+   711  006A  0000               	db	0
+   712  006B  0000               	db	0
+   713  006C  0000               	db	0
+   714  006D  0000               	db	0
+   715  006E  0000               	db	0
+   716  006F  0000               	db	0
+   717  0070  0000               	db	0
+   718  0071  0000               	db	0
+   719  0072  0000               	db	0
+   720  0073  0000               	db	0
+   721  0074  0000               	db	0
+   722  0075  0000               	db	0
+   723  0076  0000               	db	0
+   724  0077  0000               	db	0
+   725  0078  0000               	db	0
+   726  0079  0000               	db	0
+   727  007A  0000               	db	0
+   728  007B  0000               	db	0
+   729  007C  0000               	db	0
+   730  007D  0000               	db	0
+   731  007E  0000               	db	0
+   732  007F  0000               	db	0
+   733  0080                     _NordicReg2BLUE
+   734  0080  0000               	db	0
+   735  0081  0051               	db	81
+   736  0082  0000               	db	0
+   737  0083  0000               	db	0
+   738  0084  0000               	db	0
+   739  0085  0000               	db	0
+   740  0086  0000               	db	0
+   741  0087  0000               	db	0
+   742  0088  0000               	db	0
+   743  0089  0000               	db	0
+   744  008A  0000               	db	0
+   745  008B  0000               	db	0
+   746  008C  001F               	db	31
+   747  008D  003B               	db	59
+   748  008E  0011               	db	17
+   749  008F  0004               	db	4
+   750  0090  002D               	db	45
+   751  0091  0049               	db	73
+   752  0092  0000               	db	0
+   753  0093  0000               	db	0
+   754  0094  0000               	db	0
+   755  0095  0000               	db	0
+   756  0096  0000               	db	0
+   757  0097  0000               	db	0
+   758  0098  0000               	db	0
+   759  0099  0000               	db	0
+   760  009A  0000               	db	0
+   761  009B  0000               	db	0
+   762  009C  0000               	db	0
+   763  009D  0000               	db	0
+   764  009E  0000               	db	0
+   765  009F  0000               	db	0
+   766  00A0  0000               	db	0
+   767  00A1  0000               	db	0
+   768  00A2  0000               	db	0
+   769  00A3  0000               	db	0
+   770  00A4  0000               	db	0
+   771  00A5  0000               	db	0
+   772  00A6  0000               	db	0
+   773  00A7  0000               	db	0
+   774  00A8  0000               	db	0
+   775  00A9  0000               	db	0
+   776  00AA  0000               	db	0
+   777  00AB  0000               	db	0
+   778  00AC  0000               	db	0
+   779  00AD  0000               	db	0
+   780  00AE  0000               	db	0
+   781  00AF  0000               	db	0
+   782  00B0  0000               	db	0
+   783  00B1  0000               	db	0
+   784  00B2  0000               	db	0
+   785  00B3  0002               	db	2
+   786  00B4  0006               	db	6
+   787  00B5  0003               	db	3
+   788  00B6  0000               	db	0
+   789  00B7  0000               	db	0
+   790  00B8  0000               	db	0
+   791  00B9  00AB               	db	-85
+   792  00BA  0031               	db	49
+   793  00BB  003E               	db	62
+   794  00BC  003F               	db	63
+   795  00BD  003A               	db	58
+   796  00BE  0000               	db	0
+   797  00BF  0000               	db	0
+   798  00C0                     _NordicReg2BLUEA
+   799  00C0  0000               	db	0
+   800  00C1  0000               	db	0
+   801  00C2  0000               	db	0
+   802  00C3  0000               	db	0
+   803  00C4  0000               	db	0
+   804  00C5  0000               	db	0
+   805  00C6  0000               	db	0
+   806  00C7  0000               	db	0
+   807  00C8  0000               	db	0
+   808  00C9  0003               	db	3
+   809  00CA  0000               	db	0
+   810  00CB  0000               	db	0
+   811  00CC  0000               	db	0
+   812  00CD  0000               	db	0
+   813  00CE  0000               	db	0
+   814  00CF  0000               	db	0
+   815  00D0  0000               	db	0
+   816  00D1  0000               	db	0
+   817  00D2  0006               	db	6
+   818  00D3  0000               	db	0
+   819  00D4  0000               	db	0
+   820  00D5  0000               	db	0
+   821  00D6  0003               	db	3
+   822  00D7  0000               	db	0
+   823  00D8  0000               	db	0
+   824  00D9  0000               	db	0
+   825  00DA  0000               	db	0
+   826  00DB  0000               	db	0
+   827  00DC  0000               	db	0
+   828  00DD  0000               	db	0
+   829  00DE  0000               	db	0
+   830  00DF  0000               	db	0
+   831  00E0  0000               	db	0
+   832  00E1  0000               	db	0
+   833  00E2  0000               	db	0
+   834  00E3  0000               	db	0
+   835  00E4  0000               	db	0
+   836  00E5  0000               	db	0
+   837  00E6  0000               	db	0
+   838  00E7  0000               	db	0
+   839  00E8  0000               	db	0
+   840  00E9  0000               	db	0
+   841  00EA  0000               	db	0
+   842  00EB  0000               	db	0
+   843  00EC  0000               	db	0
+   844  00ED  0000               	db	0
+   845  00EE  0000               	db	0
+   846  00EF  0000               	db	0
+   847  00F0  0000               	db	0
+   848  00F1  0000               	db	0
+   849  00F2  0000               	db	0
+   850  00F3  0000               	db	0
+   851  00F4  0000               	db	0
+   852  00F5  0000               	db	0
+   853  00F6  0000               	db	0
+   854  00F7  0000               	db	0
+   855  00F8  0000               	db	0
+   856  00F9  0000               	db	0
+   857  00FA  0000               	db	0
+   858  00FB  0000               	db	0
+   859  00FC  0000               	db	0
+   860  00FD  0000               	db	0
+   861  00FE  0000               	db	0
+   862  00FF  0000               	db	0
+   863                           
+   864                           	psect	text1
+   865  0431                     __end_of_main
+   866  0431                     _delay_us
+   867                           ;	_time assigned to ?a_delay_us+0
+   868  0000                     _delay_us$time	set	?a_delay_us
+   869                           ;_time stored from w
+   870  0431  1283               	bcf	3,5
+   871  0432  00BB               	movwf	?a_delay_us
+   872                           ;main.c: 549: void delay_us(BYTE time)
+   873  0433  2C35               	goto	l44
+   874  0434                     l45
+   875                           ;main.c: 552: {
+   876  0434  03BB               	decf	?a_delay_us
+   877  0435                     l44
+   878  0435  1283               	bcf	3,5
+   879  0436  08BB               	movf	?a_delay_us
+   880  0437  1903               	btfsc	3,2
+   881  0438  0008               	return
+   882  0439  2C34               	goto	l45
+   883                           
+   884                           	psect	text2
+   885  048C                     __end_of_delay_us
+   886  048C                     _delay_ms
+   887                           ;	_time assigned to ?a_delay_ms+0
+   888  0000                     _delay_ms$time	set	?a_delay_ms
+   889                           ;	_temp assigned to ?a_delay_ms+1
+   890  0000                     _delay_ms$temp	set	?a_delay_ms+1
+   891                           ;	_temp2 assigned to ?a_delay_ms+2
+   892  0000                     _delay_ms$temp2	set	?a_delay_ms+2
+   893                           ;_time stored from w
+   894  048C  1283               	bcf	3,5
+   895  048D  00B1               	movwf	?a_delay_ms
+   896                           ;main.c: 556: void delay_ms(BYTE time)
+   897  048E  3014               	movlw	20
+   898  048F  00B2               	movwf	?a_delay_ms+1
+   899                           ;main.c: 559: BYTE temp2=19;
+   900  0490  3013               	movlw	19
+   901  0491  00B3               	movwf	?a_delay_ms+2
+   902                           ;main.c: 561: while ( time )
+   903  0492  2CA0               	goto	l48
+   904                           ;main.c: 562: {
+   905                           ;main.c: 564: {
+   906  0493                     l55
+   907                           ;main.c: 566: {
+   908  0493  03B2               	decf	?a_delay_ms+1
+   909  0494                     l54
+   910  0494  08B2               	movf	?a_delay_ms+1
+   911  0495  1D03               	btfss	3,2
+   912  0496  2C93               	goto	l55
+   913                           ;main.c: 568: }
+   914  0497  03B3               	decf	?a_delay_ms+2
+   915                           ;main.c: 570: temp=20;
+   916  0498  3014               	movlw	20
+   917  0499  00B2               	movwf	?a_delay_ms+1
+   918  049A                     l51
+   919  049A  08B3               	movf	?a_delay_ms+2
+   920  049B  1D03               	btfss	3,2
+   921  049C  2C94               	goto	l54
+   922                           ;main.c: 571: }
+   923  049D  3013               	movlw	19
+   924  049E  00B3               	movwf	?a_delay_ms+2
+   925                           ;main.c: 573: time--;
+   926  049F  03B1               	decf	?a_delay_ms
+   927  04A0                     l48
+   928  04A0  08B1               	movf	?a_delay_ms
+   929  04A1  1903               	btfsc	3,2
+   930  04A2  0008               	return
+   931  04A3  2C9A               	goto	l51
+   932                           
+   933                           	psect	text3
+   934  0429                     __end_of_delay_ms
+   935  0429                     _EEpromRead
+   936                           ;	_address assigned to ?a_EEpromRead+0
+   937  0000                     _EEpromRead$address	set	?a_EEpromRead
+   938                           ;_address stored from w
+   939  0429  1283               	bcf	3,5
+   940  042A  00B1               	movwf	?a_EEpromRead
+   941                           ;main.c: 577: BYTE EEpromRead(BYTE address)
+   942  042B  1683               	bsf	3,5
+   943  042C  009B               	movwf	27
+   944                           ;main.c: 582: RD=1;
+   945  042D  141C               	bsf	28,0
+   946                           ;main.c: 583: return (EEDAT);
+   947  042E  081A               	movf	26,w	;volatile
+   948                           ;main.c: 585: }
+   949  042F  1283               	bcf	3,5
+   950  0430  0008               	return	;uses W
+   951                           
+   952                           	psect	text4
+   953  044C                     __end_of_EEpromRead
+   954                           ;       param _value assigned to ?_EEpromWrite+
+      +                          0
+   955  0000                     _EEpromWrite$value	set	?_EEpromWrite
+   956  044C                     _EEpromWrite
+   957                           ;	_address assigned to ?a_EEpromWrite+0
+   958  0000                     _EEpromWrite$address	set	?a_EEpromWrite
+   959                           ;_address stored from w
+   960  044C  1283               	bcf	3,5
+   961  044D  00B2               	movwf	?a_EEpromWrite
+   962                           ;main.c: 587: void EEpromWrite(BYTE address, BY
+      +                          TE value)
+   963  044E  1683               	bsf	3,5
+   964  044F  009B               	movwf	27
+   965                           ;main.c: 590: EEDAT=value;
+   966  0450  1283               	bcf	3,5
+   967  0451  0831               	movf	?_EEpromWrite,w
+   968  0452  1683               	bsf	3,5
+   969  0453  009A               	movwf	26	;volatile
+   970                           ;main.c: 597: WREN=1;
+   971  0454  151C               	bsf	28,2
+   972                           ;main.c: 598: GIE=0;
+   973  0455  138B               	bcf	11,7
+   974                           ;main.c: 599: EECON2=0x55;
+   975  0456  3055               	movlw	85
+   976  0457  009D               	movwf	29	;volatile
+   977                           ;main.c: 600: EECON2=0xAA;
+   978  0458  30AA               	movlw	-86
+   979  0459  009D               	movwf	29	;volatile
+   980                           ;main.c: 601: WR=1;
+   981  045A  149C               	bsf	28,1
+   982                           ;main.c: 602: GIE=1;
+   983  045B  178B               	bsf	11,7
+   984                           ;main.c: 603: WREN=0;
+   985  045C  111C               	bcf	28,2
+   986                           ;main.c: 604: }
+   987  045D  1283               	bcf	3,5
+   988  045E  0008               	return	;W free
+   989                           
+   990                           	psect	text5
+   991  043A                     __end_of_EEpromWrite
+   992  043A                     _setup_ports
+   993                           ;main.c: 608: void setup_ports(void)
+   994  043A  3071               	movlw	113
+   995  043B  1683               	bsf	3,5
+   996  043C  008F               	movwf	15	;volatile
+   997                           ;main.c: 611: ANSEL = 0;
+   998  043D  0191               	clrf	17
+   999                           ;main.c: 612: CMCON0=7;
+  1000  043E  3007               	movlw	7
+  1001  043F  1283               	bcf	3,5
+  1002  0440  0099               	movwf	25	;volatile
+  1003                           ;main.c: 613: CMCON1=0;
+  1004  0441  019A               	clrf	26
+  1005                           ;main.c: 614: ADON=0;
+  1006  0442  101F               	bcf	31,0
+  1007                           ;main.c: 616: TRISA=0x20;
+  1008  0443  3020               	movlw	32
+  1009  0444  1683               	bsf	3,5
+  1010  0445  0085               	movwf	5	;volatile
+  1011                           ;main.c: 617: TRISC=0x02;
+  1012  0446  3002               	movlw	2
+  1013  0447  0087               	movwf	7	;volatile
+  1014                           ;main.c: 618: PORTA=0x00;
+  1015  0448  1283               	bcf	3,5
+  1016  0449  0185               	clrf	5	;volatile
+  1017                           ;main.c: 619: PORTC=0x00;
+  1018  044A  0187               	clrf	7	;volatile
+  1019                           ;main.c: 621: }
+  1020  044B  0008               	return	;W free
+  1021                           
+  1022                           	psect	text6
+  1023  0031                     __end_of_setup_ports
+  1024  0000                     
+  1025  0000                     
+  1026  0000                     
+  1027  0000                     
+  1028  0000                     
+  1029  0000                     
+  1030  0000                     
+  1031  0000                     
+  1032  0000                     
+  1033  0000                     
+  1034  0000                     
+  1035  0000                     
+  1036  0000                     
+  1037  0000                     
+  1038  0000                     
+  1039  0000                     
+  1040  0000                     
+  1041  0000                     
+  1042  0000                     
+  1043  0000                     
+  1044  0000                     
+  1045  0000                     
+  1046  0000                     
+  1047  0000                     
+  1048  0000                     
+  1049  0000                     
+  1050  0000                     
+  1051  0000                     
+  1052  0000                     
+  1053  0000                     
+  1054  0000                     
+  1055  0000                     
+  1056  0000                     
+  1057  0000                     
+  1058  0000                     
+  1059  0000                     
+  1060  0000                     
+  1061  0000                     
+  1062  0000                     
+  1063  0000                     
+  1064  0000                     
+  1065  0000                     
+  1066  0000                     
+  1067  0000                     
+  1068  0000                     
+  1069  0000                     
+  1070  0000                     
+  1071  0000                     
+  1072  0000                     
+  1073  0000                     
+  1074  0000                     
+  1075  0000                     
+  1076  0000                     
+  1077  0000                     
+  1078  0000                     
+  1079  0000                     
+  1080  0000                     
+  1081  0000                     
+  1082  0000                     
+  1083  0000                     
+  1084  0000                     
+  1085  0000                     
+  1086  0000                     
+  1087  0000                     
+  1088  0000                     
+  1089  0000                     
+  1090  0000                     
+  1091  0000                     
+  1092  0000                     
+  1093  0000                     
+  1094  0000                     
+  1095  0000                     
+  1096  0000                     
+  1097  0000                     
+  1098  0000                     
+  1099  0000                     
+  1100  0000                     
+  1101  0000                     
+  1102  0000                     
+  1103  0000                     
+  1104  0000                     
+  1105  0000                     
+  1106  0000                     
+  1107  0000                     
+  1108  0000                     
+  1109  0000                     
+  1110  0000                     
+  1111  0000                     
+  1112  0000                     
+  1113  0000                     
+  1114  0000                     
+  1115  0000                     
+  1116  0000                     
+  1117  0000                     
+  1118  0000                     
+  1119  0000                     
+  1120  0000                     
+  1121  0000                     
+  1122  0000                     
+  1123  0000                     
+  1124  0000                     
+  1125  0000                     
+  1126  0000                     
+  1127  0000                     
+  1128  0000                     
+  1129  0000                     
+  1130  0000                     
+  1131  0000                     
+  1132  0000                     
+  1133  0000                     
+  1134  0000                     
+  1135  0000                     
+  1136  0000                     
+  1137  0000                     
+  1138  0000                     
+  1139  0000                     
+  1140  0000                     
+  1141  0000                     
+  1142  0000                     
+  1143  0000                     
+  1144  0000                     
+  1145  0000                     
+  1146  0000                     
+  1147  0000                     
+  1148  0000                     
+  1149  0000                     
+  1150  0000                     
+  1151  0000                     
+  1152  0000                     
+  1153  0000                     
+  1154  0000                     
+  1155  0000                     
+  1156  0000                     
+  1157  0000                     
+  1158  0000                     
+  1159  0000                     
+  1160  0000                     
+  1161  0000                     
+  1162  0000                     
+  1163  0000                     
+  1164  0000                     
+  1165  0000                     
+  1166  0000                     
+  1167  0000                     
+  1168  0000                     
+  1169  0000                     
+  1170  0000                     
+  1171  0000                     
+  1172  0000                     
+  1173  0000                     
+  1174  0000                     
+  1175  0000                     
+  1176  0000                     
+  1177  0000                     
+  1178  0000                     
+  1179  0000                     
+  1180  0000                     
+  1181  0000                     
+  1182  0000                     
+  1183  0000                     
+  1184  0000                     
+  1185  0000                     
+  1186  0000                     
+  1187  0000                     
+  1188  0000                     
+  1189  0000                     
+  1190  0000                     
+  1191  0000                     
+  1192  0000                     
+  1193  0000                     
+  1194  0000                     
+  1195  0000                     
+  1196  0000                     
+  1197  0000                     
+  1198  0000                     
+  1199  0000                     
+  1200  0000                     
+  1201  0000                     
+  1202  0000                     
+  1203  0000                     
+  1204  0000                     
+  1205  0000                     
+  1206  0000                     
+  1207  0000                     
+  1208  0000                     
+  1209  0000                     
+  1210  0000                     
+  1211  0000                     
+  1212  0000                     
+  1213  0000                     
+  1214  0000                     
+  1215  0000                     
+  1216  0000                     
+  1217  0000                     
+  1218  0000                     
+  1219  0000                     
+  1220  0000                     
+  1221  0000                     
+  1222  0000                     
+  1223  0000                     
+  1224  0000                     
+  1225  0000                     
+  1226  0000                     
+  1227  0000                     
+  1228  0000                     
+  1229  0000                     
+  1230  0000                     
+  1231  0000                     
+  1232  0000                     
+  1233  0000                     
+  1234  0000                     
+  1235  0000                     
+  1236  0000                     
+  1237  0000                     
+  1238  0000                     
+  1239                           
+  1240                           	psect	rbss_0
+  1241  0026                     _TransmissionError
+                     _TransmissionError
+  1242  0026                     	ds	1
+  1243  0000                     
+  1244  0000                     
+  1245  0000                     
+  1246  0027                     _blue_address_changed
+                     _blue_address_changed
+  1247  0027                     	ds	2
+  1248  0029                     _data
+                     _data
+  1249  0029                     	ds	2
+  1250  002B                     _i
+                     _i
+  1251  002B                     	ds	2
+  1252  002D                     _red_address_changed
+                     _red_address_changed
+  1253  002D                     	ds	2
+  1254  002F                     _timeout
+                     _timeout
+  1255  002F                     	ds	2
+  1256                           
+  1257                           	psect	temp
+  1258  007E                     btemp
+                     btemp
+  1259  007E                     	ds	1
+
+
+HI-TECH Software PICC Macro Assembler V9.60PL3 build 3862 
+Symbol Table                                          Mon Oct 10 13:14:39 2011
+
+     _NordicReg2BLUEA 00C0              _delay_ms 048C  
+            _delay_us 0431                     l3 0692  
+                   l6 069F                     _i 002B  
+                  l11 06BA                    l20 071A  
+                  l21 0722                    l13 06C5  
+                  l30 0780                    l22 072C  
+                  l14 0761                    l23 0734  
+                  l15 06F8                    l40 07C5  
+                  l32 0773                    l16 076D  
+                  l24 073C                    l41 07DF  
+                  l25 0744                    l17 0702  
+                  l34 07CB                    l26 074C  
+                  l18 070A                    l51 049A  
+                  l27 0759                    l19 0712  
+                  l44 0435                    l36 0782  
+                  l28 07F3                    l45 0434  
+                  l37 079E                    l54 0494  
+                  l38 07A7                    l55 0493  
+                  l39 07BC                    l48 04A0  
+ _red_address_changed 002D                _N_ADDR 003C  
+         _setup_ports 043A     _TransmissionError 0026  
+  __end_of_EEpromRead 044C         _NordicReg1RED 0000  
+                _data 0029                  _main 0672  
+                btemp 007E       _Nordic_Readback 045F  
+       _Nordic_Wakeup 054D                  start 0000  
+        ?_Nordic_Send 0036          __end_of_main 0431  
+          ?a_delay_ms 0031            ?a_delay_us 003B  
+        ?a_EEpromRead 0031   __end_of_EEpromWrite 043A  
+      _NordicReg2BLUE 0080          ?_EEpromWrite 0031  
+      _NordicReg1REDA 0040           _Nordic_Read 04E5  
+         _Nordic_Send 04A4      __end_of_delay_ms 0429  
+    __end_of_delay_us 048C               _timeout 002F  
+_blue_address_changed 0027        _Nordic_Wakeup2 05DF  
+               status 0003           _EEpromWrite 044C  
+          _EEpromRead 0429      ?_Nordic_Readback 0031  
+          used_btemp0 0001   __end_of_setup_ports 0031  
+       ?a_EEpromWrite 0032  
